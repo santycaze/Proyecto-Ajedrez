@@ -79,7 +79,7 @@ html {
     margin-top: 40px;
     letter-spacing: 4px;
     border-radius: 5px;
-    background: #44312286;
+    background: #352b24de;
   }
   
   .register-box a:hover {
@@ -128,4 +128,15 @@ html {
       bottom: 100%;
     }
   }
-  
+.register-box select{
+  color:white;
+  background-color:rgb(0, 0, 0);
+  border-color:transparent;
+  padding:10px;
+  font-size: 16px;
+}
+.register-box:after select{
+  position: absolute;
+  font-family: sans-serif, 'Open Sans', sans-serif;;;
+}
+
