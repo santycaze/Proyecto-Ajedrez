@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 
 /* Style the header with a grey background and some padding */
+/*body{
+  background: url("IMG/fondo.png") no-repeat center center fixed;
+  background-size: cover;
+}
+*/
+
 .header {
     overflow: hidden;
     background-color: #f1eeee;
@@ -119,4 +125,67 @@
     width: 70%;
     height: 100%;
     padding: 20px;
+}
+
+.tabla-jugadores{
+  background: blanchedalmond;
+  border-spacing: 0;
+}
+
+.tabla-jugadores th{
+  background: burlywood;
+
+}
+
+.tabla-jugadores td{
+  text-align: center;
+}
+
+.circulo{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: chartreuse;
+  margin: 5px;
+}
+
+#col-imagen{
+  width: 100px;
+}
+
+#col-jugadores{
+  width: 400px;
+}
+
+.div-wrapper2{
+  width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.contenedor-tabla{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circulo2{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: chartreuse;
+  margin: 5px;
+}
+
+.perfil{
+  display: flex;
+  width: 500px;
+}
+
+.contenedor-perfil{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
