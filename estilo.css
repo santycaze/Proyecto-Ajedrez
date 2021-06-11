@@ -6,7 +6,11 @@
   background-size: cover;
 }
 */
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box  ;
+}
 .header {
     overflow: hidden;
     background-color: #f1eeee;
@@ -69,6 +73,10 @@
     display: grid;
     grid-template-columns: 50% 50%;
     margin-top: 70px;
+}
+
+.contenedor-tabla h1{
+  margin-top: ;
 }
 
 .contenedor-ajedrez{
@@ -158,14 +166,15 @@
 }
 
 .div-wrapper2{
-  width: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
+    background: rgba(0, 0, 0, 0.062);
+    margin-top: 100px;
 }
 
 .contenedor-tabla{
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -189,3 +198,11 @@
   align-items: center;
   flex-direction: column;
 }
+
+.trofeos{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
