@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hammersmith+One&display=swap');
+
 
 /* Style the header with a grey background and some padding */
-/*body{
-  background: url("IMG/fondo.png") no-repeat center center fixed;
-  background-size: cover;
+body{
+  background: rgb(66, 66, 66);
 }
 */
 *{
@@ -13,8 +13,9 @@
 }
 .header {
     overflow: hidden;
-    background-color: #f1eeee;
+    background: rgb(78, 78, 78);
     padding: 5px 5px;
+    font-family: 'Bree Serif', serif;
   }
 
   .header img{
@@ -24,7 +25,7 @@
   /* Style the header links */
   .header a {
     float: left;
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 12px;
     text-decoration: none;
@@ -76,19 +77,23 @@
 }
 
 .contenedor-tabla h1{
-  margin-top: ;
+  
 }
 
 .contenedor-ajedrez{
    display: flex;
    justify-content: center;
    align-items: center;
+   width: 700px;
+   height: 400px;
 }
 
 .contenedor-podcast{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 700px;
+    height: 400px;
 }
 
 .contenedor-podcast img{
@@ -97,20 +102,34 @@
 
 .contenedor-podcast p{
     font-size: 20px;
-    font-family: 'Mate SC', serif;
+    font-family: 'Bree Serif', serif;
+    color: white;
+
 }
 
 .contenedor-podcast button{
     padding: 7px;
     font-size: 17px;
+    background: #45da20;
+    border-radius: 7px;
+    display: block;
+    width: 190px;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    border: none;
+    border-right: 4px solid #367526;
+    border-bottom: 4px solid #367526;
 }
 .contenedor-ajedrez p{
     font-size: 40px;
+    color: white;
+    font-family: 'Bree Serif', serif;
     
 }
 
 .contenedor-ajedrez img{
-    width: 30%;
+    width: 40%;
     margin-bottom: -20px;
 }
 
@@ -118,6 +137,15 @@
     padding: 10px;
     font-size: 17px;
     margin-left: 19px;
+    background: #45da20;
+    border: none;
+    border-radius: 7px;
+    display: block;
+    width: 120px;
+    color: white;
+    font-weight: bold;
+    border-right: 4px solid #367526;
+    border-bottom: 4px solid #367526;
 }
 
 .contenedor-botones{
@@ -125,7 +153,7 @@
 }
 
 .contenedor-fondo{
-    background: rgba(0, 0, 0, 0.123);
+    background: rgb(75, 75, 75);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,18 +161,30 @@
     width: 70%;
     height: 100%;
     padding: 20px;
+    border-right: 4px solid #d8d8d821;
+    border-bottom: 4px solid #d8d8d821;
 }
 
 .tabla-jugadores{
-  background: blanchedalmond;
+  background: rgb(75, 75, 75);
+  color: white;
+  font-family: 'Bree Serif', serif;
   border-spacing: 0;
+  border-radius: 20px;
 }
 
 .tabla-jugadores th{
-  background: burlywood;
-
+  background: #d8d8d821;
+ 
 }
 
+.tabla-jugadores th:nth-child(1){
+  border-radius: 20px 0 0 0;
+}
+
+.tabla-jugadores th:nth-child(2){
+  border-radius: 0 20PX 0 0;
+}
 .tabla-jugadores td{
   text-align: center;
 }
@@ -179,6 +219,11 @@
   flex-direction: column;
 }
 
+.contenedor-tabla h1{
+  color: white;
+  font-family: 'Bree Serif', serif; 
+  margin-bottom: 70px;
+}
 .circulo2{
   width: 150px;
   height: 150px;
