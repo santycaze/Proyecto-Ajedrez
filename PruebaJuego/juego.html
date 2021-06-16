@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="pruebajuego.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../PruebaJuego/JS/tablero.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego</title>
+</head>
+
+<body>
+    <!-- 
+        Esta tabla es de prueba, luego se construira mediante js.
+    -->
+
+    <div id="tabla">
+        
+    </div>
+
+
+
+    <!-- 
+    <table>
+        <tr id="t1">
+            <td><button class="casilla1" id="8a" onclick="seleccionado('8a');" value="T">T</button></td>
+            <td><button class="casilla2" id="8b" onclick="seleccionado('8b');" value="C">C</button></td>
+            <td><button class="casilla3" id="8c" onclick="seleccionado('8c');" value="A">A</button></td>
+            <td><button class="casilla4" id="8d" onclick="seleccionado('8d');" value="REINA">REINA</button></td>
+            <td><button class="casilla5" id="8e" onclick="seleccionado('8e');" value="REY">REY</button></td>
+            <td><button class="casilla6" id="8f" onclick="seleccionado('8f');" value="A">A</button></td>
+            <td><button class="casilla7" id="8g" onclick="seleccionado('8g');" value="C">C</button></td>
+            <td><button class="casilla8" id="8h" onclick="seleccionado('8h');" value="T">T</button></td>
+        </tr>
+        <tr id="t2">
+            <td><button class="casilla1" id="7a" onclick="seleccionado('7a');" value="P">P</button></td>
+            <td><button class="casilla2" id="7b" onclick="seleccionado('7b');" value="P">P</button></td>
+            <td><button class="casilla3" id="7c" onclick="seleccionado('7c');" value="P">P</button></td>
+            <td><button class="casilla4" id="7d" onclick="seleccionado('7d');" value="P">P</button></td>
+            <td><button class="casilla5" id="7e" onclick="seleccionado('7e');" value="P">P</button></td>
+            <td><button class="casilla6" id="7f" onclick="seleccionado('7f');" value="P">P</button></td>
+            <td><button class="casilla7" id="7g" onclick="seleccionado('7g');" value="P">P</button></td>
+            <td><button class="casilla8" id="7h" onclick="seleccionado('7h');" value="P">P</button></td>
+        </tr>
+        <tr id="t3">
+            <td><button class="casilla1" id="6a" onclick="seleccionado('6a');" value=""></button></td>
+            <td><button class="casilla2" id="6b" onclick="seleccionado('6b');" value=""></button></td>
+            <td><button class="casilla3" id="6c" onclick="seleccionado('6c');" value=""></button></td>
+            <td><button class="casilla4" id="6d" onclick="seleccionado('6d');" value=""></button></td>
+            <td><button class="casilla5" id="6e" onclick="seleccionado('6e');" value=""></button></td>
+            <td><button class="casilla6" id="6f" onclick="seleccionado('6f');" value=""></button></td>
+            <td><button class="casilla7" id="6g" onclick="seleccionado('6g');" value=""></button></td>
+            <td><button class="casilla8" id="6h" onclick="seleccionado('6h');" value=""></button></td>
+        </tr>
+        <tr id="t4">
+            <td><button class="casilla1" id="5a" onclick="seleccionado('5a');" value=""></button></td>
+            <td><button class="casilla2" id="5b" onclick="seleccionado('5b');" value=""></button></td>
+            <td><button class="casilla3" id="5c" onclick="seleccionado('5c');" value=""></button></td>
+            <td><button class="casilla4" id="5d" onclick="seleccionado('5d');" value=""></button></td>
+            <td><button class="casilla5" id="5e" onclick="seleccionado('5e');" value=""></button></td>
+            <td><button class="casilla6" id="5f" onclick="seleccionado('5f');" value=""></button></td>
+            <td><button class="casilla7" id="5g" onclick="seleccionado('5g');" value=""></button></td>
+            <td><button class="casilla8" id="5h" onclick="seleccionado('5h');" value=""></button></td>
+        </tr>
+        <tr id="t5">
+            <td><button class="casilla1" id="4a" onclick="seleccionado('4a');" value=""></button></td>
+            <td><button class="casilla2" id="4b" onclick="seleccionado('4b');" value=""></button></td>
+            <td><button class="casilla3" id="4c" onclick="seleccionado('4c');" value=""></button></td>
+            <td><button class="casilla4" id="4d" onclick="seleccionado('4d');" value=""></button></td>
+            <td><button class="casilla5" id="4e" onclick="seleccionado('4e');" value=""></button></td>
+            <td><button class="casilla6" id="4f" onclick="seleccionado('4f');" value=""></button></td>
+            <td><button class="casilla7" id="4g" onclick="seleccionado('4g');" value=""></button></td>
+            <td><button class="casilla8" id="4h" onclick="seleccionado('4h');" value=""></button></td>
+        </tr>
+        <tr id="t6">
+            <td><button class="casilla1" id="3a" onclick="seleccionado('3a');" value=""></button></td>
+            <td><button class="casilla2" id="3b" onclick="seleccionado('3b');" value=""></button></td>
+            <td><button class="casilla3" id="3c" onclick="seleccionado('3c');" value=""></button></td>
+            <td><button class="casilla4" id="3d" onclick="seleccionado('3d');" value=""></button></td>
+            <td><button class="casilla5" id="3e" onclick="seleccionado('3e');" value=""></button></td>
+            <td><button class="casilla6" id="3f" onclick="seleccionado('3f');" value=""></button></td>
+            <td><button class="casilla7" id="3g" onclick="seleccionado('3g');" value=""></button></td>
+            <td><button class="casilla8" id="3h" onclick="seleccionado('3h');" value=""></button></td>
+        </tr>
+        <tr id="t7">
+            <td><button class="casilla1" id="2a" onclick="seleccionado('2a');" value="P">P</button></td>
+            <td><button class="casilla2" id="2b" onclick="seleccionado('2b');" value="P">P</button></td>
+            <td><button class="casilla3" id="2c" onclick="seleccionado('2c');" value="P">P</button></td>
+            <td><button class="casilla4" id="2d" onclick="seleccionado('2d');" value="P">P</button></td>
+            <td><button class="casilla5" id="2e" onclick="seleccionado('2e');" value="P">P</button></td>
+            <td><button class="casilla6" id="2f" onclick="seleccionado('2f');" value="P">P</button></td>
+            <td><button class="casilla7" id="2g" onclick="seleccionado('2g');" value="P">P</button></td>
+            <td><button class="casilla8" id="2h" onclick="seleccionado('2h');" value="P">P</button></td>
+        </tr>
+        <tr id="t8">
+            <td><button class="casilla1" id="1a" onclick="seleccionado('1a');" value="T">T</button></td>
+            <td><button class="casilla2" id="1b" onclick="seleccionado('1b');" value="C">C</button></td>
+            <td><button class="casilla3" id="1c" onclick="seleccionado('1c');" value="A">A</button></td>
+            <td><button class="casilla4" id="1d" onclick="seleccionado('1d');" value="REINA">REINA</button></td>
+            <td><button class="casilla5" id="1e" onclick="seleccionado('1e');" value="REY">REY</button></td>
+            <td><button class="casilla6" id="1f" onclick="seleccionado('1f');" value="A">A</button></td>
+            <td><button class="casilla7" id="1g" onclick="seleccionado('1g');" value="C">C</button></td>
+            <td><button class="casilla8" id="1h" onclick="seleccionado('1h');" value="T">T</button></td>
+        </tr>
+    </table>
+        -->
+</body>
+
+</html>
