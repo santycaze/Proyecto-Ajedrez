@@ -20,7 +20,7 @@ function seleccionado(casillaSeleccionada) {
     if (casilla != "") {
         console.log(casilla);
         document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
-        $("#"+casillaSeleccionada).css("border", "1px solid #adadad");
+        $("#" + casillaSeleccionada).css("border", "1px solid #adadad");
     } else {
         console.log("vacio");
     }
@@ -56,8 +56,8 @@ function actualizarTablero() {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-function asignarColor(){
-    return (Math.floor(Math.random() * (1.9 - 0)+0)); //1: blancas 0: negras
+function asignarColor() {
+    return (Math.floor(Math.random() * (1.9 - 0) + 0)); //1: blancas 0: negras
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
@@ -76,30 +76,30 @@ function crearTablero(color) {
         tablero += "<tr> <td> </td> <td id='sup'>A</td> <td id='sup'>B</td> <td id='sup'>C</td> <td id='sup'>D</td> <td id='sup'>E</td> <td id='sup'>F</td> <td id='sup'>G</td> <td id='sup'>H</td> </tr>";
         contador--;
     }
-        for (let Y = 1; Y <= 8; Y++) {
+    for (let Y = 1; Y <= 8; Y++) {
 
-            //crear tr
+        //crear tr
+        //
+        tablero += "<tr id=" + "t" + Y + ">"
+        tablero += "<td id='izq'>" + contador + "</td>";
+        //
+        for (let X = 1; X <= 8; X++) {
+            //crear td
             //
-            tablero += "<tr id=" + "t" + Y + ">"
-            tablero += "<td id='izq'>"+contador+"</td>";
-            //
-            for (let X = 1; X <= 8; X++) {
-                //crear td
-                //
-                if (contador == 8) {
+            if (contador == 8) {
 
-                    tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + letras[X] + "'" + ");" + " value='T'></button></td>"
-                } else {
-                    tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + letras[X] + "'" + ");" + " value='T'></button></td>"
-                }
-                if (X == 8) {
-                    tablero += "<td id='der'>"+contador+"</td>";
-                    contador--;
-                }
-                //
+                tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + letras[X] + "'" + ");" + " value='T'></button></td>"
+            } else {
+                tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + letras[X] + "'" + ");" + " value='T'></button></td>"
             }
-            tablero += "</tr>"
-        
+            if (X == 8) {
+                tablero += "<td id='der'>" + contador + "</td>";
+                contador--;
+            }
+            //
+        }
+        tablero += "</tr>"
+
     }
     tablero += "<tr> <td> </td> <td id='inf'>A</td> <td id='inf'>B</td> <td id='inf'>C</td> <td id='inf'>D</td> <td id='inf'>E</td> <td id='inf'>F</td> <td id='inf'>G</td> <td id='inf'>H</td> </tr>";
     tablero += "</table>"
