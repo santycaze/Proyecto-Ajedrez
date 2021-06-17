@@ -1,14 +1,10 @@
-/*
-Por arreglar:
-
-    *  Fallo de diseño en la tabla por 1px
-*/
-
 $(document).ready(function () {
     var color = asignarColor();
     crearTablero(color);
 });
-
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+//
+/*---------------------------------------------------------------------------------------------------------------------------------*/
 function seleccionado(casillaSeleccionada) {
     //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.
     //
@@ -20,7 +16,6 @@ function seleccionado(casillaSeleccionada) {
     if (casilla != "") {
         console.log(casilla);
         document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
-        $("#" + casillaSeleccionada).css("border", "1px solid #adadad");
     } else {
         console.log("vacio");
     }
@@ -36,18 +31,14 @@ function actualizarTablero() {
             if (Y % 2 == 0) {
                 if (X % 2 == 0) {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "white");
-                    $("#t" + Y + " " + ".casilla" + X).css("border", "none");
                 } else {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "black");
-                    $("#t" + Y + " " + ".casilla" + X).css("border", "1px solid black");
                 }
             } else {
                 if (X % 2 != 0) {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "white");
-                    //$("#t" + Y + " " + ".casilla" + X).css("border", "1px solid black");
                 } else {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "black");
-                    $("#t" + Y + " " + ".casilla" + X).css("border", "1px solid black");
                 }
             }
         }
