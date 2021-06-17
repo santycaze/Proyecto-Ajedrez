@@ -38,9 +38,7 @@ td{
     width: 100%;
     height: 100vh;
 }
-#tabla button:nth-child(57){
- border-bottom: 3px solid black;
-}
+
 #inf{
     border-top: 1px solid black;
 }
