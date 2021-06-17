@@ -1,0 +1,55 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+p{
+    margin: 0px;
+}
+table td{
+    height: 59px;
+    width: 60px;
+    padding: 0;
+}
+#esq{
+    height: 59px;
+    width: 59px;
+}
+table{
+    border-spacing: 0px;
+}
+button{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 4px solid transparent;
+}
+td{
+    height: 60px;
+    width: 60px;
+    text-align: center;
+}
+#tabla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+#tabla button:nth-child(57){
+ border-bottom: 3px solid black;
+}
+#inf{
+    border-top: 1px solid black;
+}
+#sup{
+    border-bottom: 1px solid black;
+}
+#izq{
+    border-right: 1px solid black;
+}
+#der{
+    border-left: 1px solid black;
+}
