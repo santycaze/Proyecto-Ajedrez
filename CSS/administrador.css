@@ -26,6 +26,14 @@ header a{
 header a i{
     margin-left: 7px;
 }
+
+header p {
+    border: 1px solid black;
+    background: #042331;
+    padding: 8px;
+    border-radius: 25px 0 0 25px ;
+    padding-left: 20px;
+}
 .sidebar{
     position: fixed;
     left: 0;
