@@ -3,7 +3,9 @@
 
 /* Style the header with a grey background and some padding */
 body{
-  background: rgb(209, 208, 208);
+  background:url('../IMG/pexels-jeswin-thomas-700971.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
 }
 */
 *{
@@ -13,7 +15,7 @@ body{
 }
 .header {
     overflow: hidden;
-    background: #063146;;
+    background: #063146;
     padding: 5px 5px;
     font-family: 'Bree Serif', serif;
   }
@@ -76,8 +78,26 @@ body{
     margin-top: 70px;
 }
 
-.contenedor-tabla h1{
-  
+.contenedor-inicio{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+}
+
+.contenedor-inicio h1, h2{
+  margin: 0;
+  color: white;
+  margin-bottom: 15px;
+  font-family: 'Bree Serif', serif;
+  font-weight: 500;
+}
+
+.contenedor-inicio h1{
+  font-size: 65px;
+ 
 }
 
 .contenedor-ajedrez{
@@ -209,8 +229,8 @@ body{
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    background: rgba(0, 0, 0, 0.062);
-    margin-top: 100px;
+    background: #063146;
+   
 }
 
 .contenedor-tabla{
@@ -256,6 +276,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #063146;
 }
 
 .noticias{
@@ -269,4 +290,47 @@ body{
 
 .noticias img{
   width: 40%;
+}
+
+.contenedor-botones-inicio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-botones-inicio a{
+  margin: 0 4px;
+  display: flex;
+  text-decoration: none;
+  width: 130px;
+ color: white;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  font-size: 19px;
+  padding: 5px;
+
+}
+
+.boton-jugar{
+  border-radius: 30px 0 0 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+    background:#063146;
+}
+
+.boton-estadisticas{
+  border-radius: 0 30px 30px 0;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+    background: #063146;
+}
+
+.contenedor-botones-inicio a i{
+  margin: 0 6px;
+
+}
+
+.contenedor-inicio img{
+  width: 10%;
+  margin: 0;
+  margin-top: 100px;
 }
