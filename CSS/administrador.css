@@ -94,13 +94,13 @@ ul li:hover a{
 .tabla1{
     width: 180px;
     height: 180px;
-    background: black;
+    background: white;
 }
 
 .tabla2{
     width: 180px;
     height: 180px;
-    background: black;
+    background: white;
 }
 
 .contenedor-tabla1, .contenedor-tabla2{
