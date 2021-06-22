@@ -18,9 +18,14 @@ header a{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+        color: white;
     font-size: 20px;
     text-decoration: none;
+
+}
+
+header  p:hover{
+    padding-right: 50px;
 }
 
 header a i{
@@ -33,6 +38,7 @@ header p {
     padding: 8px;
     border-radius: 25px 0 0 25px ;
     padding-left: 20px;
+    transition: 0.6s;
 }
 .sidebar{
     position: fixed;
@@ -65,7 +71,8 @@ header p {
     border-bottom: 1px solid black;
     transition: .4s;
     background: #042331;
-  
+    text-align: left;   
+    transition: 0.6s;
 }
 
 .boton-sidebar i{
@@ -90,12 +97,11 @@ header p {
     align-items: center;
     height: calc(100vh - 70px);
     grid-template-columns: 50% 50%;
-
 }
 
 .tabla1{
-    width: 180px;
-    height: 180px;
+    width: 480px;
+    height: 380px;
    
     background: rgb(240, 240, 240);
     color: rgb(0, 0, 0);
@@ -104,33 +110,14 @@ header p {
     border-radius: 7px;
 }
 
-.tabla1 th {
-    background: #8a8989a1;
-    padding-bottom: 7px;
-    padding-top: 7px;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.144);
-  }
-
-  .tabla1 th:nth-child(1) {
-    border-radius: 7px 0 0 0;
-  }
-  
-  .tabla1 th:nth-child(2) {
-    border-radius: 0 7PX 0 0;
-  }
-
-  .tabla1 td {
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.144);
-  }
-
-
 .tabla2{
-    width: 180px;
-    height: 180px;
-    background: white;
+    width: 480px;
+    height: 380px;
+    background: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+    font-family: 'Bree Serif', serif;
+    border-spacing: 0;
+    border-radius: 7px;
 }
 
 .contenedor-tabla1, .contenedor-tabla2{

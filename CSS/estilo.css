@@ -23,6 +23,7 @@ body {
 
 .header img {
   width: 4%;
+  
 }
 
 /* Style the header links */
@@ -35,6 +36,8 @@ body {
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
+  margin-top: 5px;
+  transition: 1s;
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
@@ -45,14 +48,19 @@ body {
 
 /* Change the background color on mouse-over */
 .header a:hover {
-  background-color: rgba(221, 221, 221, 0.274);
-  color: white;
+  font-size: 25px;
+  
 }
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: #f0b165da;
-  color: black;
+  border: 1px solid black;
+    background: #042331;
+    padding: 8px;
+    border-radius: 25px 25px 25px 25px ;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 0.6s;
 }
 
 /* Float the link section to the right */
@@ -86,7 +94,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 500px;
 }
 
 .contenedor-inicio h1,
@@ -127,6 +135,7 @@ h2 {
 .contenedor-ajedrez img {
   width: 40%;
   margin-bottom: -20px;
+  
 }
 
 .contenedor-ajedrez button {
@@ -143,6 +152,16 @@ h2 {
   border-right: 4px solid #367526;
   border-bottom: 4px solid #367526;
 }
+
+.boton-jugar:hover{
+  padding-left: 25px;
+
+}
+
+.boton-estadisticas:hover{
+  padding-right: 25px;
+}
+
 
 .contenedor-botones {
   display: flex;
@@ -225,6 +244,7 @@ h2 {
   color: white;
   font-family: 'Bree Serif', serif;
   margin-bottom: 70px;
+  font-weight:500;
 }
 
 .circulo2 {
@@ -307,6 +327,9 @@ h2 {
   border: 1px solid rgba(0, 0, 0, 0.151);
   background: #f0b165e5;
   color: black;
+  transition: 0.7s;
+  font-weight: 600;
+  
 }
 
 .boton-jugar:hover{
@@ -320,6 +343,8 @@ h2 {
   border: 1px solid rgba(0, 0, 0, 0.151);
   background: #063146d0;
   color: white;
+  transition: 0.7s;
+  font-weight: 600;
 }
 
 .boton-estadisticas:hover{
