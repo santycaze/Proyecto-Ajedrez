@@ -23,7 +23,7 @@ body {
 
 .header img {
   width: 4%;
-  
+
 }
 
 /* Style the header links */
@@ -109,6 +109,10 @@ h2 {
 .contenedor-inicio h1 {
   font-size: 65px;
 
+}
+
+.imagen-inicio{
+  width: 100%;
 }
 
 .contenedor-ajedrez {
@@ -358,7 +362,8 @@ h2 {
 }
 
 .contenedor-inicio img {
-  width: 10%;
+  width: 13%;
   margin: 0;
-  margin-top: 100px;
+  margin-top: 50px;
 }
+
