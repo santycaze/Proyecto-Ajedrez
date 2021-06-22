@@ -96,8 +96,36 @@ header p {
 .tabla1{
     width: 180px;
     height: 180px;
-    background: white;
+   
+    background: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+    font-family: 'Bree Serif', serif;
+    border-spacing: 0;
+    border-radius: 7px;
 }
+
+.tabla1 th {
+    background: #8a8989a1;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+  }
+
+  .tabla1 th:nth-child(1) {
+    border-radius: 7px 0 0 0;
+  }
+  
+  .tabla1 th:nth-child(2) {
+    border-radius: 0 7PX 0 0;
+  }
+
+  .tabla1 td {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+  }
+
 
 .tabla2{
     width: 180px;
@@ -113,3 +141,6 @@ header p {
     height: 100%;
 }
 
+.tabla1{
+
+}
