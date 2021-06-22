@@ -2,194 +2,196 @@
 
 
 /* Style the header with a grey background and some padding */
-body{
-  background: rgb(66, 66, 66);
+body {
+  background: url('../IMG/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
 }
-*/
-*{
+
+*/ * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box  ;
+  box-sizing: border-box;
 }
+
 .header {
-    overflow: hidden;
-    background: rgb(78, 78, 78);
-    padding: 5px 5px;
-    font-family: 'Bree Serif', serif;
-  }
+  overflow: hidden;
+  background: #063146;
+  padding: 5px 5px;
+  font-family: 'Bree Serif', serif;
+}
 
-  .header img{
-      width: 4%;
-  }
-  
-  /* Style the header links */
+.header img {
+  width: 4%;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: rgba(221, 221, 221, 0.274);
+  color: white;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: #f0b165da;
+  color: black;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
   .header a {
-    float: left;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+    float: none;
+    display: block;
+    text-align: left;
   }
-  
-  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-  .header a.logo {
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
-  /* Change the background color on mouse-over */
-  .header a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Style the active/current link*/
-  .header a.active {
-    background-color: rgb(197, 197, 197);
-    color: black;
-  }
-  
-  /* Float the link section to the right */
+
   .header-right {
-    float: right;
+    float: none;
   }
-  
-  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-  @media screen and (max-width: 500px) {
-    .header a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-    .header-right {
-      float: none;
-    }
-  }
-
-.div-wrapper{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    margin-top: 70px;
 }
 
-.contenedor-tabla h1{
-  
+.div-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 70px;
 }
 
-.contenedor-ajedrez{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 700px;
-   height: 400px;
+.contenedor-inicio {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
 }
 
-.contenedor-podcast{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 700px;
-    height: 400px;
+.contenedor-inicio h1,
+h2 {
+  margin: 0;
+  color: white;
+  margin-bottom: 15px;
+  font-family: 'Bree Serif', serif;
+  font-weight: 500;
 }
 
-.contenedor-podcast img{
-    width: 40%;
-}
-
-.contenedor-podcast p{
-    font-size: 20px;
-    font-family: 'Bree Serif', serif;
-    color: white;
+.contenedor-inicio h1 {
+  font-size: 65px;
 
 }
 
-.contenedor-podcast button{
-    padding: 7px;
-    font-size: 17px;
-    background: #45da20;
-    border-radius: 7px;
-    display: block;
-    width: 190px;
-    color: white;
-    font-weight: bold;
-    height: 40px;
-    border: none;
-    border-right: 4px solid #367526;
-    border-bottom: 4px solid #367526;
-}
-.contenedor-ajedrez p{
-    font-size: 40px;
-    color: white;
-    font-family: 'Bree Serif', serif;
-    
+.contenedor-ajedrez {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 400px;
 }
 
-.contenedor-ajedrez img{
-    width: 40%;
-    margin-bottom: -20px;
-}
 
-.contenedor-ajedrez button{
-    padding: 10px;
-    font-size: 17px;
-    margin-left: 19px;
-    background: #45da20;
-    border: none;
-    border-radius: 7px;
-    display: block;
-    width: 120px;
-    color: white;
-    font-weight: bold;
-    border-right: 4px solid #367526;
-    border-bottom: 4px solid #367526;
-}
 
-.contenedor-botones{
-    display: flex;
-}
 
-.contenedor-fondo{
-    background: rgb(75, 75, 75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 70%;
-    height: 100%;
-    padding: 20px;
-    border-right: 4px solid #d8d8d821;
-    border-bottom: 4px solid #d8d8d821;
-}
 
-.tabla-jugadores{
-  background: rgb(75, 75, 75);
+
+
+.contenedor-ajedrez p {
+  font-size: 40px;
   color: white;
   font-family: 'Bree Serif', serif;
+
+}
+
+.contenedor-ajedrez img {
+  width: 40%;
+  margin-bottom: -20px;
+}
+
+.contenedor-ajedrez button {
+  padding: 10px;
+  font-size: 17px;
+  margin-left: 19px;
+  background: #566064;
+  border: none;
+  border-radius: 7px;
+  display: block;
+  width: 120px;
+  color: white;
+  font-weight: bold;
+  border-right: 4px solid #367526;
+  border-bottom: 4px solid #367526;
+}
+
+.contenedor-botones {
+  display: flex;
+}
+
+.contenedor-fondo {
+  background: #042331;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+  border-right: 4px solid #d8d8d821;
+  border-bottom: 4px solid #d8d8d821;
+}
+
+.tabla-jugadores {
+  background: rgb(240, 240, 240);
+  color: rgb(0, 0, 0);
+  font-family: 'Bree Serif', serif;
   border-spacing: 0;
-  border-radius: 20px;
+  border-radius: 7px;
 }
 
-.tabla-jugadores th{
-  background: #d8d8d821;
- 
+.tabla-jugadores th {
+  background: #8a8989a1;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.144);
 }
 
-.tabla-jugadores th:nth-child(1){
-  border-radius: 20px 0 0 0;
+.tabla-jugadores th:nth-child(1) {
+  border-radius: 7px 0 0 0;
 }
 
-.tabla-jugadores th:nth-child(2){
-  border-radius: 0 20PX 0 0;
+.tabla-jugadores th:nth-child(2) {
+  border-radius: 0 7PX 0 0;
 }
-.tabla-jugadores td{
+
+.tabla-jugadores td {
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.144);
 }
 
-.circulo{
+.circulo {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -197,34 +199,35 @@ body{
   margin: 5px;
 }
 
-#col-imagen{
+#col-imagen {
   width: 100px;
 }
 
-#col-jugadores{
+#col-jugadores {
   width: 400px;
 }
 
-.div-wrapper2{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    background: rgba(0, 0, 0, 0.062);
-    margin-top: 100px;
+.div-wrapper2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: #063146;
+
 }
 
-.contenedor-tabla{
+.contenedor-tabla {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.contenedor-tabla h1{
+.contenedor-tabla h1 {
   color: white;
-  font-family: 'Bree Serif', serif; 
+  font-family: 'Bree Serif', serif;
   margin-bottom: 70px;
 }
-.circulo2{
+
+.circulo2 {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -232,41 +235,105 @@ body{
   margin: 5px;
 }
 
-.perfil{
+.perfil {
   display: flex;
   width: 500px;
 }
 
-.contenedor-perfil{
+.contenedor-perfil {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 20px;
+  font-family: 'Bree Serif', serif;
 }
 
-.trofeos{
+.contenedor-perfil p{
+  color: white;
+  margin: 30px;
+}
+
+.trofeos {
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.div-wrapper3{
+.div-wrapper3 {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #063146;
 }
 
-.noticias{
+.noticias {
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
-.noticias img{
+.noticias img {
   width: 40%;
+}
+
+.contenedor-botones-inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-botones-inicio a {
+  margin: 0 4px;
+  display: flex;
+  text-decoration: none;
+  width: 130px;
+  
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  font-size: 19px;
+  padding: 5px;
+
+}
+
+.boton-jugar {
+  border-radius: 30px 0 0 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #f0b165e5;
+  color: black;
+}
+
+.boton-jugar:hover{
+  background: #F0B265;
+  color: black;
+  
+}
+
+.boton-estadisticas {
+  border-radius: 0 30px 30px 0;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #063146d0;
+  color: white;
+}
+
+.boton-estadisticas:hover{
+  background: #063146;
+  color: white;
+}
+
+.contenedor-botones-inicio a i {
+  margin: 0 6px;
+
+}
+
+.contenedor-inicio img {
+  width: 10%;
+  margin: 0;
+  margin-top: 100px;
 }
