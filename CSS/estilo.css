@@ -45,13 +45,13 @@ body {
 
 /* Change the background color on mouse-over */
 .header a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: rgba(221, 221, 221, 0.274);
+  color: white;
 }
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: rgb(197, 197, 197);
+  background-color: #f0b165da;
   color: black;
 }
 
@@ -293,7 +293,7 @@ h2 {
   display: flex;
   text-decoration: none;
   width: 130px;
-  color: white;
+  
   justify-content: center;
   align-items: center;
   height: 35px;
@@ -305,13 +305,26 @@ h2 {
 .boton-jugar {
   border-radius: 30px 0 0 30px;
   border: 1px solid rgba(0, 0, 0, 0.151);
-  background: #063146;
+  background: #f0b165e5;
+  color: black;
+}
+
+.boton-jugar:hover{
+  background: #F0B265;
+  color: black;
+  
 }
 
 .boton-estadisticas {
   border-radius: 0 30px 30px 0;
   border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #063146d0;
+  color: white;
+}
+
+.boton-estadisticas:hover{
   background: #063146;
+  color: white;
 }
 
 .contenedor-botones-inicio a i {
