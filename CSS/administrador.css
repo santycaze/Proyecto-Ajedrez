@@ -52,7 +52,7 @@ header p {
     user-select: none;
 }
 
-.sidebar ul a{
+.boton-sidebar{
     display: block;
     height: 100%;
     width: 100%;
@@ -64,17 +64,19 @@ header p {
     border-top: 1px solid rgba(255,255,255,.1);
     border-bottom: 1px solid black;
     transition: .4s;
-
+    background: #042331;
+  
 }
 
-ul li:hover a{
-    padding-left: 50px;
+.boton-sidebar i{
+    margin-right: 10px;
 }
 
-.sidebar ul a i{
-    margin-right: 16px;
-    margin-left: 10px;
+.boton-sidebar:hover{
+    padding-left: 60px;
 }
+
+
 
 .contenido{
     margin-left: 250px;
@@ -110,3 +112,4 @@ ul li:hover a{
     width: 100%;
     height: 100%;
 }
+

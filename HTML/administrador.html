@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="../CSS/administrador.css">
+    <script src="../JS/administrador.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,20 +20,20 @@
     <div class="sidebar">
         <h1>Administrador</h1>
         <ul>
-            <li><a href="#"><i class="fas fa-user"></i>Usuarios</a></li>
-            <li><a href="#"><i class="fas fa-book-open"></i>Periodistas</a></li>
-            <li><a href="#"><i class="fas fa-user-tie"></i>Árbitros</a></li>
-            <li><a href="#"><i class="fas fas fa-exclamation-circle"></i>Noticias</a></li>
-            <li><a href="#"><i class="fas fa-lock"></i>Contraseñas</a></li>
-            <li><a href="#"><i class="fas fa-wrench"></i>Sistema</a></li>
-            <li><a href="#"><i class="fas fas fa-trophy"></i>Torneos</a></li>
-            <li><a href="#"><i class="fas fa-box-open"></i>Fixture</a></li>
+            <li><button class="boton-sidebar" id="Usuario" onclick="TraeUsuarios()"><i class="fas fa-user"></i>Usuarios</button></li>
+            <li><button class="boton-sidebar"><i class="fas fa-book-open"></i>Periodistas</button></li>
+            <li><button class="boton-sidebar"><i class="fas fa-user-tie"></i>Árbitros</button></li>
+            <li><button class="boton-sidebar"><i class="fas fas fa-exclamation-circle"></i>Noticias</button></li>
+            <li><button class="boton-sidebar"><i class="fas fa-lock"></i>Contraseñas</button></li>
+            <li><button class="boton-sidebar"><i class="fas fa-wrench"></i>Sistema</button></li>
+            <li><button class="boton-sidebar"><i class="fas fas fa-trophy"></i>Torneos</button></li>
+            <li><button class="boton-sidebar"><i class="fas fa-box-open"></i>Fixture</button></li>
         </ul>
     </div>
     <div class="contenido">
         <div class="div-wrapper">
             <div class="contenedor-tabla1">
-                <div class="tabla1">
+                <div class="tabla1" id="tabla1">
                     <table>
                         <h2>Aprobados</h2>
                         <tr>
