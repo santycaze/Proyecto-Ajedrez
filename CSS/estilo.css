@@ -394,3 +394,26 @@ h2 {
 .usuario i{
   margin-right: 10px;
 }
+
+.div-wrapper5{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.div-wrapper5 img{
+  width: 40%;
+}
+
+.contenedor-podcast {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.botones-podcast{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
