@@ -9,11 +9,10 @@
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
   //Llenar el campo
-  if (empty($nombreUsuario)) { array_push($errors, "se requiere nombre de usuario"); }
-  if (empty($nombreCompleto)) { array_push($errors, "se requiere nombre completo"); }
-  if (empty($mail)) { array_push($errors, "se requiere mail"); }
-  if (empty($ci)) { array_push($errors, "se requiere la cedula"); }
-  if (empty($celular)) { array_push($errors, "se requiere numero telefonico"); }
-  if (empty($nacimiento )) { array_push($errors, "se requiere fecha de nacimiento"); }
-  if (empty($password)) { array_push($errors, "se requiere contraseña"); }
+  if (empty($username)) { array_push($errors, "se requiere el nombre de usuario"); }
+  if (empty($email)) { array_push($errors, "se requiere mail"); }
+  if (empty($Rpassword)) { array_push($errors, "se requiere la contraseña"); }
+  if ($password != $Rpassword) {
+	array_push($errors, "Las contraseñas no son iguales");
+  }
 ?>
