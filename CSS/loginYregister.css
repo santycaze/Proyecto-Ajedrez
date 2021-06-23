@@ -1,0 +1,23 @@
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif, 'Open Sans', sans-serif;;
+    background-image: url("../imagenes/background.jpeg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.616);
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  

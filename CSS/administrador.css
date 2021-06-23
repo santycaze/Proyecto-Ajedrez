@@ -18,9 +18,14 @@ header a{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+        color: white;
     font-size: 20px;
     text-decoration: none;
+
+}
+
+header  p:hover{
+    padding-right: 50px;
 }
 
 header a i{
@@ -33,6 +38,7 @@ header p {
     padding: 8px;
     border-radius: 25px 0 0 25px ;
     padding-left: 20px;
+    transition: 0.6s;
 }
 .sidebar{
     position: fixed;
@@ -52,7 +58,7 @@ header p {
     user-select: none;
 }
 
-.sidebar ul a{
+.boton-sidebar{
     display: block;
     height: 100%;
     width: 100%;
@@ -64,17 +70,20 @@ header p {
     border-top: 1px solid rgba(255,255,255,.1);
     border-bottom: 1px solid black;
     transition: .4s;
-
+    background: #042331;
+    text-align: left;   
+    transition: 0.6s;
 }
 
-ul li:hover a{
-    padding-left: 50px;
+.boton-sidebar i{
+    margin-right: 10px;
 }
 
-.sidebar ul a i{
-    margin-right: 16px;
-    margin-left: 10px;
+.boton-sidebar:hover{
+    padding-left: 60px;
 }
+
+
 
 .contenido{
     margin-left: 250px;
@@ -88,19 +97,27 @@ ul li:hover a{
     align-items: center;
     height: calc(100vh - 70px);
     grid-template-columns: 50% 50%;
-
 }
 
 .tabla1{
-    width: 180px;
-    height: 180px;
-    background: white;
+    width: 480px;
+    height: 380px;
+   
+  
+    color: rgb(0, 0, 0);
+    font-family: 'Bree Serif', serif;
+    border-spacing: 0;
+    border-radius: 7px;
 }
 
 .tabla2{
-    width: 180px;
-    height: 180px;
-    background: white;
+    width: 480px;
+    height: 380px;
+    
+    color: rgb(0, 0, 0);
+    font-family: 'Bree Serif', serif;
+    border-spacing: 0;
+    border-radius: 7px;
 }
 
 .contenedor-tabla1, .contenedor-tabla2{
@@ -109,4 +126,32 @@ ul li:hover a{
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+.tabla1 table{
+    border-spacing: 0;
+}
+
+.tabla2 table{
+    border-spacing: 0;
+}
+#tabla1 h2, #tabla2 h2{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#col1{
+    width: 200px;
+    height: 30px;
+    background: rgba(128, 128, 128, 0.322);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+}
+
+.td1{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.199);
 }
