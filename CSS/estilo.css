@@ -251,7 +251,7 @@ h2 {
   width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
-  background: #063146;
+  background: #183248;
 
 }
 
@@ -378,3 +378,19 @@ h2 {
   margin-top: 10px;
 }
 
+.usuario a{
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+      color: white;
+  font-size: 20px;
+  text-decoration: none;
+
+}
+
+.usuario i{
+  margin-right: 10px;
+}
