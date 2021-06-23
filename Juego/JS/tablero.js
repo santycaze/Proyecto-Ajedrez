@@ -31,13 +31,14 @@ function seleccionado(casillaSeleccionada) {
     //Marca la casilla seleccionada.
     //
     var casilla = document.getElementById(casillaSeleccionada).value;
-    colorFicha = casillaSeleccionada.split("-");
-    if (colorFicha[1] == color[colorJugador]) {
+    infoFicha = casillaSeleccionada.split("-");
+    if (infoFicha[1] == color[colorJugador]) {
         if (casilla != " ") {
-            console.log(colorFicha)
+            console.log(infoFicha)
             document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
+            tableroIntel(casilla, infoFicha[0]);
         }
-    } else if (colorFicha[1] != color[colorJugador] && casilla == '') {
+    } else if (infoFicha[1] != color[colorJugador] && casilla == '') {
         console.log("vacio");
     } else {
         if (casilla != " ") {
@@ -116,15 +117,15 @@ function crearTablero() {
 function casillas(value, color) {
     if (value == undefined) {
         if (contador == 8) {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + letras[X] + "'" + ");" + " value=''></button></td>"
+            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></td>"
         } else {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + letras[X] + "'" + ");" + " value=''></button></td>"
+            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></td>"
         }
     } else {
         if (contador == 8) {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></td>"
+            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></td>"
         } else {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></td>"
+            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></td>"
         }
     }
 
@@ -141,11 +142,11 @@ function colocarFichas() {
     if (colorJugador == 1) {
         if (contador == 2) {
             casillas(blancas[6], color[colorJugador]);
-        } else if (contador == 1 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
+        } else if (contador == 5 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
             casillas(blancas[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(blancas[5], color[colorJugador]);
-        } else if (contador == 1 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
+        } else if (contador == 4 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
             casillas(blancas[4], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "d") {
             casillas(blancas[2], color[colorJugador]);
@@ -169,11 +170,11 @@ function colocarFichas() {
     } else {
         if (contador == 2) {
             casillas(negras[6], color[colorJugador]);
-        } else if (contador == 1 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
+        } else if (contador == 5 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
             casillas(negras[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(negras[5], color[colorJugador]);
-        } else if (contador == 1 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
+        } else if (contador == 4 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
             casillas(negras[4], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "d") {
             casillas(negras[2], color[colorJugador]);
@@ -196,3 +197,71 @@ function colocarFichas() {
         }
     }
 }
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+//
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+const tableroIntel = (ficha, posicion) => {
+    tableroIntel: {
+        //--------------------------------------------------------------------------------------------------------------------------//
+        coord = posicion.split(".");
+        var letra = coord[1];
+        var numero = coord[0];
+        //--------------------------------------------------------------------------------------------------------------------------//
+        if (ficha == "♙" || ficha == "♟") {
+            console.log("intel activa   Posicion : " + posicion);
+            for (let i = 0; i < 2; i++) {
+                numero++;
+                try {
+                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                } catch (error) {
+                    var ficha = document.getElementById(posicion + "-" + color[colorJugador]);
+                    break tableroIntel;
+                }
+
+            }
+        } else if (ficha == "♖" || ficha == "♜") {
+            console.log("intel activa   Posicion : " + posicion);
+            try {
+                /*
+                for (let i = 1; i < 8; i++) {
+                    numero++;
+                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                    document.getElementById(ab + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                } 
+                */
+                for (let i = numero; i < 1; --i) {
+                    document.getElementById(i + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
+
+
+        } else if (ficha == "♘" || ficha == "♞") {
+            console.log("intel activa   Posicion : " + posicion);
+            numero++;
+            try {
+                if (coord[1] == letras[2]) {
+                    document.getElementById(numero + 1 + "." + letras[1]).style.backgroundColor = "#ad96ff";
+                    document.getElementById(numero + 1 + "." + letras[3]).style.backgroundColor = "#ad96ff";
+                } else if (coord[1] == letras[7]) {
+                    document.getElementById(numero + 1 + "." + letras[6]).style.backgroundColor = "#ad96ff";
+                    document.getElementById(numero + 1 + "." + letras[8]).style.backgroundColor = "#ad96ff";
+                }
+            } catch (error) {
+                console.log("Hay una ficha adelante.");
+                break tableroIntel;
+            }
+        } else if (ficha == "♗" || ficha == "♝") {
+            console.log("intel activa   Posicion : " + posicion);
+
+        } else if (ficha == "♚" || ficha == "♔") {
+            console.log("intel activa   Posicion : " + posicion);
+            console.log(coord);
+        } else if (ficha == "♛" || ficha == "♕") {
+            console.log("intel activa   Posicion : " + posicion);
+            console.log(coord);
+        }
+    }
+};

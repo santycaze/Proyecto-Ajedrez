@@ -11,4 +11,5 @@
   if (empty($Rpassword)) { array_push($errors, "se requiere la contraseña"); }
   if ($password != $Rpassword) {
 	array_push($errors, "Las contraseñas no son iguales");
+  }
 ?>
