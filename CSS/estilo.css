@@ -159,20 +159,7 @@ h2 {
   
 }
 
-.contenedor-ajedrez button {
-  padding: 10px;
-  font-size: 17px;
-  margin-left: 19px;
-  background: #566064;
-  border: none;
-  border-radius: 7px;
-  display: block;
-  width: 120px;
-  color: white;
-  font-weight: bold;
-  border-right: 4px solid #367526;
-  border-bottom: 4px solid #367526;
-}
+
 
 .boton-jugar:hover{
   padding-left: 25px;
@@ -402,7 +389,7 @@ h2 {
 }
 
 .div-wrapper5 img{
-  width: 40%;
+  width: 50%;
 }
 
 .contenedor-podcast {
@@ -416,4 +403,76 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
+
+.botones-podcast a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+  display: flex;
+  text-decoration: none;
+  width: 160px;
+  
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  font-size: 19px;
+  padding: 5px;
+  margin-bottom: 10px;
+
+  
+}
+
+.boton-noticia{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.contenedor-salas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor-salas a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.nueva-sala{
+  border-radius: 30px 0 0 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #0b425e;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+}
+
+.nueva-sala:hover{
+  padding-left: 28px;
+}
+
+.unirse-sala{
+  border-radius: 0 30px 30px 0;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #F0B265;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+}
+
+.unirse-sala:hover{
+  padding-right: 25px;
+}
+
