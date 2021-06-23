@@ -220,6 +220,7 @@ const tableroIntel = (ficha, posicion) => {
 
             }
         } else if (ficha == "♖" || ficha == "♜") {
+            //no funcion todavia
             console.log("intel activa   Posicion : " + posicion);
             try {
                 /*
