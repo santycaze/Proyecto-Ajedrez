@@ -34,7 +34,7 @@ function seleccionado(casillaSeleccionada) {
     infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) {
         if (casilla != " ") {
-            console.log(infoFicha)
+            console.log(casillaSeleccionada)
             document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
             tableroIntel(casilla, infoFicha[0]);
         }
@@ -204,6 +204,7 @@ const tableroIntel = (ficha, posicion) => {
     tableroIntel: {
         //--------------------------------------------------------------------------------------------------------------------------//
         coord = posicion.split(".");
+        console.log(posicion);
         var letra = coord[1];
         var numero = coord[0];
         //--------------------------------------------------------------------------------------------------------------------------//
@@ -211,32 +212,23 @@ const tableroIntel = (ficha, posicion) => {
             console.log("intel activa   Posicion : " + posicion);
             for (let i = 0; i < 2; i++) {
                 numero++;
-                try {
-                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
-                } catch (error) {
-                    var ficha = document.getElementById(posicion + "-" + color[colorJugador]);
-                    break tableroIntel;
-                }
+                if(numero == 1){
 
+                }else{
+                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                }
             }
         } else if (ficha == "♖" || ficha == "♜") {
             //no funcion todavia
             console.log("intel activa   Posicion : " + posicion);
-            try {
-                /*
                 for (let i = 1; i < 8; i++) {
                     numero++;
                     document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
-                    document.getElementById(ab + "." + coord[1]).style.backgroundColor = "#ad96ff";
-                } 
-                */
-                for (let i = numero; i < 1; --i) {
-                    document.getElementById(i + "." + coord[1]).style.backgroundColor = "#ad96ff";
                 }
-
-            } catch (error) {
-                console.log(error);
-            }
+                for (let i = 8; i < 1; --i) {
+                    numero--;
+                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                }
 
 
         } else if (ficha == "♘" || ficha == "♞") {
