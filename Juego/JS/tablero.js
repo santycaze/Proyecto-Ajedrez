@@ -1,9 +1,16 @@
-var tablero,contador,colorJugador;
-let Y,X;
-var color = new Array({ 1: "Blancas", 0: "Negras" });
-var blancas = new Array({1: "&#9812;", 2: "&#9813;", 3: "&#9814;", 4: "&#9815;", 5: "&#9816;", 6: "&#9817;"});   // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
-var negras = new Array({ 1: "&#9818;", 2: "&#9819;", 3: "&#9820;", 4: "&#9821;", 5: "&#9822;", 6: "&#9823;" }); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
-var letras = new Array({ 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" });
+var tablero;
+var contador;
+var colorJugador;
+let Y;
+let X;
+var color = new Array();
+var blancas = new Array();  // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
+var negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
+var letras = new Array();
+color = { 1: "Blancas", 0: "Negras" }
+blancas = { 1: "&#9812;", 2: "&#9813;", 3: "&#9814;", 4: "&#9815;", 5: "&#9816;", 6: "&#9817;" }
+negras = { 1: "&#9818;", 2: "&#9819;", 3: "&#9820;", 4: "&#9821;", 5: "&#9822;", 6: "&#9823;" }
+letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 $(document).ready(function () {
     colorJugador = asignarColor();
@@ -204,23 +211,23 @@ const tableroIntel = (ficha, posicion) => {
             console.log("intel activa   Posicion : " + posicion);
             for (let i = 0; i < 2; i++) {
                 numero++;
-                if(numero == 1){
+                if (numero == 1) {
 
-                }else{
+                } else {
                     document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
                 }
             }
         } else if (ficha == "♖" || ficha == "♜") {
             //no funcion todavia
             console.log("intel activa   Posicion : " + posicion);
-                for (let i = 1; i < 8; i++) {
-                    numero++;
-                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
-                }
-                for (let i = 8; i < 1; --i) {
-                    numero--;
-                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
-                }
+            for (let i = 1; i < 8; i++) {
+                numero++;
+                document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+            }
+            for (let i = 8; i < 1; --i) {
+                numero--;
+                document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+            }
 
 
         } else if (ficha == "♘" || ficha == "♞") {
