@@ -1,11 +1,11 @@
 function TraeUsuarios(){
-    var fixedurl = '../JS/TraerUsuario.php';
+    
 
-  $.ajax({url: fixedurl,
+  $.ajax({url: '../PHP/Servidor.php',
 
     type: 'POST',
 
-    async: false,
+
 
    // data: { idf: idfecha, idp: idparte, idh: idhno},
 
@@ -13,9 +13,13 @@ function TraeUsuarios(){
             document.getElementById("tabla1").innerHTML=response;
     
         //if request if made successfully then the response represent the data
+        var Usuario=JSON.parse(response) 
+        for (let i = 0; i < Usuario.length; i++) {
+ 
+          console.log(Usuario[i]);
+           }
 
-
-
+           
     }
 });
 }
