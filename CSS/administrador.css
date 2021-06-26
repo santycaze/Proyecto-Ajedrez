@@ -103,7 +103,7 @@ header p {
     width: 480px;
     height: 380px;
    
-    background: rgb(240, 240, 240);
+  
     color: rgb(0, 0, 0);
     font-family: 'Bree Serif', serif;
     border-spacing: 0;
@@ -113,7 +113,7 @@ header p {
 .tabla2{
     width: 480px;
     height: 380px;
-    background: rgb(240, 240, 240);
+    
     color: rgb(0, 0, 0);
     font-family: 'Bree Serif', serif;
     border-spacing: 0;
@@ -128,6 +128,30 @@ header p {
     height: 100%;
 }
 
-.tabla1{
+.tabla1 table{
+    border-spacing: 0;
+}
 
+.tabla2 table{
+    border-spacing: 0;
+}
+#tabla1 h2, #tabla2 h2{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#col1{
+    width: 200px;
+    height: 30px;
+    background: rgba(128, 128, 128, 0.322);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+}
+
+.td1{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.199);
 }

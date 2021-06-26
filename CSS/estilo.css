@@ -159,20 +159,7 @@ h2 {
   
 }
 
-.contenedor-ajedrez button {
-  padding: 10px;
-  font-size: 17px;
-  margin-left: 19px;
-  background: #566064;
-  border: none;
-  border-radius: 7px;
-  display: block;
-  width: 120px;
-  color: white;
-  font-weight: bold;
-  border-right: 4px solid #367526;
-  border-bottom: 4px solid #367526;
-}
+
 
 .boton-jugar:hover{
   padding-left: 25px;
@@ -251,7 +238,7 @@ h2 {
   width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
-  background: #063146;
+  background: #183248;
 
 }
 
@@ -378,3 +365,145 @@ h2 {
   margin-top: 10px;
 }
 
+.usuario a{
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+      color: white;
+  font-size: 20px;
+  text-decoration: none;
+
+}
+
+.usuario i{
+  margin-right: 10px;
+}
+
+.div-wrapper5{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.div-wrapper5 img{
+  width: 50%;
+}
+
+.contenedor-podcast {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.botones-podcast{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+.botones-podcast a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+  display: flex;
+  text-decoration: none;
+  width: 160px;
+  
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  font-size: 19px;
+  padding: 5px;
+  margin-bottom: 10px;
+
+  
+}
+
+.boton-noticia{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.contenedor-salas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor-salas a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.nueva-sala{
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #0b425e;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+}
+
+
+
+
+.unirse-sala{
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #F0B265;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+}
+
+.boton-noticia{
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #0b425e;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+  margin-top: 10px;
+  text-decoration: none;
+  width: 320px;
+}
+
+.boton-noticia p{
+
+}
+
+.boton-noticia i{
+  margin-right: 10px;
+}
+
+.clase-ajedrez{
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #0b425e;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+  margin-top: 10px;
+  text-decoration: none;
+  width: 230px;
+}
