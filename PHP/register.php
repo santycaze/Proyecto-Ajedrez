@@ -1,4 +1,5 @@
 <?php
+session_start();
 //obtencion de los datos del submit
   $nombreUsuario = mysqli_real_escape_string($db, $_POST['nombreUsuario']);
   $nombreCompleto = mysqli_real_escape_string($db, $_POST['nombreCompleto']);
@@ -7,6 +8,7 @@
   $celular = mysqli_real_escape_string($db, $_POST['celular']);
   $nacimiento = mysqli_real_escape_string($db, $_POST['nacimiento']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
+
    //--------------------//
     //Llenar el campo//
    //--------------------//
@@ -17,7 +19,7 @@
   if (empty($celular)) { array_push($errors, "se requiere numero telefonico"); }
   if (empty($nacimiento )) { array_push($errors, "se requiere fecha de nacimiento"); }
  }
-  $user_check_query = "SELECT * FROM Usuario WHERE nombreUsuario='$nombreUsuario' OR mail='$mail' LIMIT 1";
+  $user_check_query = "SELECT * FROM Usuario WHERE nombreUsuario='$nombreUsuario' OR mail='$mail' OR ci='$ci' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
@@ -42,6 +44,24 @@
   	$query = "INSERT INTO Usuario (nombreUsuario, nombreCompleto, mail, contraseña, ci, celular, nacimiento) 
   			  VALUES('$nombreUsuario', '$nombreCompleto', '$mail', '$contraseña', '$ci', '$celular', '$nacimiento')";
   	mysqli_query($db, $query);
+   
+    if(isset($_POST['save']))
+    {
+    if($query_run)
+    {
+      if(isset($_SESSION['status'])){
+        echo "<h4>".$_SESSION['status']."</h4>";
+        unset($_SESSION['status']);
+      }
+    }
+    else
+    {
+      if(isset($_SESSION['status'])){
+        echo "<h4>".$_SESSION['status']."</h4>";
+        unset($_SESSION['status']);
+      }
+    }
+  }
   	$_SESSION['nombreUsuario'] = $nombreUsuario
   	$_SESSION['success'] = "Ahora estas logueado";
   	header('location: ../HTML/index.html');
