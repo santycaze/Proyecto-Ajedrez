@@ -1,25 +1,25 @@
-function TraeUsuarios(){
-    
+function TraeUsuarios() {
+  $.ajax({
+    type: "POST",
+    url: "../PHP/TraeUsuarios.php",
+    success: function (response) {
+      var Datos = JSON.parse(response);
+      for (let i = 0; i < Datos.length; i++) {
+        console.log(Datos[i]);
+      }
+    }
+  });
 
-  $.ajax({url: '../PHP/Servidor.php',
-
-    type: 'POST',
-
-
-
-   // data: { idf: idfecha, idp: idparte, idh: idhno},
-
-    success: function(response){
-            document.getElementById("tabla1").innerHTML=response;
-    
-        //if request if made successfully then the response represent the data
-        var Usuario=JSON.parse(response) 
-        for (let i = 0; i < Usuario.length; i++) {
- 
-          console.log(Usuario[i]);
-           }
-
-           
+}
+$(document).ready(function () {
+  $.ajax({
+    type: "Post",
+    url: "../PHP/TraeUsuarios.php",
+    success: function (response) {
+        var data = JSON.parse(response);
+        for (let index = 0; index < data.length; index++) {
+            console.log(data[index]);
+        }
     }
 });
-}
+});
