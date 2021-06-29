@@ -404,6 +404,7 @@ h2 {
   justify-content: center;
   align-items: center;
   
+  
 }
 
 .botones-podcast a{
@@ -447,7 +448,7 @@ h2 {
 }
 
 .nueva-sala{
-  border-radius: 30px 0 0 30px;
+  border-radius: 30px 30px 30px 30px;
   border: 1px solid rgba(0, 0, 0, 0.151);
   background: #0b425e;
   color: black;
@@ -457,12 +458,11 @@ h2 {
   color: white;
 }
 
-.nueva-sala:hover{
-  padding-left: 28px;
-}
+
+
 
 .unirse-sala{
-  border-radius: 0 30px 30px 0;
+  border-radius: 30px 30px 30px 30px;
   border: 1px solid rgba(0, 0, 0, 0.151);
   background: #F0B265;
   color: black;
@@ -472,7 +472,38 @@ h2 {
   color: white;
 }
 
-.unirse-sala:hover{
-  padding-right: 25px;
+.boton-noticia{
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #0b425e;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+  margin-top: 10px;
+  text-decoration: none;
+  width: 320px;
 }
 
+.boton-noticia p{
+
+}
+
+.boton-noticia i{
+  margin-right: 10px;
+}
+
+.clase-ajedrez{
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #0b425e;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: white;
+  margin-top: 10px;
+  text-decoration: none;
+  width: 230px;
+}

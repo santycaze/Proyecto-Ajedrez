@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=PT+Sans&display=swap');
 body {
     margin:0;
     padding:0;
     font-family: sans-serif, 'Open Sans', sans-serif;;
-    background-image: url("../imagenes/background.jpeg");
+    background-image: url("../IMG/Chess.png");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,11 +15,71 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 400px;
+    width: 700px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.616);
+    background: linear-gradient(to right,  #000000d5 0%,#000000d5 50%,#2b2b2bef 50%,#2b2b2bef 100%);
     box-sizing: border-box;
-    border-radius: 10px;
+    color:white;
+    border-radius:10px;
   }
-  
+.login h2{
+  margin-left: 22px;
+}
+  .login .box{
+    position: relative;
+  }
+
+.login .box input{
+  background: none;
+  border-bottom: 0.1% solid#fff;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color:white;
+  margin-top: 15px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login .box input:active {
+  border:none;
+}
+
+.login .submit{
+    border-radius:10px;
+    background-color: #F0B265;
+    padding:10px;
+    letter-spacing: 2px;
+    border:none;
+    color:rgb(41, 41, 41);
+    margin-left:45px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.login .submit:hover{
+  border-radius: 25px;
+  background-color:#f1b974;
+  transition: 0.3s;
+  color:black;
+}
+
+.login .box label{
+  position: absolute;
+  pointer-events: none;
+  font-size: 16px;
+  color: #fff;
+  margin-top: 16px;
+  margin-left:2px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+.login img{
+    width: 250px; 
+    height: 250px; 
+    object-fit: cover;
+    object-position: 50% 10%; 
+    position: absolute;
+    margin-left:52%;
+}
