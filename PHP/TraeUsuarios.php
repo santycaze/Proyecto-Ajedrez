@@ -1,8 +1,5 @@
 <?php
-     include "conexion.php"
-    
-     while($row = $result->fetch_array())
-     {
-     $rows[] = $row;
-     }
-    ?>
+     include "C:/xampp/htdocs/Proyecto-Ajedrez/PHP/servidor.php";
+     $servidor = new Servidor();
+     echo json_encode($servidor->datosPeriodista());
+?>

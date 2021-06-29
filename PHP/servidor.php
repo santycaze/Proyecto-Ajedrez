@@ -26,7 +26,6 @@ class Servidor
         $stmt = $conn->prepare($query);
 
         if ($stmt->execute()) {
-
             $stmt->store_result($institucion,$añoCursivo,$nombreUsuario,$nombreCompleto,$ci,$rankELO,$logros);
             $stmt->bind_result();
                 while ($stmt->fetch()) {

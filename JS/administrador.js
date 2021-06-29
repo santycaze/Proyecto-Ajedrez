@@ -1,21 +1,25 @@
-function TraeUsuarios(){
-    var fixedurl = '../JS/TraerUsuario.php';
+function TraeUsuarios() {
+  $.ajax({
+    type: "POST",
+    url: "../PHP/TraeUsuarios.php",
+    success: function (response) {
+      var Datos = JSON.parse(response);
+      for (let i = 0; i < Datos.length; i++) {
+        console.log(Datos[i]);
+      }
+    }
+  });
 
-  $.ajax({url: fixedurl,
-
-    type: 'POST',
-
-    async: false,
-
-   // data: { idf: idfecha, idp: idparte, idh: idhno},
-
-    success: function(response){
-            document.getElementById("tabla1").innerHTML=response;
-    
-        //if request if made successfully then the response represent the data
-
-
-
+}
+$(document).ready(function () {
+  $.ajax({
+    type: "Post",
+    url: "../PHP/TraeUsuarios.php",
+    success: function (response) {
+        var data = JSON.parse(response);
+        for (let index = 0; index < data.length; index++) {
+            console.log(data[index]);
+        }
     }
 });
-}
+});
