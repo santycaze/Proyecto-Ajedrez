@@ -11,6 +11,10 @@ body {
     background-size: cover;
   }
   
+h1{
+  color: red;
+}
+
 .login {
     position: absolute;
     top: 50%;
@@ -23,12 +27,14 @@ body {
     color:white;
     border-radius:10px;
   }
+
 .login h2{
   margin-left: 22px;
 }
-  .login .box{
-    position: relative;
-  }
+  
+.login .box{
+  position: relative;
+}
 
 .login .box input{
   background: none;
@@ -64,7 +70,7 @@ body {
   color:black;
 }
 
-.login .box label{
+.login .box input::placeholder{
   position: absolute;
   pointer-events: none;
   font-size: 16px;
@@ -82,4 +88,79 @@ body {
     object-position: 50% 10%; 
     position: absolute;
     margin-left:52%;
+}
+
+.register {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to right,  #000000d5 0%,#000000d5 50%,#2b2b2bef 50%,#2b2b2bef 100%);
+  box-sizing: border-box;
+  color:white;
+  border-radius:10px;
+}
+.register h2{
+margin-left: 80px;
+}
+.register .register-box{
+  position: relative;
+}
+
+.register .register-box input{
+background: none;
+border-bottom: 0.1% solid#fff;
+border-top: none;
+border-left: none;
+border-right: none;
+color:white;
+margin-top: 15px;
+font-size: 16px;
+font-family: 'Montserrat', sans-serif;
+margin-left:30px;
+}
+
+.register .register-box input:active {
+border:none;
+}
+
+.register .submit{
+  border-radius:10px;
+  background-color: #F0B265;
+  padding:10px;
+  letter-spacing: 2px;
+  border:none;
+  color:rgb(41, 41, 41);
+  margin-left:75px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.register .submit:hover{
+border-radius: 25px;
+background-color:#f1b974;
+transition: 0.3s;
+color:black;
+}
+
+.register .register-box input::placeholder{
+position: absolute;
+pointer-events: none;
+font-size: 16px;
+color: #fff;
+margin-top: 16px;
+margin-left:2px;
+font-family: 'Montserrat', sans-serif;
+letter-spacing: 1px;
+}
+
+.register p{
+  margin-left: 33px;
+  font-size: 15px;
+}
+
+.register .box{
+  margin-top: 15px;
+  margin-left: 25px;
 }

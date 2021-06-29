@@ -3,37 +3,35 @@
     <h2>Register</h2>
     <form action="../PHP/register.php">
         <div class="register-box">     
-        <label>Nombre completo</label>
-        <input type="text" name="nomCompleto" required="">    
+        <input type="text" name="nomCompleto" required="" placeholder="Nombre Completo">    
     </div>
     <div class="register-box">
-        <label>Cedula</label>
-        <input type="text" name="ci" required="">
+        <input type="text" name="username" required="" placeholder="Nombre de Usuario">
     </div>
     <div class="register-box">
-        <label>Usuario</label>
-        <input type="text" name="username" required="">
+        <input type="text" name="ci" required="" placeholder="Cedula">
     </div>
     <div class="register-box">
-        <label>Contraseña</label>
-        <input type="password" name="password" required=""> 
+        <input type="password" name="password" required="" placeholder="Contraseña"> 
     </div>
     <div class="register-box">
-        <label>Repetir contraseña</label>
-        <input type="password" name="Rpassword" required="">
+        <input type="password" name="Rpassword" required="" placeholder="Repite Contraseña"> 
     </div>
-    <div class="register-box">
-        <select name="">
-    
-          <option value="jugador">Jugador</option>
-          <option value="admin">Administrador</option>
-    
-        </select>
+    <div class="box">
+        <input type="radio" name="select" class="Administrador" checked>
+        <label for="Administrador" class="opcion1">
+            <span class="span">Administrador</span>
+            </label>
+            <br>
+        <input type="radio" name="select" class="Jugador">
+        <label for="Jugador" class="opcion2">
+            <span class="span">Jugador</span>
+        </label>
     </div>
     <p>
         Ya tengo cuenta. <a href="../PHP/login.php">Logearse</a>
     </p>
     <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Registrarse" class="submit">
       </form>
   </div>
