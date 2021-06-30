@@ -14,7 +14,6 @@
         $count = mysqli_num_rows($result);  
           //valida si se loguea o no
         if($count == 1){  
-            echo "<h1><center> Logeado! </center></h1>";  
             header('Location: ../HTML/administrador.html');
         }  
         else{  

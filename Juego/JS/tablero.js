@@ -23,27 +23,42 @@ function seleccionado(casillaSeleccionada) {
     /*
         Hacer split de casillaSeleccionada para verificar si hay piezas o las casillas estan vacias para hacer un movimiento.
     */
-    //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.
-    //
-    actualizarTablero();
-    //
     //Marca la casilla seleccionada.
     //
     var casilla = document.getElementById(casillaSeleccionada).value;
     infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) {
+        actualizarTablero();
         if (casilla != " ") {
-            console.log(casillaSeleccionada)
-            document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
-            tableroIntel(casilla, infoFicha[0]);
+            if (color[colorJugador] == 0) {
+                console.log("Ficha seleccionada: " + casillaSeleccionada);
+                document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
+                tableroIntel(casilla, infoFicha[0], color[1]);
+            } else {
+                console.log("Ficha seleccionada: " + casillaSeleccionada);
+                document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
+                tableroIntel(casilla, infoFicha[0], color[0]);
+            }
+
         }
     } else if (infoFicha[1] != color[colorJugador] && casilla == '') {
-        console.log("vacio");
+
+        let elemento = document.getElementById(casillaSeleccionada);
+        let estilo = window.getComputedStyle(elemento);
+        let color = estilo.getPropertyValue('background-color');
+        if (color == "rgb(173, 150, 255)") {
+            console.log("Destino seleccionado: " + casillaSeleccionada);
+        }
+        //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.
+        //
+        actualizarTablero();
+        //
     } else {
         if (casilla != " ") {
             console.log("No es: " + color[colorJugador]);
         }
     }
+
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
@@ -141,7 +156,7 @@ function colocarFichas() {
     if (colorJugador == 1) {
         if (contador == 2) {
             casillas(blancas[6], color[colorJugador]);
-        } else if (contador == 5 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
+        } else if (contador == 3 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
             casillas(blancas[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(blancas[5], color[colorJugador]);
@@ -169,7 +184,7 @@ function colocarFichas() {
     } else {
         if (contador == 2) {
             casillas(negras[6], color[colorJugador]);
-        } else if (contador == 5 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
+        } else if (contador == 3 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
             casillas(negras[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(negras[5], color[colorJugador]);
@@ -199,16 +214,14 @@ function colocarFichas() {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-const tableroIntel = (ficha, posicion) => {
+const tableroIntel = (ficha, posicion, color) => {
     tableroIntel: {
         //--------------------------------------------------------------------------------------------------------------------------//
         coord = posicion.split(".");
-        console.log(posicion);
-        var letra = coord[1];
+        //var letra = coord[1];
         var numero = coord[0];
         //--------------------------------------------------------------------------------------------------------------------------//
         if (ficha == "♙" || ficha == "♟") {
-            console.log("intel activa   Posicion : " + posicion);
             for (let i = 0; i < 2; i++) {
                 numero++;
                 if (numero == 1) {
@@ -218,20 +231,30 @@ const tableroIntel = (ficha, posicion) => {
                 }
             }
         } else if (ficha == "♖" || ficha == "♜") {
-            //no funcion todavia
-            console.log("intel activa   Posicion : " + posicion);
-            for (let i = 1; i < 8; i++) {
-                numero++;
-                document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+
+            /*
+                Marcar columna...
+            */
+            for (let i = numero; i <= 8 - numero; i++) {
+
+                if (document.getElementById(i + "." + coord[1] + "-" + color).value) {
+                    document.getElementById(i + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                }
             }
+            /*
             for (let i = 8; i < 1; --i) {
                 numero--;
                 document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
             }
-
+            */
+            /*
+                Marcar fila...
+            */
+            //for (let c = 2; c < 9; c++) {
+            //    document.getElementById(numero + "." + letras[c]).style.backgroundColor = "#ad96ff";
+            //}
 
         } else if (ficha == "♘" || ficha == "♞") {
-            console.log("intel activa   Posicion : " + posicion);
             numero++;
             try {
                 if (coord[1] == letras[2]) {
@@ -246,14 +269,8 @@ const tableroIntel = (ficha, posicion) => {
                 break tableroIntel;
             }
         } else if (ficha == "♗" || ficha == "♝") {
-            console.log("intel activa   Posicion : " + posicion);
-
         } else if (ficha == "♚" || ficha == "♔") {
-            console.log("intel activa   Posicion : " + posicion);
-            console.log(coord);
         } else if (ficha == "♛" || ficha == "♕") {
-            console.log("intel activa   Posicion : " + posicion);
-            console.log(coord);
         }
     }
 };
