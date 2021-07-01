@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="../CSS/administrador.css">
     <script src="../JS/administrador.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,8 @@
     <div class="sidebar">
         <h1>Administrador</h1>
         <ul>
-            <li><button class="boton-sidebar" id="Usuario" onclick="TraeUsuarios()"><i class="fas fa-user"></i>Usuarios</button></li>
+            <li><button class="boton-sidebar" id="Usuario" onclick="TraeUsuarios()"><i
+                        class="fas fa-user"></i>Usuarios</button></li>
             <li><button class="boton-sidebar"><i class="fas fa-book-open"></i>Periodistas</button></li>
             <li><button class="boton-sidebar"><i class="fas fa-user-tie"></i>Árbitros</button></li>
             <li><button class="boton-sidebar"><i class="fas fas fa-exclamation-circle"></i>Noticias</button></li>
@@ -34,74 +36,23 @@
         <div class="div-wrapper">
             <div class="contenedor-tabla1">
                 <div class="tabla1" id="tabla1">
-                    <button onclick="TraeUsuarios()">...</button>
-                    <table>
+                    <script>
+                        $(document).ready(function () {
+                            TraeUsuarios()
+                        });
+                    </script>
+                    <table id="tablaAprobados">
                         <h2>Aprobados</h2>
                         <tr>
                             <th id="col1">Nombre</th>
                             <th id="col1">Institucion</th>
                             <th id="col1">Tipo</th>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="td1">Nombre1</div>
-                            </td>
-                            <td>
-                                <div class="td1">Institucion1</div> 
-                            </td>
-                            <td>
-                                <div class="td1">Tipo1</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="td1">Nombre1</div>
-                            </td>
-                            <td>
-                                <div class="td1">Institucion1</div> 
-                            </td>
-                            <td>
-                                <div class="td1">Tipo1</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="td1">Nombre1</div>
-                            </td>
-                            <td>
-                                <div class="td1">Institucion1</div> 
-                            </td>
-                            <td>
-                                <div class="td1">Tipo1</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="td1">Nombre1</div>
-                            </td>
-                            <td>
-                                <div class="td1">Institucion1</div> 
-                            </td>
-                            <td>
-                                <div class="td1">Tipo1</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="td1">Nombre1</div>
-                            </td>
-                            <td>
-                                <div class="td1">Institucion1</div> 
-                            </td>
-                            <td>
-                                <div class="td1">Tipo1</div>
-                            </td>
-                        </tr>
                     </table>
                 </div>
             </div>
             <div class="contenedor-tabla2">
-              
+
                 <div class="tabla2" id="tabla2">
                     <table>
                         <h2>Pendientes de aprobar</h2>
@@ -115,7 +66,7 @@
                                 <div class="td1">Nombre1</div>
                             </td>
                             <td>
-                                <div class="td1">Institucion1</div> 
+                                <div class="td1">Institucion1</div>
                             </td>
                             <td>
                                 <div class="td1">Tipo1</div>
@@ -126,7 +77,7 @@
                                 <div class="td1">Nombre1</div>
                             </td>
                             <td>
-                                <div class="td1">Institucion1</div> 
+                                <div class="td1">Institucion1</div>
                             </td>
                             <td>
                                 <div class="td1">Tipo1</div>
@@ -137,7 +88,7 @@
                                 <div class="td1">Nombre1</div>
                             </td>
                             <td>
-                                <div class="td1">Institucion1</div> 
+                                <div class="td1">Institucion1</div>
                             </td>
                             <td>
                                 <div class="td1">Tipo1</div>

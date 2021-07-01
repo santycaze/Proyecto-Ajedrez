@@ -3,16 +3,11 @@
 class Servidor 
 {
     function conexion(){
-        //Open a new connection to the MySQL server
-
-        $mysqli = new mysqli('localhost','root','root','Ajedrez');
-
-        //Output any connection error
-
-        if ($mysqli->connect_error) {
-
-            die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
-
+        if (!$conexion = mysqli_connect("localhost", "root", "root", "ajedrez")) {
+            echo "Error al conectar con la Base de datos.";
+            exit();
+        } else {
+            return $conexion;
         }
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -21,20 +16,20 @@ class Servidor
     function datosJugador(){
         //institucion,añoCurso,nombreUsuario,nombreCompleto,ci,rankingJugador,logros
         $conn = $this->conexion();
-        $JSON = new array();
+        $json = array();
         $query = "CALL datosJugador()";
         $stmt = $conn->prepare($query);
 
         if ($stmt->execute()) {
-            $stmt->store_result($institucion,$añoCursivo,$nombreUsuario,$nombreCompleto,$ci,$rankELO,$logros);
-            $stmt->bind_result();
+            $stmt->store_result();
+            $stmt->bind_result($institucion,$añoCursivo,$nombreUsuario,$nombreCompleto,$ci,$rankELO,$logros);
                 while ($stmt->fetch()) {
                     $fila = array('institucion' => $institucion,'añoCursivo' => $añoCursivo,'nombreUsuario' => $nombreUsuario,'nombreCompleto' => $nombreCompleto,'ci' => $ci,'rankELO' => $rankELO,'logros' => $logros);
-                    $JSON[] = $fila;
+                    $json[] = $fila;
                 }
             }
             $stmt->close();
-        return $JSON;
+        return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
@@ -42,20 +37,21 @@ class Servidor
     function datosPeriodista(){
         // idPeriodista,ci,nombreUsuario,mail,celular,Aprobado
         $conn = $this->conexion();
-        $query = "CALL datosJugador()";
-        $stmt = $conn->prepare($query);
+        $json = array();
+        $query = "CALL datosPriodistas()";
+        $sent = $conn->prepare($query);
 
-        if ($stmt->execute()) {
-
-            $stmt->store_result($idPeriodista,$ci,$nombreUsuario,$mail,$celular,$Aprobado);
-            $stmt->bind_result();
-                while ($stmt->fetch()) {
-                    $fila = array('idPeriodista' => $idPeriodista,'ci' => $ci,'nombreUsuario' => $nombreUsuario,'mail' => $mail,'celular' => $celular,'Aprobado' => $Aprobado);
-                    $JSON[] = $fila;
+        if ($sent->execute()) {
+            $sent->store_result();
+            $sent->bind_result($idPer,$ci,$nomUsuario,$email,$cel,$Apr);
+                while ($sent->fetch()) {
+                    $fila = array('idPeriodista' => $idPer,'ci' => $ci,'nombreUsuario' => $nomUsuario,'mail' => $email,'celular' => $cel,'Aprobado' => $Apr);
+                    $json[] = $fila;
                 }
+                $sent->close();
             }
-            $stmt->close();
-        return $JSON;
+
+        return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
@@ -68,15 +64,16 @@ class Servidor
         $stmt = $conn->prepare($query);
 
         if ($stmt->execute()) {
-
-            $stmt->store_result($idNoticia,$titulo,$nombreUsuario,$contenido);
-            $stmt->bind_result();
+            $json = array();
+            $stmt->store_result();
+            $stmt->bind_result($idNoticia,$titulo,$nombreUsuario,$contenido);
                 while ($stmt->fetch()) {
                     $fila = array('idNoticia' => $idNoticia,'titulo' => $titulo,'nombreUsuario' => $nombreUsuario,'contenido' => $contenido);
-                    $JSON[] = $fila;
+                    $json[] = $fila;
                 }
             }
             $stmt->close();
-        return $JSON;
+        return $json;
+    }
 }
 ?> 
