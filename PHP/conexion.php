@@ -1,12 +1,14 @@
 <?php
 
-//Open a new connection to the MySQL server
+//---------------------------//
+/* Abrir conexion mysql */
+//---------------------------//
 
 $mysqli = new mysqli('localhost','root','root','Ajedrez');
 
-
-
-//Output any connection error
+//---------------------------//
+/* Error de conexion */
+//---------------------------//
 
 if ($mysqli->connect_error) {
 

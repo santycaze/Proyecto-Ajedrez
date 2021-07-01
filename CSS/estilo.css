@@ -403,7 +403,8 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  flex-direction: column;
+  margin: 25px;
   
 }
 
@@ -411,19 +412,26 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 4px;
+  
   display: flex;
   text-decoration: none;
-  width: 160px;
+  width: 180px;
+  margin-bottom: 20px;
+  
   
   justify-content: center;
   align-items: center;
   height: 35px;
   font-size: 19px;
-  padding: 5px;
-  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+  
 
   
+}
+
+.botones-podcast a i{
+  margin: 0 5px;
 }
 
 .boton-noticia{
@@ -437,7 +445,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+
 }
 
 .contenedor-salas a{
