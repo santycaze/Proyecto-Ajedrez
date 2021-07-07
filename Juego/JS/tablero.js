@@ -1,12 +1,12 @@
-var tablero;
-var contador;
-var colorJugador;
+var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino;
 let Y;
 let X;
-var color = new Array();
-var blancas = new Array();  // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
-var negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
-var letras = new Array();
+//Definicion de variables
+color = new Array();
+blancas = new Array();  // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
+negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
+letras = new Array();
+//Definicion de arrays
 color = { 1: "Blancas", 0: "Negras" }
 blancas = { 1: "&#9812;", 2: "&#9813;", 3: "&#9814;", 4: "&#9815;", 5: "&#9816;", 6: "&#9817;" }
 negras = { 1: "&#9818;", 2: "&#9819;", 3: "&#9820;", 4: "&#9821;", 5: "&#9822;", 6: "&#9823;" }
@@ -20,41 +20,42 @@ $(document).ready(function () {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function seleccionado(casillaSeleccionada) {
-    /*
-        Hacer split de casillaSeleccionada para verificar si hay piezas o las casillas estan vacias para hacer un movimiento.
-    */
     //Marca la casilla seleccionada.
     //
-    var casilla = document.getElementById(casillaSeleccionada).value;
-    infoFicha = casillaSeleccionada.split("-");
+    casilla = document.getElementById(casillaSeleccionada).value;
+    console.log(casilla);
+    var infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) {
         actualizarTablero();
         if (casilla != " ") {
             if (color[colorJugador] == 0) {
-                console.log("Ficha seleccionada: " + casillaSeleccionada);
+                seleccion = casillaSeleccionada;
                 document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
                 tableroIntel(casilla, infoFicha[0], color[1]);
             } else {
-                console.log("Ficha seleccionada: " + casillaSeleccionada);
+                seleccion = casillaSeleccionada;
                 document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
                 tableroIntel(casilla, infoFicha[0], color[0]);
             }
 
         }
-    } else if (infoFicha[1] != color[colorJugador] && casilla == '') {
-
+    } else if (infoFicha[1] != color[colorJugador] || infoFicha[1] == color[colorJugador] && casilla == '') {
         let elemento = document.getElementById(casillaSeleccionada);
         let estilo = window.getComputedStyle(elemento);
         let color = estilo.getPropertyValue('background-color');
-        if (color == "rgb(173, 150, 255)") {
-            console.log("Destino seleccionado: " + casillaSeleccionada);
+        if (color == "rgb(173, 150, 255)" || color == "rgb(158, 71, 65)") {
+            destino = casillaSeleccionada;
+        }
+        if (destino != null && seleccion != null) {
+            Movimiento(seleccion, destino);
+            seleccion = null;
+            destino = null;
         }
         //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.
-        //
+        //            
         actualizarTablero();
-        //
     } else {
-        if (casilla != " ") {
+        if (casilla != undefined) {
             console.log("No es: " + color[colorJugador]);
         }
     }
@@ -131,18 +132,17 @@ function crearTablero() {
 function casillas(value, color) {
     if (value == undefined) {
         if (contador == 8) {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></td>"
+            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
         } else {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></td>"
+            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
         }
     } else {
         if (contador == 8) {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></td>"
+            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></div></td>"
         } else {
-            tablero += "<td><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></td>"
+            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></div></td>"
         }
     }
-
     if (X == 8) {
         tablero += "<td id='der'>" + contador + "</td>";
         contador--;
@@ -170,7 +170,7 @@ function colocarFichas() {
             casillas(negras[6], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "a" || contador == 8 && letras[X] == "h") {
             casillas(negras[3], color[colorJugador - 1]);
-        } else if (contador == 8 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
+        } else if (contador == 8 && letras[X] == "b" || contador == 6 && letras[X] == "g") {
             casillas(negras[5], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "c" || contador == 8 && letras[X] == "f") {
             casillas(negras[4], color[colorJugador - 1]);
@@ -214,59 +214,87 @@ function colocarFichas() {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-const tableroIntel = (ficha, posicion, color) => {
+function Movimiento(seleccion, destino) {
+    var ficha = document.getElementById(seleccion).value;
+    separadorA = seleccion.split("-");
+    separadorB = destino.split("-");
+    var lnB = separadorB[0].split(".");
+    claseSeleccion = document.getElementById(seleccion).className;
+    claseDestino = document.getElementById(destino).className;
+    //
+    //
+    if (Comible(lnB[0] - 1, lnB[1]) == true) {
+        document.getElementById("c-" + separadorA[0]).innerHTML = "<button class=" + claseSeleccion + " id='" + separadorA[0] + "' onclick=" + "seleccionado('" + separadorA[0] + "');" + " value=''> </button>";
+        document.getElementById("c-" + separadorB[0]).innerHTML = "<button class=" + claseDestino + " id='" + separadorB[0] + "-" + separadorA[1] + "' onclick=" + "seleccionado('" + separadorB[0] + "-" + separadorA[1] + "');" + " value='" + ficha + "'>" + ficha + "</button>";
+    } else {
+        document.getElementById("c-" + separadorA[0]).innerHTML = "<button class=" + claseSeleccion + " id='" + separadorA[0] + "' onclick=" + "seleccionado('" + separadorA[0] + "');" + " value=''> </button>";
+        document.getElementById("c-" + destino).innerHTML = "<button class=" + claseDestino + " id='" + destino + "-" + separadorA[1] + "' onclick=" + "seleccionado('" + destino + "-" + separadorA[1] + "');" + " value='" + ficha + "'>" + ficha + "</button>";
+    }
+    /*
+    despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
+
+    if (colorJugador == 1) {
+        colorJugador = 0;
+    } else {
+        colorJugador = 1;
+    }
+    */
+}
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+//
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+const tableroIntel = (ficha, posicion) => {
     tableroIntel: {
         //--------------------------------------------------------------------------------------------------------------------------//
         coord = posicion.split(".");
-        //var letra = coord[1];
+        var letra = coord[1];
         var numero = coord[0];
+        /*
+        NO USAR "numero" PARA EL ELSE DEL PEÓN, hacer el for para encontrar la letra (igual que en el caballo).
+        */
         //--------------------------------------------------------------------------------------------------------------------------//
+        // marco en violeta los lugares donde puede mover.
         if (ficha == "♙" || ficha == "♟") {
-            for (let i = 0; i < 2; i++) {
+            if (numero != 2 && Comible(numero, letra) == false) {
+                //marco en violeta la casilla delante del peon
                 numero++;
-                if (numero == 1) {
-
-                } else {
-                    document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
+                document.getElementById(numero + "." + letra).style.backgroundColor = "#ad96ff";
+            } else if (numero == 2 && Comible(numero, letra) == false) {
+                //marco en violeta las DOS caillas delante del peon si es la primera movida
+                for (let i = 0; i < 2; i++) {
+                    numero++;
+                    document.getElementById(numero + "." + letra).style.backgroundColor = "#ad96ff";
                 }
             }
+            --numero;
+            // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
         } else if (ficha == "♖" || ficha == "♜") {
-
-            /*
-                Marcar columna...
-            */
-            for (let i = numero; i <= 8 - numero; i++) {
-
-                if (document.getElementById(i + "." + coord[1] + "-" + color).value) {
-                    document.getElementById(i + "." + coord[1]).style.backgroundColor = "#ad96ff";
-                }
-            }
-            /*
-            for (let i = 8; i < 1; --i) {
-                numero--;
-                document.getElementById(numero + "." + coord[1]).style.backgroundColor = "#ad96ff";
-            }
-            */
-            /*
-                Marcar fila...
-            */
-            //for (let c = 2; c < 9; c++) {
-            //    document.getElementById(numero + "." + letras[c]).style.backgroundColor = "#ad96ff";
-            //}
-
         } else if (ficha == "♘" || ficha == "♞") {
             numero++;
-            try {
-                if (coord[1] == letras[2]) {
-                    document.getElementById(numero + 1 + "." + letras[1]).style.backgroundColor = "#ad96ff";
-                    document.getElementById(numero + 1 + "." + letras[3]).style.backgroundColor = "#ad96ff";
-                } else if (coord[1] == letras[7]) {
-                    document.getElementById(numero + 1 + "." + letras[6]).style.backgroundColor = "#ad96ff";
-                    document.getElementById(numero + 1 + "." + letras[8]).style.backgroundColor = "#ad96ff";
+            for (let i = 1; i <= 8; i++) {
+                if (letra == letras[i] && Comible(numero, letra) == false) {
+                    numero++;
+                    if (i < 7) {
+                        if (!!document.getElementById(numero + "." + letras[i + 1] + "-Blancas") == false || !!document.getElementById(numero + "." + letras[i - 1] + "-Negras") == false) {
+                            document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
+                            document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                        }
+                        document.getElementById(numero -1 + "." + letras[i + 2]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero -1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
+
+                        document.getElementById(numero - 4 + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero - 4 + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                    } else if (i > 7) {
+                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
+                    } else if (i < 2) {
+                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
+                    } else {
+                        document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                    }
                 }
-            } catch (error) {
-                console.log("Hay una ficha adelante.");
-                break tableroIntel;
             }
         } else if (ficha == "♗" || ficha == "♝") {
         } else if (ficha == "♚" || ficha == "♔") {
@@ -274,3 +302,26 @@ const tableroIntel = (ficha, posicion, color) => {
         }
     }
 };
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+//
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+function Comible(numero, letraA, letraB) {
+    var Comible;
+    numero++;
+    if (!!document.getElementById(numero + "." + letraA + "-Blancas") == true || !!document.getElementById(numero + "." + letraA + "-Negras" || !!document.getElementById(numero + "." + letraB + "-Blancas") == true || !!document.getElementById(numero + "." + letraB + "-Negras") == true)) {
+        Comible = true;
+    } else {
+        Comible = false;
+    }
+    return Comible;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+//
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+function Output() {
+    /* 
+    Enviar todos los datos de movidas, fichas comidas, tiempo de movida,color de jugador, etc
+    a un php y almacenarlos en el servidor.
+    */
+}
+//+-68 lineas de comentarios.
