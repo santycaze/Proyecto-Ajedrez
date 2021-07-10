@@ -30,5 +30,8 @@ function Periodistas() {
   $("#tabla1").html(tabla1);
   var tabla2 = "<table id='tablaAprobados'> <h2>Pendientes de aprobar</h2><tr> <th id='col1'>Nombre</th> <th id='col1'>Institucion</th>  <th id='col1'>Tipo</th>  <th id='col1'>Eliminar</th></tr></table>";
   $("#tabla2").html(tabla2);
+  $(document).ready(function () {
+    TraePeriodistas()
+  });
 }
 
