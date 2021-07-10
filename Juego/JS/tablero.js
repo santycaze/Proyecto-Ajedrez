@@ -23,7 +23,6 @@ function seleccionado(casillaSeleccionada) {
     //Marca la casilla seleccionada.
     //
     casilla = document.getElementById(casillaSeleccionada).value;
-    console.log(casilla);
     var infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) {
         actualizarTablero();
@@ -266,7 +265,18 @@ const tableroIntel = (ficha, posicion) => {
                     document.getElementById(numero + "." + letra).style.backgroundColor = "#ad96ff";
                 }
             }
-            --numero;
+            for (let i = 1; i < 8; i++) {
+                if (letras[i] == letra && Comible(numero, letras[i + 1]) == true || Comible(numero, letras[i - 1]) == true) {
+                    numero++;
+                    if (colorJugador == 1) {
+                        document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                        document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
+                    }
+
+                }
+            }
+
+
             // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
         } else if (ficha == "♖" || ficha == "♜") {
         } else if (ficha == "♘" || ficha == "♞") {
@@ -279,8 +289,8 @@ const tableroIntel = (ficha, posicion) => {
                             document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
                             document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
                         }
-                        document.getElementById(numero -1 + "." + letras[i + 2]).style.backgroundColor = "#ad96ff";
-                        document.getElementById(numero -1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero - 1 + "." + letras[i + 2]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
 
                         document.getElementById(numero - 4 + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
                         document.getElementById(numero - 4 + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
@@ -305,10 +315,10 @@ const tableroIntel = (ficha, posicion) => {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-function Comible(numero, letraA, letraB) {
+function Comible(numero, letra) {
     var Comible;
     numero++;
-    if (!!document.getElementById(numero + "." + letraA + "-Blancas") == true || !!document.getElementById(numero + "." + letraA + "-Negras" || !!document.getElementById(numero + "." + letraB + "-Blancas") == true || !!document.getElementById(numero + "." + letraB + "-Negras") == true)) {
+    if (!!document.getElementById(numero + "." + letra + "-Blancas") == true || !!document.getElementById(numero + "." + letra + "-Negras")) {
         Comible = true;
     } else {
         Comible = false;
