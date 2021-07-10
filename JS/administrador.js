@@ -22,4 +22,12 @@ function TraeUsuarios() {
       }
     }
   });
+
 }
+
+function Periodistas() {
+  var tabla1 = "<table id='tablaNoAprobados'> <h2>Pendientes de aprobar</h2><tr> <th id='col1'>Nombre</th> <th id='col1'>Institucion</th>  <th id='col1'>Tipo</th>  <th id='col1'>A/R</th></tr></table>";
+  $("#tabla1").html(contenido);
+  var tabla2 = "<table id='tablaAprobados'> <h2>Pendientes de aprobar</h2><tr> <th id='col1'>Nombre</th> <th id='col1'>Institucion</th>  <th id='col1'>Tipo</th>  <th id='col1'>Eliminar</th></tr></table>";
+}
+
