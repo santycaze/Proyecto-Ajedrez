@@ -36,10 +36,8 @@ function Periodistas() {
 }
 
 function Usuarios() {
-  var tabla1 = ""
+  var tabla1 = "<table id='tablaAprobados'><h2>Usuarios</h2> <tr>   <th id='col1'>Nombre</th> <th id='col1'>Institucion</th> <th id='col1'>Tipo</th> <th id='col1'>Eliminar</th> <th id='col1'>Modificar</th> </tr></table>";
   $("#tabla1").html(tabla1);
-  var tabla2 = ""
-  $("#tabla2").html(tabla2);
   $(document).ready(function () {
     TraeUsuarios()
   });
