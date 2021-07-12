@@ -35,3 +35,12 @@ function Periodistas() {
   });
 }
 
+function Usuarios() {
+  var tabla1 = ""
+  $("#tabla1").html(tabla1);
+  var tabla2 = ""
+  $("#tabla2").html(tabla2);
+  $(document).ready(function () {
+    
+  });
+}
