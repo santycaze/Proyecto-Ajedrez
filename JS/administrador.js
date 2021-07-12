@@ -41,7 +41,7 @@ function Usuarios() {
   var tabla2 = ""
   $("#tabla2").html(tabla2);
   $(document).ready(function () {
-    
+    TraeUsuarios()
   });
 }
 
@@ -51,6 +51,6 @@ function Contraseñas() {
   var tabla2 = ""
   $("#tabla2").html(tabla2);
   $(document).ready(function () {
-    
+    TraeContraseñas()
   });
 }
