@@ -8,8 +8,8 @@ negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Pe
 letras = new Array();
 //Definicion de arrays
 color = { 1: "Blancas", 0: "Negras" }
-blancas = { 1: "&#9812;", 2: "&#9813;", 3: "&#9814;", 4: "&#9815;", 5: "&#9816;", 6: "&#9817;" }
-negras = { 1: "&#9818;", 2: "&#9819;", 3: "&#9820;", 4: "&#9821;", 5: "&#9822;", 6: "&#9823;" }
+blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" }
+negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 $(document).ready(function () {
@@ -21,7 +21,9 @@ $(document).ready(function () {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function seleccionado(casillaSeleccionada) {
     //Marca la casilla seleccionada.
+    console.log(casilla);
     casilla = document.getElementById(casillaSeleccionada).value;
+    console.log(casilla);
     var infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) {
         actualizarTablero();
@@ -68,15 +70,15 @@ function actualizarTablero() {
             // Colores asignados a casillas
             if (Y % 2 == 0) {
                 if (X % 2 == 0) {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "white");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#EDE1AE");
                 } else {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "grey");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#9E692F");
                 }
             } else {
                 if (X % 2 != 0) {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "white");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#EDE1AE");
                 } else {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "grey");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#9E692F");
                 }
             }
         }
@@ -118,6 +120,7 @@ function crearTablero() {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function casillas(value, color) {
+    console.log(value);
     if (value == undefined) {
         if (contador == 8) {
             tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
@@ -126,9 +129,9 @@ function casillas(value, color) {
         }
     } else {
         if (contador == 8) {
-            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></div></td>"
+            tablero += '<td><div id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" onclick=' + 'seleccionado("' + contador + '.' + letras[X] + '-' + color + '");' + ' value="' + value + '">' + value + '</button></div></td>';
         } else {
-            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "-" + color + "' onclick=" + "seleccionado('" + contador + "." + letras[X] + "-" + color + "');" + " value='" + value + "' name='" + color + "'>" + value + "</button></div></td>"
+            tablero += '<td><div id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" onclick=' + 'seleccionado("' + contador + '.' + letras[X] + '-' + color + '");' + ' value="' + value + '">' + value + '</button></div></td>';
         }
     }
     if (X == 8) {
@@ -211,11 +214,15 @@ function Movimiento(seleccion, destino) {
     claseDestino = document.getElementById(destino).className;
 
     if (Comible(lnB[0] - 1, lnB[1]) == true) {
-        document.getElementById("c-" + separadorA[0]).innerHTML = "<button class=" + claseSeleccion + " id='" + separadorA[0] + "' onclick=" + "seleccionado('" + separadorA[0] + "');" + " value=''> </button>";
-        document.getElementById("c-" + separadorB[0]).innerHTML = "<button class=" + claseDestino + " id='" + separadorB[0] + "-" + separadorA[1] + "' onclick=" + "seleccionado('" + separadorB[0] + "-" + separadorA[1] + "');" + " value='" + ficha + "'>" + ficha + "</button>";
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> </button>';
+        document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
     } else {
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> </button>';
+        document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
+        /*
         document.getElementById("c-" + separadorA[0]).innerHTML = "<button class=" + claseSeleccion + " id='" + separadorA[0] + "' onclick=" + "seleccionado('" + separadorA[0] + "');" + " value=''> </button>";
         document.getElementById("c-" + destino).innerHTML = "<button class=" + claseDestino + " id='" + destino + "-" + separadorA[1] + "' onclick=" + "seleccionado('" + destino + "-" + separadorA[1] + "');" + " value='" + ficha + "'>" + ficha + "</button>";
+        */
     }
     /*
     despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
@@ -236,7 +243,7 @@ const tableroIntel = (ficha, posicion) => {
         var letra = coord[1];
         var numero = coord[0];
         //--------------------------------------------------------------------------------------------------------------------------//
-        if (ficha == "♙" || ficha == "♟") {
+        if (ficha == "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/PeonNegro.png' id='ficha'></img>") {
             if (numero != 2 && Comible(numero, letra) == false) {
                 //marco en violeta la casilla delante del peon
                 numero++;
