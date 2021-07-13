@@ -21,7 +21,6 @@ $(document).ready(function () {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function seleccionado(casillaSeleccionada) {
     //Marca la casilla seleccionada.
-    //
     casilla = document.getElementById(casillaSeleccionada).value;
     var infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) {
@@ -50,8 +49,7 @@ function seleccionado(casillaSeleccionada) {
             seleccion = null;
             destino = null;
         }
-        //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.
-        //            
+        //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.          
         actualizarTablero();
     } else {
         if (casilla != undefined) {
@@ -65,12 +63,9 @@ function seleccionado(casillaSeleccionada) {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function actualizarTablero() {
     //Actualiza las casillas
-    //
     for (let Y = 1; Y <= 8; Y++) {
         for (let X = 1; X <= 8; X++) {
-            //
             // Colores asignados a casillas
-            //
             if (Y % 2 == 0) {
                 if (X % 2 == 0) {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "white");
@@ -84,7 +79,6 @@ function actualizarTablero() {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "grey");
                 }
             }
-            //
         }
     }
 }
@@ -105,20 +99,15 @@ function crearTablero() {
         contador--;
     }
     for (Y = 1; Y <= 8; Y++) {
-
         //crear tr
-        //
         tablero += "<tr id=" + "t" + Y + ">";
         tablero += "<td id='izq'>" + contador + "</td>";
-        //
+
         for (X = 1; X <= 8; X++) {
             //crear td
-            //
             colocarFichas();
-            //
         }
         tablero += "</tr>";
-
     }
     tablero += "<tr> <td> </td> <td id='inf'>A</td> <td id='inf'>B</td> <td id='inf'>C</td> <td id='inf'>D</td> <td id='inf'>E</td> <td id='inf'>F</td> <td id='inf'>G</td> <td id='inf'>H</td> </tr>";
     tablero += "</table>";
@@ -220,8 +209,7 @@ function Movimiento(seleccion, destino) {
     var lnB = separadorB[0].split(".");
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
-    //
-    //
+
     if (Comible(lnB[0] - 1, lnB[1]) == true) {
         document.getElementById("c-" + separadorA[0]).innerHTML = "<button class=" + claseSeleccion + " id='" + separadorA[0] + "' onclick=" + "seleccionado('" + separadorA[0] + "');" + " value=''> </button>";
         document.getElementById("c-" + separadorB[0]).innerHTML = "<button class=" + claseDestino + " id='" + separadorB[0] + "-" + separadorA[1] + "' onclick=" + "seleccionado('" + separadorB[0] + "-" + separadorA[1] + "');" + " value='" + ficha + "'>" + ficha + "</button>";
@@ -231,7 +219,6 @@ function Movimiento(seleccion, destino) {
     }
     /*
     despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
-
     if (colorJugador == 1) {
         colorJugador = 0;
     } else {
@@ -248,36 +235,54 @@ const tableroIntel = (ficha, posicion) => {
         coord = posicion.split(".");
         var letra = coord[1];
         var numero = coord[0];
-        /*
-        NO USAR "numero" PARA EL ELSE DEL PEÓN, hacer el for para encontrar la letra (igual que en el caballo).
-        */
         //--------------------------------------------------------------------------------------------------------------------------//
-        // marco en violeta los lugares donde puede mover.
         if (ficha == "♙" || ficha == "♟") {
             if (numero != 2 && Comible(numero, letra) == false) {
                 //marco en violeta la casilla delante del peon
                 numero++;
                 document.getElementById(numero + "." + letra).style.backgroundColor = "#ad96ff";
+                --numero;
             } else if (numero == 2 && Comible(numero, letra) == false) {
                 //marco en violeta las DOS caillas delante del peon si es la primera movida
                 for (let i = 0; i < 2; i++) {
                     numero++;
                     document.getElementById(numero + "." + letra).style.backgroundColor = "#ad96ff";
                 }
+                --numero;
             }
+            // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
             for (let i = 1; i < 8; i++) {
-                if (letras[i] == letra && Comible(numero, letras[i + 1]) == true || Comible(numero, letras[i - 1]) == true) {
-                    numero++;
-                    if (colorJugador == 1) {
-                        document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
-                        document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
+                if (letras[i] == letra) {
+                    switch (colorJugador) {
+                        case 1:
+                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
+                                numero++;
+                                document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                                document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                            } else if (Comible(numero, letras[i - 1]) == true) {
+                                numero++;
+                                document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                            } else if (Comible(numero, letras[i + 1]) == true) {
+                                numero++;
+                                document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                            }
+                            break;
+                        case 0:
+                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
+                                numero++;
+                                document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
+                                document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
+                            } else if (Comible(numero, letras[i - 1]) == true) {
+                                numero++;
+                                document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
+                            } else if (Comible(numero, letras[i + 1]) == true) {
+                                numero++;
+                                document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
+                            }
+                            break;
                     }
-
                 }
             }
-
-
-            // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
         } else if (ficha == "♖" || ficha == "♜") {
         } else if (ficha == "♘" || ficha == "♞") {
             numero++;
@@ -307,8 +312,8 @@ const tableroIntel = (ficha, posicion) => {
                 }
             }
         } else if (ficha == "♗" || ficha == "♝") {
-        } else if (ficha == "♚" || ficha == "♔") {
-        } else if (ficha == "♛" || ficha == "♕") {
+        } else if (ficha == "♔" || ficha == "♚") {
+        } else if (ficha == "♕" || ficha == "♛") {
         }
     }
 };
@@ -318,11 +323,25 @@ const tableroIntel = (ficha, posicion) => {
 function Comible(numero, letra) {
     var Comible;
     numero++;
-    if (!!document.getElementById(numero + "." + letra + "-Blancas") == true || !!document.getElementById(numero + "." + letra + "-Negras")) {
-        Comible = true;
-    } else {
-        Comible = false;
+    switch (colorJugador) {
+        case 1:
+            if (!!document.getElementById(numero + "." + letra + "-Negras")) {
+                Comible = true;
+            } else {
+                Comible = false;
+            }
+            break;
+        case 0:
+            if (!!document.getElementById(numero + "." + letra + "-Blancas") == true) {
+                Comible = true;
+            } else {
+                Comible = false;
+            }
+            break;
+        default:
+            break;
     }
+    numero - 1;
     return Comible;
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -334,4 +353,3 @@ function Output() {
     a un php y almacenarlos en el servidor.
     */
 }
-//+-68 lineas de comentarios.
