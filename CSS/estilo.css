@@ -399,6 +399,10 @@ h2 {
   align-items: center;
   flex-direction: column;
 }
+
+.contenedor-podcast img{
+  width: 35%;
+}
 .botones-podcast{
   display: flex;
   justify-content: center;
