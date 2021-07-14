@@ -21,9 +21,7 @@ $(document).ready(function () {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function seleccionado(casillaSeleccionada) {
     //Marca la casilla seleccionada.
-    console.log(casilla);
     casilla = document.getElementById(casillaSeleccionada).value;
-    console.log(casilla);
     var infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) {
         actualizarTablero();
@@ -120,7 +118,6 @@ function crearTablero() {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function casillas(value, color) {
-    console.log(value);
     if (value == undefined) {
         if (contador == 8) {
             tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
@@ -219,10 +216,6 @@ function Movimiento(seleccion, destino) {
     } else {
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> </button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
-        /*
-        document.getElementById("c-" + separadorA[0]).innerHTML = "<button class=" + claseSeleccion + " id='" + separadorA[0] + "' onclick=" + "seleccionado('" + separadorA[0] + "');" + " value=''> </button>";
-        document.getElementById("c-" + destino).innerHTML = "<button class=" + claseDestino + " id='" + destino + "-" + separadorA[1] + "' onclick=" + "seleccionado('" + destino + "-" + separadorA[1] + "');" + " value='" + ficha + "'>" + ficha + "</button>";
-        */
     }
     /*
     despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
@@ -290,8 +283,8 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "♖" || ficha == "♜") {
-        } else if (ficha == "♘" || ficha == "♞") {
+        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
@@ -318,9 +311,9 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "♗" || ficha == "♝") {
-        } else if (ficha == "♔" || ficha == "♚") {
-        } else if (ficha == "♕" || ficha == "♛") {
+        } else if (ficha == "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/AlfilNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReinaNegra.png' id='ficha'></img>") {
         }
     }
 };

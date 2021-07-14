@@ -75,5 +75,27 @@ class Servidor
             $stmt->close();
         return $json;
     }
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function Contraseñas()
+    {
+        //idNoticia,titulo,nombreUsuario,contenido
+        $conn = $this->conexion();
+        $query = "CALL Passwd()";
+        $stmt = $conn->prepare($query);
+
+        if ($stmt->execute()) {
+            $json = array();
+            $stmt->store_result();
+            $stmt->bind_result($contraseña,$nombreUsuario);
+                while ($stmt->fetch()) {
+                    $fila = array('contraseña' => $contraseña,'nombreUsuario' => $nombreUsuario);
+                    $json[] = $fila;
+                }
+            }
+            $stmt->close();
+        return $json;
+    }
 }
 ?> 
