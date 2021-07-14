@@ -28,7 +28,7 @@ function TraeUsuarios() {
       var Datos = JSON.parse(response);
       for (let i = 0; i < Datos.length; i++) {
         console.log(Datos[i]);
-          contenido = "<tr><td><div class='td1'>"+Datos[i].nombreUsuario+"</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Jugador</div></td><td><div class='td1'><button>✖</button></div></td><td><div class='td1'><button>⚙️</button></div></td></tr>";
+          contenido = "<tr><td><div class='td1'>"+Datos[i].nombreUsuario+"</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Jugador</div></td><td><div class='td1'><button>✖</button></div></td><td><div class='td1'><button on>⚙️</button></div></td></tr>";
           $("#tablaJugadores").append(contenido);
       }
     }
@@ -74,4 +74,10 @@ function Contraseñas() {
   var tabla2 = ""
   $("#tabla2").html(tabla2);
   TraeContraseñas();
+}
+
+function ModUsuario() {
+  var tabla2 = "<tabla id='tablaModUsuarios'><h2>Contraseñas</h2>  <tr>   <th id='col1'>Nombre de Usuario</th> <th id='col1'>Contraseña</th> <th id='col1'>Modificar</th> </tr></table>";
+  $("#tabla2").html(tabla2);
+  TraeModUsuarios();
 }
