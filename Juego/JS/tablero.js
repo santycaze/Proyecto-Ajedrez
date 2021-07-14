@@ -11,8 +11,8 @@ color = { 1: "Blancas", 0: "Negras" }
 blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" }
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
-    /*---------------------------------------------------------------------------------------------------------------------------------*/
-$(document).ready(function() {
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+$(document).ready(function () {
     colorJugador = asignarColor();
     crearTablero();
 });
@@ -66,7 +66,6 @@ function actualizarTablero() {
     for (let Y = 1; Y <= 8; Y++) {
         for (let X = 1; X <= 8; X++) {
             // Colores asignados a casillas
-
             if (Y % 2 == 0) {
                 if (X % 2 == 0) {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "#EDE1AE");
@@ -80,7 +79,6 @@ function actualizarTablero() {
                     $("#t" + Y + " " + ".casilla" + X).css("background-color", "#9E692F");
                 }
             }
-
         }
     }
 }
@@ -150,7 +148,7 @@ function colocarFichas() {
             casillas(blancas[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(blancas[5], color[colorJugador]);
-        } else if (contador == 1 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
+        } else if (contador == 1 && letras[X] == "c" || contador == 3 && letras[X] == "f") {
             casillas(blancas[4], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "d") {
             casillas(blancas[2], color[colorJugador]);
@@ -241,12 +239,12 @@ const tableroIntel = (ficha, posicion) => {
         /* Peon  (bug)*/
         if (ficha == "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/PeonNegro.png' id='ficha'></img>") {
             if (numero != 2 && Comible(numero, letra) == false) {
-                //marco en violeta la casilla delante del peon
+                //marco en verde la casilla delante del peon
                 numero++;
                 document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
                 --numero;
             } else if (numero == 2 && Comible(numero, letra) == false) {
-                //marco en violeta las DOS caillas delante del peon si es la primera movida
+                //marco en verde las DOS caillas delante del peon si es la primera movida
                 for (let i = 0; i < 2; i++) {
                     numero++;
                     document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
@@ -288,9 +286,7 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-            /* Torre */
         } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {
-
         } else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
@@ -318,13 +314,20 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/AlfilNegro.png' id='ficha'></img>") {} else if (ficha == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {} else if (ficha == "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReinaNegra.png' id='ficha'></img>") {
-            for (let i = 0; i < 8; i++) {
+        } else if (ficha == "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/AlfilNegro.png' id='ficha'></img>") {
+            for (let i = 1; i < 8; i++) {
                 if (letra == letras[i]) {
-                    i++;
-                    document.getElementById(i + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                    for (let x = 0; x < 8; x++) {
+                        numero++;
+                        i++;
+                        document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                    }
                 }
             }
+        } else if (ficha == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
+
+        } else if (ficha == "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReinaNegra.png' id='ficha'></img>") {
+
         }
     }
 };

@@ -2,6 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    background-color: rgb(75, 75, 75);
 }
 
 div {
