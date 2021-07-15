@@ -11,7 +11,7 @@ function TraePeriodistas() {
                     contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas("+Datos[i].idPeriodista+")'>✖</button></div></td></tr>";
                     $("#tablaAprobados").append(contenido);
                 } else {
-                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar("+Datos[i].idPeriodista+")'>✓</button><button>✖</button></div></td></tr>";
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar("+Datos[i].idPeriodista+")'>✓</button><button onclick='EliminarPeriodistas("+Datos[i].idPeriodista+")'>✖</button></div></td></tr>";
                     $("#tablaNoAprobados").append(contenido);
                 }
             }
@@ -64,7 +64,7 @@ function Aprobar(idPeriodista) {
 function EliminarPeriodistas(idPeriodista) {
     $.ajax({
         type: "POST",
-        url: "../PHP/aprobar.php",
+        url: "../PHP/eliminarPeriodistas.php",
         data: {idP: idPeriodista},
         success: function(response) {
             console.log(response);
