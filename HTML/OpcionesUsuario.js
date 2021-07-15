@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('').hide();
+    $('#edicion').hide();
 });
 
 
@@ -11,8 +11,8 @@ function Modificar(){
         type: "POST",
         url: "HTML/OpcionesUsuarios.php",
         success: function(response) {
-            $('#tabla').show();
-           $('#tabla').html(response);
+            $('#edicion').show();
+           $('#edicion').html(response);
            $('body').css('overflow','hidden');
         }
     });
@@ -21,7 +21,7 @@ function Modificar(){
 
 
 function cerrar(){
-    $('#tabla').hide();
+    $('#edicion').hide();
     $('body').css('overflow','auto');
 }
 

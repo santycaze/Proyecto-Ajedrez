@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <div class="div-wrapper-mod">
+<?php
+
+$llamarediocion = '
+<div class="div-wrapper-mod">
        <div class="contenedor-mod">
-          <div class="icono-usuario"></div>
-          <div class="contenedor-mod-icono"></div>
-          <div class="nick-usuario"></div>
-          <div class="contenedor-nick"></div>
-       </div>
-   </div> 
-</body>
-</html>
+          <div class="icono-usuario"><img src="../IMG/icono1.png" alt=""></div>
+          <div class="nick-usuario">
+              <h1>Socratess</h1> <button><i class="fas fa-edit"></i></button>
+          </div>
+          <div class="contenedor-mod-icono">
+            <button><img src="../IMG/icono1.png" alt=""></button>
+            <button><img src="../IMG/icono2.png" alt=""></button>
+            <button><img src="../IMG/icono3.png" alt=""></button>
+            <button><img src="../IMG/icono4.png" alt=""></button>
+            <button><img src="../IMG/icono5.png" alt=""></button>
+        </div>
+          
+          <div class="guardar-edicion">
+             <button> Guardar<i class="far fa-save"></i>
+              </button>
+          </div>
+          
+          
+   </div> ';
+
+   echo $llamarediocion;
+   return $llamarediocion;
+?>
