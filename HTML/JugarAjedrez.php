@@ -2,7 +2,12 @@
 
 $llamarajedrez = '
 
-    <div class="div-wrapper">
+
+
+    <div class="div-wrapper-juego">
+
+    <div class= "contenedor-div-wrapper-juego">
+
 
     <div id="tabla2"></div>
 
@@ -36,7 +41,7 @@ $llamarajedrez = '
     </div>
     <button onclick="cerrar()">Cerrar</button>
     </div>
-
+    </div>
    
     </div>';
 
