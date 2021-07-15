@@ -7,7 +7,10 @@ function iniciarSesion() {
         url: "../PHP/login.php",
         data: { user: usr, pass: pass },
         success: function(response) {
-            $("body").html("estas logeado")
+            console.log(response);
+           if (response == "1") {
+            window.location="../index.html";    
+           }
         }
     });
 }

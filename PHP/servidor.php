@@ -97,5 +97,18 @@ class Servidor
             $stmt->close();
         return $json;
     }
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function Aprobar()
+    {
+        $conn = $this->conexion();
+        $datos = array("idUsuario" => $_POST['idU']);
+        $query = "CALL Aprobar(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $datos["aprobado"]);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 ?> 

@@ -8,12 +8,11 @@ function TraePeriodistas() {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
                 console.log(Datos[i]);
-
                 if (Datos[i].Aprobado == 1) {
                     contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button>✖</button></div></td></tr>";
                     $("#tablaAprobados").append(contenido);
                 } else {
-                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button>✓</button><button>✖</button></div></td></tr>";
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar("+Datos[i].idPeriodista+")'>✓</button><button>✖</button></div></td></tr>";
                     $("#tablaNoAprobados").append(contenido);
                 }
             }
@@ -52,7 +51,18 @@ function TraeContraseñas() {
             }
         }
     });
+}
 
+function Aprobar(aprobado) {
+    $.ajax({
+        type: "POST",
+        url: "../PHP/aprobar.php",
+        data: {idU: aprobado},
+        success: function(response) {
+            console.log(response);
+            Periodistas();
+        }
+    });
 }
 
 function Periodistas() {
