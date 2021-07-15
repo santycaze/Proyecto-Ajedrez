@@ -363,6 +363,16 @@ h2 {
   margin-top: 10px;
 }
 
+#foto{
+  margin: 0px;
+  width: 24px
+  
+  
+}
+#foto2{
+  width: 100%;
+}
+
 .usuario a{
   position: fixed;
   top: 0px;

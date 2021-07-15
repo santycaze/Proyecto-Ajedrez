@@ -12,19 +12,22 @@
 </head>
 
 <body>
-    <script>
-        $(document).ready(function() {
-        sesion();
-        });
-    </script>
+
     <div class="header">
         <div class="usuario">
-            <a href='../Proyecto-Ajedrez/HTML/login.html'>
-                <i class="fas fa-user"></i>
-                <p>Log in</p>
+            <a href='../Proyecto-Ajedrez/HTML/login.html' id="elcosodellogin">
+                <i class="fas fa-user" id="foto"></i>
+                <p id="nick">Log in</p>
             </a>
         </div>
-
+        <script>
+            $(document).ready(function() {
+            sesion();
+            $("#elcosodellogin").html('<i id="foto"></i> <p id="nick"></p>')
+            $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono5.png'></img>")
+            $("#nick").html("ELNICK")
+            });
+        </script>
         <div class="header-right">
             <span class="slide"></span>
             <a class="active" href="#home ">Home</a>

@@ -4,6 +4,7 @@ function sesion() {
         url: "../PHP/sesionPrueba.php",
         success: function(response) {
             console.log(response);
+
         }
     });
 }
