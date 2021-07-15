@@ -3,8 +3,7 @@ function sesion() {
         type: "POST",
         url: "../PHP/sesionPrueba.php",
         success: function(response) {
-            console.log(response);
-
+            console.log(response)
         }
     });
 }

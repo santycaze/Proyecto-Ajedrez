@@ -52,7 +52,17 @@ function TraeContraseñas() {
             }
         }
     });
+}
 
+function Aprobar() {
+    $.ajax({
+        type: "POST",
+        url: "../PHP/aprobar.php",
+        data: {apr: aprobado},
+        success: function(response) {
+
+        }
+    });
 }
 
 function Periodistas() {
