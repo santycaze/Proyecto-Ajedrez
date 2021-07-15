@@ -3,7 +3,7 @@
 class Servidor 
 {
     function conexion(){
-        if (!$conexion = mysqli_connect("localhost", "root", "Manogamerpro17", "ajedrez")) {
+        if (!$conexion = mysqli_connect("localhost", "root", "root", "ajedrez")) {
             echo "Error al conectar con la Base de datos.";
             exit();
         } else {
@@ -103,10 +103,23 @@ class Servidor
     function Aprobar()
     {
         $conn = $this->conexion();
-        $datos = array("idUsuario" => $_POST['idU']);
+        $datos = array("idPeriodista" => $_POST['idP']);
         $query = "CALL Aprobar(?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $datos["aprobado"]);
+        $stmt->bind_param("i", $datos["idPeriodista"]);
+        $stmt->execute();
+        $stmt->close();
+    }
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function eliminarPeriodistas()
+    {
+        $conn = $this->conexion();
+        $datos = array("idPeriodista" => $_POST['idP']);
+        $query = "CALL EliminarPeriodistas(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $datos["idPeriodista"]);
         $stmt->execute();
         $stmt->close();
     }

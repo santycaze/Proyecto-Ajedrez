@@ -7,9 +7,8 @@ function TraePeriodistas() {
         success: function(response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
-                console.log(Datos[i]);
                 if (Datos[i].Aprobado == 1) {
-                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button>✖</button></div></td></tr>";
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas("+Datos[i].idPeriodista+")'>✖</button></div></td></tr>";
                     $("#tablaAprobados").append(contenido);
                 } else {
                     contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar("+Datos[i].idPeriodista+")'>✓</button><button>✖</button></div></td></tr>";
@@ -28,7 +27,6 @@ function TraeUsuarios() {
         success: function(response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
-                console.log(Datos[i]);
                 contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Jugador</div></td><td><div class='td1'><button>✖</button></div></td><td><div class='td1'><button on>⚙️</button></div></td></tr>";
                 $("#tablaJugadores").append(contenido);
             }
@@ -44,8 +42,6 @@ function TraeContraseñas() {
         success: function(response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
-                console.log(Datos[i]);
-                var tablaAprobados = document.getElementById("tablaAprobados");
                 contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>" + Datos[i].contraseña + "</div></td><td><div class='td1'><button>⚙️</button></div></td></tr>";
                 $("#tablaContraseñas").append(contenido);
             }
@@ -53,11 +49,23 @@ function TraeContraseñas() {
     });
 }
 
-function Aprobar(aprobado) {
+function Aprobar(idPeriodista) {
     $.ajax({
         type: "POST",
         url: "../PHP/aprobar.php",
-        data: {idU: aprobado},
+        data: {idP: idPeriodista},
+        success: function(response) {
+            console.log(response);
+            Periodistas();
+        }
+    });
+}
+
+function EliminarPeriodistas(idPeriodista) {
+    $.ajax({
+        type: "POST",
+        url: "../PHP/aprobar.php",
+        data: {idP: idPeriodista},
         success: function(response) {
             console.log(response);
             Periodistas();
