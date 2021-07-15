@@ -3,7 +3,7 @@ let Y;
 let X;
 //Definicion de variables
 color = new Array();
-blancas = new Array();  // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
+blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
 negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
 letras = new Array();
 //Definicion de arrays
@@ -11,8 +11,8 @@ color = { 1: "Blancas", 0: "Negras" }
 blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" }
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-$(document).ready(function () {
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+$(document).ready(function() {
     colorJugador = asignarColor();
     crearTablero();
 });
@@ -41,7 +41,7 @@ function seleccionado(casillaSeleccionada) {
         let elemento = document.getElementById(casillaSeleccionada);
         let estilo = window.getComputedStyle(elemento);
         let color = estilo.getPropertyValue('background-color');
-        if (color == "rgb(173, 150, 255)" || color == "rgb(158, 71, 65)") {
+        if (color == "rgb(110, 184, 91)" || color == "rgb(158, 71, 65)") {
             destino = casillaSeleccionada;
         }
         if (destino != null && seleccion != null) {
@@ -144,11 +144,11 @@ function colocarFichas() {
     if (colorJugador == 1) {
         if (contador == 2) {
             casillas(blancas[6], color[colorJugador]);
-        } else if (contador == 3 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
+        } else if (contador == 1 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
             casillas(blancas[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(blancas[5], color[colorJugador]);
-        } else if (contador == 4 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
+        } else if (contador == 1 && letras[X] == "c" || contador == 3 && letras[X] == "f") {
             casillas(blancas[4], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "d") {
             casillas(blancas[2], color[colorJugador]);
@@ -158,7 +158,7 @@ function colocarFichas() {
             casillas(negras[6], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "a" || contador == 8 && letras[X] == "h") {
             casillas(negras[3], color[colorJugador - 1]);
-        } else if (contador == 8 && letras[X] == "b" || contador == 6 && letras[X] == "g") {
+        } else if (contador == 8 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
             casillas(negras[5], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "c" || contador == 8 && letras[X] == "f") {
             casillas(negras[4], color[colorJugador - 1]);
@@ -172,11 +172,11 @@ function colocarFichas() {
     } else {
         if (contador == 2) {
             casillas(negras[6], color[colorJugador]);
-        } else if (contador == 3 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
+        } else if (contador == 1 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
             casillas(negras[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(negras[5], color[colorJugador]);
-        } else if (contador == 4 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
+        } else if (contador == 1 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
             casillas(negras[4], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "d") {
             casillas(negras[2], color[colorJugador]);
@@ -236,17 +236,18 @@ const tableroIntel = (ficha, posicion) => {
         var letra = coord[1];
         var numero = coord[0];
         //--------------------------------------------------------------------------------------------------------------------------//
+        /* Peon  (bug)*/
         if (ficha == "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/PeonNegro.png' id='ficha'></img>") {
             if (numero != 2 && Comible(numero, letra) == false) {
-                //marco en violeta la casilla delante del peon
+                //marco en verde la casilla delante del peon
                 numero++;
-                document.getElementById(numero + "." + letra).style.backgroundColor = "#ad96ff";
+                document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
                 --numero;
             } else if (numero == 2 && Comible(numero, letra) == false) {
-                //marco en violeta las DOS caillas delante del peon si es la primera movida
+                //marco en verde las DOS caillas delante del peon si es la primera movida
                 for (let i = 0; i < 2; i++) {
                     numero++;
-                    document.getElementById(numero + "." + letra).style.backgroundColor = "#ad96ff";
+                    document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
                 }
                 --numero;
             }
@@ -255,27 +256,29 @@ const tableroIntel = (ficha, posicion) => {
                 if (letras[i] == letra) {
                     switch (colorJugador) {
                         case 1:
+                            // si el color del jugador es blanco.
                             if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i - 1]) == true) {
+                            } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i + 1]) == true) {
+                            } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                             }
                             break;
                         case 0:
+                            //si el color del jugador es negro
                             if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i - 1]) == true) {
+                            } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i + 1]) == true) {
+                            } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                             }
@@ -283,37 +286,47 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {
-        } else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {} else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
                     numero++;
                     if (i < 7) {
                         if (!!document.getElementById(numero + "." + letras[i + 1] + "-Blancas") == false || !!document.getElementById(numero + "." + letras[i - 1] + "-Negras") == false) {
-                            document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
-                            document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                            document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#6EB85B";
+                            document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
                         }
-                        document.getElementById(numero - 1 + "." + letras[i + 2]).style.backgroundColor = "#ad96ff";
-                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero - 1 + "." + letras[i + 2]).style.backgroundColor = "#6EB85B";
+                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#6EB85B";
 
-                        document.getElementById(numero - 4 + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
-                        document.getElementById(numero - 4 + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero - 4 + "." + letras[i + 1]).style.backgroundColor = "#6EB85B";
+                        document.getElementById(numero - 4 + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
                     } else if (i > 7) {
-                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
-                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
+                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#6EB85B";
                     } else if (i < 2) {
-                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
-                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
+                        document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#6EB85B";
                     } else {
-                        document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#ad96ff";
-                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#ad96ff";
+                        document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#6EB85B";
+                        document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
                     }
                 }
             }
         } else if (ficha == "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/AlfilNegro.png' id='ficha'></img>") {
+            for (let i = 1; i < 8; i++) {
+                if (letra == letras[i]) {
+                    for (let x = 0; x < 8; x++) {
+                        numero++;
+                        i++;
+                        document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                    }
+                }
+            }
         } else if (ficha == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
+
         } else if (ficha == "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReinaNegra.png' id='ficha'></img>") {
+
         }
     }
 };
