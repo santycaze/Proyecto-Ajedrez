@@ -320,7 +320,14 @@ const tableroIntel = (ficha, posicion) => {
                     for (let x = 0; x < 8; x++) {
                         numero++;
                         i++;
-                        document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                        if (!!document.getElementById(numero + "." + letras[--i]) != false) {
+                            i+2;
+                            document.getElementById(numero + "." + letras[--i]).style.backgroundColor = "#6EB85B";
+                        }
+                        if(!!document.getElementById(numero + "." + letras[i]) != false){
+                            document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                        }
+
                     }
                 }
             }
