@@ -103,21 +103,12 @@ class Servidor
     function Aprobar()
     {
         $conn = $this->conexion();
-        $datos = array("cedula" => $_POST['DOC']);
-        $query = "CALL Passwd(?)";
+        $datos = array("idUsuario" => $_POST['idU']);
+        $query = "CALL Aprobar(?)";
         $stmt = $conn->prepare($query);
-        $statment->bind_param("i", $datos["cedula"]);
-        if ($stmt->execute()) {{
-            $json = array();
-            $stmt->store_result();
-            $stmt->bind_result($contraseña,$nombreUsuario);
-                while ($stmt->fetch()) {
-                    $fila = array('contraseña' => $contraseña,'nombreUsuario' => $nombreUsuario);
-                    $json[] = $fila;
-                }
-            }
-            $stmt->close();
-        return $json;
+        $stmt->bind_param("i", $datos["aprobado"]);
+        $stmt->execute();
+        $stmt->close();
     }
 }
 ?> 
