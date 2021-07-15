@@ -301,6 +301,7 @@ h2 {
   text-align: center;
   justify-content: center;
   align-items: center;
+  font-family: 'Bree Serif', serif;
 }
 
 .noticias img {
@@ -495,9 +496,7 @@ h2 {
   width: 320px;
 }
 
-.boton-noticia p{
 
-}
 
 .boton-noticia i{
   margin-right: 10px;
@@ -518,4 +517,8 @@ h2 {
 
 footer{
   background: white;
+}
+
+.noticias p{
+  color: white;
 }
