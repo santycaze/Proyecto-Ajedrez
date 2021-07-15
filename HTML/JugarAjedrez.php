@@ -14,13 +14,13 @@ $llamarajedrez = '
     <div class="contenido">
     <div class="jugador">
         <div class="circulo-tablero1">
-            <div class="circulo-tablero"></div>
+            <div class="circulo-tablero"><img src="IMG/icono1.png" alt=""></div>
             <p>Nombre1</p>
         </div>
         
         <h2>VS</h2>
         <div class="circulo-tablero2">
-        <div class="circulo-tablero"></div>
+        <div class="circulo-tablero"><img src="IMG/icono2.png" alt=""></div>
             <p>Nombre2</p>
         </div>
     </div>

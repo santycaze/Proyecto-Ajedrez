@@ -19,9 +19,7 @@ function Modificar(){
 }
 
 
-
-function cerrar(){
+function cerrarmod(){
     $('#edicion').hide();
     $('body').css('overflow','auto');
 }
-

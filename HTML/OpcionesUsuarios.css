@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    background: rgba(0, 0, 0, .5);
 }
 
 .contenedor-mod{
@@ -17,6 +19,7 @@
     background: #0d5277;
     padding: 30px;
     border-radius: 10%;
+    position: relative;
 }
 
 .icono-usuario{
@@ -119,4 +122,16 @@
 .guardar-edicion button:hover{
     width: 100%;
     background: #0a4768;
+}
+
+.cerrar-mod{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.cerrar-mod i{
+    font-size: 25px;
+    color: white;
 }
