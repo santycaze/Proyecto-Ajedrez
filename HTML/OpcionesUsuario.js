@@ -1,24 +1,27 @@
 $(document).ready(function() {
-    $('#tabla').hide();
+    $('#edicion').hide();
 });
 
 
 
-function llamarajedrez(){
+
+
+function Modificar(){
     $.ajax({
         type: "POST",
-        url: "HTML/JugarAjedrez.php",
+        url: "HTML/OpcionesUsuarios.php",
         success: function(response) {
-            $('#tabla').show();
-           $('#tabla').html(response);
+            $('#edicion').show();
+           $('#edicion').html(response);
            $('body').css('overflow','hidden');
         }
     });
-    
 }
 
+
+
 function cerrar(){
-    $('#tabla').hide();
+    $('#edicion').hide();
     $('body').css('overflow','auto');
 }
 
