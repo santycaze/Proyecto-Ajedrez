@@ -3,7 +3,7 @@
 class Servidor 
 {
     function conexion(){
-        if (!$conexion = mysqli_connect("localhost", "root", "root", "ajedrez")) {
+        if (!$conexion = mysqli_connect("localhost", "root", "Manogamerpro17", "ajedrez")) {
             echo "Error al conectar con la Base de datos.";
             exit();
         } else {

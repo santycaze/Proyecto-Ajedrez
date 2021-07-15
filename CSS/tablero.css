@@ -2,7 +2,6 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: rgb(75, 75, 75);
 }
 
 div {
@@ -49,7 +48,7 @@ td {
     text-align: center;
 }
 
-#tabla {
+#tabla2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,4 +70,56 @@ td {
 
 #der {
     border-left: 1px solid black;
+}
+
+.div-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red   ;
+    padding: 20px;
+}
+
+
+.contenido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.jugador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-tablero1, .circulo-tablero2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circulo-tablero{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: green;
+}
+
+.jugador p{
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.tabla-movimientos{
+    width: 100%;
+    height: 250px;
+}
+
+.tabla-movimientos table{
+    width: 100%;
+    text-align: center;
+    
 }

@@ -2,8 +2,15 @@
 <html lang="en">
 
 <head>
+   
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="HTML/JugarAjedrez.js"></script>
+    <script src="Juego/JS/tablero.js"></script>
+
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../CSS/estilo.css">
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <link rel="stylesheet" href="CSS/tablero.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +18,8 @@
 </head>
 
 <body>
+
+    <div id="tabla"></div>
 
     <div class="header">
         <div class="usuario">
@@ -34,9 +43,9 @@
         <h1>Juega Ajedrez Online</h1>
         <h2>Texto alternativo</h2>
         <div class="contenedor-botones-inicio">
-            <a href="#" class="boton-jugar"><i class="fas fa-chess-knight"></i>
+            <button onclick="llamarajedrez()" class="boton-jugar"><i class="fas fa-chess-knight"></i>
                 <p>Jugar</p>
-            </a><a href="#" class="boton-estadisticas">
+            </button><a href="#" class="boton-estadisticas">
                 <p>Estadisticas</p><i class="fas fa-chart-bar"></i>
             </a>
         </div>
