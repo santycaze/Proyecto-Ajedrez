@@ -11,8 +11,8 @@ color = { 1: "Blancas", 0: "Negras" }
 blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" }
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-$(document).ready(function () {
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+$(document).ready(function() {
     colorJugador = asignarColor();
     crearTablero();
 });
@@ -286,8 +286,7 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {
-        } else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {} else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
