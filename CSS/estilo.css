@@ -52,9 +52,6 @@ body {
 }
 
 /* Change the background color on mouse-over */
-.header a:hover {
-  font-size: 25px;
-}
 
 
 
@@ -238,7 +235,7 @@ h2 {
   width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
-  background: #183248;
+  background: #073750;
 
 }
 
@@ -294,7 +291,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #063146;
+  background: #073750;
 }
 
 .noticias {
@@ -517,4 +514,8 @@ h2 {
   margin-top: 10px;
   text-decoration: none;
   width: 230px;
+}
+
+footer{
+  background: white;
 }
