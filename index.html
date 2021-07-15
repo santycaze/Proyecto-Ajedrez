@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+   
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="HTML/JugarAjedrez.js"></script>
+    <script src="Juego/JS/tablero.js"></script>
+
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../CSS/estilo.css">
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <link rel="stylesheet" href="CSS/tablero.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +18,23 @@
 
 <body>
 
+    <div id="tabla"></div>
+
     <div class="header">
         <div class="usuario">
-            <a href="">
-                <i class="fas fa-user"></i>
-                <p>Log in</p>
+            <a href='../Proyecto-Ajedrez/HTML/login.html' id="elcosodellogin">
+                <i class="fas fa-user" id="foto"></i>
+                <p id="nick">Log in</p>
             </a>
         </div>
-
+        <script>
+            $(document).ready(function() {
+            sesion();
+            $("#elcosodellogin").html('<i id="foto"></i> <p id="nick"></p>')
+            $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono5.png'></img>")
+            $("#nick").html("ELNICK")
+            });
+        </script>
         <div class="header-right">
             <span class="slide"></span>
             <a class="active" href="#home ">Home</a>
@@ -30,13 +45,13 @@
     </div>
 
     <div class=" contenedor-inicio">
-        <img src="../IMG/logo.png" alt="" class="imagen-inicio">
+        <img src="" alt="" class="imagen-inicio">
         <h1>Juega Ajedrez Online</h1>
         <h2>Texto alternativo</h2>
         <div class="contenedor-botones-inicio">
-            <a href="#" class="boton-jugar"><i class="fas fa-chess-knight"></i>
+            <button onclick="llamarajedrez()" class="boton-jugar"><i class="fas fa-chess-knight"></i>
                 <p>Jugar</p>
-            </a><a href="#" class="boton-estadisticas">
+            </button><a href="#" class="boton-estadisticas">
                 <p>Estadisticas</p><i class="fas fa-chart-bar"></i>
             </a>
         </div>
@@ -48,7 +63,7 @@
     <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
             style="height: 100%; width: 100%;">
             <path d="M0.00,49.98 C115.97,165.28 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                style="stroke: none; fill: #183248;"></path>
+                style="stroke: none; fill: #073750;"></path>
         </svg></div>
     <div class="div-wrapper2">
         <div class="contenedor-tabla">
@@ -85,29 +100,29 @@
 
         <div class="Tabla">
             <div class="contenedor-tabla">
-                <h1>Trofeos</h1>
+                <h1>Tus medallas</h1>
                 <table class="tabla-jugadores">
                     <tr>
                         <th id="col-imagen"></th>
-                        <th id="col-jugadores">Trofeos</th>
+                        <th id="col-jugadores">Medallas</th>
                     </tr>
                     <tr>
                         <td>
                             <div class="circulo"></div>
                         </td>
-                        <td>Trofeo1</td>
+                        <td>Medalla1</td>
                     </tr>
                     <tr>
                         <td>
                             <div class="circulo"></div>
                         </td>
-                        <td>Trofeo2</td>
+                        <td>Medalla2</td>
                     </tr>
                     <tr>
                         <td>
                             <div class="circulo"></div>
                         </td>
-                        <td>Trofeo3</td>
+                        <td>Medalla3</td>
                     </tr>
                 </table>
             </div>
@@ -123,7 +138,7 @@
     <div style="height: 250px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
             style="height: 100%; width: 100%;">
             <path d="M0.00,49.98 C115.97,165.28 349.20,-49.98 500.00,49.98 L509.31,-23.19 L-2.54,-15.28 Z"
-                style="stroke: none; fill: #183248;"></path>
+                style="stroke: none; fill: #073750;"></path>
         </svg></div>
 
     <div class="div-wrapper5">
@@ -134,6 +149,7 @@
 
             <img src="../IMG/tablero.png" alt="">
             <div class="botones-podcast">
+                <h2>Juega Ajedrez</h2>
                 <a href="#" class="nueva-sala"><i class="fas fa-plus-circle"></i>
                     <p>Nueva Sala</p>
                 </a>
@@ -158,31 +174,46 @@
     <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
             style="height: 100%; width: 100%;">
             <path d="M0.00,49.98 C115.97,165.28 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                style="stroke: none; fill: #063146;"></path>
+                style="stroke: none; fill: #073750;"></path>
         </svg></div>
     <div class="div-wrapper3">
         <div class="noticias">
             <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minima repellat, omnis iusto
-                    similique commodi?</p>
+                <h2>TItulo Noticia2</h2>
+                <p>Autor</p>
             </div>
             <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur saepe, molestiae placeat
-                    nostrum tempore obcaecati?</p>
+                <h2>TItulo Noticia2</h2>
+                <p>Autor</p>
             </div>
             <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet id repellendus aperiam
-                    blanditiis
-                    esse aut.</p>
+                <h2>TItulo Noticia2</h2>
+                <p>Autor</p>
             </div>
             <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi commodi ipsa facere eveniet
-                    facilis recusandae!</p>
+                <h2>TItulo Noticia2</h2>
+                <p>Autor</p>
             </div>
+            
         </div>
     </div>
-
+    
 
 </body>
+<footer>
 
+    <div class="logo">
+        <img src="../IMG/logo.png" alt="">
+    </div>
+    <div class="sobre-nosotros">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, enim?
+    </div>
+    <div class="menu">
+        <p>Menu</p>
+        <a href="">SObre</a>
+        <a href="">asd</a>
+        <a href="">asd</a>
+    </div>
+
+</footer>
 </html>

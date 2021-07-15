@@ -24,6 +24,7 @@ body {
   padding: 5px 5px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600; 
+ 
 }
 
 .header img {
@@ -52,9 +53,6 @@ body {
 }
 
 /* Change the background color on mouse-over */
-.header a:hover {
-  font-size: 25px;
-}
 
 
 
@@ -162,7 +160,7 @@ h2 {
 
 
 .boton-jugar:hover{
-  padding-left: 25px;
+  width: 170px;
 
 }
 
@@ -238,7 +236,7 @@ h2 {
   width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
-  background: #183248;
+  background: #073750;
 
 }
 
@@ -294,7 +292,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #063146;
+  background: #073750;
 }
 
 .noticias {
@@ -304,6 +302,7 @@ h2 {
   text-align: center;
   justify-content: center;
   align-items: center;
+  font-family: 'Bree Serif', serif;
 }
 
 .noticias img {
@@ -338,6 +337,12 @@ h2 {
   transition: 0.7s;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400; 
+  width: 150px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 
@@ -363,6 +368,16 @@ h2 {
   width: 13%;
   margin: 0;
   margin-top: 10px;
+}
+
+#foto{
+  margin: 0px;
+  width: 24px
+  
+  
+}
+#foto2{
+  width: 100%;
 }
 
 .usuario a{
@@ -428,7 +443,7 @@ h2 {
   height: 35px;
   font-size: 19px;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   
 
   
@@ -498,9 +513,7 @@ h2 {
   width: 320px;
 }
 
-.boton-noticia p{
 
-}
 
 .boton-noticia i{
   margin-right: 10px;
@@ -517,4 +530,12 @@ h2 {
   margin-top: 10px;
   text-decoration: none;
   width: 230px;
+}
+
+footer{
+  background: white;
+}
+
+.noticias p{
+  color: white;
 }

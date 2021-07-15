@@ -71,7 +71,6 @@ h1{
 }
 
 .login .box input::placeholder{
-  position: absolute;
   pointer-events: none;
   font-size: 16px;
   color: #fff;
@@ -82,12 +81,9 @@ h1{
 }
 
 .login img{
-    width: 250px; 
-    height: 250px; 
-    object-fit: cover;
-    object-position: 50% 10%; 
+    width: 30%;
     position: absolute;
-    margin-left:52%;
+    margin-left:54%;
 }
 
 .register {
@@ -145,7 +141,6 @@ color:black;
 }
 
 .register .register-box input::placeholder{
-position: absolute;
 pointer-events: none;
 font-size: 16px;
 color: #fff;
@@ -163,4 +158,10 @@ letter-spacing: 1px;
 .register .box{
   margin-top: 15px;
   margin-left: 25px;
+}
+
+.register img{
+  width:35%;
+  position: absolute;
+  margin-left: 52%;
 }
