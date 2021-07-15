@@ -1,7 +1,7 @@
 <?php
     include "conexion.php";
     $nombreUsuario = $_POST['user'];  
-    $password = $_POST['pass'];  
+    $password = $_POST['pass']; 
        
         $nombreUsuario = stripcslashes($nombreUsuario);  
         $password = stripcslashes($password);  
@@ -17,6 +17,6 @@
             header('Location: ../HTML/administrador.html');
         }  
         else{  
-            echo "<h1> Usuario o contraseña invalido </h1>";  
+            echo "1";  
         }     
 ?>

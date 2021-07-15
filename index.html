@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../CSS/estilo.css">
+    <link rel="stylesheet" href="../Proyecto-Ajedrez/CSS/estilo.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../Proyecto-Ajedrez/JS/sesion.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,14 @@
 </head>
 
 <body>
-
+    <script>
+        $(document).ready(function() {
+        sesion();
+        });
+    </script>
     <div class="header">
         <div class="usuario">
-            <a href="">
+            <a href='../Proyecto-Ajedrez/HTML/login.html'>
                 <i class="fas fa-user"></i>
                 <p>Log in</p>
             </a>
@@ -30,7 +35,7 @@
     </div>
 
     <div class=" contenedor-inicio">
-        <img src="../IMG/logo.png" alt="" class="imagen-inicio">
+        <img src="../Proyecto-Ajedrez/IMG/logo.png" alt="" class="imagen-inicio">
         <h1>Juega Ajedrez Online</h1>
         <h2>Texto alternativo</h2>
         <div class="contenedor-botones-inicio">

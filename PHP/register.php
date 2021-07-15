@@ -18,7 +18,6 @@ session_start();
   if (empty($ci)) { array_push($errors, "se requiere la cedula"); }
   if (empty($celular)) { array_push($errors, "se requiere numero telefonico"); }
   if (empty($nacimiento )) { array_push($errors, "se requiere fecha de nacimiento"); }
- }
   $user_check_query = "SELECT * FROM Usuario WHERE nombreUsuario='$nombreUsuario' OR mail='$mail' OR ci='$ci' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
@@ -62,11 +61,9 @@ session_start();
       }
     }
   }
-  	$_SESSION['nombreUsuario'] = $nombreUsuario
+  	$_SESSION['nombreUsuario'] = $nombreUsuario;
   	$_SESSION['success'] = "Ahora estas logueado";
   	header('location: ../HTML/index.html');
-  }
-}
   //Llenar el campo
   if (empty($username)) { array_push($errors, "se requiere el nombre de usuario"); }
   if (empty($email)) { array_push($errors, "se requiere mail"); }
