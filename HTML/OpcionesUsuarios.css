@@ -6,8 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     background: rgba(0, 0, 0, .5);
+    z-index: 999;
 }
 
 .contenedor-mod{
@@ -20,6 +21,7 @@
     padding: 30px;
     border-radius: 10%;
     position: relative;
+    
 }
 
 .icono-usuario{

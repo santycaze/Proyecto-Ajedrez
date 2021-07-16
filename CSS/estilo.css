@@ -3,7 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
 
 
-/* Style the header with a grey background and some padding */
+*/ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: url('../IMG/Chess.png') no-repeat center center fixed;
   background-size: cover;
@@ -12,11 +17,9 @@ body {
 
 }
 
-*/ * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ======================================================= */
+/* Todo lo que tenga que ver con el header */
+/* ======================================================= */
 
 .header {
   overflow: hidden;
@@ -24,15 +27,12 @@ body {
   padding: 5px 5px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-
 }
 
 .header img {
   width: 4%;
-
 }
 
-/* Style the header links */
 .header a {
   float: left;
   color: rgb(255, 255, 255);
@@ -46,12 +46,10 @@ body {
   transition: 1s;
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
 }
-
 
 .header a.active {
 
@@ -64,30 +62,13 @@ body {
   color: black;
 }
 
-/* Float the link section to the right */
 .header-right {
   float: right;
 }
 
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-
-  .header-right {
-    float: none;
-  }
-}
-
-.div-wrapper {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  margin-top: 70px;
-}
+/* ======================================================= */
+/* Contenedor inicio */
+/* ======================================================= */
 
 .contenedor-inicio {
   width: 100%;
@@ -96,6 +77,35 @@ body {
   display: flex;
   flex-direction: column;
   height: 500px;
+}
+
+.contenedor-botones-inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-botones-inicio a {
+  margin: 0 4px;
+  display: flex;
+  text-decoration: none;
+  width: 150px;
+
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  font-size: 19px;
+  padding: 5px;
+}
+
+.contenedor-botones-inicio a i {
+  margin: 0 6px;
+}
+
+.contenedor-inicio img {
+  width: 13%;
+  margin: 0;
+  margin-top: 10px;
 }
 
 .contenedor-inicio h1,
@@ -122,34 +132,47 @@ h2 {
   width: 100%;
 }
 
-.contenedor-ajedrez {
+.boton-podcast{
+  padding: 15px;
+  background: white;
+  color: black;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.div-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 70px;
+}
+
+.boton-jugar {
+  border-radius: 30px 0 0 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: white;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  width: 150px;
+  height: 47px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 700px;
-  height: 400px;
+  font-size: 20px;
 }
 
-
-
-
-
-
-
-.contenedor-ajedrez p {
-  font-size: 40px;
-  color: white;
-  font-family: 'Bree Serif', serif;
-
+.boton-estadisticas {
+  border-radius: 0 30px 30px 0;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: white;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
-
-.contenedor-ajedrez img {
-  width: 40%;
-  margin-bottom: -20px;
-
-}
-
-
 
 .boton-jugar:hover {
   width: 170px;
@@ -157,26 +180,52 @@ h2 {
 }
 
 .boton-estadisticas:hover {
-  padding-right: 28px;
+
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
 
-.contenedor-botones {
-  display: flex;
+
+/* ======================================================= */
+/* Tablas medallas y jugadores */
+/* ======================================================= */
+
+.div-wrapper2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: #073750;
+  padding: 10px 0;
+  position: relative;
+  margin-top: -10px;
 }
 
-.contenedor-fondo {
-  background: #042331;
+.contenedor-tabla {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 70%;
-  height: 100%;
-  padding: 20px;
-  border-right: 4px solid #d8d8d821;
-  border-bottom: 4px solid #d8d8d821;
+  margin-bottom: 50px;
 }
+
+.contenedor-tabla h1 {
+  color: white;
+  font-family: 'Bree Serif', serif;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.circulo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: chartreuse;
+  margin: 5px;
+}
+
 
 .tabla-jugadores {
   background: rgb(240, 240, 240);
@@ -184,6 +233,7 @@ h2 {
   font-family: 'Bree Serif', serif;
   border-spacing: 0;
   border-radius: 7px;
+  box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
 .tabla-jugadores th {
@@ -208,14 +258,6 @@ h2 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.144);
 }
 
-.circulo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: chartreuse;
-  margin: 5px;
-}
-
 #col-imagen {
   width: 100px;
 }
@@ -224,60 +266,117 @@ h2 {
   width: 400px;
 }
 
-.div-wrapper2 {
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
+
+/* ======================================================= */
+/* Tablero y podcast */
+/* ======================================================= */
+
+.div-wrapper5 {
   width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
-  background: #073750;
-  padding: 80px 0;
 }
 
-.contenedor-tabla {
+.div-wrapper5 img {
+  width: 50%;
+}
+
+.contenedor-salas {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-salas a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botones-podcast {
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 25px;
 }
 
-.contenedor-tabla h1 {
-  color: white;
-  font-family: 'Bree Serif', serif;
+.botones-podcast a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+  width: 180px;
   margin-bottom: 20px;
-  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  font-size: 19px;
+  text-align: center;
+  padding: 5px;
 }
 
-.circulo2 {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: chartreuse;
-  margin: 5px;
+.botones-podcast a i {
+  margin: 0 5px;
 }
 
-.perfil {
-  display: flex;
-  width: 500px;
+.nueva-sala {
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #9E692F;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: white;
 }
 
-.contenedor-perfil {
+.unirse-sala {
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #e9da97;
+  color: black;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.clase-ajedrez {
+  border-radius: 30px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  background: #9E692F;
+  transition: 0.7s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: white;
+  margin-top: 10px;
+  text-decoration: none;
+  width: 230px;
+}
+
+.contenedor-podcast {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
-  font-family: 'Bree Serif', serif;
 }
 
-.contenedor-perfil p {
-  color: white;
-  margin: 30px;
+.contenedor-podcast img {
+  width: 35%;
 }
 
-.trofeos {
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
+
+/* ======================================================= */
+/* Contenedor noticias */
+/* ======================================================= */
 
 .div-wrapper3 {
   width: 100%;
@@ -301,78 +400,43 @@ h2 {
   width: 40%;
 }
 
-.contenedor-botones-inicio {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.noticias p {
+  color: white;
 }
 
-.contenedor-botones-inicio a {
-  margin: 0 4px;
-  display: flex;
-  text-decoration: none;
-  width: 150px;
-
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  font-size: 19px;
-  padding: 5px;
-}
-
-.boton-jugar {
-  border-radius: 30px 0 0 30px;
-  border: 1px solid rgba(0, 0, 0, 0.151);
-  background: white;
-  color: black;
-  transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  width: 150px;
-  height: 47px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-}
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
 
 
-
-.boton-estadisticas {
-  border-radius: 0 30px 30px 0;
-  border: 1px solid rgba(0, 0, 0, 0.151);
-  background: white;
-  color: black;
-  transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-}
-
-
-
-.contenedor-botones-inicio a i {
-  margin: 0 6px;
-
-}
-
-.contenedor-inicio img {
-  width: 13%;
-  margin: 0;
-  margin-top: 10px;
-}
+/* ======================================================= */
+/* Icono de usuario cuando se loguea */
+/* ======================================================= */
 
 #foto {
-  margin: 0px;
-  width: 24px
+  margin: 0 5px;
+  width: 45px
+  
 }
 
 #foto2 {
   width: 100%;
 }
 
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
+
+
+/* ======================================================= */
+/* Menu edicion usuario */
+/* ======================================================= */
+
+
 .usuario{
   position: relative;
   display: inline-block;
+  z-index: 999999;
 }
 
 .usuario #elcosodellogin  {
@@ -383,7 +447,7 @@ h2 {
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: none;
 }
 
@@ -391,145 +455,70 @@ h2 {
   margin-right: 10px;
 }
 
-.div-wrapper5 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.div-wrapper5 img {
-  width: 50%;
-}
-
-.contenedor-podcast {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.contenedor-podcast img {
-  width: 35%;
-}
-
-.botones-podcast {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 25px;
-
-}
-
-.botones-podcast a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  text-decoration: none;
-  width: 180px;
-  margin-bottom: 20px;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  font-size: 19px;
-  text-align: center;
-  padding: 5px;
-}
-
-.botones-podcast a i {
-  margin: 0 5px;
-}
-
-.boton-noticia {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contenedor-salas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.contenedor-salas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.nueva-sala {
-  border-radius: 30px 30px 30px 30px;
-  border: 1px solid rgba(0, 0, 0, 0.151);
-  background: #9E692F;
-  color: black;
-  transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: white;
-}
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
 
 
-
-
-.unirse-sala {
-  border-radius: 30px 30px 30px 30px;
-  border: 1px solid rgba(0, 0, 0, 0.151);
-  background: #e9da97;
-  color: black;
-  transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-
-}
-
-.boton-noticia {
-  border-radius: 30px 30px 30px 30px;
-  border: 1px solid rgba(0, 0, 0, 0.151);
-  background: #0b425e;
-  color: black;
-  transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: white;
-  margin-top: 10px;
-  text-decoration: none;
-  width: 320px;
-}
-
-
-
-.boton-noticia i {
-  margin-right: 10px;
-}
-
-.clase-ajedrez {
-  border-radius: 30px 30px 30px 30px;
-  border: 1px solid rgba(0, 0, 0, 0.151);
-  background: #9E692F;
-  transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: white;
-  margin-top: 10px;
-  text-decoration: none;
-  width: 230px;
-}
+/* ======================================================= */
+/* Footer */
+/* ======================================================= */
 
 footer {
   background: white;
 }
 
-.noticias p {
-  color: white;
-}
 
 
-/* Accion Jugar */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/* Cuando toque el boton jugar va a aparecer esto */
+/* ======================================================= */
 
 
 .div-wrapper-juego {
@@ -537,13 +526,12 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  position: absolute;
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, .5);
-  
+  position: fixed;
+  z-index: 9999;
 }
-
 
 .contenido {
   display: flex;
@@ -564,14 +552,11 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .circulo-tablero {
   width: 160px;
   height: 160px;
- 
- 
 }
 
 .circulo-tablero img{
@@ -594,7 +579,6 @@ footer {
 .tabla-movimientos table {
   width: 100%;
   text-align: center;
-
 }
 
 .contenedor-div-wrapper-juego {
@@ -609,12 +593,11 @@ footer {
   width: 170px;
   background: #062c41;
   position: fixed;
-  top: 40px;
+  top: 70px;
   left: 20px;
   text-align: center;
   transition: .4s;
   display: none;
-
 }
 
 .usuario-menu a{
@@ -642,5 +625,38 @@ footer {
   display: block;
 }
 
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
+
 /* Edicion jugador */
 
+/* ======================================================= */
+/* Seccion responsive */
+/* ======================================================= */
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+
+  
+}
+
+/* ======================================================= */
+/* Por arreglar, cosas que traigo de PHP */
+/* ======================================================= */
+
+.circulo2 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: chartreuse;
+  margin: 5px;
+}
