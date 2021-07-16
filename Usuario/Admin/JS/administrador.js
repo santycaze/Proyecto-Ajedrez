@@ -4,15 +4,23 @@ function TraePeriodistas() {
     $.ajax({
         type: "POST",
         url: "../../PHP/TraePeriodistas.php",
-        success: function(response) {
+        success: function (response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
                 console.log(Datos[i])
+
+                var nombreUsuario, mail, idPeriodista, aprobado;
+                aprobado = Datos[i].Aprobado;
+                nombreUsuario = Datos[i].nombreUsuario;
+                mail = Datos[i].mail;
+                idPeriodista = Datos[i].idPeriodista;
+
+                var info = '"' + idPeriodista + '-' + mail + '-' + nombreUsuario + '"';
                 if (Datos[i].Aprobado == 1) {
-                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas("+Datos[i].idPeriodista+")'>✖</button></div></td></tr>";
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas(" + Datos[i].idPeriodista + ")'>✖</button></div></td></tr>";
                     $("#tablaAprobados").append(contenido);
                 } else {
-                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar("+Datos[i].idPeriodista+","+Datos[i].mail+","+Datos[i].nombreUsuario+")'>✓</button><button onclick='EliminarPeriodistas("+Datos[i].idPeriodista+")'>✖</button></div></td></tr>";
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar(" + info + ")'>✓</button><button onclick='EliminarPeriodistas(" + Datos[i].idPeriodista + ")'>✖</button></div></td></tr>";
                     $("#tablaNoAprobados").append(contenido);
                 }
             }
@@ -25,7 +33,7 @@ function TraeUsuarios() {
     $.ajax({
         type: "POST",
         url: "../../PHP/TraeUsuarios.php",
-        success: function(response) {
+        success: function (response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
                 contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Jugador</div></td><td><div class='td1'><button>✖</button></div></td><td><div class='td1'><button on>⚙️</button></div></td></tr>";
@@ -40,7 +48,7 @@ function TraeContraseñas() {
     $.ajax({
         type: "POST",
         url: "../../PHP/TraeContraseñas.php",
-        success: function(response) {
+        success: function (response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
                 contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>" + Datos[i].contraseña + "</div></td><td><div class='td1'><button>⚙️</button></div></td></tr>";
@@ -50,26 +58,32 @@ function TraeContraseñas() {
     });
 }
 
-function Aprobar(idPeriodista,mail,nombre) {
-    console.log(mail+" "+nombre)
+function Aprobar(datos) {
+    var id,usr,mail;
+    var info = datos.split("-");
+    id = info[1];
+    mail = info[2];
+    usr = info[3];
+    //habilitar aprobar.php despues de las pruebas.
     $.ajax({
         type: "POST",
         url: "../../PHP/aprobar.php",
-        data: {idP: idPeriodista},
-        success: function(response) {
+        data: { idP: id },
+        success: function (response) {
             console.log(response);
             Periodistas();
-            mailAprobar(mail,nombre);
+            mailAprobar(mail, usr);
         }
     });
 }
 
 function EliminarPeriodistas(idPeriodista) {
+    //habilitar eliminarPeriodistas despues de las pruebas.
     $.ajax({
         type: "POST",
         url: "../../PHP/eliminarPeriodistas.php",
-        data: {idP: idPeriodista},
-        success: function(response) {
+        data: { idP: idPeriodista },
+        success: function (response) {
             console.log(response);
             Periodistas();
         }
@@ -106,12 +120,12 @@ function ModUsuario() {
     TraeModUsuarios();
 }
 
-function mailAprobar(mail,nombre) {
+function mailAprobar(mail, nombre) {
     $.ajax({
         type: "POST",
-        url: "/ADMINISTRADOR/solicitudes/php/mailAprobar.php",
-        data: {mail: mail,nombre:nombre},
-        success: function(response) {
+        url: "solicitudes/PHP/mailAprobar.php",
+        data: { mail: mail, nombre: nombre },
+        success: function (response) {
             console.log(response)
         }
     });

@@ -1,5 +1,5 @@
 <?php
      include "Servidor.php";
-     $servidor = new Servidor();
-     $servidor->Aprobar();
+     //$servidor = new Servidor();
+     //$servidor->Aprobar();
 ?>
