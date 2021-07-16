@@ -3,7 +3,7 @@ var contenido;
 function TraePeriodistas() {
     $.ajax({
         type: "POST",
-        url: "../PHP/TraePeriodistas.php",
+        url: "../../PHP/TraePeriodistas.php",
         success: function(response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
@@ -24,7 +24,7 @@ function TraePeriodistas() {
 function TraeUsuarios() {
     $.ajax({
         type: "POST",
-        url: "../PHP/TraeUsuarios.php",
+        url: "../../PHP/TraeUsuarios.php",
         success: function(response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
@@ -39,7 +39,7 @@ function TraeUsuarios() {
 function TraeContraseñas() {
     $.ajax({
         type: "POST",
-        url: "../PHP/TraeContraseñas.php",
+        url: "../../PHP/TraeContraseñas.php",
         success: function(response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
@@ -54,7 +54,7 @@ function Aprobar(idPeriodista,mail,nombre) {
     console.log(mail+" "+nombre)
     $.ajax({
         type: "POST",
-        url: "../PHP/aprobar.php",
+        url: "../../PHP/aprobar.php",
         data: {idP: idPeriodista},
         success: function(response) {
             console.log(response);
@@ -67,7 +67,7 @@ function Aprobar(idPeriodista,mail,nombre) {
 function EliminarPeriodistas(idPeriodista) {
     $.ajax({
         type: "POST",
-        url: "../PHP/eliminarPeriodistas.php",
+        url: "../../PHP/eliminarPeriodistas.php",
         data: {idP: idPeriodista},
         success: function(response) {
             console.log(response);
