@@ -132,7 +132,7 @@ h2 {
   width: 100%;
 }
 
-.boton-podcast{
+.boton-podcast, .boton-salas{
   padding: 15px;
   background: white;
   color: black;
@@ -277,7 +277,7 @@ h2 {
 .div-wrapper5 {
   width: 100%;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .div-wrapper5 img {
@@ -285,43 +285,35 @@ h2 {
 }
 
 .contenedor-salas {
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
+
+.contenedor-entrenamiento{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor-entrenamiento img{
+  width: 50%;
+}
+.contenedor-salas img{
+  width: 50%;
+}
+
+.contenedor-podcast img {
+  width: 50%;
+}
+
 
 .contenedor-salas a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.botones-podcast {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 25px;
-}
-
-.botones-podcast a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  text-decoration: none;
-  width: 180px;
-  margin-bottom: 20px;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  font-size: 19px;
-  text-align: center;
-  padding: 5px;
-}
-
-.botones-podcast a i {
-  margin: 0 5px;
 }
 
 .nueva-sala {
@@ -364,10 +356,6 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.contenedor-podcast img {
-  width: 35%;
 }
 
 /* ======================================================= */
