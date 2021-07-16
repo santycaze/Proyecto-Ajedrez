@@ -5,7 +5,7 @@ $(document).ready(function () {
 function Modificar() {
     $.ajax({
         type: "POST",
-        url: "HTML/OpcionesUsuarios.php",
+        url: "Usuario/PHP/OpcionesUsuarios.php",
         data: {usr:sessionStorage.getItem("j1")},
         success: function (response) {
             $('#edicion').show();
