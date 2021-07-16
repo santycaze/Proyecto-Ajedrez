@@ -2,9 +2,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'C:\xampp\htdocs\Proyecto-Ajedrez\PHPMailer-6.5.0\src\Exception.php';
-require 'C:\xampp\htdocs\Proyecto-Ajedrez\PHPMailer-6.5.0\src\PHPMailer.php';
-require 'C:\xampp\htdocs\Proyecto-Ajedrez\PHPMailer-6.5.0\src\SMTP.php';
+require 'C:\xampp\htdocs\Proyecto-Ajedrez\PHPMailer-6.3.0\src\Exception.php';
+require 'C:\xampp\htdocs\Proyecto-Ajedrez\PHPMailer-6.3.0\src\PHPMailer.php';
+require 'C:\xampp\htdocs\Proyecto-Ajedrez\PHPMailer-6.3.0\src\SMTP.php';
 //
 /*------------------------------------------------------------------------------------------*/
 //
