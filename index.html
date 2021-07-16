@@ -23,7 +23,7 @@
     <div id="tabla"></div>
     <div class="usuario">
         <a href='../Proyecto-Ajedrez/HTML/login.html' id="elcosodellogin">
-            <i class="fas fa-user" id="foto"></i>
+             <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
             <p id="nick">Log in</p>
         </a>
         <div class="usuario-menu">
@@ -38,9 +38,8 @@
        
         <script>
             $(document).ready(function () {
+                cambiarIcono();
                 sesion();
-                $("#elcosodellogin").html('<i id="foto"></i> <p id="nick"></p>')
-                $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono5.png'></img>")
             });
         </script>
         <div class="header-right">

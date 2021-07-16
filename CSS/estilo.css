@@ -608,7 +608,7 @@ footer {
 .usuario-menu {
   width: 170px;
   background: #062c41;
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 20px;
   text-align: center;
