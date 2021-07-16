@@ -9,7 +9,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.219);
+    background: rgba(0, 0, 0, 0.349);
+    z-index: 999999;
 }
 
 .perfil{
@@ -18,7 +19,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    background:#0a3b55 ;
+    background:#0D5277 ;
     border-radius: 20px;
 }
 
@@ -81,7 +82,7 @@
 .trofeo-verperfil{
     width: 240px;
     height: 240px;
-    background: #0d5277;
+    background: #0a4768;
     border-radius: 20px;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.623);
     text-align: center;
@@ -99,7 +100,7 @@
 .contenedor-logros-verperfil{
     width: 100%;
     height: 100px;
-    background: #0d5277;
+    background: #0a4768;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.623);
 }
 
@@ -114,7 +115,7 @@
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    background: #0d5277;
+    background: #0a4768;
       box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.623);
     display: flex;
     justify-content: center;

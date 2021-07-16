@@ -8,6 +8,7 @@
     <script src="../Proyecto-Ajedrez/Usuario/JS/OpcionesUsuario.js"></script>
     <script src="../Proyecto-Ajedrez/Usuario/Jugador/JS/JugarAjedrez.js"></script>
     <script src="../Proyecto-Ajedrez/Usuario/JS/sesion.js"></script>
+    <script src="Usuario/JS/VerPerfil.js"></script>
     <script src="Juego/JS/tablero.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <!-- Fin Scripts -->
@@ -16,6 +17,7 @@
     <link rel="shortcut icon" href="../Proyecto-Ajedrez/IMG/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilo.css">
     <link rel="stylesheet" href="css/OpcionesUsuarios.css">
+    <link rel="stylesheet" href="CSS/VerPerfil.css">
 
     <!-- Metas -->
     <meta charset="UTF-8">
@@ -35,7 +37,7 @@
     <div class="loader-wrapper"><div class="loader"><img src="../Proyecto-Ajedrez/IMG/CaballoBlanco.png" alt="">
    </div></div>
        <!-- Fin Loader -->
-       
+    <div id="verperfil"></div>
     <div id="edicion"></div>
     <div id="tabla"></div>
     <div class="usuario">
@@ -46,8 +48,8 @@
         <div class="usuario-menu">
 
             <a class="a2" id="mod" onclick="Modificar()">Modificar perfil</a>
-            <a href="" class="a2" id="vperf">Ver perfil</a>
-            <a href="" class="a2" id="cerrarsesion">Cerrar sesion</a>
+            <a class="a2" id="vperf" onclick="ver()">Ver perfil</a>
+            <a class="a2" id="cerrarsesion">Cerrar sesion</a>
         </div>
     </div>
     <div class="header">
