@@ -4,7 +4,7 @@ function iniciarSesion() {
 
     $.ajax({
         type: "POST",
-        url: "../PHP/login.php",
+        url: "../Usuario/PHP/login.php",
         data: { user: usr, pass: pass },
         success: function(response) {
             console.log(response);

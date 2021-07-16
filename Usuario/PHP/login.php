@@ -1,5 +1,5 @@
 <?php
-    include "conexion.php";
+    include "C:/xampp/htdocs/Proyecto-Ajedrez/PHP/conexion.php";
     $nombreUsuario = $_POST['user'];  
     $password = $_POST['pass']; 
        
@@ -14,7 +14,7 @@
         $count = mysqli_num_rows($result);  
           //valida si se loguea o no
         if($count == 1){  
-            header('Location: ../HTML/administrador.html');
+            header('Location: ../Usuario/Administrador/administrador.html');
         }  
         else{  
             echo "1";  
