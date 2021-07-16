@@ -103,10 +103,23 @@ class Servidor
     function Aprobar()
     {
         $conn = $this->conexion();
-        $datos = array("idUsuario" => $_POST['idU']);
+        $datos = array("idPeriodista" => $_POST['idP']);
         $query = "CALL Aprobar(?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $datos["aprobado"]);
+        $stmt->bind_param("i", $datos["idPeriodista"]);
+        $stmt->execute();
+        $stmt->close();
+    }
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function eliminarPeriodistas()
+    {
+        $conn = $this->conexion();
+        $datos = array("idPeriodista" => $_POST['idP']);
+        $query = "CALL EliminarPeriodistas(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $datos["idPeriodista"]);
         $stmt->execute();
         $stmt->close();
     }

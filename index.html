@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../Proyecto-Ajedrez/CSS/estilo.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../Proyecto-Ajedrez/JS/sesion.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="HTML/OpcionesUsuario.js"></script>
+    <script src="HTML/JugarAjedrez.js"></script>
+    <script src="../Proyecto-Ajedrez/js/sesion.js"></script>
+    <script src="Juego/JS/tablero.js"></script>
+    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <link rel="stylesheet" href="HTML/OpcionesUsuarios.css">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +19,27 @@
 </head>
 
 <body>
-
-    <div class="header">
-        <div class="usuario">
-            <a href='../Proyecto-Ajedrez/HTML/login.html' id="elcosodellogin">
-                <i class="fas fa-user" id="foto"></i>
-                <p id="nick">Log in</p>
-            </a>
+    <div id="edicion"></div>
+    <div id="tabla"></div>
+    <div class="usuario">
+        <a href='../Proyecto-Ajedrez/HTML/login.html' id="elcosodellogin">
+             <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
+            <p id="nick">Log in</p>
+        </a>
+        <div class="usuario-menu">
+            
+            <a  class="a2" id="mod" onclick="Modificar()">Modificar perfil</a>
+            <a href="" class="a2" id="vperf">Ver perfil</a>
+            <a href="" class="a2" id="cerrarsesion">Cerrar sesion</a>
         </div>
+    </div>
+    <div class="header">
+       
+       
         <script>
-            $(document).ready(function() {
-            sesion();
-            $("#elcosodellogin").html('<i id="foto"></i> <p id="nick"></p>')
-            $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono5.png'></img>")
-            $("#nick").html("ELNICK")
+            $(document).ready(function () {
+                cambiarIcono();
+                sesion();
             });
         </script>
         <div class="header-right">
@@ -38,13 +52,13 @@
     </div>
 
     <div class=" contenedor-inicio">
-        <img src="" alt="" class="imagen-inicio">
+        <img src="IMG/logo.png" alt="" class="imagen-inicio">
         <h1>Juega Ajedrez Online</h1>
         <h2>Texto alternativo</h2>
         <div class="contenedor-botones-inicio">
-            <a href="#" class="boton-jugar"><i class="fas fa-chess-knight"></i>
+            <button onclick="llamarajedrez()" class="boton-jugar"><i class="fas fa-chess-knight"></i>
                 <p>Jugar</p>
-            </a><a href="#" class="boton-estadisticas">
+            </button><a href="#" class="boton-estadisticas">
                 <p>Estadisticas</p><i class="fas fa-chart-bar"></i>
             </a>
         </div>
@@ -140,7 +154,7 @@
 
         <div class="contenedor-salas">
 
-            <img src="../IMG/tablero.png" alt="">
+            <img src="IMG/tablero.png" alt="">
             <div class="botones-podcast">
                 <h2>Juega Ajedrez</h2>
                 <a href="#" class="nueva-sala"><i class="fas fa-plus-circle"></i>
@@ -158,7 +172,7 @@
         </div>
 
         <div class="contenedor-podcast">
-            <img src="../IMG/logo.png" alt="">
+            <img src="IMG/logo.png" alt="">
             <a href="" class="">Escuchalas aqui!</a>
         </div>
 
@@ -171,26 +185,26 @@
         </svg></div>
     <div class="div-wrapper3">
         <div class="noticias">
-            <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
+            <div class="div"><img src="IMG/pexels-tim-douglas-6205772.jpg" alt="">
                 <h2>TItulo Noticia2</h2>
                 <p>Autor</p>
             </div>
-            <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
+            <div class="div"><img src="IMG/pexels-tim-douglas-6205772.jpg" alt="">
                 <h2>TItulo Noticia2</h2>
                 <p>Autor</p>
             </div>
-            <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
+            <div class="div"><img src="IMG/pexels-tim-douglas-6205772.jpg" alt="">
                 <h2>TItulo Noticia2</h2>
                 <p>Autor</p>
             </div>
-            <div class="div"><img src="../IMG/pexels-tim-douglas-6205772.jpg" alt="">
+            <div class="div"><img src="IMG/pexels-tim-douglas-6205772.jpg" alt="">
                 <h2>TItulo Noticia2</h2>
                 <p>Autor</p>
             </div>
-            
+
         </div>
     </div>
-    
+
 
 </body>
 <footer>
@@ -209,4 +223,5 @@
     </div>
 
 </footer>
+
 </html>

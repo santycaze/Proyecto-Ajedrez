@@ -111,7 +111,7 @@ function crearTablero() {
     }
     tablero += "<tr> <td> </td> <td id='inf'>A</td> <td id='inf'>B</td> <td id='inf'>C</td> <td id='inf'>D</td> <td id='inf'>E</td> <td id='inf'>F</td> <td id='inf'>G</td> <td id='inf'>H</td> </tr>";
     tablero += "</table>";
-    $('#tabla').html(tablero);
+    $('#tabla2').html(tablero);
     actualizarTablero();
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -319,7 +319,14 @@ const tableroIntel = (ficha, posicion) => {
                     for (let x = 0; x < 8; x++) {
                         numero++;
                         i++;
-                        document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                        if (!!document.getElementById(numero + "." + letras[--i]) != false) {
+                            i+2;
+                            document.getElementById(numero + "." + letras[--i]).style.backgroundColor = "#6EB85B";
+                        }
+                        if(!!document.getElementById(numero + "." + letras[i]) != false){
+                            document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                        }
+
                     }
                 }
             }

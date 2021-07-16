@@ -1,5 +1,4 @@
 <?php
-    sesssion_start();
-    $usuario = $_SESSION['MattyEnE-4'];
-    echo $usuario;
+    $_SESSION['nombre'] = "MattyEnE-6";
+    echo $_SESSION['nombre'];
 ?>
