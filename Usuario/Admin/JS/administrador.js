@@ -11,7 +11,7 @@ function TraePeriodistas() {
 
                 var nombreUsuario, mail, idPeriodista, aprobado;
                 aprobado = Datos[i].Aprobado;
-                nombreUsuario = Datos[i].nombreUsuario;
+                nombreUsuario = "hola";
                 mail = Datos[i].mail;
                 idPeriodista = Datos[i].idPeriodista;
 
@@ -20,7 +20,7 @@ function TraePeriodistas() {
                     contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas(" + Datos[i].idPeriodista + ")'>✖</button></div></td></tr>";
                     $("#tablaAprobados").append(contenido);
                 } else {
-                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar(" + info + ")'>✓</button><button onclick='EliminarPeriodistas(" + Datos[i].idPeriodista + ")'>✖</button></div></td></tr>";
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='Aprobar(" + info + ")'>✓</button><button onclick='EliminarPeriodistas(" + info + ")'>✖</button></div></td></tr>";
                     $("#tablaNoAprobados").append(contenido);
                 }
             }
@@ -61,9 +61,9 @@ function TraeContraseñas() {
 function Aprobar(datos) {
     var id,usr,mail;
     var info = datos.split("-");
-    id = info[1];
-    mail = info[2];
-    usr = info[3];
+    id = info[0];
+    mail = info[1];
+    usr = info[2];
     //habilitar aprobar.php despues de las pruebas.
     $.ajax({
         type: "POST",
@@ -72,20 +72,26 @@ function Aprobar(datos) {
         success: function (response) {
             console.log(response);
             Periodistas();
-            mailAprobar(mail, usr);
+            mail(mail, usr, 1);
         }
     });
 }
 
-function EliminarPeriodistas(idPeriodista) {
+function EliminarPeriodistas(datos) {
     //habilitar eliminarPeriodistas despues de las pruebas.
+    var id,usr,mail;
+    var info = datos.split("-");
+    id = info[0];
+    mail = info[1];
+    usr = info[2];
     $.ajax({
         type: "POST",
         url: "../../PHP/eliminarPeriodistas.php",
-        data: { idP: idPeriodista },
+        data: { idP: id },
         success: function (response) {
             console.log(response);
             Periodistas();
+            mailer(mail, usr, 0);
         }
     });
 }
@@ -120,13 +126,25 @@ function ModUsuario() {
     TraeModUsuarios();
 }
 
-function mailAprobar(mail, nombre) {
-    $.ajax({
-        type: "POST",
-        url: "solicitudes/PHP/mailAprobar.php",
-        data: { mail: mail, nombre: nombre },
-        success: function (response) {
-            console.log(response)
-        }
-    });
+function mailer(mail, nombre, apr) {
+    console.log(mail +" "+ nombre)
+    if (apr == 1) {
+        $.ajax({
+            type: "POST",
+            url: "solicitudes/PHP/mailAprobar.php",
+            data: { mail: mail, nombre: nombre },
+            success: function (response) {
+                console.log(response)
+            }
+        });
+    }else{
+        $.ajax({
+            type: "POST",
+            url: "solicitudes/PHP/mailRechazar.php",
+            data: { mail: mail, nombre: nombre },
+            success: function (response) {
+                console.log(response)
+            }
+        });
+    }
 }
