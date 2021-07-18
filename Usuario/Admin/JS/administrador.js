@@ -11,7 +11,7 @@ function TraePeriodistas() {
 
                 var nombreUsuario, mail, idPeriodista, aprobado;
                 aprobado = Datos[i].Aprobado;
-                nombreUsuario = "hola";
+                nombreUsuario = Datos[i].nombreUsuario;
                 mail = Datos[i].mail;
                 idPeriodista = Datos[i].idPeriodista;
 

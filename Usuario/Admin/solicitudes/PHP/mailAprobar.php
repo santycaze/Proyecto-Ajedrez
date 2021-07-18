@@ -10,7 +10,7 @@ require '../../../../PHPMailer-6.3.0/src/SMTP.php';
 //
 $mailUsuario = $_POST['mail'];
 $nombre = $_POST['nombre'];
-$body = file_get_contents('../mail.html');
+$body = file_get_contents('../mailA.html');
 //
 /*------------------------------------------------------------------------------------------*/
 //
@@ -31,7 +31,7 @@ $mail->From = "eightbchess@gmail.com";
 $mail->FromName = "8-bit Chess";
 $mail->addAddress($mailUsuario, $nombre);
 $mail->isHTML(true);
-$mail->Subject = "Solicitud de usuario";
+$mail->Subject = "Hola, ".$nombre;
 $mail->Body = $body;
 try {
     $mail->send();
