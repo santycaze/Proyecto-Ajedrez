@@ -72,7 +72,7 @@ function Aprobar(datos) {
         success: function (response) {
             console.log(response);
             Periodistas();
-            mail(mail, usr, 1);
+            mailer(mail, usr, 1);
         }
     });
 }
