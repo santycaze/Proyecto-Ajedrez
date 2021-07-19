@@ -2,8 +2,22 @@ La idea va ser que la tabla de la izquierda muestre los torneos ya creados,
 de no haber creado ninguno se va a mostrar un mensaje que dice que actualmente
 no se creo ningun torneo y un boton el que diga "crear torneo"
 SI ya hay torneos creados que aparezca un boton al lado de cada torneo el cual
-sea para visualizar el torneo y su info, el cual se desplegara a la derecha en una tabla
+sea para visualizar el torneo y su info, el cual se desplegara en otra ventana emergente
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../../CSS/administrador.css">
+    <link rel="stylesheet" href="../../../CSS/OpcionesUsuarios.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
 
 <table id='tablaNoAprobados'>
     <h2>Torneos</h2>
@@ -13,19 +27,27 @@ sea para visualizar el torneo y su info, el cual se desplegara a la derecha en u
     </tr>
 </table>
 
-<table id='tablaAprobados'>
-    <h2>Aprobados</h2>
-    <tr>
-        <th id='col1'>Nombre</th>
-        <th id='col1'>Apertura de inscripciones</th>
-        <th id='col1'>Fin de inscripciones</th>
-        <th id='col1'>Comienzo de torneo</th>
-        <th id='col1'>Fin de torneo</th>
-        <th id='col1'>Max participantes</th>
-        <th id='col1'>N. partidas por juego</th>
-        <th id='col1'>Tiempo max por partida</th>
-        <th id='col1'>Tiempo por movida</th>
-        <th id='col1'>Max de participantes</th>
-        <th id='col1'>Nombre del trofe</th>
-    </tr>
-</table>
+
+
+<div class="div-wrapper-mod">
+    <div class="contenedor-mod">
+
+        <table id='tablaAprobados'>
+            <h2>Aprobados</h2>
+            <tr>
+                <th id='col1'>Nombre</th>
+                <th id='col1'>Apertura de inscripciones</th>
+                <th id='col1'>Fin de inscripciones</th>
+                <th id='col1'>Comienzo de torneo</th>
+                <th id='col1'>Fin de torneo</th>
+                <th id='col1'>Max participantes</th>
+                <th id='col1'>N. partidas por juego</th>
+                <th id='col1'>Tiempo max por partida</th>
+                <th id='col1'>Tiempo por movida</th>
+                <th id='col1'>Max de participantes</th>
+                <th id='col1'>Nombre del trofe</th>
+            </tr>
+        </table>
+     
+       </div>
+</div>
