@@ -123,5 +123,39 @@ class Servidor
         $stmt->execute();
         $stmt->close();
     }
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function crearTorneo(){
+        $conn = $this->conexion();
+        $datos = array("nombreTorneo" => $_POST['nombreTorneo'],"fechaComInscripciones" => $_POST['fci'],"fechaFinInscripciones" => $_POST['ffi'],"fechaComTorneo" => $_POST['fct'],"fechaFinTorneo" => $_POST['fft'],"maximoParticipantes" => $_POST['mp'],"numPartidas" => $_POST['numPart'],"tiempoPartida" => $_POST['tiempoPart'],"tiempoMovimiento" => $_POST['tiempoMov'],"nombreTrofeo" => $_POST['nomTrofeo']);
+        $query = "CALL crearTorneo(?,?,?,?,?,?,?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("sddddiitts", $datos["nombreTorneo"],$datos["fechaComInscripciones"],$datos["fechaFinInscripciones"],$datos["fechaComTorneo"],$datos["fechaFinTorneo"],$datos["maximoParticipantes"],$datos["numPartidas"],$datos["tiempoPartida"],$datos["tiempoMovimiento"],$datos["nombreTrofeo"]);
+        $stmt->execute();
+        $stmt->close();
+    }
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function datosTorneo()
+    {
+        //nombreTorneo,fechaFinTorneo,maximoParticipantes,numPartidas,tiempoPartida,tiempoMovida,nombreTrofeo
+        $conn = $this->conexion();
+        $query = "CALL datosTorneo()";
+        $stmt = $conn->prepare($query);
+
+        if ($stmt->execute()) {
+            $json = array();
+            $stmt->store_result();
+            $stmt->bind_result($nombreTorneo,$fechaFinTorneo,$maxParticipantes,$numPartidas,$tiempoPartida,$tiempoMovida,$nombreTrofeo);
+                while ($stmt->fetch()) {
+                    $fila = array('nombreTorneo' => $nombreTorneo,'fechaFinTorneo' => $fechaFinTorneo,'maxParticipantes' => $maxParticipantes,'numPartidas' => $numPartidas,'tiempoPartida' => $tiempoPartida,'tiempoMovida' => $tiempoMovida,'nombreTrofeo' => $nombreTrofeo);
+                    $json[] = $fila;
+                }
+            }
+            $stmt->close();
+        return $json;
+    }
 }
 ?> 
