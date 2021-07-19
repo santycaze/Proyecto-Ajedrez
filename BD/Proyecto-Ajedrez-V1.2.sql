@@ -372,11 +372,17 @@ CREATE TABLE `torneo` (
   `puntuacion` int NOT NULL,
   `fechaInicio` date NOT NULL,
   `fechaFin` date NOT NULL,
-  `tiempoPartida` int NOT NULL,
+  `tiempoPartida` time NOT NULL,
   `inicioInscrip` date NOT NULL,
   `finInscrip` date NOT NULL,
   `cantPartidas` int NOT NULL,
   `horarios` int NOT NULL,
+  `nombreTorneo` varchar(45) NOT NULL,
+  `maxParticipantes` int NOT NULL,
+  `tiempoMaxPartida` time NOT NULL,
+  `tiempoMovida` time NOT NULL,
+  `nombreTrofeo` varchar(45) NOT NULL,
+  `partidasJuego` int NOT NULL,
   PRIMARY KEY (`idTorneo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -462,6 +468,26 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `crearTorneo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearTorneo`(nombreTorneo varchar(45), inicioInscrip date, finInscrip date, fechaInicio date, fechaFin date, maxParticipantes int, tiempoMaxPartida time, tiempoMovida time, nombreTrofeo varchar(45), partidasJuego int)
+BEGIN
+insert into torneo (nombreTorneo , inicioInscrip , finInscrip , fechaInicio , fechaFin , maxParticipantes , tiempoMaxPartida , tiempoMovida , nombreTrofeo, partidasJuego)
+values (nombreTorneo , inicioInscrip , finInscrip , fechaInicio , fechaFin , maxParticipantes , tiempoMaxPartida , tiempoMovida , nombreTrofeo, partidasJuego);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `datosJugador` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -513,6 +539,25 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `datosPriodistas`()
 BEGIN
 select idPeriodista,ci,nombreUsuario,mail,celular,Aprobado from Usuario,periodistas where Usuario.idUsuario = periodistas.idUsuario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `datosTorneo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `datosTorneo`()
+BEGIN
+select nombreTorneo, finTorneo, maxParticipantes, maxPartidas,partidasJuego,tiempoMaxPartida,tiempoMovida,nombreTrofeo from torneo;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -613,4 +658,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-16 17:11:20
+-- Dump completed on 2021-07-19 12:07:49

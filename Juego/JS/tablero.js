@@ -11,8 +11,8 @@ color = { 1: "Blancas", 0: "Negras" }
 blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" }
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
-    /*---------------------------------------------------------------------------------------------------------------------------------*/
-$(document).ready(function() {
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+$(document).ready(function () {
     colorJugador = asignarColor();
     crearTablero();
 });
@@ -254,19 +254,27 @@ const tableroIntel = (ficha, posicion) => {
             // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
             for (let i = 1; i < 8; i++) {
                 if (letras[i] == letra) {
+
                     switch (colorJugador) {
                         case 1:
                             // si el color del jugador es blanco.
                             if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
                                 numero++;
+                                console.log(document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value);
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                             } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+
                             } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                            }
+                            //verifico si es jaque
+                            if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
+                                console.log("jaque");
+                                actualizarTablero();
                             }
                             break;
                         case 0:
@@ -282,11 +290,16 @@ const tableroIntel = (ficha, posicion) => {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                             }
+                            //verifico si es jaque
+                            if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).value == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).value == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>") {
+                                alert("jaque");
+                                actualizarTablero();
+                            }
                             break;
                     }
                 }
             }
-        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {} else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") { } else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
@@ -320,10 +333,10 @@ const tableroIntel = (ficha, posicion) => {
                         numero++;
                         i++;
                         if (!!document.getElementById(numero + "." + letras[--i]) != false) {
-                            i+2;
+                            i + 2;
                             document.getElementById(numero + "." + letras[--i]).style.backgroundColor = "#6EB85B";
                         }
-                        if(!!document.getElementById(numero + "." + letras[i]) != false){
+                        if (!!document.getElementById(numero + "." + letras[i]) != false) {
                             document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
                         }
 
