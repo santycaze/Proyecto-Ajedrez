@@ -24,3 +24,7 @@ function guardarmod() {
     $('#edicion').hide();
     $('body').css('overflow', 'auto');
 }
+
+function cambiarNombre(nom) {
+    $(".nick-usuario").html('<input style="width:100%; height:30px; font-size:30px" type="text" name="" value="'+nom+'"/>')
+}

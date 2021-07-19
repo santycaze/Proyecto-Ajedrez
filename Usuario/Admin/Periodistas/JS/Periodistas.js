@@ -1,3 +1,5 @@
+var contenido;
+
 function Periodistas() {
     var tabla1 = "<table id='tablaNoAprobados'> <h2>Pendientes de aprobar</h2><tr> <th id='col1'>Nombre</th> <th id='col1'>Institucion</th>  <th id='col1'>Tipo</th>  <th id='col1'>A/R</th></tr></table>";
     $("#tabla1").html(tabla1);
@@ -13,8 +15,6 @@ function TraePeriodistas() {
         success: function (response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
-                console.log(Datos[i])
-
                 var nombreUsuario, mail, idPeriodista, aprobado;
                 aprobado = Datos[i].Aprobado;
                 nombreUsuario = Datos[i].nombreUsuario;

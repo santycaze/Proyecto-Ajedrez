@@ -1,5 +1,5 @@
 <?php
-     include "Servidor/Servidor.php";
+     include "../../../../PHP/Servidor/servidor.php";
      //$servidor = new Servidor();
      //$servidor->eliminarPeriodistas();
 ?>
