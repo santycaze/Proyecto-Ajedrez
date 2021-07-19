@@ -34,7 +34,28 @@
 
 <body>
 
-    <!-- Loader -->
+   <!-- Responsive -->
+   <div class="body-responsive">
+    <div class="contenedor-general-responsive">
+
+        <div class="contenedor-portada-responsive">
+            <img src="IMG/logo.png" alt="">
+            <h1>8-Bit Chess</h1>
+        </div>
+
+        <div class="contenedor-menu-responsive">
+            <a href="" class="a5"> <i class="fas fa-sign-in-alt"></i> Log in</a>
+            <a href="" class="a5"> <i class="fas fa-sign-in-alt"></i> Register</a>
+            <a href="" class="a5"> <i class="fas fa-user-alt"></i> Perfil</a>
+            <a href="" class="a5"> <i class="fas fa-chess-knight"></i> Jugar</a>
+            <a href="" class="a5"> <i class="fas fa-chart-bar"></i> Estadisticas</a>
+            <a href="" class="a5"> <i class="fas fa-exclamation"></i> Noticias</a>
+        </div>
+    </div>
+</div>
+
+<!-- Fin responsive -->
+
     <div class="loader-wrapper">
         <div class="loader"><img src="../Proyecto-Ajedrez/IMG/CaballoBlanco.png" alt="">
         </div>
@@ -174,11 +195,11 @@
         <path
             d="M 0,400 C 0,400 0,133 0,133 C 123.31100478468898,126.36842105263158 246.62200956937795,119.73684210526315 334,120 C 421.37799043062205,120.26315789473685 472.82296650717706,127.42105263157893 547,125 C 621.1770334928229,122.57894736842107 718.086124401914,110.57894736842105 836,100 C 953.913875598086,89.42105263157895 1092.8325358851673,80.26315789473685 1197,86 C 1301.1674641148327,91.73684210526315 1370.5837320574165,112.36842105263158 1440,133 C 1440,133 1440,400 1440,400 Z"
             stroke="none" stroke-width="0" fill="#07375088" class="transition-all duration-300 ease-in-out delay-150"
-            transform="rotate(-180 720 200)"></path>
+            transform="rotate(-180 720 200)" id="path"></path>
         <path
             d="M 0,400 C 0,400 0,266 0,266 C 90.00956937799043,262.9856459330143 180.01913875598086,259.9712918660287 263,260 C 345.98086124401914,260.0287081339713 421.93301435406704,263.1004784688995 533,253 C 644.066985645933,242.8995215311005 790.2488038277512,219.62679425837325 905,226 C 1019.7511961722488,232.37320574162675 1103.0717703349283,268.39234449760767 1187,280 C 1270.9282296650717,291.60765550239233 1355.4641148325359,278.8038277511962 1440,266 C 1440,266 1440,400 1440,400 Z"
             stroke="none" stroke-width="0" fill="#073750ff" class="transition-all duration-300 ease-in-out delay-150"
-            transform="rotate(-180 720 200)"></path>
+            transform="rotate(-180 720 200)" id="path"></path>
     </svg>
 
 
@@ -202,12 +223,12 @@
         <div class="contenedor-entrenamiento">
             <img src="IMG/tutorial.png" alt="">
             <div class="contenedor-entrenamiento-menu">
-            <a href="" class="boton-salas"> Aprende a jugar <i class="fas fa-angle-down"></i></a>
-            <div class="opciones-entrenamiento-menu">
-                <a class="a4">Ver tutorial</a>
-                <a class="a4">Aprender a jugar</a>
+                <a href="" class="boton-salas"> Aprende a jugar <i class="fas fa-angle-down"></i></a>
+                <div class="opciones-entrenamiento-menu">
+                    <a class="a4">Ver tutorial</a>
+                    <a class="a4">Aprender a jugar</a>
+                </div>
             </div>
-        </div>
         </div>
 
         <div class="contenedor-podcast">
@@ -219,10 +240,10 @@
 
 
 
-    <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+    <div style="height: 150px; overflow: hidden;" id="svg"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
             style="height: 100%; width: 100%;">
             <path d="M0.00,49.98 C115.97,165.28 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                style="stroke: none; fill: #073750;"></path>
+                style="stroke: none; fill: #073750;" id="path"></path>
         </svg></div>
     <div class="div-wrapper3">
         <div class="noticias">
@@ -246,12 +267,13 @@
         </div>
     </div>
 
-
+    <!-- Loader -->
+    
 </body>
-<div style="height: 90px; overflow: hidden; background: #073750;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+<div style="height: 90px; overflow: hidden; background: #073750;" id="svg"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
         style="height: 100%; width: 100%;">
         <path d="M0.00,49.98 C115.97,165.28 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-            style="stroke: none; fill: #173248;"></path>
+            style="stroke: none; fill: #173248;" id="path"></path>
     </svg></div>
 
 <footer>
