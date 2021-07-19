@@ -200,7 +200,7 @@ h2 {
 .opciones-juego-menu{
 position: absolute;
 background:#0a4e72;;
-top: 55px;
+top: 54px;
 width: 100%;
 border-radius: 20px;
 display: none;
@@ -208,7 +208,8 @@ display: none;
 
 .opciones-juego-menu a{
 font-size: 20px;
-padding-top: 8px;
+padding-top: 10px;
+padding-bottom: 10px;
 border-bottom: 1px solid rgba(128, 128, 128, 0.267);
 border-radius: 25px;
 color: rgba(255, 255, 255, 0.699);
@@ -222,7 +223,7 @@ cursor: pointer;
 .opciones-entrenamiento-menu{
   position: absolute;
 background:#0a4e72;;
-top: 39px;
+top: 38px;
 width: 100%;
 border-radius: 20px;
 display: none;
@@ -230,7 +231,8 @@ display: none;
 
 .opciones-entrenamiento-menu a{
 font-size: 20px;
-padding-top: 8px;
+padding-top: 10px;
+padding-bottom: 10px;
 border-bottom: 1px solid rgba(128, 128, 128, 0.267);
 border-radius: 25px;
 color: rgba(255, 255, 255, 0.699);
