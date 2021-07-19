@@ -557,11 +557,26 @@ footer .menu{
   flex-direction: column;
 }
 
+footer h1{
+  color: white;
+}
+
+footer p{
+  color: white;
+}
+
+
+
 .menu ul{
   margin: 0;
   padding:0;
 }
 
+.menu a{
+  text-decoration: underline;
+  color: white;
+  font-size: 17px;
+}
 
 /* ======================================================= */
 /* Fin de seccion */
