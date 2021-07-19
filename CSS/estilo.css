@@ -272,12 +272,15 @@ display: block;
 
 .div-wrapper2 {
   width: 100%;
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
   background: #073750;
   padding: 10px 0;
   position: relative;
   margin-top: -10px;
+  
 }
 
 .contenedor-tabla {
@@ -639,12 +642,119 @@ footer p{
 /* Fin Loader */
 /* ======================================================= */
 
+/* ======================================================= */
+/* Responsive */
+/* ======================================================= */
+
+.body-responsive{
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contenedor-general-responsive{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-menu-responsive{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.body-responsive img{
+  width: 45%;
+}
+
+.body-responsive h1{
+  font-size: 40px;
+  margin: 0;
+  margin-top: 5px;
+  color: white;
+  font-family: 'Bree Serif', serif;
+}
+
+.a5 {
+  background: white;
+width: 300px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Bree Serif', serif;
+  border-radius: 10px;
+}
+
+.a5 i{
+  margin-right: 15px;
+}
 
 
 
 
+@media screen and (Max-width:1024px){
+  .body-responsive{
+    display: flex;
+  }
 
+  .usuario{
+    display: none;
+  }
 
+  .header{
+    display: none;
+  }
+
+  .contenedor-inicio{
+    display: none;
+  }
+
+  #svg{
+    display: none;
+  }
+
+  .div-wrapper2{
+    display: none;
+  }
+
+  .Tabla{
+    display: none;
+  }
+
+  .div-wrapper5{
+    display: none;
+  }
+
+  .div-wrapper3{
+    display: none;
+  }
+
+  footer{
+    display: none;
+  }
+
+  #path{
+    display: none;
+  }
+
+}
 
 
 
