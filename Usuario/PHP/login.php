@@ -1,9 +1,10 @@
 <?php
-    include "../../PHP/Servidor/conexion.php";
-    include "../../PHP/Servidor/config.php";
+    include "C:/xampp/htdocs/Documents/Proyecto-Ajedrez/PHP/Servidor/servidor.php";
+    include "C:/xampp/htdocs/Documents/Proyecto-Ajedrez/PHP/conexion.php";
+   
     $nombreUsuario = $_POST['user'];  
     $contraseña = $_POST['pass']; 
-       
+        
         $nombreUsuario = stripcslashes($nombreUsuario);  
         $contraseña = stripcslashes($con, $contraseña);  
         $nombreUsuario = mysqli_real_escape_string($nombreUsuario);  
