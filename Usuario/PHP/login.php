@@ -1,6 +1,6 @@
 <?php
-    include "C:\xampp\htdocs\Proyecto-Ajedrez\PHP\Servidor\servidor.php";
-    include "C:\xampp\htdocs\Proyecto-Ajedrez\PHP\conexion.php";
+    include 'servidor.php';
+    include 'conexion.php';
 
     define('DB_SERVER', 'localhost');
     define('DB_USERNAME', 'root');
