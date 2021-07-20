@@ -13,19 +13,10 @@ function llamarajedrez(){
             $('#tabla').show();
            $('#tabla').html(response);
            $('body').css('overflow','hidden');
+           llamarTablero();
         }
     });
     
-}
-
-function llamarTablero() {
-    $.ajax({
-        type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/traerTablero.php",
-        success: function(response) {
-           $('#tabla2').html(response);
-        }
-    });
 }
 
 function cerrar(){
