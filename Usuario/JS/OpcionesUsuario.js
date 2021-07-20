@@ -26,5 +26,5 @@ function guardarmod() {
 }
 
 function cambiarNombre(nom) {
-    $(".nick-usuario").html('<input style="width:100%; height:30px; font-size:30px" type="text" name="" value="'+nom+'"/>')
+    $(".nick-usuario").html('<input class="inputNombre" style="width:100%; height:30px; font-size:30px" type="text" name="" value="'+nom+'"/>')
 }

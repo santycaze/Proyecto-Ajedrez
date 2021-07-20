@@ -11,7 +11,7 @@ function Usuarios() {
 function TraeUsuarios() {
     $.ajax({
         type: "POST",
-        url: "../../PHP/TraeUsuarios.php",
+        url: "../Admin/Usuarios/PHP/TraeUsuarios.php",
         success: function (response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
