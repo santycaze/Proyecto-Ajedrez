@@ -6,9 +6,9 @@
     $contraseña = $_POST['pass']; 
         
         $nombreUsuario = stripcslashes($nombreUsuario);  
-        $contraseña = stripcslashes($con, $contraseña);  
+        $contraseña = stripcslashes($contraseña);  
         $nombreUsuario = mysqli_real_escape_string($nombreUsuario);  
-        $contraseña = mysqli_real_escape_string($con, $contraseña);  
+        $contraseña = mysqli_real_escape_string($contraseña);  
       
         $sql = "select * from usuario where nombreUsuario = '$nombreUsuario' and contraseña = '$contraseña'";  
         $result = $mysqli->query($sql); 
