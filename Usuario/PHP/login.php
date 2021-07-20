@@ -5,7 +5,7 @@
     $contraseña = $_POST['pass']; 
        
         $nombreUsuario = stripcslashes($nombreUsuario);  
-        $contraseña = stripcslashes($contraseña);  
+        $contraseña = stripcslashes($con, $contraseña);  
         $nombreUsuario = mysqli_real_escape_string($nombreUsuario);  
         $contraseña = mysqli_real_escape_string($con, $contraseña);  
       
