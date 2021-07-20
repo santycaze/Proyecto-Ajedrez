@@ -299,7 +299,8 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>") { } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
@@ -344,7 +345,6 @@ const tableroIntel = (ficha, posicion) => {
                 }
             }
         } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>") {
-
         } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>") {
 
         }
