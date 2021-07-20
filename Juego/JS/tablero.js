@@ -237,7 +237,7 @@ const tableroIntel = (ficha, posicion) => {
         var numero = coord[0];
         //--------------------------------------------------------------------------------------------------------------------------//
         /* Peon  (bug)*/
-        if (ficha == "<img src='/IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='/IMG/PeonNegro.png' id='ficha'></img>") {
+        if (ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>") {
             if (numero != 2 && Comible(numero, letra) == false) {
                 //marco en verde la casilla delante del peon
                 numero++;
@@ -291,7 +291,7 @@ const tableroIntel = (ficha, posicion) => {
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                             }
                             //verifico si es jaque
-                            if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).value == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).value == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>") {
+                            if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>") {
                                 alert("jaque");
                                 actualizarTablero();
                             }
@@ -299,7 +299,7 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='/IMG/TorreNegra.png' id='ficha'></img>") { } else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>") { } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
@@ -326,7 +326,7 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='/IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='/IMG/AlfilNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/AlfilNegro.png' id='ficha'></img>") {
             for (let i = 1; i < 8; i++) {
                 if (letra == letras[i]) {
                     for (let x = 0; x < 8; x++) {
@@ -343,9 +343,9 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='/IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='/IMG/ReyNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>") {
 
-        } else if (ficha == "<img src='/IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='/IMG/ReinaNegra.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>") {
 
         }
     }
