@@ -1,6 +1,6 @@
 <?php
-    include "C:/xampp/htdocs/Documents/Proyecto-Ajedrez/PHP/Servidor/servidor.php";
-    include "C:/xampp/htdocs/Documents/Proyecto-Ajedrez/PHP/conexion.php";
+    include "C:\xampp\htdocs\Proyecto-Ajedrez\PHP\Servidor\servidor.php";
+    include "C:\xampp\htdocs\Proyecto-Ajedrez\PHP\conexion.php";
    
     $nombreUsuario = $_POST['user'];  
     $contraseña = $_POST['pass']; 
