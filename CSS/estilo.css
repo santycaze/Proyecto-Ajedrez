@@ -192,23 +192,71 @@ h2 {
   display: inline-block;
 }
 
+.contenedor-opciones-juego:hover .opciones-juego-menu{
+  display: block;
+}
+
 
 .opciones-juego-menu{
 position: absolute;
 background:#0a4e72;;
-top: 60px;
+top: 54px;
 width: 100%;
 border-radius: 20px;
+display: none;
 }
 
 .opciones-juego-menu a{
-  font-size: 20px;
-margin-top: 8px;
+font-size: 20px;
+padding-top: 10px;
+padding-bottom: 10px;
 border-bottom: 1px solid rgba(128, 128, 128, 0.267);
 border-radius: 25px;
 color: rgba(255, 255, 255, 0.699);
+cursor: pointer;
 }
 
+.a3:hover{
+  background: #0c5e8a;
+}
+
+.opciones-entrenamiento-menu{
+  position: absolute;
+background:#0a4e72;;
+top: 38px;
+width: 100%;
+border-radius: 20px;
+display: none;
+}
+
+.opciones-entrenamiento-menu a{
+font-size: 20px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-bottom: 1px solid rgba(128, 128, 128, 0.267);
+border-radius: 25px;
+color: rgba(255, 255, 255, 0.699);
+cursor: pointer;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.a4:hover{
+  background: #0c5e8a;
+}
+
+.contenedor-entrenamiento-menu:hover .opciones-entrenamiento-menu{
+display: block;
+}
+
+.contenedor-entrenamiento-menu{
+  position: relative;
+  display: inline-block;
+
+}
 
 
 
@@ -224,12 +272,15 @@ color: rgba(255, 255, 255, 0.699);
 
 .div-wrapper2 {
   width: 100%;
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
   background: #073750;
   padding: 10px 0;
   position: relative;
   margin-top: -10px;
+  
 }
 
 .contenedor-tabla {
@@ -509,11 +560,26 @@ footer .menu{
   flex-direction: column;
 }
 
+footer h1{
+  color: white;
+}
+
+footer p{
+  color: white;
+}
+
+
+
 .menu ul{
   margin: 0;
   padding:0;
 }
 
+.menu a{
+  text-decoration: underline;
+  color: white;
+  font-size: 17px;
+}
 
 /* ======================================================= */
 /* Fin de seccion */
@@ -576,12 +642,119 @@ footer .menu{
 /* Fin Loader */
 /* ======================================================= */
 
+/* ======================================================= */
+/* Responsive */
+/* ======================================================= */
+
+.body-responsive{
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contenedor-general-responsive{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-menu-responsive{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.body-responsive img{
+  width: 45%;
+}
+
+.body-responsive h1{
+  font-size: 40px;
+  margin: 0;
+  margin-top: 5px;
+  color: white;
+  font-family: 'Bree Serif', serif;
+}
+
+.a5 {
+  background: white;
+width: 300px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Bree Serif', serif;
+  border-radius: 10px;
+}
+
+.a5 i{
+  margin-right: 15px;
+}
 
 
 
 
+@media screen and (Max-width:1024px){
+  .body-responsive{
+    display: flex;
+  }
 
+  .usuario{
+    display: none;
+  }
 
+  .header{
+    display: none;
+  }
+
+  .contenedor-inicio{
+    display: none;
+  }
+
+  #svg{
+    display: none;
+  }
+
+  .div-wrapper2{
+    display: none;
+  }
+
+  .Tabla{
+    display: none;
+  }
+
+  .div-wrapper5{
+    display: none;
+  }
+
+  .div-wrapper3{
+    display: none;
+  }
+
+  footer{
+    display: none;
+  }
+
+  #path{
+    display: none;
+  }
+
+}
 
 
 
@@ -679,6 +852,8 @@ footer .menu{
   background: #073750;
   padding: 20px;
   border-radius: 5em;
+  display: grid;
+  grid-template-columns: 65% 1fr;
   box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
@@ -686,7 +861,7 @@ footer .menu{
   width: 170px;
   background: #062c41;
   position: fixed;
-  top: 70px;
+  top: 30px;
   left: 20px;
   text-align: center;
   transition: .4s;
@@ -752,4 +927,133 @@ footer .menu{
   border-radius: 50%;
   background: chartreuse;
   margin: 5px;
+}
+
+/* ======================================================= */
+/* CSS Tablero */
+/* ======================================================= */
+
+
+.divCas {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+#ficha {
+  width: 30px;
+}
+
+.casilla1{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+.casilla2{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+.casilla3{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+.casilla4{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+.casilla5{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+.casilla6{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+.casilla7{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+.casilla8{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+
+p {
+  margin: 0px;
+}
+
+#tablero td {
+  height: 59px;
+  width: 60px;
+  padding: 0;
+}
+
+#esq {
+  height: 59px;
+  width: 59px;
+}
+
+#tablero {
+  border-spacing: 0px;
+}
+
+#tablero td {
+  height: 60px;
+  width: 60px;
+  text-align: center;
+}
+
+#tabla2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#inf {
+  border-top: 1px solid black;
+}
+
+#sup {
+  border-bottom: 1px solid black;
+}
+
+#izq {
+  border-right: 1px solid black;
+}
+
+#der {
+  border-left: 1px solid black;
 }

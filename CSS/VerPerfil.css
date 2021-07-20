@@ -21,6 +21,7 @@
     flex-direction: column;
     background:#0D5277 ;
     border-radius: 20px;
+    position: relative;
 }
 
 .contenedor-wrapper{
@@ -125,4 +126,16 @@
 .icono-logro-verperfil i{
     font-size: 50px;
     color: #ffAA00;
+}
+
+.cerrar-perfil{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.cerrar-perfil i{
+    font-size: 25px;
+    color: white;
 }

@@ -13,6 +13,7 @@ function llamarajedrez(){
             $('#tabla').show();
            $('#tabla').html(response);
            $('body').css('overflow','hidden');
+           llamarTablero();
         }
     });
     

@@ -1,13 +1,15 @@
 <?php
 session_start();
 $usuario = $_POST['usr'];
+$vistaPreviaUsuario = $usuario;
+$usuario = "'".$usuario."'";
 $llamarediocion = '
 <div class="div-wrapper-mod">
        <div class="contenedor-mod">
             <a class="cerrar-mod" onclick="cerrarmod()"><i class="far fa-times-circle"></i></a>
           <div class="icono-usuario"><img src="IMG/icono1.png" alt="" id="vistaPrevia"></div>
           <div class="nick-usuario">
-              <h1>'.$usuario.'</h1> <button><i class="fas fa-edit"></i></button>
+              <h1>'.$vistaPreviaUsuario.'</h1> <button onclick="cambiarNombre('.$usuario.')"><i class="fas fa-edit"></i></button>
           </div>
           <div class="contenedor-mod-icono">
             <button onclick="cambiarIcono('."'../Proyecto-Ajedrez/IMG/Icono1.png'".')"><img src="IMG/icono1.png" alt=""></button>

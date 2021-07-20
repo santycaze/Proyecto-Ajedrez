@@ -1,6 +1,6 @@
 var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino;
-let Y;
 let X;
+let Y;
 //Definicion de variables
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -8,14 +8,14 @@ negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Pe
 letras = new Array();
 //Definicion de arrays
 color = { 1: "Blancas", 0: "Negras" }
-blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" }
-negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
+blancas = { 1: "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../Proyecto-Ajedrez/IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>" }
+negras = { 1: "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../Proyecto-Ajedrez/IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>" }
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
-    /*---------------------------------------------------------------------------------------------------------------------------------*/
-$(document).ready(function() {
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+function llamarTablero() {
     colorJugador = asignarColor();
     crearTablero();
-});
+}
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ function asignarColor() {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function crearTablero() {
     contador = 9;
-    tablero = "<table>";
+    tablero = "<table id='tablero'>";
     if (contador == 9) {
         tablero += "<tr> <td> </td> <td id='sup'>A</td> <td id='sup'>B</td> <td id='sup'>C</td> <td id='sup'>D</td> <td id='sup'>E</td> <td id='sup'>F</td> <td id='sup'>G</td> <td id='sup'>H</td> </tr>";
         contador--;
@@ -111,7 +111,7 @@ function crearTablero() {
     }
     tablero += "<tr> <td> </td> <td id='inf'>A</td> <td id='inf'>B</td> <td id='inf'>C</td> <td id='inf'>D</td> <td id='inf'>E</td> <td id='inf'>F</td> <td id='inf'>G</td> <td id='inf'>H</td> </tr>";
     tablero += "</table>";
-    $('#tabla').html(tablero);
+    $('#tabla2').html(tablero);
     actualizarTablero();
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -120,15 +120,15 @@ function crearTablero() {
 function casillas(value, color) {
     if (value == undefined) {
         if (contador == 8) {
-            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
+            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
         } else {
-            tablero += "<td><div id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
+            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
         }
     } else {
         if (contador == 8) {
-            tablero += '<td><div id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" onclick=' + 'seleccionado("' + contador + '.' + letras[X] + '-' + color + '");' + ' value="' + value + '">' + value + '</button></div></td>';
+            tablero += '<td><div class="divCas" id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" onclick=' + 'seleccionado("' + contador + '.' + letras[X] + '-' + color + '");' + ' value="' + value + '">' + value + '</button></div></td>';
         } else {
-            tablero += '<td><div id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" onclick=' + 'seleccionado("' + contador + '.' + letras[X] + '-' + color + '");' + ' value="' + value + '">' + value + '</button></div></td>';
+            tablero += '<td><div class="divCas" id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" onclick=' + 'seleccionado("' + contador + '.' + letras[X] + '-' + color + '");' + ' value="' + value + '">' + value + '</button></div></td>';
         }
     }
     if (X == 8) {
@@ -237,7 +237,7 @@ const tableroIntel = (ficha, posicion) => {
         var numero = coord[0];
         //--------------------------------------------------------------------------------------------------------------------------//
         /* Peon  (bug)*/
-        if (ficha == "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/PeonNegro.png' id='ficha'></img>") {
+        if (ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>") {
             if (numero != 2 && Comible(numero, letra) == false) {
                 //marco en verde la casilla delante del peon
                 numero++;
@@ -254,19 +254,27 @@ const tableroIntel = (ficha, posicion) => {
             // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
             for (let i = 1; i < 8; i++) {
                 if (letras[i] == letra) {
+
                     switch (colorJugador) {
                         case 1:
                             // si el color del jugador es blanco.
                             if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
                                 numero++;
+                                console.log(document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value);
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                             } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+
                             } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                            }
+                            //verifico si es jaque
+                            if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
+                                console.log("jaque");
+                                actualizarTablero();
                             }
                             break;
                         case 0:
@@ -282,11 +290,17 @@ const tableroIntel = (ficha, posicion) => {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                             }
+                            //verifico si es jaque
+                            if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>") {
+                                alert("jaque");
+                                actualizarTablero();
+                            }
                             break;
                     }
                 }
             }
-        } else if (ficha == "<img src='../IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/TorreNegra.png' id='ficha'></img>") {} else if (ficha == "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/CaballoNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
@@ -313,26 +327,25 @@ const tableroIntel = (ficha, posicion) => {
                     }
                 }
             }
-        } else if (ficha == "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/AlfilNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/AlfilNegro.png' id='ficha'></img>") {
             for (let i = 1; i < 8; i++) {
                 if (letra == letras[i]) {
                     for (let x = 0; x < 8; x++) {
                         numero++;
                         i++;
                         if (!!document.getElementById(numero + "." + letras[--i]) != false) {
-                            i+2;
+                            i + 2;
                             document.getElementById(numero + "." + letras[--i]).style.backgroundColor = "#6EB85B";
                         }
-                        if(!!document.getElementById(numero + "." + letras[i]) != false){
+                        if (!!document.getElementById(numero + "." + letras[i]) != false) {
                             document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
                         }
 
                     }
                 }
             }
-        } else if (ficha == "<img src='../IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
-
-        } else if (ficha == "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../IMG/ReinaNegra.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>") {
 
         }
     }

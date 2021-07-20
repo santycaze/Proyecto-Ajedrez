@@ -6,7 +6,7 @@
        
         $nombreUsuario = stripcslashes($nombreUsuario);  
         $password = stripcslashes($password);  
-        $nombreUsuario = mysqli_real_escape_string($con, $nombreUsuario);  
+        $nombreUsuario = mysqli_real_escape_string($nombreUsuario);  
         $password = mysqli_real_escape_string($con, $password);  
       
         $sql = "select * from usuario where nombreUsuario = '$nombreUsuario' and password = '$password'";  
