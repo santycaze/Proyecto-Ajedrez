@@ -310,3 +310,31 @@ header p {
 #tablaNoAprobados{
     width: 100%;
 }
+
+
+.contenedor-mensaje-torneo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bree Serif', serif;
+}
+
+.contenedor-mensaje-torneo h2{
+    color: black;
+    font-size: 35px;
+}
+
+.contenedor-mensaje-torneo button{
+    padding: 8px;
+    background: #073750;
+    border: 1px solid rgba(85, 84, 84, 0.411);
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.199);
+    color: white;
+    margin-top: 10px;
+}
+
+.contenedor-mensaje-torneo p{
+    font-size: 17px;
+}

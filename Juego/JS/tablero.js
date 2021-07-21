@@ -1,6 +1,4 @@
-var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino;
-let X;
-let Y;
+var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y;
 //Definicion de variables
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -13,7 +11,8 @@ negras = { 1: "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function llamarTablero() {
-    colorJugador = asignarColor();
+    colorJugador = 1;
+    //colorJugador = asignarColor();
     crearTablero();
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -148,7 +147,7 @@ function colocarFichas() {
             casillas(blancas[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(blancas[5], color[colorJugador]);
-        } else if (contador == 1 && letras[X] == "c" || contador == 3 && letras[X] == "f") {
+        } else if (contador == 1 && letras[X] == "c" || contador == 3 && letras[X] == "c") {
             casillas(blancas[4], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "d") {
             casillas(blancas[2], color[colorJugador]);
@@ -236,14 +235,27 @@ const tableroIntel = (ficha, posicion) => {
         var letra = coord[1];
         var numero = coord[0];
         //--------------------------------------------------------------------------------------------------------------------------//
-        /* Peon  (bug)*/
+        /* 
+            Marco los lugares para posibles movimientos o comidas de las piezas
+            en este orden:
+
+            * PEON
+            * TORRE
+            * CABALLO
+            * ALFIL
+            * REY
+            * REINA
+        */
         if (ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>") {
-            if (numero != 2 && Comible(numero, letra) == false) {
+            numero++
+            console.log(!!document.getElementById(numero + "." + letra + "-" + color[colorJugador]));
+            --numero
+            if (numero != 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra + "-" + color[colorJugador]) == false) {
                 //marco en verde la casilla delante del peon
                 numero++;
                 document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
                 --numero;
-            } else if (numero == 2 && Comible(numero, letra) == false) {
+            } else if (numero == 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra + "-" + color[colorJugador]) == false) {
                 //marco en verde las DOS caillas delante del peon si es la primera movida
                 for (let i = 0; i < 2; i++) {
                     numero++;
@@ -252,54 +264,64 @@ const tableroIntel = (ficha, posicion) => {
                 --numero;
             }
             // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
-            for (let i = 1; i < 8; i++) {
+            for (let i = 1; i <= 8; i++) {
                 if (letras[i] == letra) {
-
                     switch (colorJugador) {
                         case 1:
                             // si el color del jugador es blanco.
-                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
+                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
                                 numero++;
-                                console.log(document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value);
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i - 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
-
-                            } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i + 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                             }
+                            //
                             //verifico si es jaque
+                            //
+                            /*
+                            =================================
+                                      jaque de peon
+                            =================================
                             if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
                                 console.log("jaque");
                                 actualizarTablero();
                             }
+                            */
                             break;
                         case 0:
                             //si el color del jugador es negro
-                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
+                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i - 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i + 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                             }
                             //verifico si es jaque
-                            if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>") {
-                                alert("jaque");
-                                actualizarTablero();
-                            }
+                            /*
+                           =================================
+                                     jaque de peon
+                           =================================
+                           if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>") {
+                               alert("jaque");
+                               actualizarTablero();
+                           }
+                           */
                             break;
                     }
                 }
             }
-        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>") { } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>") {
+        } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>") {
             numero++;
             for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i] && Comible(numero, letra) == false) {
@@ -327,24 +349,30 @@ const tableroIntel = (ficha, posicion) => {
                 }
             }
         } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/AlfilBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/AlfilNegro.png' id='ficha'></img>") {
-            for (let i = 1; i < 8; i++) {
+            for (let i = 1; i <= 8; i++) {
                 if (letra == letras[i]) {
-                    for (let x = 0; x < 8; x++) {
-                        numero++;
-                        i++;
-                        if (!!document.getElementById(numero + "." + letras[--i]) != false) {
-                            i + 2;
-                            document.getElementById(numero + "." + letras[--i]).style.backgroundColor = "#6EB85B";
-                        }
-                        if (!!document.getElementById(numero + "." + letras[i]) != false) {
+                    for (let x = 1; x < 8; x++) {
+                        numero++
+                        i++
+                        if (!!document.getElementById(numero + "." + letras[i]) == true) {
                             document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                        }else if(Comible(numero,letras[i]) == true){
+                            document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                         }
-
+                    }
+                    for (x = 1; x < 8; x++) {
+                        numero++
+                        --i
+                        if (!!document.getElementById(numero + "." + letras[i]) == true) {
+                            document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                        }else{
+                            break
+                        }
                     }
                 }
             }
+            //document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
         } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>") {
-
         } else if (ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>") {
 
         }

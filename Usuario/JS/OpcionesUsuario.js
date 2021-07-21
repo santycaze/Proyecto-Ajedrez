@@ -15,6 +15,10 @@ function Modificar() {
     });
 }
 
+function opcAdmin() { 
+    window.location = "/Proyecto-Ajedrez/Usuario/Admin/administrador.html"
+}
+
 function cerrarmod() {
     $('#edicion').hide();
     $('body').css('overflow', 'auto');
