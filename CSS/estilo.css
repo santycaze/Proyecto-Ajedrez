@@ -176,7 +176,6 @@ h2 {
 
 .boton-jugar:hover {
   width: 170px;
-
 }
 
 .boton-estadisticas:hover {
@@ -184,82 +183,6 @@ h2 {
   padding-left: 14px;
   padding-right: 14px;
 }
-
-
-
-.contenedor-opciones-juego{
-  position: relative;
-  display: inline-block;
-}
-
-.contenedor-opciones-juego:hover .opciones-juego-menu{
-  display: block;
-}
-
-
-.opciones-juego-menu{
-position: absolute;
-background:#0a4e72;;
-top: 54px;
-width: 100%;
-border-radius: 20px;
-display: none;
-}
-
-.opciones-juego-menu a{
-font-size: 20px;
-padding-top: 10px;
-padding-bottom: 10px;
-border-bottom: 1px solid rgba(128, 128, 128, 0.267);
-border-radius: 25px;
-color: rgba(255, 255, 255, 0.699);
-cursor: pointer;
-}
-
-.a3:hover{
-  background: #0c5e8a;
-}
-
-.opciones-entrenamiento-menu{
-  position: absolute;
-background:#0a4e72;;
-top: 38px;
-width: 100%;
-border-radius: 20px;
-display: none;
-}
-
-.opciones-entrenamiento-menu a{
-font-size: 20px;
-padding-top: 10px;
-padding-bottom: 10px;
-border-bottom: 1px solid rgba(128, 128, 128, 0.267);
-border-radius: 25px;
-color: rgba(255, 255, 255, 0.699);
-cursor: pointer;
-width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-}
-
-.a4:hover{
-  background: #0c5e8a;
-}
-
-.contenedor-entrenamiento-menu:hover .opciones-entrenamiento-menu{
-display: block;
-}
-
-.contenedor-entrenamiento-menu{
-  position: relative;
-  display: inline-block;
-
-}
-
-
-
 
 /* ======================================================= */
 /* Fin de seccion */
@@ -350,7 +273,7 @@ display: block;
 /* ======================================================= */
 
 /* ======================================================= */
-/* Tablero y podcast */
+/* Jugar, tutoriales y noticias */
 /* ======================================================= */
 
 .div-wrapper5 {
@@ -438,8 +361,85 @@ display: block;
 }
 
 /* ======================================================= */
+/* Dentro de la misma seccion son los menus desplegables */
+/* ======================================================= */
+
+.contenedor-opciones-juego{
+  position: relative;
+  display: inline-block;
+}
+
+.contenedor-opciones-juego:hover .opciones-juego-menu{
+  display: block;
+}
+
+
+.opciones-juego-menu{
+position: absolute;
+background:#0a4e72;;
+top: 54px;
+width: 100%;
+border-radius: 20px;
+display: none;
+}
+
+.opciones-juego-menu a{
+font-size: 20px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-bottom: 1px solid rgba(128, 128, 128, 0.267);
+border-radius: 25px;
+color: rgba(255, 255, 255, 0.699);
+cursor: pointer;
+}
+
+.a3:hover{
+background: #0c5e8a;
+}
+
+.opciones-entrenamiento-menu{
+  position: absolute;
+background:#0a4e72;;
+top: 38px;
+width: 100%;
+border-radius: 20px;
+display: none;
+}
+
+.opciones-entrenamiento-menu a{
+font-size: 20px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-bottom: 1px solid rgba(128, 128, 128, 0.267);
+border-radius: 25px;
+color: rgba(255, 255, 255, 0.699);
+cursor: pointer;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.a4:hover{
+  background: #0c5e8a;
+}
+
+.contenedor-entrenamiento-menu:hover .opciones-entrenamiento-menu{
+display: block;
+}
+
+.contenedor-entrenamiento-menu{
+  position: relative;
+  display: inline-block;
+
+}
+
+/* ======================================================= */
 /* Fin de seccion */
 /* ======================================================= */
+
+
 
 /* ======================================================= */
 /* Contenedor noticias */
@@ -685,6 +685,19 @@ footer p{
   font-family: 'Bree Serif', serif;
 }
 
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+
+}
+
 .a5 {
   background: white;
 width: 300px;
@@ -708,6 +721,8 @@ width: 300px;
 
 
 
+
+/* Lo que hago aca es desaparecer todo a partir de los 1024px y crear un arbol de links */
 
 @media screen and (Max-width:1024px){
   .body-responsive{
@@ -756,31 +771,9 @@ width: 300px;
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ======================================================= */
+/* Fin Loader */
+/* ======================================================= */
 
 /* ======================================================= */
 /* Cuando toque el boton jugar va a aparecer esto */
@@ -897,25 +890,7 @@ width: 300px;
 /* Fin de seccion */
 /* ======================================================= */
 
-/* Edicion jugador */
 
-/* ======================================================= */
-/* Seccion responsive */
-/* ======================================================= */
-
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-
-  .header-right {
-    float: none;
-  }
-
-  
-}
 
 /* ======================================================= */
 /* Por arreglar, cosas que traigo de PHP */
