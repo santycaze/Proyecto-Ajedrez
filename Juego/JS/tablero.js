@@ -1,6 +1,4 @@
-var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino;
-let X;
-let Y;
+var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y;
 //Definicion de variables
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -238,12 +236,15 @@ const tableroIntel = (ficha, posicion) => {
         //--------------------------------------------------------------------------------------------------------------------------//
         /* Peon  (bug)*/
         if (ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>" || ficha == "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>") {
-            if (numero != 2 && Comible(numero, letra) == false) {
+            numero++
+            console.log(!!document.getElementById(numero + "." + letra +"-"+ color[colorJugador]));
+            --numero
+            if (numero != 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra +"-"+ color[colorJugador]) == false) {
                 //marco en verde la casilla delante del peon
                 numero++;
                 document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
                 --numero;
-            } else if (numero == 2 && Comible(numero, letra) == false) {
+            } else if (numero == 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra +"-"+ color[colorJugador]) == false) {
                 //marco en verde las DOS caillas delante del peon si es la primera movida
                 for (let i = 0; i < 2; i++) {
                     numero++;
@@ -252,49 +253,58 @@ const tableroIntel = (ficha, posicion) => {
                 --numero;
             }
             // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
-            for (let i = 1; i < 8; i++) {
+            for (let i = 1; i <= 8; i++) {
                 if (letras[i] == letra) {
-
                     switch (colorJugador) {
                         case 1:
                             // si el color del jugador es blanco.
-                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
+                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
                                 numero++;
-                                console.log(document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value);
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i - 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
-
-                            } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i + 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                             }
+                            //
                             //verifico si es jaque
+                            //
+                            /*
+                            =================================
+                                      jaque de peon
+                            =================================
                             if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador - 1]).value == "<img src='../IMG/ReyNegro.png' id='ficha'></img>") {
                                 console.log("jaque");
                                 actualizarTablero();
                             }
+                            */
                             break;
                         case 0:
                             //si el color del jugador es negro
-                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true) {
+                            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i - 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i - 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
-                            } else if (Comible(numero, letras[i + 1]) == true || i > 7) {
+                            } else if (Comible(numero, letras[i + 1]) == true) {
                                 numero++;
                                 document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).style.backgroundColor = "#9e4741";
                             }
                             //verifico si es jaque
+                             /*
+                            =================================
+                                      jaque de peon
+                            =================================
                             if (document.getElementById(numero + "." + letras[i - 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>" || document.getElementById(numero + "." + letras[i + 1] + "-" + color[colorJugador + 1]).value == "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>") {
                                 alert("jaque");
                                 actualizarTablero();
                             }
+                            */
                             break;
                     }
                 }
