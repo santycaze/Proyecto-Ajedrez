@@ -176,7 +176,6 @@ h2 {
 
 .boton-jugar:hover {
   width: 170px;
-
 }
 
 .boton-estadisticas:hover {
@@ -185,7 +184,14 @@ h2 {
   padding-right: 14px;
 }
 
+/* ======================================================= */
+/* Fin de seccion */
+/* ======================================================= */
 
+
+/* ======================================================= */
+/* Opciones jugador */
+/* ======================================================= */
 
 .contenedor-opciones-juego{
   position: relative;
@@ -217,7 +223,7 @@ cursor: pointer;
 }
 
 .a3:hover{
-  background: #0c5e8a;
+background: #0c5e8a;
 }
 
 .opciones-entrenamiento-menu{
