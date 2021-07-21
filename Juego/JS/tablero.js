@@ -356,6 +356,15 @@ const tableroIntel = (ficha, posicion) => {
                         i++
                         if (!!document.getElementById(numero + "." + letras[i]) == true) {
                             document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                        }else if(Comible(numero,letras[i]) == true){
+                            document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                        }
+                    }
+                    for (x = 1; x < 8; x++) {
+                        numero++
+                        --i
+                        if (!!document.getElementById(numero + "." + letras[i]) == true) {
+                            document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
                         }else{
                             break
                         }
