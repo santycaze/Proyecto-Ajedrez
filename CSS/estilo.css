@@ -685,6 +685,19 @@ footer p{
   font-family: 'Bree Serif', serif;
 }
 
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+
+}
+
 .a5 {
   background: white;
 width: 300px;
@@ -705,6 +718,7 @@ width: 300px;
 .a5 i{
   margin-right: 15px;
 }
+
 
 
 
@@ -757,31 +771,9 @@ width: 300px;
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ======================================================= */
+/* Fin Loader */
+/* ======================================================= */
 
 /* ======================================================= */
 /* Cuando toque el boton jugar va a aparecer esto */
@@ -898,25 +890,7 @@ width: 300px;
 /* Fin de seccion */
 /* ======================================================= */
 
-/* Edicion jugador */
 
-/* ======================================================= */
-/* Seccion responsive */
-/* ======================================================= */
-
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-
-  .header-right {
-    float: none;
-  }
-
-  
-}
 
 /* ======================================================= */
 /* Por arreglar, cosas que traigo de PHP */
