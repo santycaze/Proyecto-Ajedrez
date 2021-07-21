@@ -7,13 +7,14 @@ session_start();
   $ci = mysqli_real_escape_string($db, $_POST['ci']);
   $celular = mysqli_real_escape_string($db, $_POST['celular']);
   $nacimiento = mysqli_real_escape_string($db, $_POST['nacimiento']);
-  $password = mysqli_real_escape_string($db, $_POST['password']);
+  $contraseña = mysqli_real_escape_string($db, $_POST['contraseña']);
 
    //--------------------//
     //Llenar el campo//
    //--------------------//
   if (empty($nombreUsuario)) { array_push($errors, "se requiere nombre de usuario"); }
   if (empty($nombreCompleto)) { array_push($errors, "se requiere nombre completo"); }
+  if (empty($contraseña)) { array_push($errors, "se requiere la contraseña"); }
   if (empty($mail)) { array_push($errors, "se requiere mail"); }
   if (empty($ci)) { array_push($errors, "se requiere la cedula"); }
   if (empty($celular)) { array_push($errors, "se requiere numero telefonico"); }
@@ -64,11 +65,5 @@ session_start();
   	$_SESSION['nombreUsuario'] = $nombreUsuario;
   	$_SESSION['success'] = "Ahora estas logueado";
   	header('location: ../HTML/index.html');
-  //Llenar el campo
-  if (empty($username)) { array_push($errors, "se requiere el nombre de usuario"); }
-  if (empty($email)) { array_push($errors, "se requiere mail"); }
-  if (empty($Rpassword)) { array_push($errors, "se requiere la contraseña"); }
-  if ($password != $Rpassword) {
-	array_push($errors, "Las contraseñas no son iguales");
-  }
+
 ?>
