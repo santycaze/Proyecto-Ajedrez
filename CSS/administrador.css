@@ -310,3 +310,11 @@ header p {
 #tablaNoAprobados{
     width: 100%;
 }
+
+
+.contenedor-mensaje-torneo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
