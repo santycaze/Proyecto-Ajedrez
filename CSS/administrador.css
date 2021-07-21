@@ -330,6 +330,11 @@ header p {
     background: #073750;
     border: 1px solid rgba(85, 84, 84, 0.411);
     border-radius: 8px;
-    box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.199);
     color: white;
+    margin-top: 10px;
+}
+
+.contenedor-mensaje-torneo p{
+    font-size: 17px;
 }
