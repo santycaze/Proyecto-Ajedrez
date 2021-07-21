@@ -8,7 +8,7 @@ function sesion() {
             sessionStorage.setItem("j1", response);
             $("#elcosodellogin").html('<i id="foto"></i> <p id="nick"></p>')
             $("#nick").html(response)
-            $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono3.png'></img>")
+            $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono1.png'></img>")
         }
     });
 }
