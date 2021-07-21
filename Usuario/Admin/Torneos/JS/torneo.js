@@ -1,5 +1,5 @@
 function Torneo() {
-    var tabla1 = "<div class='contenedor-tabla-NoAprobados'><div class='contenedor-mensaje-torneo'><h2>Torneos</h2>No hay ningun torneo creado aún... <br/><button onclick='OnClickTorneoCrear()'>Crear torneo</button></div> </div>";
+    var tabla1 = "<div class='contenedor-tabla-NoAprobados'><div class='contenedor-mensaje-torneo'><h2>Torneos</h2> <p>No hay ningun torneo creado aún...</p> <br/><button onclick='OnClickTorneoCrear()'>Crear torneo</button></div> </div>";
     $("#tabla1").html(tabla1);
     var tabla2 = '<div class="contenedor-torneo-emergente" id="cerrar-creaciontorneo"><div class="contenedor-torneo"><h2> Torneo </h2> <div class="contenedor-columnas-creaciontorneo"><div class="columna1-creaciontorneo"> <p> Fecha de apertura de inscripciones </p> <p> Fecha fin de incripciones</p> <p> Comienzo de torneo </p> <p> Fin de torneo </p></div> <div class="columna2-creaciontorneo">  </div> </div><div class="contenedor-botones-creaciontorneo"><button class="boton-cancelar-creaciontorneo" onclick="cerrartorneo()">Cancelar</button></div></div>  </div> ';
     tabla2 = " ";
