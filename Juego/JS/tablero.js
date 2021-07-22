@@ -11,7 +11,7 @@ negras = { 1: "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>
 letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function llamarTablero() {
-    colorJugador = 1;
+    colorJugador = 1
     //colorJugador = asignarColor();
     crearTablero();
 }
@@ -436,6 +436,8 @@ function alfil(numero, letra) {
         if (letra == letras[i]) {
             var derecha = i;
             var izquierda = i;
+            /*
+            */
             for (let x = 1; x <= 8; x++) {
                 arriba++
                 --abajo
@@ -461,7 +463,6 @@ function alfil(numero, letra) {
                 } else if (Comible(abajo, letras[izquierda])) {
                     document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                 }
-
             }
         }
     }
