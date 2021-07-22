@@ -27,13 +27,13 @@ $llamarajedrez = '
     </div>
     <div class="tabla-movimientos">
         <table id="tablaMovimientos">
-            <tr>
-                <th> Ficha</th>
-                <th>Movimiento</th>
+            <tr class="tr-mov">
+                <th class="th-mov"> Ficha</th>
+                <th class="th-mov">Movimiento</th>
             </tr>
         </table>
     </div>
-    <button onclick="cerrar()" class="boton-cerrar-juego">Cerrar</button>
+    <button onclick="cerrar()" class="boton-cerrar-juego">Rendirse</button>
     </div>
     </div>
    
