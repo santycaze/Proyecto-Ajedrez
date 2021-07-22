@@ -192,7 +192,7 @@ h2 {
   transition: 0.7s;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  width: 150px;
+  width: 160px;
   height: 47px;
   display: flex;
   justify-content: center;
@@ -209,7 +209,7 @@ h2 {
   transition: 0.7s;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  width: 150px;
+  width: 160px;
   height: 47px;
   display: flex;
   justify-content: center;
@@ -217,6 +217,13 @@ h2 {
   font-size: 20px;
 }
 
+.boton-estadisticas i{
+  margin-left: 6px;
+}
+
+.boton-jugar i{
+  margin-right: 6px;
+}
 
 .boton-jugar:hover {
   width: 170px;
@@ -912,7 +919,7 @@ width: 300px;
 }
 
 .contenedor-div-wrapper-juego {
-  width: 60%;
+  width: 80%;
   background: #073750;
   padding: 20px;
   border-radius: 5em;
