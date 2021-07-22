@@ -26,15 +26,15 @@ function cerrarmod() {
 
 function guardarmod() {
     var nuevoNombre = document.getElementById("inputNombre").value;
-    console.log(nuevoNombre)
+    var nombreAntiguo = sessionStorage.getItem("j1");
     $.ajax({
         type: "POST",
         url: "Usuario/PHP/cambiarNombre.php",
-        data: {usr:sessionStorage.getItem("j1"),nuevoNombre:nuevoNombre},
+        data: {usr:nombreAntiguo,nuevoNombre:nuevoNombre},
         success: function (response) {
             console.log(response)
-            $('#edicion').hide();
-            $('body').css('overflow', 'auto');
+            //$('#edicion').hide();
+            //$('body').css('overflow', 'auto');
         }
     });
 
