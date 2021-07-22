@@ -1,6 +1,7 @@
 <?php
 session_start();
 //obtencion de los datos del submit
+  $db = mysqli_connect("localhost", "root", "root", "ajedrez");
   $nombreUsuario = mysqli_real_escape_string($db, $_POST['nombreUsuario']);
   $nombreCompleto = mysqli_real_escape_string($db, $_POST['nombreCompleto']);
   $mail = mysqli_real_escape_string($db, $_POST['mail']);
@@ -8,6 +9,8 @@ session_start();
   $celular = mysqli_real_escape_string($db, $_POST['celular']);
   $nacimiento = mysqli_real_escape_string($db, $_POST['nacimiento']);
   $contraseña = mysqli_real_escape_string($db, $_POST['contraseña']);
+  $Rcontraseña = mysqli_real_escape_string($db, $_POST['Rcontraseña']);
+  $errors = array(); 
 
    //--------------------//
     //Llenar el campo//
@@ -19,7 +22,8 @@ session_start();
   if (empty($ci)) { array_push($errors, "se requiere la cedula"); }
   if (empty($celular)) { array_push($errors, "se requiere numero telefonico"); }
   if (empty($nacimiento )) { array_push($errors, "se requiere fecha de nacimiento"); }
-  $user_check_query = "SELECT * FROM Usuario WHERE nombreUsuario='$nombreUsuario' OR mail='$mail' OR ci='$ci' LIMIT 1";
+  $user_check_query = "SELECT * FROM Usuario WHERE nombreCompleto='$nombreCompleto' OR nombreUsuario='$nombreUsuario' OR mail='$mail' 
+  OR ci='$ci' OR  celular='$celular' OR nacimiento='$nacimiento' OR contraseña='$contraseña' OR Rcontraseña='$Rcontraseña' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
@@ -36,6 +40,9 @@ session_start();
     if ($idUsuario['celular'] === $celular) { /* num telefonico repetido */
       array_push($error, "numero telefonico ya existe");
     }
+    if ($contraseña != $Rcontraseña) {
+      array_push($errors, "las contraseñas no son iguales");
+      }
   }
   //---------------------//
        // Registrar//
@@ -44,26 +51,4 @@ session_start();
   	$query = "INSERT INTO Usuario (nombreUsuario, nombreCompleto, mail, contraseña, ci, celular, nacimiento) 
   			  VALUES('$nombreUsuario', '$nombreCompleto', '$mail', '$contraseña', '$ci', '$celular', '$nacimiento')";
   	mysqli_query($db, $query);
-   
-    if(isset($_POST['save']))
-    {
-    if($query_run)
-    {
-      if(isset($_SESSION['status'])){
-        echo "<h4>".$_SESSION['status']."</h4>";
-        unset($_SESSION['status']);
-      }
-    }
-    else
-    {
-      if(isset($_SESSION['status'])){
-        echo "<h4>".$_SESSION['status']."</h4>";
-        unset($_SESSION['status']);
-      }
-    }
-  }
-  	$_SESSION['nombreUsuario'] = $nombreUsuario;
-  	$_SESSION['success'] = "Ahora estas logueado";
-  	header('location: ../HTML/index.html');
-
 ?>
