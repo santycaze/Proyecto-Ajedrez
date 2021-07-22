@@ -1,9 +1,45 @@
+
+
+
+/* ======================================================= */
+/* 
+
+            Comandos para dirigirse a secciones 
+
+  Index  ----> Ctrl + F ----> *Seccion "imports"
+                              *Seccion "Css general"
+                              *Seccion "header"  
+                              *Seccion "contenedor inicio"
+                              *Seccion "Tablas medallas y jugadores"
+                              *Seccion "Jugar tutoriales y noticias"
+                                  *Seccion "Menu desplegable jugar"
+                              *Seccion "Noticias"
+                              *Seccion "Icono de usuario cuando se loguea"
+                              *Seccion "Menu edicion usuario"
+                              *Seccion "Footer"
+                              *Seccion "Loader"
+                              *Seccion "Responsive"
+                              *Seccion "Ventana emergente jugar"
+                              *Seccion "Tablero"
+
+*/
+/* ======================================================= */
+
+
+
+/* ======================================================= */
+/* Imports */
+/* ======================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hammersmith+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
 
+/* ======================================================= */
+/* Css General */
+/* ======================================================= */
 
-*/ * {
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,7 +54,7 @@ body {
 }
 
 /* ======================================================= */
-/* Todo lo que tenga que ver con el header */
+/* header */
 /* ======================================================= */
 
 .header {
@@ -67,7 +103,7 @@ body {
 }
 
 /* ======================================================= */
-/* Contenedor inicio */
+/* contenedor inicio */
 /* ======================================================= */
 
 .contenedor-inicio {
@@ -274,7 +310,7 @@ h2 {
 /* ======================================================= */
 
 /* ======================================================= */
-/* Jugar, tutoriales y noticias */
+/* Jugar tutoriales y noticias */
 /* ======================================================= */
 
 .div-wrapper5 {
@@ -364,7 +400,7 @@ h2 {
 }
 
 /* ======================================================= */
-/* Dentro de la misma seccion son los menus desplegables */
+/* Menu desplegable jugar */
 /* ======================================================= */
 
 .contenedor-opciones-juego{
@@ -445,7 +481,7 @@ display: block;
 
 
 /* ======================================================= */
-/* Contenedor noticias */
+/* noticias */
 /* ======================================================= */
 
 .div-wrapper3 {
@@ -796,7 +832,7 @@ width: 300px;
 /* ======================================================= */
 
 /* ======================================================= */
-/* Cuando toque el boton jugar va a aparecer esto */
+/* Ventana emergente jugar */
 /* ======================================================= */
 
 
@@ -935,7 +971,7 @@ width: 300px;
 }
 
 /* ======================================================= */
-/* CSS Tablero */
+/* Tablero */
 /* ======================================================= */
 
 

@@ -1,9 +1,35 @@
+/* ======================================================= */
+/* 
+
+            Comandos para dirigirse a secciones 
+
+  Modulo administrador  ----> Ctrl + F ---->    *Seccion "Css general"
+                                                *Seccion "Header"
+                                                *Seccion "Sidebar / Menu lateral"  
+                                                *Seccion "Loader"
+                                                *Seccion "Emergente creacion torneo"
+                                              
+*/
+/* ======================================================= */
+
+
+
+
+
+/* ======================================================= */
+/* Css general */
+/* ======================================================= */
+
 *{
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
 }
+
+/* ======================================================= */
+/* Header */
+/* ======================================================= */
 
 header{
     height: 70px;
@@ -40,6 +66,11 @@ header p {
     padding-left: 20px;
     transition: 0.6s;
 }
+
+/* ======================================================= */
+/* Sidebar / Menu lateral */
+/* ======================================================= */
+
 .sidebar{
     position: fixed;
     left: 0;
@@ -210,6 +241,10 @@ header p {
     }
   }
   
+  
+/* ======================================================= */
+/* Emergente creacion torneo */
+/* ======================================================= */
   
   
 .contenedor-torneo-emergente{
