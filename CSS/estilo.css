@@ -469,6 +469,7 @@ display: block;
 
 .noticias p {
   color: white;
+  margin-bottom: 15px;
 }
 
 /* ======================================================= */
@@ -518,8 +519,21 @@ display: block;
   text-decoration: none;
 }
 
+#elcosodellogin{
+  margin-top: 15px;
+  font-family: 'Bree Serif', serif;
+}
+
+#elcosodellogin i{
+  margin-right: 10px;
+}
+
 .usuario i {
   margin-right: 10px;
+}
+
+#foto{
+  width: 50px;
 }
 
 /* ======================================================= */
@@ -854,8 +868,8 @@ width: 300px;
   width: 170px;
   background: #062c41;
   position: fixed;
-  top: 50px;
-  left: 25px;
+  top: 65px;
+  left: 30px;
   text-align: center;
   transition: .4s;
   display: none;
