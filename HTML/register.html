@@ -1,22 +1,32 @@
+<head>
 <link rel="stylesheet" href="../CSS/loginYregister.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
 <div class="register">
     <h2>Register</h2>
     <img src="../IMG/logo.png">
-    <form action="../PHP/register.php">
+    <form>
         <div class="register-box">     
-        <input type="text" name="nomCompleto" required="" placeholder="Nombre Completo">    
+        <input type="text" id="com" name="nomCompleto" required="" placeholder="Nombre Completo">    
     </div>
     <div class="register-box">
-        <input type="text" name="username" required="" placeholder="Nombre de Usuario">
+        <input type="text" id="usu" name="username" required="" placeholder="Nombre de Usuario">
     </div>
     <div class="register-box">
-        <input type="text" name="ci" required="" placeholder="Cedula">
+        <input type="text" id="mai" name="mail" required="" placeholder="Correo electronico">
     </div>
     <div class="register-box">
-        <input type="password" name="password" required="" placeholder="Contraseña"> 
+        <input type="text" id="cel" name="celular" required="" placeholder="Telefono">
     </div>
     <div class="register-box">
-        <input type="password" name="Rpassword" required="" placeholder="Repite Contraseña"> 
+        <input type="text" id="nac" name="nacimiento" required="" placeholder="Nacimiento">
+    </div>
+    <div class="register-box">
+        <input type="password" id="con" name="password" required="" placeholder="Contraseña"> 
+    </div>
+    <div class="register-box">
+        <input type="password" id="rcon" name="Rpassword" required="" placeholder="Repite Contraseña"> 
     </div>
     <div class="box">
         <input type="radio" name="select" class="Administrador" checked>
@@ -33,6 +43,8 @@
         Ya tengo cuenta. <a href="../PHP/login.php">Logearse</a>
     </p>
     <br>
-        <input type="submit" value="Registrarse" class="submit" name="save">
+        <button onclick="Registrarse()" value="Registrarse" class="submit">Registrarse</button>
       </form>
   </div>
+  <script src="../Usuario/JS/register.js"></script>
+</body>

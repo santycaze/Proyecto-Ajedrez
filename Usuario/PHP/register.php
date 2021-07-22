@@ -1,15 +1,15 @@
 <?php
-session_start();
+include '../../PHP/conexion.php';
 //obtencion de los datos del submit
-  $db = mysqli_connect("localhost", "root", "root", "ajedrez");
+  $db = mysqli_connect('localhost', 'root', 'root', 'ajedrez');
   $nombreUsuario = mysqli_real_escape_string($db, $_POST['nombreUsuario']);
   $nombreCompleto = mysqli_real_escape_string($db, $_POST['nombreCompleto']);
   $mail = mysqli_real_escape_string($db, $_POST['mail']);
   $ci = mysqli_real_escape_string($db, $_POST['ci']);
   $celular = mysqli_real_escape_string($db, $_POST['celular']);
   $nacimiento = mysqli_real_escape_string($db, $_POST['nacimiento']);
-  $contraseña = mysqli_real_escape_string($db, $_POST['contraseña']);
-  $Rcontraseña = mysqli_real_escape_string($db, $_POST['Rcontraseña']);
+  $contraseña = mysqli_real_escape_string($db, $_POST['contrasena']);
+  $Rcontraseña = mysqli_real_escape_string($db, $_POST['Rcontrasena']);
   $errors = array(); 
 
    //--------------------//
@@ -28,8 +28,8 @@ session_start();
   $user = mysqli_fetch_assoc($result);
   
   if ($idUsuario) { /* nombre repetido */
-    if ($idUsuario['nombreUsuario'] === $nombreUsuario) {
-      array_push($error, "Ese nombre de usuario ya existe");
+
+]    array_push($error, "Ese nombre de usuario ya existe");
     }
     if ($idUsuario['mail'] === $mail) { /* mail repetido */
       array_push($error, "El email ya existe");
@@ -41,14 +41,21 @@ session_start();
       array_push($error, "numero telefonico ya existe");
     }
     if ($contraseña != $Rcontraseña) {
-      array_push($errors, "las contraseñas no son iguales");
+      array_push($error, "las contraseñas no son iguales");
       }
   }
   //---------------------//
        // Registrar//
   //---------------------//
 
+  if (count($errors) == 0) {
   	$query = "INSERT INTO Usuario (nombreUsuario, nombreCompleto, mail, contraseña, ci, celular, nacimiento) 
   			  VALUES('$nombreUsuario', '$nombreCompleto', '$mail', '$contraseña', '$ci', '$celular', '$nacimiento')";
   	mysqli_query($db, $query);
+      $_SESSION['usu'] = $nombreUsuario;
+      $_SESSION['success'] = "Logeado";
+      echo "1";
+    }else{
+      echo "0";
+    }
 ?>
