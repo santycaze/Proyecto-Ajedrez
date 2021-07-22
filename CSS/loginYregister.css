@@ -97,6 +97,7 @@ body {
   margin-top: 5px;
 }
 
+/* NO FUNCIONA ESTE MEDIA QUERY HAY QUE ARREGLARLO */
 @media screen and (max-width: 750px) {
 
   .contenedor-login {
@@ -150,7 +151,7 @@ body {
 
 }
 
-/* NO FUNCIONA ESTE MEDIA QUERY HAY QUE ARREGLARLO */
+/* ESTE SI FUNCIONA NO LO TOQUESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
 @media screen and (max-width: 1024px) {
   .contenedor-login {
     grid-template-columns: 1fr;
