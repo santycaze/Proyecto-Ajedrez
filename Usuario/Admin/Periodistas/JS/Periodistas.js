@@ -23,7 +23,7 @@ function TraePeriodistas() {
 
                 var info = '"' + idPeriodista + '-' + mail + '-' + nombreUsuario + '"';
                 if (Datos[i].Aprobado == 1) {
-                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas(" + Datos[i].idPeriodista + ")'>✖</button></div></td></tr>";
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas(" + info + ")'>✖</button></div></td></tr>";
                     $("#tablaAprobados").append(contenido);
                 } else {
                     contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='AprobarPeriodistas(" + info + ")'>✓</button><button onclick='EliminarPeriodistas(" + info + ")'>✖</button></div></td></tr>";

@@ -1,5 +1,4 @@
 <?php
-
 class Servidor 
 {
     function conexion(){
