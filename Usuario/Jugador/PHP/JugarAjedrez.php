@@ -26,18 +26,11 @@ $llamarajedrez = '
         </div>
     </div>
     <div class="tabla-movimientos">
-        <table>
+        <table id="tablaMovimientos">
             <tr>
                 <th> Ficha</th>
                 <th>Movimiento</th>
             </tr>
-            <tr>
-                <td>
-                    Peon
-                </td>
-                <td>C 4</td>
-            </tr>
-            
         </table>
     </div>
     <button onclick="cerrar()">Cerrar</button>

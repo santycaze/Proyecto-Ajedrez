@@ -131,13 +131,13 @@ function casillas(value, color) {
     /*
     Creo las casillas del tablero y
     */
-    if (value == undefined) {
+    if (value == undefined) { //si la casilla no tiene ficha
         if (contador == 8) {
             tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
         } else {
             tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
         }
-    } else {
+    } else { // si la casilla tiene ficha
         if (contador == 8) {
             tablero += '<td><div class="divCas" id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" onclick=' + 'seleccionado("' + contador + '.' + letras[X] + '-' + color + '");' + ' value="' + value + '">' + value + '</button></div></td>';
         } else {
@@ -161,7 +161,7 @@ function colocarFichas() {
             casillas(blancas[3], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "b" || contador == 1 && letras[X] == "g") {
             casillas(blancas[5], color[colorJugador]);
-        } else if (contador == 1 && letras[X] == "c" || contador == 3 && letras[X] == "c") {
+        } else if (contador == 1 && letras[X] == "c" || contador == 1 && letras[X] == "f") {
             casillas(blancas[4], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "d") {
             casillas(blancas[2], color[colorJugador]);
@@ -223,7 +223,7 @@ function Movimiento(seleccion, destino) {
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
-    if (Comible(lnB[0] - 1, lnB[1]) == true) {
+    if (Comible(lnB[0] - 1, lnB[1]) == true) { // paso el numero y la letra del destino para ver si es una ficha comible
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> </button>';
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
     } else {
@@ -316,10 +316,7 @@ function jugadasEspeciales() {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function Output() {
-    /* 
-    Enviar todos los datos de movidas, fichas comidas, tiempo de movida,color de jugador, etc
-    a un php y almacenarlos en el servidor.
-    */
+
 }
 /*=================================================================================================================================*/
 //                                                            PIEZAS
@@ -401,20 +398,70 @@ function peon(numero, letra) {
 }
 /*=================================================================================================================================*/
 function torre(numero, letra) {
-
+    var arriba = numero;
+    var abajo = numero;
+    for (let i = 1; i <= 9; i++) {
+        if (letra == letras[i]) {
+            var derecha = i;
+            var izquierda = i;
+            for (let x = 1; x < 8; x++) {
+                arriba++
+                --abajo
+                derecha++
+                --izquierda
+                if (!!document.getElementById(arriba + "." + letras[i]) == true) {
+                    document.getElementById(arriba + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                }
+                if (!!document.getElementById(abajo + "." + letras[i]) == true) {
+                    document.getElementById(abajo + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                }
+                if (!!document.getElementById(numero + "." + letras[derecha]) == true) {
+                    document.getElementById(numero + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
+                }
+                if (!!document.getElementById(numero + "." + letras[izquierda]) == true) {
+                    document.getElementById(numero + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
+                }
+                if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
+                    document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+            }
+        }
+    }
 }
 /*=================================================================================================================================*/
 function alfil(numero, letra) {
+    var arriba = numero;
+    var abajo = numero;
     for (let i = 1; i <= 9; i++) {
         if (letra == letras[i]) {
-            for (let x = 1; x < 8; x++) {
-                numero++
-                i++
-                if (!!document.getElementById(numero + "." + letras[i]) == true) {
-                    document.getElementById(numero + "." + letras[i]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
-                    document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+            var derecha = i;
+            var izquierda = i;
+            for (let x = 1; x <= 8; x++) {
+                arriba++
+                --abajo
+                derecha++
+                --izquierda
+                if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
+                    document.getElementById(arriba + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(arriba, letras[derecha])) {
+                    document.getElementById(arriba + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                 }
+                if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
+                    document.getElementById(abajo + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(abajo, letras[derecha])) {
+                    document.getElementById(abajo + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+                if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
+                    document.getElementById(arriba + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(arriba, letras[izquierda])) {
+                    document.getElementById(arriba + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+                if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
+                    document.getElementById(abajo + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(abajo, letras[izquierda])) {
+                    document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+
             }
         }
     }
@@ -455,3 +502,4 @@ function reina(numero, letra) {
 function rey(numero, letra) {
 
 }
+//+-113 comentarios
