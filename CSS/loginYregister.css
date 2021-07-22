@@ -1,167 +1,205 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hammersmith+One&display=swap');
+
 body {
-    margin:0;
-    padding:0;
-    font-family: sans-serif, 'Open Sans', sans-serif;;
-    background-image: url("../IMG/Chess.png");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-h1{
-  color: red;
+  margin: 0;
+  padding: 0;
 }
 
 .login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 700px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(to right,  #000000d5 0%,#000000d5 50%,#2b2b2bef 50%,#2b2b2bef 100%);
-    box-sizing: border-box;
-    color:white;
-    border-radius:10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: rgba(0, 0, 0, 0.178);
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+
+.contenedor-login {
+  display: grid;
+  grid-template-columns: 65% 1fr;
+  width: 750px;
+  height: 350px;
+  position: relative;
+  background: #073750;
+  border-radius: 20px;
+}
+
+.contenedor-imagenlogin {
+  max-width: 250px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+.contenedor-imagenlogin img {
+  width: 80%;
+}
+
+.contenedor-textologin {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.cerrarlogin {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.contenedor-contenedor-textologin {
+  background: #0a4e72;
+  border-radius: 20px 0 0 20px;
+}
+
+.contenedor-textologin h2 {
+  font-size: 25px;
+  color: white;
+  font-family: 'Bree Serif', serif;
+}
+
+.submit {
+  padding: 10px;
+  width: 150px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 0px 10px 0 rgba(39, 39, 39, 0.493);
+  background: #0a4361;
+  color: white;
+  transition: .5s;
+}
+
+.submit:hover {
+  background: #0c5379;
+  box-shadow: 0px 0px 15px 0 rgba(126, 126, 126, 0.493);
+}
+
+.input-login {
+  background: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 750px) {
+
+  .contenedor-login {
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 1fr;
+    width: 80%;
+    height: 80%;
   }
 
-.login h2{
-  margin-left: 22px;
-}
-  
-.login .box{
-  position: relative;
+  .contenedor-contenedor-textologin {
+    grid-row: 2;
+  }
+
+  .contenedor-imagenlogin {
+    width: 100%;
+    max-width: none;
+  }
+
+  .contenedor-imagenlogin img {
+    width: 50%;
+  }
+
+  .contenedor-textologin {
+    width: 100%;
+    max-width: none;
+    justify-content: flex-start;
+    margin-top: 50px;
+  }
+
+  .contenedor-textologin h2 {
+    font-size: 100px;
+  }
+
+  .box {
+    width: 100%;
+    text-align: center;
+  }
+
+  .input-login {
+    width: 50%;
+    height: 70px;
+    font-size: 40px;
+    margin-bottom: 18px;
+  }
+
+  .submit {
+    width: 40%;
+    height: 70px;
+    font-size: 40px;
+  }
+
 }
 
-.login .box input{
-  background: none;
-  border-bottom: 0.1% solid#fff;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  color:white;
-  margin-top: 15px;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-}
+/* NO FUNCIONA ESTE MEDIA QUERY HAY QUE ARREGLARLO */
+@media screen and (max-width: 1024px) {
+  .contenedor-login {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 1fr;
+    width: 80%;
+    height: 80%;
 
-.login .box input:active {
-  border:none;
-}
+  }
 
-.login .submit{
-    border-radius:10px;
-    background-color: #F0B265;
-    padding:10px;
-    letter-spacing: 2px;
-    border:none;
-    color:rgb(41, 41, 41);
-    margin-left:45px;
-    font-family: 'PT Sans', sans-serif;
-}
+  .contenedor-contenedor-textologin {
+    grid-row: 2;
+  }
 
-.login .submit:hover{
-  border-radius: 25px;
-  background-color:#f1b974;
-  transition: 0.3s;
-  color:black;
-}
+  .contenedor-imagenlogin {
+    width: 100%;
+    max-width: none;
+  }
 
-.login .box input::placeholder{
-  pointer-events: none;
-  font-size: 16px;
-  color: #fff;
-  margin-top: 16px;
-  margin-left:2px;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-}
+  .contenedor-imagenlogin img {
+    height: 80%;
+    width: auto;
+  }
 
-.login img{
-    width: 30%;
-    position: absolute;
-    margin-left:54%;
-}
+  .contenedor-textologin {
+    width: 100%;
+    max-width: none;
+    justify-content: flex-start;
+    margin-top: 50px;
+  }
 
-.register {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 700px;
-  padding: 40px;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(to right,  #000000d5 0%,#000000d5 50%,#2b2b2bef 50%,#2b2b2bef 100%);
-  box-sizing: border-box;
-  color:white;
-  border-radius:10px;
-}
-.register h2{
-margin-left: 80px;
-}
-.register .register-box{
-  position: relative;
-}
+  .contenedor-textologin h2 {
+    font-size: 30px;
+  }
 
-.register .register-box input{
-background: none;
-border-bottom: 0.1% solid#fff;
-border-top: none;
-border-left: none;
-border-right: none;
-color:white;
-margin-top: 15px;
-font-size: 16px;
-font-family: 'Montserrat', sans-serif;
-margin-left:30px;
-}
+  .box {
+    width: 100%;
+    text-align: center;
+  }
 
-.register .register-box input:active {
-border:none;
-}
+  .input-login {
+    width: 50%;
+    height: 70px;
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
 
-.register .submit{
-  border-radius:10px;
-  background-color: #F0B265;
-  padding:10px;
-  letter-spacing: 2px;
-  border:none;
-  color:rgb(41, 41, 41);
-  margin-left:75px;
-  font-family: 'PT Sans', sans-serif;
-}
-
-.register .submit:hover{
-border-radius: 25px;
-background-color:#f1b974;
-transition: 0.3s;
-color:black;
-}
-
-.register .register-box input::placeholder{
-pointer-events: none;
-font-size: 16px;
-color: #fff;
-margin-top: 16px;
-margin-left:2px;
-font-family: 'Montserrat', sans-serif;
-letter-spacing: 1px;
-}
-
-.register p{
-  margin-left: 33px;
-  font-size: 15px;
-}
-
-.register .box{
-  margin-top: 15px;
-  margin-left: 25px;
-}
-
-.register img{
-  width:35%;
-  position: absolute;
-  margin-left: 52%;
+  .submit {
+    width: 40%;
+    height: 70px;
+    font-size: 15px;
+  }
 }

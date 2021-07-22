@@ -2,15 +2,30 @@
 <meta charset="UTF-8">
 <script src="../Usuario/JS/login.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
+
 <div class="login">
-    <img src="../IMG/logo.png">
+    <div class="contenedor-login">
+        <button class="cerrarlogin"><i class="far fa-times-circle"></i></button>
+        <div class="contenedor-contenedor-textologin">
+    <div class="contenedor-textologin">
     <h2>Iniciar sesión</h2>
     <div class="box">
-        <input type="text" id="usr" name="username" required="" placeholder="Usuario">
+        <input type="text" id="usr" class="input-login" name="username" required="" placeholder="Usuario">
     </div>
     <div class="box">
-        <input type="password" id="pass" name="password" required="" placeholder="Contraseña">
+        <input type="password" class="input-login" id="pass" name="password" required="" placeholder="Contraseña">
     </div>
     <br><br>
     <button onclick="iniciarSesion()" class="submit">Iniciar sesion</button>
+</div>
+   
+   
+    </div>
+        <div class="contenedor-contenedor-imagenlogin">
+        <div class="contenedor-imagenlogin">
+    <img src="../IMG/logo.png">
+    </div>
+</div>
+    </div>
 </div>
