@@ -25,10 +25,21 @@ function cerrarmod() {
 }
 
 function guardarmod() {
-    $('#edicion').hide();
-    $('body').css('overflow', 'auto');
+    var nuevoNombre = document.getElementById("inputNombre").value;
+    console.log(nuevoNombre)
+    $.ajax({
+        type: "POST",
+        url: "Usuario/PHP/cambiarNombre.php",
+        data: {usr:sessionStorage.getItem("j1"),nuevoNombre:nuevoNombre},
+        success: function (response) {
+            console.log(response)
+            $('#edicion').hide();
+            $('body').css('overflow', 'auto');
+        }
+    });
+
 }
 
 function cambiarNombre(nom) {
-    $(".nick-usuario").html('<input class="inputNombre" style="width:100%; height:30px; font-size:30px" type="text" name="" value="'+nom+'"/>')
+    $(".nick-usuario").html('<input id="inputNombre" style="width:100%; height:30px; font-size:30px" type="text" name="" value="'+nom+'"/>')
 }

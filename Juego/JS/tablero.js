@@ -322,9 +322,6 @@ function Output() {
 //                                                            PIEZAS
 /*=================================================================================================================================*/
 function peon(numero, letra) {
-    numero++
-    console.log(!!document.getElementById(numero + "." + letra + "-" + color[colorJugador]));
-    --numero
     if (numero != 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra + "-" + color[colorJugador]) == false) {
         //marco en verde la casilla delante del peon
         numero++;
@@ -432,7 +429,7 @@ function torre(numero, letra) {
 function alfil(numero, letra) {
     var arriba = numero;
     var abajo = numero;
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 1; i <= 8; i++) {
         if (letra == letras[i]) {
             var derecha = i;
             var izquierda = i;
@@ -497,6 +494,41 @@ function caballo(numero, letra) {
 }
 /*=================================================================================================================================*/
 function reina(numero, letra) {
+    var arriba = numero;
+    var abajo = numero;
+    for (let i = 1; i <= 8; i++) {
+        if (letra == letras[i]) {
+            var derecha = i;
+            var izquierda = i;
+            for (let x = 1; x <= 8; x++) {
+                arriba++
+                --abajo
+                derecha++
+                --izquierda
+                if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
+                    document.getElementById(arriba + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(arriba, letras[derecha])) {
+                    document.getElementById(arriba + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+                if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
+                    document.getElementById(abajo + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(abajo, letras[derecha])) {
+                    document.getElementById(abajo + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+                if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
+                    document.getElementById(arriba + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(arriba, letras[izquierda])) {
+                    document.getElementById(arriba + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+                if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
+                    document.getElementById(abajo + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
+                } else if (Comible(abajo, letras[izquierda])) {
+                    document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                }
+
+            }
+        }
+    }
 }
 /*=================================================================================================================================*/
 function rey(numero, letra) {

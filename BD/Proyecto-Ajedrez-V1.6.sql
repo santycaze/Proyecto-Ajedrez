@@ -441,7 +441,7 @@ CREATE TABLE `usuario` (
   `ci` int NOT NULL,
   `celular` int NOT NULL,
   `nacimiento` varchar(45) NOT NULL,
-  `contraseña` varchar(45) NOT NULL,
+  `contra` varchar(45) NOT NULL,
   `apellidos` varchar(45) NOT NULL,
   `iconoUsuario` varchar(45) NOT NULL,
   PRIMARY KEY (`idUsuario`)
@@ -625,10 +625,10 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(nombre_usuario varchar(45) , contraseña varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(nombre_usuario varchar(45) , contra varchar(45))
 BEGIN
 select `NombreUsuario` from `Usuarios` where `NombreUsuario`=`nombre_usuario`;
-select `Password` from `Usuarios` where `Password`=`contraseña`;
+select `Passwd` from `Usuarios` where `Passwd`=`contra`;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -639,15 +639,15 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Passwd`()
 BEGIN
-select contraseña,nombreUsuario from usuario;
+select contra,nombreUsuario from usuario;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -690,4 +690,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-20 18:41:14
+-- Dump completed on 2021-07-22 17:49:18
