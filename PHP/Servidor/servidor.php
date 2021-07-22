@@ -151,5 +151,14 @@ class Servidor
             $stmt->close();
         return $json;
     }
+    function cambiarNombre(){
+        $conn = $this->conexion();
+        $datos = array("usr" => $_POST['usr'],"nuevoNombre" => $_POST['nuevoNombre']);
+        $query = "CALL cambiarusuario(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ss", $datos["usr"], $datos["nuevoNombre"]);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 ?> 
