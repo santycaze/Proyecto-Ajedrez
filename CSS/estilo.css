@@ -427,7 +427,7 @@ h2 {
 
 .opciones-juego-menu{
 position: absolute;
-background:#0a4e72;;
+background:#0a4e72;
 top: 54px;
 width: 100%;
 border-radius: 20px;
@@ -630,6 +630,7 @@ footer .menu{
 
 footer h1{
   color: white;
+  margin-bottom: 8px;
 }
 
 footer p{
