@@ -33,7 +33,7 @@ $llamarajedrez = '
             </tr>
         </table>
     </div>
-    <button onclick="cerrar()">Cerrar</button>
+    <button onclick="cerrar()" class="boton-cerrar-juego">Cerrar</button>
     </div>
     </div>
    
