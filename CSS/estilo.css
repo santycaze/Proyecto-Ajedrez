@@ -125,7 +125,8 @@ h2 {
 
 .contenedor-inicio h2 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 5px;
 }
 
 .imagen-inicio {
@@ -298,10 +299,12 @@ h2 {
   display: flex;
   align-items: center;
   flex-direction: column;
+
 }
 
 .contenedor-entrenamiento img{
   width: 50%;
+  margin-bottom: 15px;
 }
 .contenedor-salas img{
   width: 50%;
@@ -549,7 +552,7 @@ footer {
   background: #173248;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .logo img{
@@ -567,6 +570,7 @@ footer {
 
 .sobre-nosotros{
   text-align: left;
+  margin-right: 50px;
 }
 
 footer .menu{
