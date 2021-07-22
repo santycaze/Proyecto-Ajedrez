@@ -20,7 +20,6 @@ function TraePeriodistas() {
                 nombreUsuario = Datos[i].nombreUsuario;
                 mail = Datos[i].mail;
                 idPeriodista = Datos[i].idPeriodista;
-
                 var info = '"' + idPeriodista + '-' + mail + '-' + nombreUsuario + '"';
                 if (Datos[i].Aprobado == 1) {
                     contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Periodista</div></td><td><div class='td1'><button onclick='EliminarPeriodistas(" + info + ")'>✖</button></div></td></tr>";
