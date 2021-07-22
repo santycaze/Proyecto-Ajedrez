@@ -41,10 +41,7 @@ function actualizarNick(usr) {
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono3.png'></img>")
     }else{
-        <button onclick="window.location.href='../Proyecto-Ajedrez/HTML/login.html'" id="elcosodellogin">
-        <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
-        <p id="nick">Log in</p>
-        </button>
+        console.log("No esta logeado")
     }
 
 }
