@@ -134,3 +134,13 @@ function cerrarSesion() {
     });
 }
 
+function llamarlogin() {
+    $.ajax({
+        type: "POST",
+        url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/login.php",
+        success: function (response) {
+            sessionStorage.clear();
+            window.location = "../Proyecto-Ajedrez/index.html";
+        }
+    });
+}
