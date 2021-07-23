@@ -1,61 +1,35 @@
 <?php
 include '../../PHP/conexion.php';
 //obtencion de los datos del submit
-  $db = mysqli_connect('localhost', 'root', 'root', 'ajedrez');
-  $nombreUsuario = mysqli_real_escape_string($db, $_POST['nombreUsuario']);
-  $nombreCompleto = mysqli_real_escape_string($db, $_POST['nombreCompleto']);
-  $mail = mysqli_real_escape_string($db, $_POST['mail']);
-  $ci = mysqli_real_escape_string($db, $_POST['ci']);
-  $celular = mysqli_real_escape_string($db, $_POST['celular']);
-  $nacimiento = mysqli_real_escape_string($db, $_POST['nacimiento']);
-  $contraseña = mysqli_real_escape_string($db, $_POST['contrasena']);
-  $Rcontraseña = mysqli_real_escape_string($db, $_POST['Rcontrasena']);
-  $errors = array(); 
-
-   //--------------------//
-    //Llenar el campo//
-   //--------------------//
-  if (empty($nombreUsuario)) { array_push($errors, "se requiere nombre de usuario"); }
-  if (empty($nombreCompleto)) { array_push($errors, "se requiere nombre completo"); }
-  if (empty($contraseña)) { array_push($errors, "se requiere la contraseña"); }
-  if (empty($mail)) { array_push($errors, "se requiere mail"); }
-  if (empty($ci)) { array_push($errors, "se requiere la cedula"); }
-  if (empty($celular)) { array_push($errors, "se requiere numero telefonico"); }
-  if (empty($nacimiento )) { array_push($errors, "se requiere fecha de nacimiento"); }
-  $user_check_query = "SELECT * FROM Usuario WHERE nombreCompleto='$nombreCompleto' OR nombreUsuario='$nombreUsuario' OR mail='$mail' 
-  OR ci='$ci' OR  celular='$celular' OR nacimiento='$nacimiento' OR contraseña='$contraseña' OR Rcontraseña='$Rcontraseña' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
+$nombreUsuario = $_POST["nombreUsuario"]; 
+$nombreCompleto = $_POST["nombreCompleto"];
+$mail = $_POST["mail"];
+$ci=111;
+$celular = $_POST["celular"];
+$nacimiento = $_POST["nacimiento"];
+$contrasena = $_POST["contrasena"];
+$Rcontrasena = $_POST["Rcontrasena"];
+$tipo=1;
   
-  if ($idUsuario) { /* nombre repetido */
 
-]    array_push($error, "Ese nombre de usuario ya existe");
-    }
-    if ($idUsuario['mail'] === $mail) { /* mail repetido */
-      array_push($error, "El email ya existe");
-    }
-    if ($idUsuario['ci'] === $ci) { /* cedula repetida */
-      array_push($error, "ci ya existe");
-    }
-    if ($idUsuario['celular'] === $celular) { /* num telefonico repetido */
-      array_push($error, "numero telefonico ya existe");
-    }
-    if ($contraseña != $Rcontraseña) {
-      array_push($error, "las contraseñas no son iguales");
-      }
-  }
-  //---------------------//
-       // Registrar//
-  //---------------------//
-
-  if (count($errors) == 0) {
-  	$query = "INSERT INTO Usuario (nombreUsuario, nombreCompleto, mail, contraseña, ci, celular, nacimiento) 
-  			  VALUES('$nombreUsuario', '$nombreCompleto', '$mail', '$contraseña', '$ci', '$celular', '$nacimiento')";
-  	mysqli_query($db, $query);
-      $_SESSION['usu'] = $nombreUsuario;
-      $_SESSION['success'] = "Logeado";
-      echo "1";
+   
+ 
+   if($sentencia = $mysqli->prepare("CALL register(?,?,?,?,?,?,?);")) {
+    $sentencia->bind_param('ssissii', $nombreUsuario,$mail,$celular,$contrasena,$nombreCompleto,$ci,$tipo);
+    if ($sentencia->execute()) {
+        $sentencia->bind_result($valor);
+        if($sentencia->fetch()){
+            if($valor == 1){
+                $sentencia->close();
+                echo 1;
+            }else{
+                echo 2;
+            }
+        }
     }else{
-      echo "0";
+        throw new Exception('Error en prepare: ' . $mysqli->error);
     }
+}else{
+    throw new Exception('Error en prepare: ' . $mysqli->error);
+}
 ?>
