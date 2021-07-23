@@ -558,7 +558,7 @@ display: block;
   z-index: 999999;
 }
 
-.usuario #elcosodellogin  {
+.usuario #botonLogIn  {
   position: fixed;
   top: 0px;
   left: 20px;
@@ -572,12 +572,12 @@ display: block;
   text-decoration: none;
 }
 
-#elcosodellogin{
+#botonLogIn{
   margin-top: 15px;
   font-family: 'Bree Serif', serif;
 }
 
-#elcosodellogin i{
+#botonLogIn i{
   margin-right: 10px;
 }
 

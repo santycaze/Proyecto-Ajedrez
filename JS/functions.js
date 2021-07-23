@@ -30,8 +30,8 @@ function guardarMod() {
 
 function actualizarNick(usr) {
     if (usr != null) {
-        $("#elcosodellogin").html('<i id="foto"></i> <p id="nick"></p>')
-        $("#elcosodellogin").attr('disabled', 'true')
+        $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
+        $("#botonLogIn").attr('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='"+sessionStorage.getItem("foto")+"'></img>")
     }else{
