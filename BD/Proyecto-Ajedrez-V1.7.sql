@@ -436,16 +436,17 @@ DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `idUsuario` int NOT NULL AUTO_INCREMENT,
   `nombreUsuario` varchar(45) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
   `mail` varchar(45) NOT NULL,
   `ci` int NOT NULL,
   `celular` int NOT NULL,
-  `nacimiento` varchar(45) NOT NULL,
+  `nacimiento` varchar(45) DEFAULT NULL,
   `contra` varchar(45) NOT NULL,
   `apellidos` varchar(45) NOT NULL,
-  `iconoUsuario` varchar(45) NOT NULL,
+  `iconoUsuario` varchar(45) DEFAULT NULL,
+  `Tipousuario` int NOT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -454,7 +455,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Usuario1','Nombre1','medicenfirpito@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña1','Apellido1 Apellido2',''),(2,'Usuario2','Nombre2','mail2@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña2','Apellido1 Apellido2',''),(3,'Usuario3','Nombre3','mail3@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña3','Apellido1 Apellido2',''),(4,'Usuario4','Nombre4','mail4@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña4','Apellido1 Apellido2',''),(5,'Usuario5','Nombre5','mail5@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña5','Apellido1 Apellido2',''),(6,'Usuario6','Nombre6','mail6@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña6','Apellido1 Apellido2',''),(7,'Usuario7','Nombre7','mail7@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña7','Apellido1 Apellido2',''),(8,'Usuario8','Nombre8','mail8@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña8','Apellido1 Apellido2',''),(9,'Usuario9','Nombre9','mail9@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña9','Apellido1 Apellido2','');
+INSERT INTO `usuario` VALUES (1,'santy','Nombre1','medicenfirpito@gmail.com',12345678,123456789,'2003-05-10','root','Apellido1 Apellido2','',0),(2,'Usuario2','Nombre2','mail2@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña2','Apellido1 Apellido2','',0),(3,'Usuario3','Nombre3','mail3@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña3','Apellido1 Apellido2','',0),(4,'Usuario4','Nombre4','mail4@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña4','Apellido1 Apellido2','',0),(5,'Usuario5','Nombre5','mail5@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña5','Apellido1 Apellido2','',0),(6,'Usuario6','Nombre6','mail6@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña6','Apellido1 Apellido2','',0),(7,'Usuario7','Nombre7','mail7@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña7','Apellido1 Apellido2','',0),(8,'Usuario8','Nombre8','mail8@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña8','Apellido1 Apellido2','',0),(9,'Usuario9','Nombre9','mail9@gmail.com',12345678,123456789,'2003-05-10','C0ntr4s3ña9','Apellido1 Apellido2','',0),(10,'dddd',NULL,'ddddd',999999,2,NULL,'ddd','ddd',NULL,1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -625,10 +626,10 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(nombre_usuario varchar(45) , contra varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(nombre_usuario varchar(45) , contra1 varchar(45))
 BEGIN
-select `NombreUsuario` from `Usuarios` where `NombreUsuario`=`nombre_usuario`;
-select `Passwd` from `Usuarios` where `Passwd`=`contra`;
+select `contra` from `usuario` where `NombreUsuario`=`nombre_usuario` and contra=contra1 ;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -664,15 +665,15 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `register`(nombre_usuario varchar(45), email varchar(45), Telefono int, contraseña varchar(45),Apellidos varchar(45), Ci int, tipousuario int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `register`(nombre_usuario varchar(45), email varchar(45), Telefono int, contra varchar(45),Apellidos varchar(45), Ci int, tipousuario int)
 BEGIN
-declare s varchar(22);
-if exists(select idUsuarios from Usuarios where email=Email)
- then set s='este usuario ya existe';
+
+IF(Exists(Select * from usuario where nombreUsuario = nombre_usuario)) 
+ then select 1;
 else
-    insert into Usuarios(`nombre_usuario` , `email` , `Telefono` , `contraseña` ,`Apellidos` , `Ci`, `tipousuario`)
-    values(NombreUsuario,email,telefono,contraseña,apellidos,ci,Tipousuario,current_timestamp());
-     set s='usuario registrado';
+    insert into usuario(NombreUsuario,mail,celular,contra,apellidos,ci,Tipousuario)
+    values(`nombre_usuario` , `email` , `Telefono` , `contra` ,`Apellidos` , `Ci`, `tipousuario`);
+     select 2;
     end if ;
 END ;;
 DELIMITER ;
@@ -690,4 +691,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-22 17:49:18
+-- Dump completed on 2021-07-22 23:50:03
