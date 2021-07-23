@@ -138,11 +138,17 @@ function cerrarSesion() {
 function llamarlogin() {
     $.ajax({
         type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/login.php",
+        url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/llamarlogin.php",
         success: function (response) {
             $('#login').show();
             $('#login').html(response);
             sessionStorage.clear();
         }
     });
+}
+
+function cerrarLogin(){
+    $('#login').hide();
+    $('body').css('overflow','auto');
+    actualizarNick(null);
 }

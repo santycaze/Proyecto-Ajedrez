@@ -68,12 +68,12 @@ class Usuario {
     logIn(usr,pass) {
         $.ajax({
             type: "POST",
-            url: "../Usuario/PHP/login.php",
+            url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
                 if (response != 1) {
                     sessionStorage.setItem("j1", response);
-                    window.location = "../index.html";
+                    cerrarLogin();
                 }
             }
         });
