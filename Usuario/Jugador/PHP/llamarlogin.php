@@ -3,7 +3,7 @@ $llamarlogin = '
 
 <div class="login">
 <div class="contenedor-login">
-    <button class="cerrarlogin"><i class="far fa-times-circle"></i></button>
+    <button class="cerrarlogin" onclick="cerrar()"><i class="far fa-times-circle"></i></button>
     <div class="contenedor-contenedor-textologin">
 <div class="contenedor-textologin">
 <h2>Iniciar sesión</h2>
