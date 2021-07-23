@@ -1,7 +1,7 @@
 var contenido;
 
 function Contraseñas() {
-    var tabla1 = "<table id='tablaContraseñas'><h2>Contraseñas</h2> <tr>   <th id='col1'>Nombre de Usuario</th> <th id='col1'>Contraseña</th> <th id='col1'>Modificar</th> </tr></table>";
+    var tabla1 = "<table id='tablaContraseñas'><h2>Solicitudes de cambio de contraseñas</h2> <tr>   <th id='col1'>Nombre de Usuario</th> <th id='col1'>Contraseña</th> <th id='col1'>Modificar</th> </tr></table>";
     $("#tabla1").html(tabla1);
     var tabla2 = ""
     $("#tabla2").html(tabla2);
