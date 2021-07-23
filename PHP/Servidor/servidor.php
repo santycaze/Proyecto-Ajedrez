@@ -166,14 +166,13 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function cambiarNombre(){
+    function cambiarNombre($nomActual,$nuevoNom){
         $conn = $this->conexion();
-        $query = "CALL cambiarUsuario(?,?)";
+        $query = "CALL ajedrez.cambiarUsuario(?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $_POST["nombreActual"], $_POST["nuevoNombre"]);
+        $stmt->bind_param("ss", $nom, $_POST["nuevoNombre"]);
         $stmt->execute();
         $stmt->close();
-        echo "anda pero no anda";
     }
 }
 ?> 
