@@ -156,13 +156,12 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     function cambiarNombre(){
         $conn = $this->conexion();
-        $datos = array("user" => $_POST['usr'],"nuevoNombre" => $_POST['nuevoNombre']);
         $query = "CALL cambiarUsuario(?,?)";
         $stmt = $conn->prepare($query);
-        echo "Nuevo nombre : ".$datos["nuevoNombre"]." -- Nombre viejo : ".$datos["user"];
-        $stmt->bind_param("ss", $datos["user"], $datos["nuevoNombre"]);
+        $stmt->bind_param("ss", $_POST["nombreActual"], $_POST["nuevoNombre"]);
         $stmt->execute();
         $stmt->close();
+        echo "anda pero no anda";
     }
 }
 ?> 

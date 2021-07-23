@@ -20,7 +20,7 @@ $llamarediocion = '
         </div>
           
           <div class="guardar-edicion">
-             <button onclick="guardarmod()">Guardar<i class="far fa-save"></i>
+             <button onclick="guardarMod()">Guardar<i class="far fa-save"></i>
               </button>
           </div>
    </div> ';
