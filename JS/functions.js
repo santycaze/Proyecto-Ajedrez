@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('#edicion').hide();
     $('#verperfil').hide();
     $('#tabla').hide();
+    $('#login').hide();
 });
 /*======================================================================================================================================================*/
 //
@@ -139,8 +140,9 @@ function llamarlogin() {
         type: "POST",
         url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/login.php",
         success: function (response) {
+            $('#login').show();
+            $('#login').html(response);
             sessionStorage.clear();
-            window.location = "../Proyecto-Ajedrez/index.html";
         }
     });
 }

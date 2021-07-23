@@ -21,7 +21,7 @@ $llamarlogin = '
 </div>
     <div class="contenedor-contenedor-imagenlogin">
     <div class="contenedor-imagenlogin">
-<img src="../IMG/logo.png">
+<img src="../Proyecto-Ajedrez/IMG/logo.png">
 </div>
 </div>
 </div>
