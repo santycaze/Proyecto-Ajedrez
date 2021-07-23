@@ -9,12 +9,12 @@
         if ($sentencia->execute()) {
             $sentencia->bind_result($valor);
             if($sentencia->fetch()){
-               echo 2;
+               session_start();
+               $_SESSION['nombre'] = $nombreUsuario;
+               echo $_SESSION['nombre'];
                 }else{
                     echo 1;
-
                 } 
-            
         }else{
             throw new Exception('Error en prepare: ' . $mysqli->error);
         }
