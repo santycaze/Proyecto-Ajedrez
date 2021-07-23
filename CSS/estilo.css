@@ -1097,18 +1097,22 @@ p {
 }
 
 #inf {
+  color: white;
   border-top: 1px solid black;
 }
 
 #sup {
+  color: white;
   border-bottom: 1px solid black;
 }
 
 #izq {
+  color: white;
   border-right: 1px solid black;
 }
 
 #der {
+  color: white;
   border-left: 1px solid black;
 }
 

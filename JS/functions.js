@@ -102,10 +102,15 @@ function llamarajedrez(){
         url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/JugarAjedrez.php",
         data: {ico: sessionStorage.getItem("foto"),j1: sessionStorage.getItem("j1")},
         success: function(response) {
-            $('#tabla').show();
-           $('#tabla').html(response);
-           $('body').css('overflow','hidden');
-           llamarTablero();
+            console.log(response)
+            if (response != 0) {
+                $('#tabla').show();
+                $('#tabla').html(response);
+                $('body').css('overflow','hidden');
+                llamarTablero();
+            }else{
+                window.location = "../Proyecto-Ajedrez/index.html"; 
+            }
         }
     });
     

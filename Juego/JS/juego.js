@@ -119,7 +119,7 @@ function crearTablero() {
         }
         tablero += "</tr>";
     }
-    tablero += "<tr> <td> </td> <td id='inf'>A</td> <td id='inf'>B</td> <td id='inf'>C</td> <td id='inf'>D</td> <td id='inf'>E</td> <td id='inf'>F</td> <td id='inf'>G</td> <td id='inf'>H</td> </tr>";
+    tablero += "<tr> <td> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> </tr>";
     tablero += "</table>";
     $('#tabla2').html(tablero);
     actualizarTablero();
@@ -145,7 +145,7 @@ function casillas(value, color) {
         }
     }
     if (X == 8) {
-        tablero += "<td id='der'>" + contador + "</td>";
+        tablero += "<td id='der'> </td>";
         contador--;
     }
 }
