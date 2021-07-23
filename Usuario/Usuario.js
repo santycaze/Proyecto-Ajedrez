@@ -87,8 +87,7 @@ class Usuario {
             success: function (response) {
                 console.log(response)
                 sessionStorage.setItem("j1",nombreNuevo)
-                $('#edicion').hide();
-                $('body').css('overflow', 'auto');
+                actualizarNick("...");
             }
         });
     

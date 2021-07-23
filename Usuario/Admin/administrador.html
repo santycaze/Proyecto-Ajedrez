@@ -5,8 +5,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="Periodistas/JS/Periodistas.js"></script>
     <script src="Passwd/JS/Passwd.js"></script>
-    <script src="Usuarios/JS/Usuarios.js"></script>
-    <script src="Torneos/JS/torneo.js"></script>
+    <script src="Jugadores/JS/Jugadores.js"></script>
+    <script src="Torneos/JS/ftorneo.js"></script>
     <script src="../../JS/loader.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../CSS/administrador.css">
@@ -31,17 +31,17 @@
     <div class="sidebar">
         <script>
             $(document).ready(function () {
-                Usuarios()
+                Jugadores();
             });
         </script>
         <h1>Administrador</h1>
         <ul>
-            <li><button class="boton-sidebar" id="Usuario"  onclick="Usuarios()"><i class="fas fa-user"></i>Usuarios</button></li>
+            <li><button class="boton-sidebar" id="Usuario"  onclick="Jugadores()"><i class="fas fa-user"></i>Jugadores</button></li>
             <li><button class="boton-sidebar" onclick="Periodistas()"><i class="fas fa-book-open"></i>Periodistas</button></li>
             <li><button class="boton-sidebar"><i class="fas fas fa-exclamation-circle"></i>Noticias</button></li>
             <li><button class="boton-sidebar" onclick="Contraseñas()"><i class="fas fa-lock"></i>Contraseñas</button></li>
             <li><button class="boton-sidebar" ><i class="fas fa-wrench"></i>Sistema</button></li>
-            <li><button class="boton-sidebar" onclick="Torneo()"><i class="fas fas fa-trophy"></i>Torneos</button></li>
+            <li><button class="boton-sidebar" onclick="torneo()"><i class="fas fas fa-trophy"></i>Torneos</button></li>
             <li><button class="boton-sidebar"><i class="fas fa-box-open"></i>Fixture</button></li>
         </ul>
     </div>

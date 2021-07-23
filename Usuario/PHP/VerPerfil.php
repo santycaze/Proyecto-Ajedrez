@@ -1,10 +1,15 @@
-<?php $ver='
+<?php 
+
+$usuario = $_POST['usr'];
+$icono = $_POST['img'];
+
+$ver='
 <div class="perfil-wrapper">
     <div class="perfil">
     <a class="cerrar-perfil" onclick="cerrarperfil()"><i class="far fa-times-circle"></i></a>
         <div class="contenedor-wrapper">
             <div class="foto-perfil-verperfil">
-                <img src="IMG/icono2.png" alt=""> <h1>Socrates</h1>
+                <img src="'.$icono.'" alt=""> <h1>'.$usuario.'</h1>
             </div>
             <div class="contenedor-nombres-trofeos-verperfil">
                 <div class="contenedor-trofeos-verperfil">

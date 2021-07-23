@@ -11,13 +11,21 @@ function login() {
     var pass = document.getElementById('pass').value;
     const usuario = new Usuario();
     usuario.logIn(usr,pass);
+    sessionStorage.setItem("foto", "IMG/icono1.png")
 }
 
 function guardarMod() {
-    var nuevoNombre = document.getElementById("inputNombre").value;
     var nombreActual = sessionStorage.getItem("j1");
+    var nuevoNombre = document.getElementById("inputNombre").value;
     const usuario = new Usuario();
-    usuario.guardarModificacion(nombreActual,nuevoNombre,icono);
+    if (document.getElementById("inputNombre").value != null) {
+        usuario.guardarModificacion(nombreActual,nuevoNombre);
+    }else{
+        $('#edicion').hide();
+        $('body').css('overflow', 'auto');
+    }
+    $('#edicion').hide();
+    $('body').css('overflow', 'auto');
 }
 
 function actualizarNick(usr) {
@@ -25,7 +33,7 @@ function actualizarNick(usr) {
         $("#elcosodellogin").html('<i id="foto"></i> <p id="nick"></p>')
         $("#elcosodellogin").attr('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
-        $("#foto").html("<img id='foto2' src='../Proyecto-Ajedrez/IMG/Icono3.png'></img>")
+        $("#foto").html("<img id='foto2' src='"+sessionStorage.getItem("foto")+"'></img>")
     }else{
         $(".usuario-menu").hide()
     }
@@ -50,7 +58,7 @@ function Modificar() {
     $.ajax({
         type: "POST",
         url: "Usuario/PHP/OpcionesUsuarios.php",
-        data: {usr:sessionStorage.getItem("j1")},
+        data: {usr:sessionStorage.getItem("j1"),img:sessionStorage.getItem("foto")},
         success: function (response) {
             $('#edicion').show();
             $('#edicion').html(response);
@@ -72,6 +80,7 @@ function ver() {
     $.ajax({
         type: "POST",
         url: "Usuario/PHP/VerPerfil.php",
+        data: {usr:sessionStorage.getItem("j1"),img:sessionStorage.getItem("foto")},
         success: function (response) {
             $('#verperfil').show();
             $('#verperfil').html(response);

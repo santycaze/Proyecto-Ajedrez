@@ -322,6 +322,9 @@ function Output() {
 //                                                            PIEZAS
 /*=================================================================================================================================*/
 function peon(numero, letra) {
+    numero++
+    console.log(!!document.getElementById(numero + "." + letra + "-" + color[colorJugador]));
+    --numero
     if (numero != 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra + "-" + color[colorJugador]) == false) {
         //marco en verde la casilla delante del peon
         numero++;
