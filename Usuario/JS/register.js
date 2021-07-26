@@ -1,27 +1,21 @@
-function Registrarse() {
-    alert("1");
-    var usu = document.getElementById('usu').value;
-    var com = document.getElementById('com').value;
-    var mai = document.getElementById('mai').value;
-    var c = document.getElementById('c').value;
+function registrar(){
+    var pass = document.getElementById('pass').value;
+    var nomc = document.getElementById('nomc').value;
+    var ap = document.getElementById('ap').value;
+    var email = document.getElementById('email').value;
     var cel = document.getElementById('cel').value;
-    var nac = document.getElementById('nac').value;
-    var con = document.getElementById('con').value;
-    var rcon = document.getElementById('rcon').value;
-    alert("2");
-    $.ajax({
-        type: "POST",
-        url: "../Usuario/PHP/register.php",
-        data: {nombreUsuario:usu, nombreCompleto:com, mail:mai, ci:c, celular:cel,
-             nacimiento:nac, contrasena:con, Rcontrasena:rcon},
-        success: function (response) {
-            console.log(response);
-            if (response == 1) {
-                sessionStorage.setItem("j1", response);
-                window.location = "../index.html";
-            }else{
-                alert ("error!");
-            }
-        }
-    });
+    var ci = document.getElementById('CI').value;
+    var nuser = document.getElementById('nuser').value;
+    
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url:"../Usuario/PHP/register.php",
+            data: {usuario:nuser,cedula:ci,celular:cel,email:email,apellido:ap,NombreCompleto:nomc,Contra:pass},
+            success: function (data) {
+           alert(data);
+            },
+          });
 }
+

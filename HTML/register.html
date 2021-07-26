@@ -1,50 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="../CSS/loginYregister.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js "></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js" ></script>
+     <script src="../Usuario/JS/register.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-<div class="register">
-    <h2>Register</h2>
-    <img src="../IMG/logo.png">
-    <form>
-        <div class="register-box">     
-        <input type="text" id="com" name="nomCompleto" required="" placeholder="Nombre Completo">    
-    </div>
-    <div class="register-box">
-        <input type="text" id="usu" name="username" required="" placeholder="Nombre de Usuario">
-    </div>
-    <div class="register-box">
-        <input type="text" id="mai" name="mail" required="" placeholder="Correo electronico">
-    </div>
-    <div class="register-box">
-        <input type="text" id="cel" name="celular" required="" placeholder="Telefono">
-    </div>
-    <div class="register-box">
-        <input type="text" id="nac" name="nacimiento" required="" placeholder="Nacimiento">
-    </div>
-    <div class="register-box">
-        <input type="password" id="con" name="password" required="" placeholder="Contraseña"> 
-    </div>
-    <div class="register-box">
-        <input type="password" id="rcon" name="Rpassword" required="" placeholder="Repite Contraseña"> 
-    </div>
-    <div class="box">
-        <input type="radio" name="select" class="Administrador" checked>
-        <label for="Administrador" class="opcion1">
-            <span class="span">Administrador</span>
-            </label>
-            <br>
-        <input type="radio" name="select" class="Jugador">
-        <label for="Jugador" class="opcion2">
-            <span class="span">Jugador</span>
-        </label>
-    </div>
-    <p>
-        Ya tengo cuenta. <a href="../PHP/login.php">Logearse</a>
-    </p>
-    <br>
-        <button onclick="Registrarse()" value="Registrarse" class="submit">Registrarse</button>
-      </form>
-  </div>
-  <script src="../Usuario/JS/register.js"></script>
+    <form action="">
+        <input type="text" placeholder="Nombre Completo" id="nomc">
+        <input type="text" placeholder="Apellidos" id="ap">
+        <input type="text" placeholder="Email" id="email">
+        <input type="text" placeholder="Telefono" id="cel">
+        <input type="text" placeholder="Contraseña" id="pass">
+        <input type="text" placeholder="CI" id="CI">
+        <input type="text" placeholder="Nombre de Usuario" id="nuser">
+        <a class="botonRegister" onclick="registrar()"><span>Siguiente </span></a>
+    </form>
 </body>
+</html>
