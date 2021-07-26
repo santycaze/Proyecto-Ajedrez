@@ -1,5 +1,5 @@
 <?php 
-
+include'../../PHP/conexion.php';
 
 $usuario = $_POST["usuario"];
 $cedula = $_POST["cedula"];
@@ -8,10 +8,11 @@ $email = $_POST["email"];
 $apellido = $_POST["apellido"];
 $nombrecompleto = $_POST["NombreCompleto"];
 $contrasena = $_POST["Contra"];
-$tipo = 1;
+$tipo = $_POST["Tipo"];
+$Nacimiento = $_POST["Nacimiento"];
 
-if($sentencia = $mysqli->prepare("CALL register(?,?,?,?,?,?,?);")) {
-  $sentencia->bind_param('ssissii', $usuario,$email,$celular,$contrasena,$apellido,$cedula,$tipo);
+if($sentencia = $mysqli->prepare("CALL register(?,?,?,?,?,?,?,?,?);")) {
+  $sentencia->bind_param('ssissiiss', $usuario,$email,$celular,$contrasena,$apellido,$cedula,$tipo,$nombrecompleto,$Nacimiento);
   if ($sentencia->execute()) {
       $sentencia->bind_result($valor);
       if($sentencia->fetch()){
@@ -20,6 +21,7 @@ if($sentencia = $mysqli->prepare("CALL register(?,?,?,?,?,?,?);")) {
        }else{
          echo 2;
        }
+      }
      
   }else{
       throw new Exception('Error en prepare: ' . $mysqli->error);

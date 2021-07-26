@@ -11,14 +11,20 @@
 </head>
 <body>
     <form action="">
-        <input type="text" placeholder="Nombre Completo" id="nomc">
+        <input type="text" placeholder="Nombre Completo" id="nomc"/>
         <input type="text" placeholder="Apellidos" id="ap">
-        <input type="text" placeholder="Email" id="email">
-        <input type="text" placeholder="Telefono" id="cel">
-        <input type="text" placeholder="Contraseña" id="pass">
-        <input type="text" placeholder="CI" id="CI">
+        <input type="email" placeholder="Email" id="email">
+        <input type="tel" placeholder="Telefono" id="cel">
+        <input type="password" placeholder="Contraseña" id="pass">
+        <input type="number" placeholder="CI" id="CI">
         <input type="text" placeholder="Nombre de Usuario" id="nuser">
-        <a class="botonRegister" onclick="registrar()"><span>Siguiente </span></a>
+        <input type="date" placeholder="Nacimiento" id="nac">
+        <select id="Tipo" name="TipoUsuario">
+            <option value="1">Jugador</option>
+            <option value="2">Periodista</option>
+
+            </select>
+        <a class="botonRegister" onclick="registrar()"><span>Registrarme</span></a>
     </form>
 </body>
 </html>
