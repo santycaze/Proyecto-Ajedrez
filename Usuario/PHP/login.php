@@ -9,6 +9,7 @@
         if ($sentencia->execute()) {
             $sentencia->bind_result($valor);
             if($sentencia->fetch()){
+                echo $valor;
                session_start();
                $_SESSION['nombre'] = $nombreUsuario;
                echo $_SESSION['nombre'];

@@ -149,6 +149,6 @@ function llamarlogin() {
 
 function cerrarLogin(){
     $('#login').hide();
+    actualizarNick(sessionStorage.getItem("j1"))
     $('body').css('overflow','auto');
-    actualizarNick(null);
 }
