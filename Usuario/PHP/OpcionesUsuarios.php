@@ -1,13 +1,15 @@
 <?php
 session_start();
 $usuario = $_POST['usr'];
+$foto = $_POST['img'];
+
 $vistaPreviaUsuario = $usuario;
 $usuario = "'".$usuario."'";
 $llamarediocion = '
 <div class="div-wrapper-mod">
        <div class="contenedor-mod">
             <a class="cerrar-mod" onclick="cerrarmod()"><i class="far fa-times-circle"></i></a>
-          <div class="icono-usuario"><img src="IMG/icono1.png" alt="" id="vistaPrevia"></div>
+          <div class="icono-usuario"><img src="'.$foto.'" alt="" id="vistaPrevia"></div>
           <div class="nick-usuario">
               <h1>'.$vistaPreviaUsuario.'</h1> <button onclick="cambiarNombre('.$usuario.')"><i class="fas fa-edit"></i></button>
           </div>
@@ -20,7 +22,7 @@ $llamarediocion = '
         </div>
           
           <div class="guardar-edicion">
-             <button onclick="guardarmod()">Guardar<i class="far fa-save"></i>
+             <button onclick="guardarMod()">Guardar<i class="far fa-save"></i>
               </button>
           </div>
    </div> ';

@@ -6,21 +6,25 @@
     <!-- Scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../Proyecto-Ajedrez/JS/loader.js"></script>
-    <script src="../Proyecto-Ajedrez/Juego/JS/tablero.js"></script>
-    <script src="../Proyecto-Ajedrez/Usuario/JS/OpcionesUsuario.js"></script>
-    <script src="../Proyecto-Ajedrez/Usuario/Jugador/JS/JugarAjedrez.js"></script>
-    <script src="../Proyecto-Ajedrez/Usuario/JS/sesion.js"></script>
-    <script src="../Proyecto-Ajedrez/Usuario/JS/login.js"></script>
-    <script src="Usuario/JS/VerPerfil.js"></script>
     <script src="Juego/JS/tablero.js"></script>
+    <script src="../Proyecto-Ajedrez/Usuario/Usuario.js"></script>
+    <script src="../Proyecto-Ajedrez/JS/functions.js"></script>
+    <script src="../Proyecto-Ajedrez/Juego/JS/juego.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
-    <!-- Fin Scripts -->
+
+    <script>
+        $(document).ready(function () {
+           actualizarNick(sessionStorage.getItem("j1"))
+        });
+    </script>
+    <!-- Fin Scripts --> 
 
     <!-- Links -->
     <link rel="shortcut icon" href="../Proyecto-Ajedrez/IMG/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilo.css">
     <link rel="stylesheet" href="css/OpcionesUsuarios.css">
     <link rel="stylesheet" href="CSS/VerPerfil.css">
+    <link rel="stylesheet" href="CSS/loginYregister.css">
 
     <!-- Metas -->
     <meta charset="UTF-8">
@@ -67,20 +71,15 @@
     <div id="verperfil"></div>
     <div id="edicion"></div>
     <div id="tabla"></div>
+    <div id="login"></div>
 
     <!-- Login / Opciones -->
-    <script>
-        $(document).ready(function () {
-           actualizarNick(sessionStorage.getItem("j1"))
-        });
-    </script>
     <div class="usuario">
-        <button onclick="window.location.href='../Proyecto-Ajedrez/HTML/login.html'" id="elcosodellogin">
+        <button onclick="llamarlogin()" id="botonLogIn">
             <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
             <p id="nick">Log in</p>
         </button>
         <div class="usuario-menu">
-
             <a class="a2" id="mod" onclick="Modificar()">Modificar perfil</a>
             <a class="a2" id="vperf" onclick="ver()">Ver perfil</a>
             <a class="a2" id="vperf" onclick="opcAdmin()">Opc. Admin</a>
@@ -143,7 +142,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="circulo"></div>
+                        <div  class="circulo">
+                           
+                        </div>
+
                     </td>
                     <td>Jugador 1</td>
                 </tr>
@@ -231,7 +233,7 @@
             <div class="contenedor-entrenamiento-menu">
                 <a href="" class="boton-salas"> Aprende a jugar <i class="fas fa-angle-down"></i></a>
                 <div class="opciones-entrenamiento-menu">
-                    <a class="a4">Ver tutorial</a>
+                    <a href="https://www.youtube.com/watch?v=x4R2EPkYzZk" class="a4">Ver tutorial</a>
                     <a class="a4">Aprender a jugar</a>
                 </div>
             </div>
@@ -257,21 +259,21 @@
     <!-- Seccion noticias -->
     <div class="div-wrapper3">
         <div class="noticias">
-            <div class="div"><img src="IMG/Noticias.png" alt="">
-                <h2>TItulo Noticia2</h2>
-                <p class="autor-p">Autor</p>
+            <div class="div"><img src="IMG/noticia1.PNG" alt="">
+                <h2>¡Copa del mundo 2021!</h2>
+                <p class="autor-p">Nadja Wittmann</p>
             </div>
-            <div class="div"><img src="IMG/Noticias.png" alt="">
-                <h2>TItulo Noticia2</h2>
-                <p class="autor-p">Autor</p>
+            <div class="div"><img src="IMG/noticia2.PNG" alt="">
+                <h2>¡El joven campeon!</h2>
+                <p class="autor-p">Frederic Friedel</p>
             </div>
-            <div class="div"><img src="IMG/Noticias.png" alt="">
-                <h2>TItulo Noticia2</h2>
-                <p class="autor-p">Autor</p>
+            <div class="div"><img src="IMG/noticia3.PNG" alt="">
+                <h2>¿Como se realizan las piezas?</h2>
+                <p class="autor-p">Frederic Friedel</p>
             </div>
-            <div class="div"><img src="IMG/Noticias.png" alt="">
-                <h2>TItulo Noticia2</h2>
-                <p class="autor-p">Autor</p>
+            <div class="div"><img src="IMG/noticia4.PNG" alt="">
+                <h2>¡Feliz dia!</h2>
+                <p class="autor-p">Chessbase</p>
             </div>
         </div>
     </div>

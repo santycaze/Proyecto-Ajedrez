@@ -21,9 +21,9 @@ class Servidor
 
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($institucion,$añoCursivo,$nombreUsuario,$nombreCompleto,$ci,$rankELO,$logros);
+            $stmt->bind_result($idJugador,$institucion,$añoCursivo,$nombreUsuario,$nombreCompleto,$ci,$rankELO,$logros);
                 while ($stmt->fetch()) {
-                    $fila = array('institucion' => $institucion,'añoCursivo' => $añoCursivo,'nombreUsuario' => $nombreUsuario,'nombreCompleto' => $nombreCompleto,'ci' => $ci,'rankELO' => $rankELO,'logros' => $logros);
+                    $fila = array('idJugador' => $idJugador,'institucion' => $institucion,'añoCursivo' => $añoCursivo,'nombreUsuario' => $nombreUsuario,'nombreCompleto' => $nombreCompleto,'ci' => $ci,'rankELO' => $rankELO,'logros' => $logros);
                     $json[] = $fila;
                 }
             }
@@ -121,12 +121,24 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function eliminarJugador(){
+        $conn = $this->conexion();
+        $datos = array("idJugador" => $_POST['idJ']);
+        $query = "CALL EliminarJugador(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $datos["idJugador"]);
+        $stmt->execute();
+        $stmt->close();
+    }
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
     function crearTorneo(){
         $conn = $this->conexion();
-        $datos = array("nombreTorneo" => $_POST['nombreTorneo'],"fechaComInscripciones" => $_POST['fci'],"fechaFinInscripciones" => $_POST['ffi'],"fechaComTorneo" => $_POST['fct'],"fechaFinTorneo" => $_POST['fft'],"maximoParticipantes" => $_POST['mp'],"numPartidas" => $_POST['numPart'],"tiempoPartida" => $_POST['tiempoPart'],"tiempoMovimiento" => $_POST['tiempoMov'],"nombreTrofeo" => $_POST['nomTrofeo']);
-        $query = "CALL crearTorneo(?,?,?,?,?,?,?,?,?,?)";
+        $datos = array("nombreTorneo" => $_POST['nombreTorneo'],"fechaComInscripciones" => $_POST['fci'],"fechaFinInscripciones" => $_POST['ffi'],"fechaComTorneo" => $_POST['fct'],"fechaFinTorneo" => $_POST['fft'],"maximoPartidas" => $_POST['mp'],"numPartidas" => $_POST['numPart'],"tiempoPartida" => $_POST['tiempoPart'],"tiempoMovimiento" => $_POST['tiempoMov'],"maxParticipantes" => $_POST['maxParticipantes'],"nombreTrofeo" => $_POST['nomTrofeo']);
+        $query = "CALL crearTorneo(?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sddddiitts", $datos["nombreTorneo"],$datos["fechaComInscripciones"],$datos["fechaFinInscripciones"],$datos["fechaComTorneo"],$datos["fechaFinTorneo"],$datos["maximoParticipantes"],$datos["numPartidas"],$datos["tiempoPartida"],$datos["tiempoMovimiento"],$datos["nombreTrofeo"]);
+        $stmt->bind_param("sddddittsi", $datos["nombreTorneo"],$datos["fechaComInscripciones"],$datos["fechaFinInscripciones"],$datos["fechaComTorneo"],$datos["fechaFinTorneo"],$datos["maximoParticipantes"],$datos["tiempoPartida"],$datos["tiempoMovimiento"],$datos["nombreTrofeo"],$datos["numPartidas"]);
         $stmt->execute();
         $stmt->close();
     }
@@ -151,12 +163,14 @@ class Servidor
             $stmt->close();
         return $json;
     }
-    function cambiarNombre(){
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function cambiarNombre($nomActual,$nuevoNom){
         $conn = $this->conexion();
-        $datos = array("usr" => $_POST['usr'],"nuevoNombre" => $_POST['nuevoNombre']);
-        $query = "CALL cambiarusuario(?,?)";
+        $query = "CALL ajedrez.cambiarUsuario(?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $datos["usr"], $datos["nuevoNombre"]);
+        $stmt->bind_param("ss", $nom, $_POST["nuevoNombre"]);
         $stmt->execute();
         $stmt->close();
     }
