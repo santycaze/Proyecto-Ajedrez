@@ -11,6 +11,12 @@
     <script src="../Proyecto-Ajedrez/JS/functions.js"></script>
     <script src="../Proyecto-Ajedrez/Juego/JS/juego.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+           actualizarNick(sessionStorage.getItem("j1"))
+        });
+    </script>
     <!-- Fin Scripts --> 
 
     <!-- Links -->
@@ -68,11 +74,6 @@
     <div id="login"></div>
 
     <!-- Login / Opciones -->
-    <script>
-        $(document).ready(function () {
-           actualizarNick(sessionStorage.getItem("j1"))
-        });
-    </script>
     <div class="usuario">
         <button onclick="llamarlogin()" id="botonLogIn">
             <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>

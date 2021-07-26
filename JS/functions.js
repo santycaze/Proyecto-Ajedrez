@@ -18,7 +18,9 @@ function login() {
 function guardarMod() {
     var nombreActual = sessionStorage.getItem("j1");
     var nuevoNombre = document.getElementById("inputNombre").value;
+    
     const usuario = new Usuario();
+
     if (document.getElementById("inputNombre").value != null) {
         usuario.guardarModificacion(nombreActual,nuevoNombre);
     }else{
@@ -32,7 +34,7 @@ function guardarMod() {
 function actualizarNick(usr) {
     if (usr != null) {
         $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
-        $("#botonLogIn").attr('disabled', 'true')
+        $("#botonLogIn").prop('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='"+sessionStorage.getItem("foto")+"'></img>")
     }else{
@@ -128,9 +130,12 @@ function cerrarSesion() {
     $.ajax({
         type: "POST",
         url: "../Proyecto-Ajedrez/Usuario/PHP/cerrarSesion.php",
-        success: function (response) {
+        success: function () {
+            $("#botonLogIn").prop('disabled', false)
             sessionStorage.clear();
-            window.location = "../Proyecto-Ajedrez/index.html";
+            $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
+            $("#nick").html("Log in")
+            actualizarNick()
         }
     });
 }
@@ -149,6 +154,6 @@ function llamarlogin() {
 
 function cerrarLogin(){
     $('#login').hide();
-    actualizarNick(sessionStorage.getItem("j1"))
     $('body').css('overflow','auto');
+    actualizarNick(sessionStorage.getItem("j1"))
 }

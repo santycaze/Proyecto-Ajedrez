@@ -71,6 +71,7 @@ class Usuario {
             url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
+                console.log(response)
                 if (response != 1) {
                     sessionStorage.setItem("j1", response);
                     cerrarLogin();
