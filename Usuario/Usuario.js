@@ -1,5 +1,5 @@
 class Usuario {
-    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, icono) {
+    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, icono, tipo) {
         this.Usuario = Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -9,6 +9,7 @@ class Usuario {
         this.Fnac = Fnacimiento;
         this.Cont = Passwd;
         this.Icono = icono;
+        this.tipo = tipo
     }
     get Usr() {
         return this.Usuario;
@@ -64,6 +65,12 @@ class Usuario {
     set icono(icono) {
         this.Icono = icono;
     }
+    get tipoUsr() {
+        return this.Icono;
+    }
+    set tipoUsr(tipoU) {
+        this.tipoUsr = tipoU;
+    }
 
     logIn(usr, pass) {
         $.ajax({
@@ -80,12 +87,12 @@ class Usuario {
         });
     }
 
-    register(nuser, ci, cel, email, ap, nomc, pass, nac, tipo) {
+    register() {
         $.ajax({
             type: "POST",
             async: true,
             url: "../Usuario/PHP/register.php",
-            data: { usuario: nuser, cedula: ci, celular: cel, email: email, apellido: ap, NombreCompleto: nomc, Contra: pass, Nacimiento: nac, Tipo: tipo },
+            data: { usuario: this.Usuario, cedula: this.ci, celular: this.Cel, email: this.Mail, apellido: this.Apellido, NombreCompleto: this.Nombre, Contra: this.Cont, Nacimiento: this.fnac, Tipo: this.tipo },
             success: function (data) {
                 if (data == 1) {
                     alert('El nombre de usuario ya existe');
@@ -96,14 +103,15 @@ class Usuario {
         });
     }
 
-    guardarModificacion(nombreActual, nombreNuevo) {
+    guardarModificacion(nombreNuevo) {
         $.ajax({
             type: "POST",
             url: "Usuario/PHP/cambiarNombre.php",
-            data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
+            data: { nombreActual: this.Nombre, nombreNuevo: nombreNuevo },
             success: function (response) {
                 console.log(response)
                 sessionStorage.setItem("j1", nombreNuevo)
+                sessionStorage.setItem("foto", this.Icono)
                 actualizarNick("...");
             }
         });

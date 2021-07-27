@@ -7,6 +7,18 @@ $(document).ready(function () {
 /*======================================================================================================================================================*/
 //
 /*======================================================================================================================================================*/
+function llamarlogin() {
+    $.ajax({
+        type: "POST",
+        url: "../Proyecto-Ajedrez/Usuario/PHP/llamarlogin.php",
+        success: function (response) {
+            $('#login').show();
+            $('#login').html(response);
+            sessionStorage.clear();
+        }
+    });
+}
+
 function login() {
     var usr = document.getElementById('usr').value;
     var pass = document.getElementById('pass').value;
@@ -25,18 +37,16 @@ function registrar() {
     var nuser = document.getElementById('nuser').value;
     var nac = document.getElementById('nac').value;
     var tipo = document.getElementById('Tipo').value;
-    const usuario = new Usuario();
-    usuario.register(nuser, ci, cel, email, ap, nomc, pass, nac, tipo);
+    const usuario = new Usuario(nuser, nomc, ap, email, ci, cel, nac, pass, '0', tipo);
+    usuario.register();
 }
 
 function guardarMod() {
     var nombreActual = sessionStorage.getItem("j1");
     var nuevoNombre = document.getElementById("inputNombre").value;
 
-    const usuario = new Usuario();
-
     if (document.getElementById("inputNombre").value != null) {
-        usuario.guardarModificacion(nombreActual, nuevoNombre);
+        //usuario.guardarModificacion(nombreActual, nuevoNombre);
     } else {
         $('#edicion').hide();
         $('body').css('overflow', 'auto');
@@ -150,18 +160,6 @@ function cerrarSesion() {
             $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
             $("#nick").html("Log in")
             actualizarNick()
-        }
-    });
-}
-
-function llamarlogin() {
-    $.ajax({
-        type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/llamarlogin.php",
-        success: function (response) {
-            $('#login').show();
-            $('#login').html(response);
-            sessionStorage.clear();
         }
     });
 }

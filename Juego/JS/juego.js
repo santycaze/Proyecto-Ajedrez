@@ -61,7 +61,6 @@ function seleccionado(casillaSeleccionada) {
         //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.          
         actualizarTablero();
     } else {
-
         if (casilla != undefined) {
             console.log("No es: " + color[colorJugador]);
         }
