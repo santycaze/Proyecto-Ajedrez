@@ -11,8 +11,22 @@ function login() {
     var usr = document.getElementById('usr').value;
     var pass = document.getElementById('pass').value;
     const usuario = new Usuario();
-    usuario.logIn(usr,pass);
+    usuario.logIn(usr, pass);
     sessionStorage.setItem("foto", "IMG/icono1.png")
+}
+
+function registrar() {
+    var pass = document.getElementById('pass').value;
+    var nomc = document.getElementById('nomc').value;
+    var ap = document.getElementById('ap').value;
+    var email = document.getElementById('email').value;
+    var cel = document.getElementById('cel').value;
+    var ci = document.getElementById('CI').value;
+    var nuser = document.getElementById('nuser').value;
+    var nac = document.getElementById('nac').value;
+    var tipo = document.getElementById('Tipo').value;
+    const usuario = new Usuario();
+    usuario.register(nuser, ci, cel, email, ap, nomc, pass, nac, tipo);
 }
 
 function guardarMod() {
@@ -22,8 +36,8 @@ function guardarMod() {
     const usuario = new Usuario();
 
     if (document.getElementById("inputNombre").value != null) {
-        usuario.guardarModificacion(nombreActual,nuevoNombre);
-    }else{
+        usuario.guardarModificacion(nombreActual, nuevoNombre);
+    } else {
         $('#edicion').hide();
         $('body').css('overflow', 'auto');
     }
@@ -36,15 +50,15 @@ function actualizarNick(usr) {
         $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
         $("#botonLogIn").prop('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
-        $("#foto").html("<img id='foto2' src='"+sessionStorage.getItem("foto")+"'></img>")
-    }else{
+        $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
+    } else {
         $(".usuario-menu").hide()
     }
 }
 /*======================================================================================================================================================*/
 //                                                     Opciones 'menu-usuario' -> Modificar Perfil                                                      //
 /*======================================================================================================================================================*/
-function opcAdmin() { 
+function opcAdmin() {
     window.location = "/Proyecto-Ajedrez/Usuario/Admin/administrador.html"
 }
 
@@ -54,14 +68,14 @@ function cerrarmod() {
 }
 
 function cambiarNombre(nom) {
-    $(".nick-usuario").html('<input id="inputNombre" style="width:100%; height:30px; font-size:30px" type="text" name="" value="'+nom+'"/>')
+    $(".nick-usuario").html('<input id="inputNombre" style="width:100%; height:30px; font-size:30px" type="text" name="" value="' + nom + '"/>')
 }
 
 function Modificar() {
     $.ajax({
         type: "POST",
         url: "Usuario/PHP/OpcionesUsuarios.php",
-        data: {usr:sessionStorage.getItem("j1"),img:sessionStorage.getItem("foto")},
+        data: { usr: sessionStorage.getItem("j1"), img: sessionStorage.getItem("foto") },
         success: function (response) {
             $('#edicion').show();
             $('#edicion').html(response);
@@ -83,7 +97,7 @@ function ver() {
     $.ajax({
         type: "POST",
         url: "Usuario/PHP/VerPerfil.php",
-        data: {usr:sessionStorage.getItem("j1"),img:sessionStorage.getItem("foto")},
+        data: { usr: sessionStorage.getItem("j1"), img: sessionStorage.getItem("foto") },
         success: function (response) {
             $('#verperfil').show();
             $('#verperfil').html(response);
@@ -99,29 +113,29 @@ function cerrarperfil() {
 /*======================================================================================================================================================*/
 //                                                                    Boton Jugar                                                                       //
 /*======================================================================================================================================================*/
-function llamarajedrez(){
+function llamarajedrez() {
     $.ajax({
         type: "POST",
         url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/JugarAjedrez.php",
-        data: {ico: sessionStorage.getItem("foto"),j1: sessionStorage.getItem("j1")},
-        success: function(response) {
+        data: { ico: sessionStorage.getItem("foto"), j1: sessionStorage.getItem("j1") },
+        success: function (response) {
             console.log(response)
             if (response != 0) {
                 $('#tabla').show();
                 $('#tabla').html(response);
-                $('body').css('overflow','hidden');
+                $('body').css('overflow', 'hidden');
                 llamarTablero();
-            }else{
-                window.location = "../Proyecto-Ajedrez/index.html"; 
+            } else {
+                window.location = "../Proyecto-Ajedrez/index.html";
             }
         }
     });
-    
+
 }
 
-function cerrar(){
+function cerrar() {
     $('#tabla').hide();
-    $('body').css('overflow','auto');
+    $('body').css('overflow', 'auto');
 }
 /*======================================================================================================================================================*/
 //                                                                   Cerrar Sesion                                                                      //
@@ -152,14 +166,14 @@ function llamarlogin() {
     });
 }
 
-function cerrarLogin(){
+function cerrarLogin() {
     $('#login').hide();
-    $('body').css('overflow','auto');
+    $('body').css('overflow', 'auto');
     actualizarNick(sessionStorage.getItem("j1"))
 }
 
 function verificarSesion() {
-    
+
 }
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //

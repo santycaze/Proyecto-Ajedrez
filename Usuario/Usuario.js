@@ -65,7 +65,7 @@ class Usuario {
         this.Icono = icono;
     }
 
-    logIn(usr,pass) {
+    logIn(usr, pass) {
         $.ajax({
             type: "POST",
             url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
@@ -80,21 +80,33 @@ class Usuario {
         });
     }
 
-    register() {
-
+    register(nuser, ci, cel, email, ap, nomc, pass, nac, tipo) {
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "../Usuario/PHP/register.php",
+            data: { usuario: nuser, cedula: ci, celular: cel, email: email, apellido: ap, NombreCompleto: nomc, Contra: pass, Nacimiento: nac, Tipo: tipo },
+            success: function (data) {
+                if (data == 1) {
+                    alert('El nombre de usuario ya existe');
+                } else {
+                    alert('Te registraste correctamente misil');
+                }
+            },
+        });
     }
 
-    guardarModificacion(nombreActual,nombreNuevo) {
+    guardarModificacion(nombreActual, nombreNuevo) {
         $.ajax({
             type: "POST",
             url: "Usuario/PHP/cambiarNombre.php",
-            data: {nombreActual :nombreActual,nombreNuevo:nombreNuevo},
+            data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
             success: function (response) {
                 console.log(response)
-                sessionStorage.setItem("j1",nombreNuevo)
+                sessionStorage.setItem("j1", nombreNuevo)
                 actualizarNick("...");
             }
         });
-    
+
     }
 }

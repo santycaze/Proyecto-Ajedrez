@@ -1,5 +1,5 @@
 <?php 
-include'../../PHP/conexion.php';
+include '../../PHP/conexion.php';
 
 $usuario = $_POST["usuario"];
 $cedula = $_POST["cedula"];
