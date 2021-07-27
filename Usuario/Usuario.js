@@ -80,6 +80,10 @@ class Usuario {
         });
     }
 
+    register() {
+
+    }
+
     guardarModificacion(nombreActual,nombreNuevo) {
         $.ajax({
             type: "POST",
