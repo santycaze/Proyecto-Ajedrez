@@ -996,7 +996,7 @@ width: 300px;
   box-sizing: border-box;
   display: none;
   position: absolute;
-  transition: .2s;
+  transition: .5s;
   justify-content: center;
   align-items: center;
 }
