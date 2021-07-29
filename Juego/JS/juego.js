@@ -1,5 +1,13 @@
-var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y;
+var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras;
+
 //Definicion de variables
+//DEFINICION DE ESTILOS
+colorPmovimiento = sessionStorage.getItem("colorMovimiento")
+colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
+casillasClaras = sessionStorage.getItem("casillasClaras")
+casillasOscuras = sessionStorage.getItem("casillasOscuras")
+console.log(casillasOscuras)
+//DEFINICION DE VARIABLES
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
 negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -49,7 +57,7 @@ function seleccionado(casillaSeleccionada) {
         */
         var colorMovida = $('[position="' + infoFicha[0] + '"]').css("backgroundColor")
         var colorComida = $('[lacaveira="' + infoFicha[0] + '"]').css("color")
-        if (colorMovida == "rgb(110, 184, 91)" || colorComida == "rgb(158, 71, 65)") {
+        if (colorMovida == "rgb(" + colorMovimientoRGB + ")" || colorComida == "rgb(158, 71, 65)") {
             destino = casillaSeleccionada;
         }
         if (destino != null && seleccion != null) {
@@ -77,15 +85,15 @@ function actualizarTablero(infoFicha) {
             // Colores asignados a casillas
             if (Y % 2 == 0) {
                 if (X % 2 == 0) {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#EDE1AE");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", casillasClaras);
                 } else {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#9E692F");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", casillasOscuras);
                 }
             } else {
                 if (X % 2 != 0) {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#EDE1AE");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", casillasClaras);
                 } else {
-                    $("#t" + Y + " " + ".casilla" + X).css("background-color", "#9E692F");
+                    $("#t" + Y + " " + ".casilla" + X).css("background-color", casillasOscuras);
                 }
             }
         }
@@ -172,7 +180,7 @@ function colocarFichas() {
             casillas(negras[6], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "a" || contador == 8 && letras[X] == "h") {
             casillas(negras[3], color[colorJugador - 1]);
-        } else if (contador == 5 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
+        } else if (contador == 8 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
             casillas(negras[5], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "c" || contador == 8 && letras[X] == "f") {
             casillas(negras[4], color[colorJugador - 1]);
@@ -335,14 +343,14 @@ function peon(numero, letra) {
         //marco en verde la casilla delante del peon
         numero++;
         $('[position="' + numero + "." + letra + '"]').css("display", "flex")
-        $('[position="' + numero + "." + letra + '"]').css("background-color", "#6EB85B")
+        $('[position="' + numero + "." + letra + '"]').css("background-color", colorPmovimiento)
         --numero;
     } else if (numero == 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra + "-" + color[colorJugador]) == false) {
         //marco en verde las DOS caillas delante del peon si es la primera movida
         for (let i = 0; i < 2; i++) {
             numero++;
             $('[position="' + numero + "." + letra + '"]').css("display", "flex")
-            $('[position="' + numero + "." + letra + '"]').css("background-color", "#6EB85B")
+            $('[position="' + numero + "." + letra + '"]').css("background-color", colorPmovimiento)
         }
         --numero;
     }
@@ -354,27 +362,27 @@ function peon(numero, letra) {
                     // si el color del jugador es blanco.
                     if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
                         numero++;
-                        $('[position="' + numero + "." + letras[i - 1] +'"]').css("display", "flex")
-                        $('[position="' + numero + "." + letras[i - 1] +'"]').css("background-color", "transparent")
-                        $('[lacaveira="' + numero + "." + letras[i - 1] +'"]').css("color", "#9e4741")
-                        $('[lacaveira="' + numero + "." + letras[i - 1] +'"]').css("display", "block")
+                        $('[position="' + numero + "." + letras[i - 1] + '"]').css("display", "flex")
+                        $('[position="' + numero + "." + letras[i - 1] + '"]').css("background-color", "transparent")
+                        $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("color", "#9e4741")
+                        $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("display", "block")
 
-                        $('[position="' + numero + "." + letras[i + 1] +'"]').css("display", "flex")
-                        $('[position="' + numero + "." + letras[i + 1] +'"]').css("background-color", "transparent")
-                        $('[lacaveira="' + numero + "." + letras[i + 1] +'"]').css("color", "#9e4741")
-                        $('[lacaveira="' + numero + "." + letras[i + 1] +'"]').css("display", "block")
+                        $('[position="' + numero + "." + letras[i + 1] + '"]').css("display", "flex")
+                        $('[position="' + numero + "." + letras[i + 1] + '"]').css("background-color", "transparent")
+                        $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("color", "#9e4741")
+                        $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("display", "block")
                     } else if (Comible(numero, letras[i - 1]) == true) {
                         numero++;
-                        $('[position="' + numero + "." + letras[i - 1] +'"]').css("display", "flex")
-                        $('[position="' + numero + "." + letras[i - 1] +'"]').css("background-color", "transparent")
-                        $('[lacaveira="' + numero + "." + letras[i - 1] +'"]').css("color", "#9e4741")
-                        $('[lacaveira="' + numero + "." + letras[i - 1] +'"]').css("display", "block")
+                        $('[position="' + numero + "." + letras[i - 1] + '"]').css("display", "flex")
+                        $('[position="' + numero + "." + letras[i - 1] + '"]').css("background-color", "transparent")
+                        $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("color", "#9e4741")
+                        $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("display", "block")
                     } else if (Comible(numero, letras[i + 1]) == true) {
                         numero++;
-                        $('[position="' + numero + "." + letras[i + 1] +'"]').css("display", "flex")
-                        $('[position="' + numero + "." + letras[i + 1] +'"]').css("background-color", "transparent")
-                        $('[lacaveira="' + numero + "." + letras[i + 1] +'"]').css("color", "#9e4741")
-                        $('[lacaveira="' + numero + "." + letras[i + 1] +'"]').css("display", "block")
+                        $('[position="' + numero + "." + letras[i + 1] + '"]').css("display", "flex")
+                        $('[position="' + numero + "." + letras[i + 1] + '"]').css("background-color", "transparent")
+                        $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("color", "#9e4741")
+                        $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("display", "block")
                     }
                     //
                     //verifico si es jaque

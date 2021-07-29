@@ -95,19 +95,16 @@ class Usuario {
         });
     }
 
-    guardarModificacion(nombreActual, nombreNuevo) {
-        sessionStorage.setItem("j1", nombreNuevo)
-        /*
+    guardarModificacion(nombreNuevo) {
         $.ajax({
             type: "POST",
             url: "Usuario/PHP/cambiarNombre.php",
-            data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
+            //data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
             success: function (response) {
                 console.log(response)
                 sessionStorage.setItem("j1", nombreNuevo)
                 actualizarNick("...");
             }
         });
-        */
     }
 }

@@ -4,7 +4,7 @@
 /* Abrir conexion mysql */
 //---------------------------//
 
-$mysqli = new mysqli('localhost','root','root','Ajedrez');
+$mysqli = new mysqli('localhost','root','root','Ajedrez','33061');
 
 //---------------------------//
 /* Error de conexion */
