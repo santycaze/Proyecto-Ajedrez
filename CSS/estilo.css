@@ -995,10 +995,42 @@ width: 300px;
   border-radius: 5px;
   box-sizing: border-box;
   display: none;
+  position: absolute;
   transition: .2s;
+  justify-content: center;
+  align-items: center;
 }
 
-.divCas button:hover .pMovimiento{
+.pMovimiento #laskull{
+  font-size: 45px;
+  position: relative;
+  z-index: 20;
+  display: none;
+}
+
+.divCas:hover .pMovimiento span{
+  display: block;
+}
+
+.pMovimiento span{
+  display: none;
+  transition: .2s;
+  width: 72%;
+  height: 20px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  background-color: red;
+}
+
+.divCas button{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divCas button:hover > .pMovimiento{
   border-radius: 20px;
 }
 
@@ -1012,63 +1044,12 @@ width: 300px;
   width: 30px;
 }
 
-.casilla1{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border: 4px solid transparent;
+.divCas button img{
+  position: relative;
+  z-index: 23;
 }
-.casilla2{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border: 4px solid transparent;
-}
-.casilla3{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border: 4px solid transparent;
-}
-.casilla4{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border: 4px solid transparent;
-}
-.casilla5{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border: 4px solid transparent;
-}
-.casilla6{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border: 4px solid transparent;
-}
-.casilla7{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border: 4px solid transparent;
-}
-.casilla8{
+
+.divCas button{
   padding: 0;
   margin: 0;
   width: 100%;
