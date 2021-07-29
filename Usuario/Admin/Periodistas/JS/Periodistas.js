@@ -16,6 +16,7 @@ function TraePeriodistas() {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
                 var nombreUsuario, mail, idPeriodista, aprobado;
+                
                 aprobado = Datos[i].Aprobado;
                 nombreUsuario = Datos[i].nombreUsuario;
                 mail = Datos[i].mail;

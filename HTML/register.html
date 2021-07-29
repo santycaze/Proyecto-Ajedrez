@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js "></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js" ></script>
-     <script src="../JS/functions.js"></script>
-     <script src="../Usuario/Usuario.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="../JS/functions.js"></script>
+    <script src="../Usuario/Usuario.js"></script>
+    <link rel="stylesheet" href="../CSS/loginYregister.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <form action="">
-        <input type="text" placeholder="Nombre Completo" id="nomc"/>
-        <input type="text" placeholder="Apellidos" id="ap">
-        <input type="email" placeholder="Email" id="email">
-        <input type="tel" placeholder="Telefono" id="cel">
-        <input type="password" placeholder="Contraseña" id="pass">
-        <input type="number" placeholder="CI" id="CI">
-        <input type="text" placeholder="Nombre de Usuario" id="nuser">
-        <input type="date" placeholder="Nacimiento" id="nac">
-        <select id="Tipo" name="TipoUsuario">
-            <option value="1">Jugador</option>
-            <option value="2">Periodista</option>
 
+<body>
+
+
+    <div class="contenedor-register">
+
+        <form action="" id="form-register">
+            <h1>Registrarse</h1>
+            <div class="div-wrapper-register">
+
+                <div class="contenedor-register1">
+                  
+                    <input type="text" placeholder="Nombre Completo" id="nomc" />
+                    <input type="text" placeholder="Apellidos" id="ap">
+                    <input type="email" placeholder="Email" id="email">
+                    <input type="tel" placeholder="Telefono" id="cel">
+                </div>
+                <div class="contenedor-register2">
+                   
+                    <input type="password" placeholder="Contraseña" id="pass">
+                    <input type="number" placeholder="CI" id="CI">
+                    <input type="text" placeholder="Nombre de Usuario" id="nuser">
+                    <input type="date" placeholder="Nacimiento" id="nac">
+                </div>
+            </div>
+            <select id="Tipo" name="TipoUsuario">
+                <option value="1" id="value-register">Jugador</option>
+                <option value="2">Periodista</option>
             </select>
-        <a class="botonRegister" onclick="registrar()"><span>Registrarme</span></a>
-    </form>
+            <a class="botonRegister" onclick="registrar()"><span>Registrarme</span></a>
+        </form>
+    </div>
 </body>
 </html>

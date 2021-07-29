@@ -5,6 +5,9 @@ body {
   padding: 0;
 }
 
+
+/* Login */
+
 .login {
   justify-content: center;
   align-items: center;
@@ -203,4 +206,110 @@ body {
     height: 70px;
     font-size: 15px;
   }
+}
+
+/* Register */
+
+
+#form-register{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0a4e72;
+  padding: 20px;
+  border-radius: 20px;
+  width: 650px;
+  height: 500px;
+}
+
+#form-register input{
+  padding: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 250px;
+  border-radius: 20px;
+  border: none;
+}
+
+#form-register select{
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 250px;
+  border-radius: 20px;
+  border: none;
+
+}
+
+#form-register h1{
+  color: white;
+  font-family: 'Bree Serif', serif;
+  font-size: 35px;
+  font-weight: 400;
+}
+.contenedor-register{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.botonRegister{
+  padding: 10px;
+  width: 150px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 0px 10px 0 rgba(39, 39, 39, 0.493);
+  background: #0a4361;
+  color: white;
+  transition: .5s;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.botonRegister:hover{
+  background: #0c5379;
+  box-shadow: 0px 0px 15px 0 rgba(126, 126, 126, 0.493);
+}
+
+.div-wrapper-register{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-register2 img{
+  width: 30%;
+}
+
+.contenedor-register2{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  padding-left: 10px;
+  background: #0f608b;
+  height: 280px;
+  border-radius: 0 20px 20px 0;
+}
+
+.contenedor-register1{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 10px;
+  background: #0f608b;
+  height: 280px;
+  border-radius: 20px 0 0 20px;
+}
+
+#value-register{
+  border-radius: 0 20px 0 0;
 }
