@@ -71,13 +71,9 @@ class Usuario {
             url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
-                console.log(usr)
-                console.log(response)
-                if (response == usr) {
+                if (response != null) {
                     sessionStorage.setItem("j1", response);
                     cerrarLogin();
-                }else{
-                    console.log("NO. voce no introdujo la contraseña")
                 }
             }
         });
