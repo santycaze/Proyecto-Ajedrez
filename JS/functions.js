@@ -42,11 +42,12 @@ function registrar() {
 }
 
 function guardarMod() {
+
     var nombreActual = sessionStorage.getItem("j1");
     var nuevoNombre = document.getElementById("inputNombre").value;
-
+    const usuario = new Usuario();
     if (document.getElementById("inputNombre").value != null) {
-        //usuario.guardarModificacion(nombreActual, nuevoNombre);
+        usuario.guardarModificacion(nombreActual, nuevoNombre);
     } else {
         $('#edicion').hide();
         $('body').css('overflow', 'auto');

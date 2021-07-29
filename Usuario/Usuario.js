@@ -96,6 +96,8 @@ class Usuario {
     }
 
     guardarModificacion(nombreActual, nombreNuevo) {
+        sessionStorage.setItem("j1", nombreNuevo)
+        /*
         $.ajax({
             type: "POST",
             url: "Usuario/PHP/cambiarNombre.php",
@@ -106,6 +108,6 @@ class Usuario {
                 actualizarNick("...");
             }
         });
-
+        */
     }
 }
