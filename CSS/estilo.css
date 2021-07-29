@@ -1015,6 +1015,7 @@ width: 300px;
 .pMovimiento span{
   display: none;
   transition: .2s;
+  box-shadow: 0 0 20px 0 red;
   width: 72%;
   height: 20px;
   border-radius: 5px;
