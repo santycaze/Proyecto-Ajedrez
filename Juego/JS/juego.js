@@ -172,7 +172,7 @@ function colocarFichas() {
             casillas(negras[6], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "a" || contador == 8 && letras[X] == "h") {
             casillas(negras[3], color[colorJugador - 1]);
-        } else if (contador == 8 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
+        } else if (contador == 5 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
             casillas(negras[5], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "c" || contador == 8 && letras[X] == "f") {
             casillas(negras[4], color[colorJugador - 1]);
@@ -227,10 +227,10 @@ function Movimiento(seleccion, destino) {
     console.log(separadorA[0]);
 
     if (Comible(lnB[0] - 1, lnB[1]) == true) { // paso el numero y la letra del destino para ver si es una ficha comible
-        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + "'></div></button>";
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
     } else {
-        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> <div class="pMovimiento" position="' + separadorA[0] + '"></div> </button>';
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
     }
     /*
