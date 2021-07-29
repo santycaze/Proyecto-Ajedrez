@@ -1,5 +1,5 @@
 class Usuario {
-    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, icono, tipo) {
+    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, icono) {
         this.Usuario = Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -9,7 +9,6 @@ class Usuario {
         this.Fnac = Fnacimiento;
         this.Cont = Passwd;
         this.Icono = icono;
-        this.tipo = tipo
     }
     get Usr() {
         return this.Usuario;
@@ -65,12 +64,6 @@ class Usuario {
     set icono(icono) {
         this.Icono = icono;
     }
-    get tipoUsr() {
-        return this.Icono;
-    }
-    set tipoUsr(tipoU) {
-        this.tipoUsr = tipoU;
-    }
 
     logIn(usr, pass) {
         $.ajax({
@@ -78,21 +71,24 @@ class Usuario {
             url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
+                console.log(usr)
                 console.log(response)
-                if (response != 1) {
+                if (response == usr) {
                     sessionStorage.setItem("j1", response);
                     cerrarLogin();
+                }else{
+                    console.log("NO. voce no introdujo la contraseña")
                 }
             }
         });
     }
 
-    register() {
+    register(nuser, ci, cel, email, ap, nomc, pass, nac, tipo) {
         $.ajax({
             type: "POST",
             async: true,
             url: "../Usuario/PHP/register.php",
-            data: { usuario: this.Usuario, cedula: this.ci, celular: this.Cel, email: this.Mail, apellido: this.Apellido, NombreCompleto: this.Nombre, Contra: this.Cont, Nacimiento: this.fnac, Tipo: this.tipo },
+            data: { usuario: nuser, cedula: ci, celular: cel, email: email, apellido: ap, NombreCompleto: nomc, Contra: pass, Nacimiento: nac, Tipo: tipo },
             success: function (data) {
                 if (data == 1) {
                     alert('El nombre de usuario ya existe');
@@ -103,15 +99,14 @@ class Usuario {
         });
     }
 
-    guardarModificacion(nombreNuevo) {
+    guardarModificacion(nombreActual, nombreNuevo) {
         $.ajax({
             type: "POST",
             url: "Usuario/PHP/cambiarNombre.php",
-            data: { nombreActual: this.Nombre, nombreNuevo: nombreNuevo },
+            data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
             success: function (response) {
                 console.log(response)
                 sessionStorage.setItem("j1", nombreNuevo)
-                sessionStorage.setItem("foto", this.Icono)
                 actualizarNick("...");
             }
         });

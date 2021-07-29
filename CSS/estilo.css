@@ -988,6 +988,19 @@ width: 300px;
 /* Tablero */
 /* ======================================================= */
 
+.pMovimiento{
+  width: 75%;
+  height: 75%;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: none;
+  transition: .2s;
+}
+
+.divCas button:hover .pMovimiento{
+  border-radius: 20px;
+}
 
 .divCas {
   width: 100%;

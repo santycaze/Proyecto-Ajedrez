@@ -23,7 +23,7 @@ function seleccionado(casillaSeleccionada) {
     casilla = document.getElementById(casillaSeleccionada).value;
     var infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador]) { //si el color de la ficha es igual al del jugador se selecciona la pieza
-        actualizarTablero(); //actualizo el tablero para eliminar lo seleccionado anteriormente
+        actualizarTablero(infoFicha[0]); //actualizo el tablero para eliminar lo seleccionado anteriormente
         //===============================================================================================================//
         /*
             Si la casilla no esta vacia dependiendo del color llama a la funcion tableroIntel() para marcar las podibles
@@ -47,10 +47,8 @@ function seleccionado(casillaSeleccionada) {
         boton de ese color la ficha se movera a la casilla seleccionada, si selecciona otra casilla o mueve la ficha el tablero se 
         actualiza
         */
-        let elemento = document.getElementById(casillaSeleccionada);
-        let estilo = window.getComputedStyle(elemento);
-        let color = estilo.getPropertyValue('background-color');
-        if (color == "rgb(110, 184, 91)" || color == "rgb(158, 71, 65)") {
+        var colort = $('[position="' + infoFicha[0] + '"]').css("backgroundColor")
+        if (colort == "rgb(110, 184, 91)" || colort == "rgb(158, 71, 65)") {
             destino = casillaSeleccionada;
         }
         if (destino != null && seleccion != null) {
@@ -59,7 +57,7 @@ function seleccionado(casillaSeleccionada) {
             destino = null;
         }
         //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.          
-        actualizarTablero();
+        actualizarTablero(infoFicha[0]);
     } else {
         if (casilla != undefined) {
             console.log("No es: " + color[colorJugador]);
@@ -70,7 +68,8 @@ function seleccionado(casillaSeleccionada) {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-function actualizarTablero() {
+function actualizarTablero(infoFicha) {
+    console.log(infoFicha);
     //Actualiza las casillas para eliminar selecciones anteriores
     for (let Y = 1; Y <= 8; Y++) {
         for (let X = 1; X <= 8; X++) {
@@ -90,6 +89,8 @@ function actualizarTablero() {
             }
         }
     }
+    $('.pMovimiento').css("display", "none")
+    $('.pMovimiento').css("background-color", "transparent")
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
@@ -132,9 +133,9 @@ function casillas(value, color) {
     */
     if (value == undefined) { //si la casilla no tiene ficha
         if (contador == 8) {
-            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
+            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''><div class='pMovimiento' position='" + contador + "." + letras[X] + "'></div></button></div></td>"
         } else {
-            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''></button></div></td>"
+            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "' onclick=" + "seleccionado(" + "'" + contador + "." + letras[X] + "'" + ");" + " value=''><div class='pMovimiento' position='" + contador + "." + letras[X] + "'></div></button></div></td>"
         }
     } else { // si la casilla tiene ficha
         if (contador == 8) {
@@ -222,11 +223,13 @@ function Movimiento(seleccion, destino) {
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
+    console.log(separadorA[0]);
+
     if (Comible(lnB[0] - 1, lnB[1]) == true) { // paso el numero y la letra del destino para ver si es una ficha comible
-        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> </button>';
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + "'></div></button>";
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
     } else {
-        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> </button>';
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '> <div class="pMovimiento" position="' + separadorA[0] + '"></div> </button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
     }
     /*
@@ -324,16 +327,21 @@ function peon(numero, letra) {
     numero++
     console.log(!!document.getElementById(numero + "." + letra + "-" + color[colorJugador]));
     --numero
+    /*
+    *
+    */
     if (numero != 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra + "-" + color[colorJugador]) == false) {
         //marco en verde la casilla delante del peon
         numero++;
-        document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
+        $('[position="' + numero + "." + letra + '"]').css("display", "block")
+        $('[position="' + numero + "." + letra + '"]').css("background-color", "#6EB85B")
         --numero;
     } else if (numero == 2 && Comible(numero, letra) == false && !!document.getElementById(numero + 1 + "." + letra + "-" + color[colorJugador]) == false) {
         //marco en verde las DOS caillas delante del peon si es la primera movida
         for (let i = 0; i < 2; i++) {
             numero++;
-            document.getElementById(numero + "." + letra).style.backgroundColor = "#6EB85B";
+            $('[position="' + numero + "." + letra + '"]').css("display", "block")
+            $('[position="' + numero + "." + letra + '"]').css("background-color", "#6EB85B")
         }
         --numero;
     }
@@ -409,16 +417,20 @@ function torre(numero, letra) {
                 derecha++
                 --izquierda
                 if (!!document.getElementById(arriba + "." + letras[i]) == true) {
-                    document.getElementById(arriba + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("display", "block")
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(abajo + "." + letras[i]) == true) {
-                    document.getElementById(abajo + "." + letras[i]).style.backgroundColor = "#6EB85B";
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("display", "block")
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(numero + "." + letras[derecha]) == true) {
-                    document.getElementById(numero + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "block")
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(numero + "." + letras[izquierda]) == true) {
-                    document.getElementById(numero + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "block")
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
                 }
                 if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
                     document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
@@ -441,58 +453,28 @@ function alfil(numero, letra) {
                 derecha++
                 --izquierda
                 if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
-                    document.getElementById(arriba + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(arriba, letras[derecha])) {
-                    document.getElementById(arriba + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "block")
+                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
-                    document.getElementById(abajo + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(abajo, letras[derecha])) {
-                    document.getElementById(abajo + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "block")
+                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
-                    document.getElementById(arriba + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(arriba, letras[izquierda])) {
-                    document.getElementById(arriba + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "block")
+                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
-                    document.getElementById(abajo + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(abajo, letras[izquierda])) {
-                    document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "block")
+                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
                 }
-
             }
         }
     }
 }
 /*=================================================================================================================================*/
 function caballo(numero, letra) {
-    numero++;
-    for (let i = 1; i <= 8; i++) {
-        if (letra == letras[i] && Comible(numero, letra) == false) {
-            numero++;
-            if (i < 7) {
-                if (!!document.getElementById(numero + "." + letras[i + 1] + "-Blancas") == false || !!document.getElementById(numero + "." + letras[i - 1] + "-Negras") == false) {
-                    document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#6EB85B";
-                    document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
-                }
-                document.getElementById(numero - 1 + "." + letras[i + 2]).style.backgroundColor = "#6EB85B";
-                document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#6EB85B";
 
-                document.getElementById(numero - 4 + "." + letras[i + 1]).style.backgroundColor = "#6EB85B";
-                document.getElementById(numero - 4 + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
-            } else if (i > 7) {
-                document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
-                document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#6EB85B";
-            } else if (i < 2) {
-                document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
-                document.getElementById(numero - 1 + "." + letras[i - 2]).style.backgroundColor = "#6EB85B";
-            } else {
-                document.getElementById(numero + "." + letras[i + 1]).style.backgroundColor = "#6EB85B";
-                document.getElementById(numero + "." + letras[i - 1]).style.backgroundColor = "#6EB85B";
-            }
-        }
-    }
 }
 /*=================================================================================================================================*/
 function reina(numero, letra) {
@@ -508,24 +490,40 @@ function reina(numero, letra) {
                 derecha++
                 --izquierda
                 if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
-                    document.getElementById(arriba + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(arriba, letras[derecha])) {
-                    document.getElementById(arriba + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "block")
+                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
-                    document.getElementById(abajo + "." + letras[derecha]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(abajo, letras[derecha])) {
-                    document.getElementById(abajo + "." + letras[derecha] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "block")
+                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
-                    document.getElementById(arriba + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(arriba, letras[izquierda])) {
-                    document.getElementById(arriba + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "block")
+                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
                 }
                 if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
-                    document.getElementById(abajo + "." + letras[izquierda]).style.backgroundColor = "#6EB85B";
-                } else if (Comible(abajo, letras[izquierda])) {
-                    document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "block")
+                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                }
+
+                if (!!document.getElementById(arriba + "." + letras[i]) == true) {
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("display", "block")
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                }
+                if (!!document.getElementById(abajo + "." + letras[i]) == true) {
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("display", "block")
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                }
+                if (!!document.getElementById(numero + "." + letras[derecha]) == true) {
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "block")
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                }
+                if (!!document.getElementById(numero + "." + letras[izquierda]) == true) {
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "block")
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                }
+                if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
+                    document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
                 }
 
             }
@@ -534,5 +532,54 @@ function reina(numero, letra) {
 }
 /*=================================================================================================================================*/
 function rey(numero, letra) {
+    var arriba = numero;
+    var abajo = numero;
+    for (let i = 1; i <= 8; i++) {
+        if (letra == letras[i]) {
+            var derecha = i;
+            var izquierda = i;
+            arriba++
+            --abajo
+            derecha++
+            --izquierda
+            if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
+                $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "block")
+                $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+            }
+            if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
+                $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "block")
+                $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+            }
+            if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
+                $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "block")
+                $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+            }
+            if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
+                $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "block")
+                $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+            }
+
+            if (!!document.getElementById(arriba + "." + letras[i]) == true) {
+                $('[position="' + arriba + "." + letras[i] + '"]').css("display", "block")
+                $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+            }
+            if (!!document.getElementById(abajo + "." + letras[i]) == true) {
+                $('[position="' + abajo + "." + letras[i] + '"]').css("display", "block")
+                $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+            }
+            if (!!document.getElementById(numero + "." + letras[derecha]) == true) {
+                $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "block")
+                $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+            }
+            if (!!document.getElementById(numero + "." + letras[izquierda]) == true) {
+                $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "block")
+                $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+            }
+            if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
+                document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+            }
+
+        }
+    }
 }
 //+-113 comentarios

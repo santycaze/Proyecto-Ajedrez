@@ -56,6 +56,7 @@ function guardarMod() {
 }
 
 function actualizarNick(usr) {
+    
     if (usr != null) {
         $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
         $("#botonLogIn").prop('disabled', 'true')
@@ -158,8 +159,7 @@ function cerrarSesion() {
             $("#botonLogIn").prop('disabled', false)
             sessionStorage.clear();
             $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
-            $("#nick").html("Log in")
-            actualizarNick()
+            actualizarNick(sessionStorage.getItem("j1"))
         }
     });
 }
