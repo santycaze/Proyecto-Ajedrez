@@ -184,7 +184,7 @@ function colocarFichas() {
             casillas(negras[5], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "c" || contador == 8 && letras[X] == "f") {
             casillas(negras[4], color[colorJugador - 1]);
-        } else if (contador == 8 && letras[X] == "d") {
+        } else if (contador == 5 && letras[X] == "d") {
             casillas(negras[2], color[colorJugador - 1]);
         } else if (contador == 8 && letras[X] == "e") {
             casillas(negras[1], color[colorJugador - 1]);
@@ -438,24 +438,34 @@ function torre(numero, letra) {
                 --abajo
                 derecha++
                 --izquierda
+                console.log("Arriba : "+!!document.getElementById(arriba + "." + letras[i])+" Abajo : "+!!document.getElementById(abajo + "." + letras[i])+" Derecha : "+!!document.getElementById(numero + "." + letras[derecha])+" Izquierda : "+!!document.getElementById(numero + "." + letras[izquierda]))
                 if (!!document.getElementById(arriba + "." + letras[i]) == true) {
                     $('[position="' + arriba + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
+                }else{
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("display", "none")
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "transparent")
                 }
                 if (!!document.getElementById(abajo + "." + letras[i]) == true) {
                     $('[position="' + abajo + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
+                }else{
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("display", "none")
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "transparent")
                 }
-                if (!!document.getElementById(numero + "." + letras[derecha]) == true) {
+                if (!!document.getElementById(numero + "." + letras[derecha] +"-"+color[colorJugador-1]) != true) {
                     $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
+                }else{
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "none")
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "transparent")
                 }
                 if (!!document.getElementById(numero + "." + letras[izquierda]) == true) {
                     $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
-                }
-                if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
-                    document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
+                }else{
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "none")
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "transparent")
                 }
             }
         }
@@ -476,19 +486,19 @@ function alfil(numero, letra) {
                 --izquierda
                 if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
                     $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
                     $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
                     $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
                     $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
                 }
             }
         }
@@ -496,7 +506,6 @@ function alfil(numero, letra) {
 }
 /*=================================================================================================================================*/
 function caballo(numero, letra) {
-
 }
 /*=================================================================================================================================*/
 function reina(numero, letra) {
@@ -513,36 +522,36 @@ function reina(numero, letra) {
                 --izquierda
                 if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
                     $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
                     $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
                     $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
                     $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
                 }
 
                 if (!!document.getElementById(arriba + "." + letras[i]) == true) {
                     $('[position="' + arriba + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(abajo + "." + letras[i]) == true) {
                     $('[position="' + abajo + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(numero + "." + letras[derecha]) == true) {
                     $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (!!document.getElementById(numero + "." + letras[izquierda]) == true) {
                     $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
                 }
                 if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
                     document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
@@ -566,36 +575,36 @@ function rey(numero, letra) {
             --izquierda
             if (!!document.getElementById(arriba + "." + letras[derecha]) == true) {
                 $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "flex")
-                $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
             }
             if (!!document.getElementById(abajo + "." + letras[derecha]) == true) {
                 $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "flex")
-                $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
             }
             if (!!document.getElementById(arriba + "." + letras[izquierda]) == true) {
                 $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "flex")
-                $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
             }
             if (!!document.getElementById(abajo + "." + letras[izquierda]) == true) {
                 $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "flex")
-                $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
             }
 
             if (!!document.getElementById(arriba + "." + letras[i]) == true) {
                 $('[position="' + arriba + "." + letras[i] + '"]').css("display", "flex")
-                $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
             }
             if (!!document.getElementById(abajo + "." + letras[i]) == true) {
                 $('[position="' + abajo + "." + letras[i] + '"]').css("display", "flex")
-                $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
             }
             if (!!document.getElementById(numero + "." + letras[derecha]) == true) {
                 $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "flex")
-                $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
             }
             if (!!document.getElementById(numero + "." + letras[izquierda]) == true) {
                 $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "flex")
-                $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "#6EB85B")
+                $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
             }
             if (Comible(numero, letras[i]) == true && !!document.getElementById(numero + "." + letras[i]) != true) {
                 document.getElementById(numero + "." + letras[i] + "-" + color[colorJugador - 1]).style.backgroundColor = "#9e4741";
