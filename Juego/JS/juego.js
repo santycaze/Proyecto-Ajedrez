@@ -535,4 +535,4 @@ function reina(numero, letra) {
 /*=================================================================================================================================*/
 function rey(numero, letra) {
 }
-//+-113 comentarios
+//+-113  lineas de comentarios
