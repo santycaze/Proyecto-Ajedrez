@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hammersmith+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.contenedor-fondo{
+    width: 100%;
+    height: 100vh;
+    background: url(../IMG/Chess.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-tabla{
+    background: #073750;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+
+.tabla{
+    width: 80%;
+    text-align: center;
+    height: 400px;
+    overflow: auto;
+}
+
+.contenedor-tabla h1{
+    color: white;
+    font-size: 40px;
+    font-family: 'Bree Serif', serif;
+    padding: 20px;
+}
+
+.contenedor-torneo{
+    display: flex;
+    background: #094464;
+    padding: 15px;
+    border-radius: 20px;
+    justify-content: space-between;
+    width: calc(100% - 10px);
+    margin: 10px 0; 
+}
+
+.contenedor-torneo button{
+    background: #0c5780;
+    border: none;
+    border-radius: 20px;
+    padding: 4px;
+    width:60px;
+    color: rgba(255, 255, 255, 0.568);
+}
+
+.contenedor-torneo p{
+    color: white;
+}
+
+.boton-volver{
+    background: #094464;
+    border: none;
+    padding: 8px;
+    width: 200px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.589);
+}
+
+
+::-webkit-scrollbar {
+    width: 14px;
+   
+  }
+  ::-webkit-scrollbar-track {
+    background-color: rgba(51, 51, 51, 0.7);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(146, 144, 144);
+    border-radius: 10px;
+   
+  }
+

@@ -36,8 +36,8 @@
     height: 500px;
     justify-content: center;
     align-items: center;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 20% 1fr;
 }
 
 .foto-perfil-verperfil{
@@ -54,9 +54,10 @@
 
 
 .foto-perfil-verperfil img{
-    width: 200px;
-    height: 200px;
-    padding: 50px;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    
 }
 
 .contenedor-nombres-trofeos-verperfil{
@@ -145,4 +146,34 @@
 .cerrar-perfil i{
     font-size: 25px;
     color: white;
+}
+
+@media screen and (max-width:1500px){
+    .trofeo-verperfil{
+        width: 200px;
+        height: 200px;
+    }
+    .foto-perfil-verperfil img{
+        padding: 0;
+       width: 80%;
+       height: auto;
+       margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:1200px){
+    .trofeo-verperfil{
+        width: 150px;
+        height: 150px;
+    }
+.trofeo-verperfil i{
+    font-size: 70px;
+}
+
+.foto-perfil-verperfil img{
+    padding: 0;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
 }
