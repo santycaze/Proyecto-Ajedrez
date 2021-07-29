@@ -3,8 +3,8 @@
 //---------------------------//
 /* Abrir conexion mysql */
 //---------------------------//
-
-$mysqli = new mysqli('localhost','root','root','Ajedrez','33061');
+//Puerto  - 33061
+$mysqli = new mysqli('localhost','root','root','Ajedrez');
 
 //---------------------------//
 /* Error de conexion */

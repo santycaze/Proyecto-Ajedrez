@@ -2,7 +2,8 @@
 class Servidor 
 {
     function conexion(){
-        if (!$conexion = mysqli_connect("localhost", "root", "root", "ajedrez", "33061")) {
+        //Puerto  - 33061
+        if (!$conexion = mysqli_connect("localhost", "root", "root", "ajedrez") {
             echo "Error al conectar con la Base de datos.";
             exit();
         } else {
