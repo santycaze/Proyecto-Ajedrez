@@ -1006,6 +1006,7 @@ width: 300px;
   position: relative;
   z-index: 20;
   display: none;
+  color: transparent;
 }
 
 .divCas:hover .pMovimiento span{
