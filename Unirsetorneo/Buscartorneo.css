@@ -95,3 +95,26 @@
    
   }
 
+.input-buscar{
+    padding: 8px;
+    border-radius: 20px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.199);
+    outline: none;
+    border: none;
+}
+
+.contenedor-buscador{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.contenedor-buscador i{
+    color: rgba(255, 255, 255, 0.568);
+    position: absolute;
+    right: 10px;
+}
+
