@@ -51,6 +51,7 @@
     justify-content: space-between;
     width: calc(100% - 10px);
     margin: 10px 0; 
+    flex-direction: column;
 }
 
 .contenedor-torneo button{
@@ -95,3 +96,46 @@
    
   }
 
+.contenedor-arriba{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor-tiempo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contenedor-tiempo i{
+    color: white;
+    margin-right: 5px;
+}
+
+.contenedor-centro{
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.jugador1 img, .jugador2 img{
+    width: 80%;
+}
+
+.vs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-boton{
+    width: 100%;
+}
+
+.contenedor-boton button{
+    width: 50%;
+}
