@@ -3,7 +3,8 @@ class Servidor
 {
     function conexion(){
         //Puerto  - 33061
-        if (!$conexion = mysqli_connect('179.27.156.47','8bittech','8bittech8bittech','ajedrez','33061') {
+        $conexion = mysqli_connect("179.27.156.47","8bittech","8bittech8bittech","ajedrez","33061");
+        if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
         } else {

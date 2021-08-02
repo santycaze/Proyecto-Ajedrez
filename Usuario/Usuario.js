@@ -86,6 +86,7 @@ class Usuario {
             url: "../Usuario/PHP/register.php",
             data: { usuario: nuser, cedula: ci, celular: cel, email: email, apellido: ap, NombreCompleto: nomc, Contra: pass, Nacimiento: nac, Tipo: tipo },
             success: function (data) {
+                console.log(data)
                 if (data == 1) {
                     alert('El nombre de usuario ya existe');
                 } else {
