@@ -18,7 +18,7 @@ function cambiarColor() {
     var casillasOscuras = document.getElementById('colorOscuras').value           //Formato Hexadecimal                             Color MIRO => #9E692F
     sessionStorage.setItem('casillasClaras', casillasClaras)
     sessionStorage.setItem('casillasOscuras', casillasOscuras)
-    actualizarTablero();
+    actualizarTablero()
 }
 sessionStorage.setItem('colorMovimiento', colorMovimiento)
 sessionStorage.setItem('colorMovimientoRGB', colorMovimientoRGB)

@@ -4,8 +4,6 @@ var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas
 //DEFINICION DE ESTILOS
 colorPmovimiento = sessionStorage.getItem("colorMovimiento")
 colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
-casillasClaras = sessionStorage.getItem("casillasClaras")
-casillasOscuras = sessionStorage.getItem("casillasOscuras")
 //DEFINICION DE VARIABLES
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -76,6 +74,8 @@ function seleccionado(casillaSeleccionada) {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function actualizarTablero() {
+    casillasClaras = sessionStorage.getItem("casillasClaras")
+    casillasOscuras = sessionStorage.getItem("casillasOscuras")
     //Actualiza las casillas para eliminar selecciones anteriores
     for (let Y = 1; Y <= 8; Y++) {
         for (let X = 1; X <= 8; X++) {
@@ -219,7 +219,7 @@ function colocarFichas() {
             casillas();
         }
     }
-} 
+}
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -520,13 +520,13 @@ function caballo(numero, letra) {
     }
     var arriba = numero;
     var arriba2 = numero;
-    var abajo = numero-2;
-    var abajo2 = numero-1;
+    var abajo = numero - 2;
+    var abajo2 = numero - 1;
     for (let i = 1; i <= 9; i++) {
         if (letra == letras[i]) {
             for (let x = 1; x <= 2; x++) {
                 arriba++
-                arriba2 = arriba-1
+                arriba2 = arriba - 1
                 /*
                 =============================================================================================================================================================
 
