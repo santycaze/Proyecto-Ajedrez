@@ -3,8 +3,8 @@ var colorMovimientoRGB = '110, 184, 91'    //Formato -> R, G, B (Respetar espaci
 //
 /*==================================================================================================================================*/
 //
-var casillasClaras = '#EDE1AE'             //Formato Hexadecimal                            Color MIRO => #EDE1AE
-var casillasOscuras = '#9E692F'           //Formato Hexadecimal                             Color MIRO => #9E692F
+
+var colorSeleccionado = ""
 //
 /*==================================================================================================================================*/
 //
@@ -13,8 +13,12 @@ var colorComidaRGB = ''
 //
 /*==================================================================================================================================*/
 //
-
+function cambiarColor() {
+    var casillasClaras = document.getElementById('colorClaras').value      //Formato Hexadecimal                            Color MIRO => #EDE1AE
+    var casillasOscuras = document.getElementById('colorOscuras').value           //Formato Hexadecimal                             Color MIRO => #9E692F
+    sessionStorage.setItem('casillasClaras', casillasClaras)
+    sessionStorage.setItem('casillasOscuras', casillasOscuras)
+    actualizarTablero();
+}
 sessionStorage.setItem('colorMovimiento', colorMovimiento)
 sessionStorage.setItem('colorMovimientoRGB', colorMovimientoRGB)
-sessionStorage.setItem('casillasClaras', casillasClaras)
-sessionStorage.setItem('casillasOscuras', casillasOscuras)

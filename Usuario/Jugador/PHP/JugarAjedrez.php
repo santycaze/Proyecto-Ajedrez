@@ -13,6 +13,7 @@ $llamarajedrez = '
     <div id="tabla2"></div>
 
     <div class="contenido">
+    <div class="cambioColor">CLARAS:<input type="color" id="colorClaras"> OSCURAS:<input type="color" id="colorOscuras"> <button onclick="cambiarColor()">...</button></div>
     <div class="jugador">
         <div class="circulo-tablero1">
             <div class="circulo-tablero"><img src="'.$ico.'" alt=""></div>
