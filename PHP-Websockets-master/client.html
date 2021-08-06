@@ -23,13 +23,13 @@
 		var socket;
 
 		function init() {
-			socket = new WebSocket("ws://localhost:3000")
+		socket = new WebSocket("ws://192.168.1.2:3000")
 
-			socket.onopen = function(msg) {
+		socket.onopen = function(msg) {
         console.log("Welcome - status "+this.readyState);
         };
         socket.onmessage = function(msg) {
-        console.log("Received: "+msg.data);
+        log("Received: "+msg.data);
         };
         socket.onclose = function(msg) {
         console.log("Disconnected - status "+this.readyState);
