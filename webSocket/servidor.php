@@ -3,17 +3,18 @@
 Servidor
  */
 set_time_limit(0);
-$host = '192.168.1.2';
-$port = '3000';
+$host = 'localhost';
+$port = '3012';
 $socket = socket_create(AF_INET, SOCK_STREAM, getprotobyname('tcp'));
-socket_bind($socket, $host, 0) or die("Error vinculando socket con IP...");
+socket_bind($socket, $host, $port) or die("Error vinculando socket con IP...");
 socket_getsockname($socket, $socket_address, $socket_port);
 echo socket_strerror(socket_last_error($socket));
 socket_listen($socket);
 
 $i = 0;
 while (true) {
-    $client[++$i] = socket_accept($socket);
+    $client[$i++] = socket_accept($socket);
+    echo $client;
     $msg = socket_read($client[$i], 1024);
     echo $msg;
     $msg = "Hola" . $msg . "\n";

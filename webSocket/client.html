@@ -5,7 +5,7 @@
 	<script type="text/javascript">
 		var socket;
 		function init() {
-			socket = new WebSocket("ws://localhost:3000/Prueba")
+			socket = new WebSocket("ws://localhost:3000/ws")
 
 			socket.onopen = function () {
 				console.log("Welcome - status " + this.readyState);
