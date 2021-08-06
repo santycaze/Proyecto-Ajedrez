@@ -29,8 +29,5 @@ $llamarlogin = '
 
    ';
 
-    echo $llamarlogin;
-    return $llamarlogin;
-
-
-    ?>
+echo $llamarlogin;
+return $llamarlogin;

@@ -71,7 +71,8 @@ class Usuario {
             url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
-                if (response != null) {
+                console.log(response)
+                if (response != 1) {
                     sessionStorage.setItem("j1", response);
                     cerrarLogin();
                 }
@@ -100,7 +101,7 @@ class Usuario {
         $.ajax({
             type: "POST",
             url: "Usuario/PHP/cambiarNombre.php",
-            //data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
+            data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
             success: function (response) {
                 console.log(response)
                 sessionStorage.setItem("j1", nombreNuevo)

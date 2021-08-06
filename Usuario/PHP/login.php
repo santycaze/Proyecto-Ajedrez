@@ -1,27 +1,27 @@
 <?php
-    include '../../PHP/conexion.php';
+include '../../PHP/conexion.php';
 
-    $nombreUsuario = $_POST['user'];  
-    $contra = $_POST['pass']; 
+$nombreUsuario = $_POST['user'];
+$contra = $_POST['pass'];
 
-    if($nombreUsuario != " " && $contra != " "){
-    if($sentencia = $mysqli->prepare("CALL login(?,?);")) {
-        $sentencia->bind_param('ss', $nombreUsuario,$contra);
+if ($nombreUsuario != " " && $contra != " ") {
+    if ($sentencia = $mysqli->prepare("CALL login(?,?);")) {
+        $sentencia->bind_param('ss', $nombreUsuario, $contra);
         if ($sentencia->execute()) {
-            $sentencia->bind_result($valor);
-            if($sentencia->fetch()){
-                echo $valor; 
-                session_start();
-                $_SESSION['nombre'] = $nombreUsuario;
-                //echo $_SESSION['nombre'];
-                }else{
-                    echo 1;
-                } 
-        }else{
+            $sentencia->bind_result($usr, $cont);
+            if ($sentencia->fetch()) {
+                if ($usr == $nombreUsuario && $cont == $contra) {
+                    session_start();
+                    $_SESSION['nombre'] = $nombreUsuario;
+                    echo $_SESSION['nombre'];
+                }
+            } else {
+                echo 1;
+            }
+        } else {
             throw new Exception('Error en prepare: ' . $mysqli->error);
         }
-    }else{
+    } else {
         throw new Exception('Error en prepare: ' . $mysqli->error);
-    }    
+    }
 }
-?>

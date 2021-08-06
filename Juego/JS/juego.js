@@ -294,7 +294,6 @@ const tableroIntel = (ficha, posicion) => {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function Comible(numero, letra) {
     var Comible;
-    numero++;
     /*
     Dependiendo del color del jugador verifica si una pieza se puede comer (si es del otro color)
     */
@@ -325,9 +324,9 @@ function Comible(numero, letra) {
 function jugadasEspeciales() {
 
 }
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-//
-/*---------------------------------------------------------------------------------------------------------------------------------*/
+/*=================================================================================================================================*/
+//                                                            OUTPUT     
+/*=================================================================================================================================*/
 function Output() {
     let datos = {
         jugador:sessionStorage.getItem('j1'),
@@ -337,7 +336,7 @@ function Output() {
         pieza: sessionStorage.getItem('pieza'),
         movimiento: [seleccion, destino]
     };
-    $('#tablaMovimientos').append('<tr><td>'+datos.pieza+'</td><td>'+datos.movimiento[0]+'</td></tr>')
+    $('#tablaMovimientos').append('<tr><td>'+datos.pieza+'</td><td>'+datos.movimiento[1]+'</td></tr>')
     datos = JSON.stringify(datos);
     send(datos)
 }
@@ -356,30 +355,16 @@ function crearSocket() {
 }
 function send(datos) {
     socket.send(datos);
-    console.log('Sent: ' + datos);
 }
 /*=================================================================================================================================*/
-//                                                            PIEZAS     (agregar funcion comer)
+//                                                            PIEZAS     (agregar bug comer del peon)
 /*=================================================================================================================================*/
-/**
- white chess queen    ♕    U+2655    &#9813;
-white chess rook    ♖    U+2656    &#9814;
-white chess bishop    ♗    U+2657    &#9815;
-white chess knight    ♘    U+2658    &#9816;
-white chess pawn    ♙    U+2659    &#9817;
-black chess king    ♚    U+265A    &#9818;
-black chess queen    ♛    U+265B    &#9819;
-black chess rook    ♜    U+265C    &#9820;
-black chess bishop    ♝    U+265D    &#9821;
-black chess knight    ♞    U+265E    &#9822;
-black chess pawn    :chess_pawn:    U+265F    &#9823;
- */
 function peon(numero, letra) {
     if (colorJugador == 1) {
-        sessionStorage.setItem('pieza', '&#9823')
+        sessionStorage.setItem('pieza', '&#9817')
         colorOpuesto = 0;
     } else {
-        sessionStorage.setItem('pieza', '&#9817')
+        sessionStorage.setItem('pieza', '&#9823')
         colorOpuesto = 1;
     }
     /*
@@ -455,8 +440,10 @@ function peon(numero, letra) {
 function torre(numero, letra) {
     sessionStorage.clear()
     if (colorJugador == 1) {
+        sessionStorage.setItem('pieza', '&#9814')
         colorOpuesto = 0;
     } else {
+        sessionStorage.setItem('pieza', '&#9820')
         colorOpuesto = 1;
     }
     var arriba = numero;
@@ -512,8 +499,10 @@ function torre(numero, letra) {
 function alfil(numero, letra) {
     sessionStorage.clear()
     if (colorJugador == 1) {
+        sessionStorage.setItem('pieza', '&#9815')
         colorOpuesto = 0;
     } else {
+        sessionStorage.setItem('pieza', '&#9821')
         colorOpuesto = 1;
     }
     var arriba = numero;
@@ -559,8 +548,10 @@ function alfil(numero, letra) {
 function caballo(numero, letra) {
     sessionStorage.clear()
     if (colorJugador == 1) {
+        sessionStorage.setItem('pieza', '&#9816')
         colorOpuesto = 0;
     } else {
+        sessionStorage.setItem('pieza', '&#9822')
         colorOpuesto = 1;
     }
     var arriba = numero;
@@ -629,8 +620,10 @@ function caballo(numero, letra) {
 function reina(numero, letra) {
     sessionStorage.clear()
     if (colorJugador == 1) {
+        sessionStorage.setItem('pieza', '&#9813')
         colorOpuesto = 0;
     } else {
+        sessionStorage.setItem('pieza', '&#9819')
         colorOpuesto = 1;
     }
     var arriba = numero;
@@ -700,6 +693,13 @@ function reina(numero, letra) {
 }
 /*=================================================================================================================================*/
 function rey(numero, letra) {
+    if (colorJugador == 1) {
+        sessionStorage.setItem('pieza', '&#9817')
+        colorOpuesto = 0;
+    } else {
+        sessionStorage.setItem('pieza', '&#9818')
+        colorOpuesto = 1;
+    }
     var arriba = numero;
     var abajo = numero;
     for (let i = 1; i <= 8; i++) {
