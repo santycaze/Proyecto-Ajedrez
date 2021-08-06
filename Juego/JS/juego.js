@@ -1,5 +1,4 @@
 var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras;
-
 //Definicion de variables
 //DEFINICION DE ESTILOS
 colorPmovimiento = sessionStorage.getItem("colorMovimiento")
@@ -19,6 +18,7 @@ letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function llamarTablero() {
     colorJugador = asignarColor();
+    crearSocket()
     crearTablero();
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -242,6 +242,7 @@ function Movimiento(seleccion, destino) {
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
     }
+    Output()
     /*
     despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
     if (colorJugador == 1) {
@@ -328,15 +329,57 @@ function jugadasEspeciales() {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function Output() {
+    let datos = {
+        jugador:sessionStorage.getItem('j1'),
+        cambioDeTurno: 'true',
+        colorJugador: colorJugador,
+        timepoMovida: '00:30',
+        pieza: sessionStorage.getItem('pieza'),
+        movimiento: [seleccion, destino]
+    };
+    $('#tablaMovimientos').append('<tr><td>'+datos.pieza+'</td><td>'+datos.movimiento[0]+'</td></tr>')
+    datos = JSON.stringify(datos);
+    send(datos)
+}
+function crearSocket() {
+    socket = new WebSocket("ws://localhost:3000")
 
+    socket.onopen = function (msg) {
+        console.log("Conectado - status " + this.readyState);
+    };
+    socket.onmessage = function (msg) {
+        console.log("Recibido: " + msg.data);
+    };
+    socket.onclose = function (msg) {
+        console.log("Desconectado - status " + this.readyState);
+    };
+}
+function send(datos) {
+    socket.send(datos);
+    console.log('Sent: ' + datos);
 }
 /*=================================================================================================================================*/
 //                                                            PIEZAS     (agregar funcion comer)
 /*=================================================================================================================================*/
+/**
+ white chess queen    ♕    U+2655    &#9813;
+white chess rook    ♖    U+2656    &#9814;
+white chess bishop    ♗    U+2657    &#9815;
+white chess knight    ♘    U+2658    &#9816;
+white chess pawn    ♙    U+2659    &#9817;
+black chess king    ♚    U+265A    &#9818;
+black chess queen    ♛    U+265B    &#9819;
+black chess rook    ♜    U+265C    &#9820;
+black chess bishop    ♝    U+265D    &#9821;
+black chess knight    ♞    U+265E    &#9822;
+black chess pawn    :chess_pawn:    U+265F    &#9823;
+ */
 function peon(numero, letra) {
     if (colorJugador == 1) {
+        sessionStorage.setItem('pieza', '&#9823')
         colorOpuesto = 0;
     } else {
+        sessionStorage.setItem('pieza', '&#9817')
         colorOpuesto = 1;
     }
     /*
