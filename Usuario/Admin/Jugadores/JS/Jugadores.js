@@ -13,6 +13,7 @@ function TraeJugadores() {
         type: "POST",
         url: "../Admin/Jugadores/PHP/Jugadores.php",
         success: function (response) {
+            console.log(response)
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
                 console.log(Datos[i])

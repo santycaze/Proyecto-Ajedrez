@@ -3,8 +3,7 @@
 //---------------------------//
 /* Abrir conexion mysql */
 //---------------------------//
-//Puerto  - 33061
-$mysqli = new mysqli('localhost','root','root','Ajedrez');
+$mysqli = new mysqli('179.27.156.47','8bittech','8bittech8bittech','ajedrez','33061');
 
 //---------------------------//
 /* Error de conexion */

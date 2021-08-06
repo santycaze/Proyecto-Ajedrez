@@ -13,6 +13,7 @@ function TraePeriodistas() {
         type: "POST",
         url: "../Admin/Periodistas/PHP/TraePeriodistas.php",
         success: function (response) {
+            console.log(response)
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
                 var nombreUsuario, mail, idPeriodista, aprobado;
