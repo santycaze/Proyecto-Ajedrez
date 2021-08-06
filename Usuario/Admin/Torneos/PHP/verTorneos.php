@@ -33,7 +33,7 @@ $vertorneo =
         <button>Cerrar</button>
     </div>
 </div>
-'
+';
 echo $vertorneo;
 return $vertorneo;
 
