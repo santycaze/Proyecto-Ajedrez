@@ -28,7 +28,7 @@ Cliente
 $i = 0;
 
 while ($i < 1) {
-    $msg = "asdkfjasdf";
+    $msg = " ";
     $socket = socket_create(AF_INET, SOCK_STREAM, 0) or die("No se pudo crear el socket...\n");
     $result = socket_connect($socket, $host, $port) or die("No se pudo conectar al server...\n");
     socket_write($socket, $msg, strlen($msg)) or die("No se pudo enviar datos al servidor...\n");
