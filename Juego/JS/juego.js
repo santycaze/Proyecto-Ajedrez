@@ -4,6 +4,8 @@ var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas
 //DEFINICION DE ESTILOS
 colorPmovimiento = sessionStorage.getItem("colorMovimiento")
 colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
+casillasClaras = sessionStorage.getItem("casillasClaras")
+casillasOscuras = sessionStorage.getItem("casillasOscuras")
 //DEFINICION DE VARIABLES
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -74,8 +76,8 @@ function seleccionado(casillaSeleccionada) {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function actualizarTablero() {
-    casillasClaras = sessionStorage.getItem("casillasClaras")
-    casillasOscuras = sessionStorage.getItem("casillasOscuras")
+    //casillasClaras = sessionStorage.getItem("casillasClaras")
+    //casillasOscuras = sessionStorage.getItem("casillasOscuras")
     //Actualiza las casillas para eliminar selecciones anteriores
     for (let Y = 1; Y <= 8; Y++) {
         for (let X = 1; X <= 8; X++) {
