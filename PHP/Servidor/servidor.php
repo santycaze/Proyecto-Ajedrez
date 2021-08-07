@@ -176,5 +176,14 @@ class Servidor
         $stmt->execute();
         $stmt->close();
     }
+    
+    function cambiarIcono($iconoActual,$iconoNuevo){
+        $conn = $this->conexion();
+        $query = "CALL ajedrez.cambiarIcono(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ss", $icono, $_POST["iconoNuevo"]);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 ?> 
