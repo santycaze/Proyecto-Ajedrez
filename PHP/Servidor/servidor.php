@@ -188,11 +188,11 @@ class Servidor
         $stmt->close();
     }
     
-    function cambiarIcono($iconoActual,$iconoNuevo){
+    function cambiarIcono($nombreActual,$iconoNuevo){
         $conn = $this->conexion();
         $query = "CALL ajedrez.cambiarIcono(?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $icono, $_POST["iconoNuevo"]);
+        $stmt->bind_param("ss", $nombreActual, $iconoNuevo);
         $stmt->execute();
         $stmt->close();
     }

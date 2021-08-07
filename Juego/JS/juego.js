@@ -294,6 +294,7 @@ const tableroIntel = (ficha, posicion) => {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function Comible(numero, letra) {
     var Comible;
+    numero++
     /*
     Dependiendo del color del jugador verifica si una pieza se puede comer (si es del otro color)
     */
@@ -393,17 +394,16 @@ function peon(numero, letra) {
      */
     // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
     --numero
-    console.log(numero)
     for (let i = 1; i <= 8; i++) {
         if (letras[i] == letra) {
             // si el color del jugador es blanco.
             if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
+                console.log(numero)
                 numero++;
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("color", "#9e4741")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("display", "block")
-
                 $('[position="' + numero + "." + letras[i + 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i + 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("color", "#9e4741")

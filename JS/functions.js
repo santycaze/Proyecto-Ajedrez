@@ -45,13 +45,14 @@ function registrar() {
 
 function guardarMod() {
     var nombreActual = sessionStorage.getItem("j1");
+    sessionStorage.setItem("foto", sessionStorage.getItem('vp'))
     //
     const usuario = new Usuario();
     //
     if (!!document.getElementById("inputNombre") == true) {
         //
         var nuevoNombre = document.getElementById("inputNombre").value;
-        usuario.guardarModificacion(nombreActual,nuevoNombre);
+        usuario.guardarModificacion(nombreActual,nuevoNombre,sessionStorage.getItem("foto"));
         //
         $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
         $("#botonLogIn").prop('disabled', 'true')
@@ -59,8 +60,7 @@ function guardarMod() {
         $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
         //
     } else{
-        sessionStorage.setItem("foto", sessionStorage.getItem('vp'))
-        usuario.guardarModificacion(null,null,sessionStorage.getItem("foto"));
+        usuario.guardarModificacion(nombreActual,null,sessionStorage.getItem("foto"));
     }
     $('#edicion').hide();
     $('body').css('overflow', 'auto');

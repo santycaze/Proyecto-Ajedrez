@@ -99,20 +99,34 @@ class Usuario {
     }
 
     guardarModificacion(nombreActual,nombreNuevo,icono) {
-        if (nombreActual == null || nombreNuevo == null) {
-            console.log(icono)
-            actualizarNick("...");
-        }else{
+        console.log(icono)
+        if (nombreNuevo == null) {
             $.ajax({
                 type: "POST",
-                url: "Usuario/PHP/cambiarNombre.php",
-                data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
+                url: "Usuario/PHP/cambiarIcono.php",
+                data: { nombreActual: nombreActual, icono:icono },
                 success: function (response) {
                     console.log(response)
-                    sessionStorage.setItem("j1", nombreNuevo)
+                    sessionStorage.setItem("foto", icono)
                     actualizarNick("...");
                 }
             });
+        }else{
+            let urls = { 0:"Usuario/PHP/cambiarNombre.php", 1:"Usuario/PHP/cambiarIcono.php"}
+            let data = { 0:{ nombreActual: nombreActual, nombreNuevo: nombreNuevo }, 1:{ nombreActual: nombreActual, icono:icono }}
+            for (let i = 0; i <= 1; i++) {
+                $.ajax({
+                    type: "POST",
+                    url: urls[i],
+                    data: data[i],
+                    success: function (response) {
+                        console.log(response)
+                        sessionStorage.setItem("foto", icono)
+                        sessionStorage.setItem("j1", nombreNuevo)
+                        actualizarNick("...");
+                    }
+                });
+            }
         }
     }
 }
