@@ -1,9 +1,10 @@
 <?php
-class Servidor 
+class Servidor
 {
-    function conexion(){
+    public function conexion()
+    {
         //Puerto  - 33061
-        $conexion = mysqli_connect("179.27.156.47","8bittech","8bittech8bittech","ajedrez","33061");
+        $conexion = mysqli_connect("179.27.156.47", "8bittech", "8bittech8bittech", "ajedrez", "33061");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
@@ -14,7 +15,8 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function datosJugador(){
+    public function datosJugador()
+    {
         //institucion,añoCurso,nombreUsuario,nombreCompleto,ci,rankingJugador,logros
         $conn = $this->conexion();
         $json = array();
@@ -23,19 +25,20 @@ class Servidor
 
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idJugador,$institucion,$añoCursivo,$nombreUsuario,$nombreCompleto,$ci,$rankELO,$logros);
-                while ($stmt->fetch()) {
-                    $fila = array('idJugador' => $idJugador,'institucion' => $institucion,'añoCursivo' => $añoCursivo,'nombreUsuario' => $nombreUsuario,'nombreCompleto' => $nombreCompleto,'ci' => $ci,'rankELO' => $rankELO,'logros' => $logros);
-                    $json[] = $fila;
-                }
+            $stmt->bind_result($idJugador, $institucion, $añoCursivo, $nombreUsuario, $nombreCompleto, $ci, $rankELO, $logros);
+            while ($stmt->fetch()) {
+                $fila = array('idJugador' => $idJugador, 'institucion' => $institucion, 'añoCursivo' => $añoCursivo, 'nombreUsuario' => $nombreUsuario, 'nombreCompleto' => $nombreCompleto, 'ci' => $ci, 'rankELO' => $rankELO, 'logros' => $logros);
+                $json[] = $fila;
             }
-            $stmt->close();
+        }
+        $stmt->close();
         return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function datosPeriodista(){
+    public function datosPeriodista()
+    {
         // idPeriodista,ci,nombreUsuario,mail,celular,Aprobado
         $conn = $this->conexion();
         $json = array();
@@ -44,20 +47,21 @@ class Servidor
 
         if ($sent->execute()) {
             $sent->store_result();
-            $sent->bind_result($idPer,$ci,$nomUsuario,$email,$cel,$Apr);
-                while ($sent->fetch()) {
-                    $fila = array('idPeriodista' => $idPer,'ci' => $ci,'nombreUsuario' => $nomUsuario,'mail' => $email,'celular' => $cel,'Aprobado' => $Apr);
-                    $json[] = $fila;
-                }
-                $sent->close();
+            $sent->bind_result($idPer, $ci, $nomUsuario, $email, $cel, $Apr);
+            while ($sent->fetch()) {
+                $fila = array('idPeriodista' => $idPer, 'ci' => $ci, 'nombreUsuario' => $nomUsuario, 'mail' => $email, 'celular' => $cel, 'Aprobado' => $Apr);
+                $json[] = $fila;
             }
+            $sent->close();
+        }
 
         return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function datosNoticia(){
+    public function datosNoticia()
+    {
         //idNoticia,titulo,nombreUsuario,contenido
         $conn = $this->conexion();
         $query = "CALL datosNoticias()";
@@ -66,19 +70,20 @@ class Servidor
         if ($stmt->execute()) {
             $json = array();
             $stmt->store_result();
-            $stmt->bind_result($idNoticia,$titulo,$nombreUsuario,$contenido);
-                while ($stmt->fetch()) {
-                    $fila = array('idNoticia' => $idNoticia,'titulo' => $titulo,'nombreUsuario' => $nombreUsuario,'contenido' => $contenido);
-                    $json[] = $fila;
-                }
+            $stmt->bind_result($idNoticia, $titulo, $nombreUsuario, $contenido);
+            while ($stmt->fetch()) {
+                $fila = array('idNoticia' => $idNoticia, 'titulo' => $titulo, 'nombreUsuario' => $nombreUsuario, 'contenido' => $contenido);
+                $json[] = $fila;
             }
-            $stmt->close();
+        }
+        $stmt->close();
         return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function Contraseñas(){
+    public function Contraseñas()
+    {
         //idNoticia,titulo,nombreUsuario,contenido
         $conn = $this->conexion();
         $query = "CALL Passwd()";
@@ -87,19 +92,20 @@ class Servidor
         if ($stmt->execute()) {
             $json = array();
             $stmt->store_result();
-            $stmt->bind_result($contraseña,$nombreUsuario);
-                while ($stmt->fetch()) {
-                    $fila = array('contraseña' => $contraseña,'nombreUsuario' => $nombreUsuario);
-                    $json[] = $fila;
-                }
+            $stmt->bind_result($contraseña, $nombreUsuario);
+            while ($stmt->fetch()) {
+                $fila = array('contraseña' => $contraseña, 'nombreUsuario' => $nombreUsuario);
+                $json[] = $fila;
             }
-            $stmt->close();
+        }
+        $stmt->close();
         return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function Aprobar(){
+    public function Aprobar()
+    {
         $conn = $this->conexion();
         $datos = array("idPeriodista" => $_POST['idP']);
         $query = "CALL Aprobar(?)";
@@ -111,7 +117,8 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function eliminarPeriodistas(){
+    public function eliminarPeriodistas()
+    {
         $conn = $this->conexion();
         $datos = array("idPeriodista" => $_POST['idP']);
         $query = "CALL EliminarPeriodistas(?)";
@@ -123,7 +130,8 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function eliminarJugador(){
+    public function eliminarJugador()
+    {
         $conn = $this->conexion();
         $datos = array("idJugador" => $_POST['idJ']);
         $query = "CALL EliminarJugador(?)";
@@ -135,19 +143,21 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function crearTorneo(){
+    public function crearTorneo()
+    {
         $conn = $this->conexion();
-        $datos = array("nombreTorneo" => $_POST['nombreTorneo'],"fechaComInscripciones" => $_POST['fci'],"fechaFinInscripciones" => $_POST['ffi'],"fechaComTorneo" => $_POST['fct'],"fechaFinTorneo" => $_POST['fft'],"maximoPartidas" => $_POST['mp'],"numPartidas" => $_POST['numPart'],"tiempoPartida" => $_POST['tiempoPart'],"tiempoMovimiento" => $_POST['tiempoMov'],"maxParticipantes" => $_POST['maxParticipantes'],"nombreTrofeo" => $_POST['nomTrofeo']);
+        $datos = array("nombreTorneo" => $_POST['nombreTorneo'], "fechaComInscripciones" => $_POST['fci'], "fechaFinInscripciones" => $_POST['ffi'], "fechaComTorneo" => $_POST['fct'], "fechaFinTorneo" => $_POST['fft'], "maximoPartidas" => $_POST['mp'], "numPartidas" => $_POST['numPart'], "tiempoPartida" => $_POST['tiempoPart'], "tiempoMovimiento" => $_POST['tiempoMov'], "maxParticipantes" => $_POST['maxParticipantes'], "nombreTrofeo" => $_POST['nomTrofeo']);
         $query = "CALL crearTorneo(?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sddddittsi", $datos["nombreTorneo"],$datos["fechaComInscripciones"],$datos["fechaFinInscripciones"],$datos["fechaComTorneo"],$datos["fechaFinTorneo"],$datos["maximoParticipantes"],$datos["tiempoPartida"],$datos["tiempoMovimiento"],$datos["nombreTrofeo"],$datos["numPartidas"]);
+        $stmt->bind_param("sddddittsi", $datos["nombreTorneo"], $datos["fechaComInscripciones"], $datos["fechaFinInscripciones"], $datos["fechaComTorneo"], $datos["fechaFinTorneo"], $datos["maximoParticipantes"], $datos["tiempoPartida"], $datos["tiempoMovimiento"], $datos["nombreTrofeo"], $datos["numPartidas"]);
         $stmt->execute();
         $stmt->close();
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function datosTorneo(){
+    public function datosTorneo()
+    {
         //nombreTorneo,fechaFinTorneo,maximoParticipantes,numPartidas,tiempoPartida,tiempoMovida,nombreTrofeo
         $conn = $this->conexion();
         $query = "CALL datosTorneo()";
@@ -156,25 +166,25 @@ class Servidor
         if ($stmt->execute()) {
             $json = array();
             $stmt->store_result();
-            $stmt->bind_result($nombreTorneo,$fechaFinTorneo,$maxParticipantes,$numPartidas,$tiempoPartida,$tiempoMovida,$nombreTrofeo);
-                while ($stmt->fetch()) {
-                    $fila = array('nombreTorneo' => $nombreTorneo,'fechaFinTorneo' => $fechaFinTorneo,'maxParticipantes' => $maxParticipantes,'numPartidas' => $numPartidas,'tiempoPartida' => $tiempoPartida,'tiempoMovida' => $tiempoMovida,'nombreTrofeo' => $nombreTrofeo);
-                    $json[] = $fila;
-                }
+            $stmt->bind_result($nombreTorneo, $fechaFinTorneo, $maxParticipantes, $numPartidas, $tiempoPartida, $tiempoMovida, $nombreTrofeo);
+            while ($stmt->fetch()) {
+                $fila = array('nombreTorneo' => $nombreTorneo, 'fechaFinTorneo' => $fechaFinTorneo, 'maxParticipantes' => $maxParticipantes, 'numPartidas' => $numPartidas, 'tiempoPartida' => $tiempoPartida, 'tiempoMovida' => $tiempoMovida, 'nombreTrofeo' => $nombreTrofeo);
+                $json[] = $fila;
             }
-            $stmt->close();
+        }
+        $stmt->close();
         return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function cambiarNombre($nomActual,$nuevoNom){
+    public function cambiarNombre($nomActual, $nuevoNom)
+    {
         $conn = $this->conexion();
         $query = "CALL ajedrez.cambiarUsuario(?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $nom, $_POST["nuevoNombre"]);
+        $stmt->bind_param("ss", $nomActual, $nuevoNom);
         $stmt->execute();
         $stmt->close();
     }
 }
-?> 

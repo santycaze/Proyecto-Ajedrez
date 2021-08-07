@@ -27,6 +27,8 @@ function login() {
     sessionStorage.setItem("foto", "IMG/icono1.png")
 }
 
+function onkey(event) { if (event.keyCode == 13) { login(); } }
+
 function registrar() {
     var pass = document.getElementById('pass').value;
     var nomc = document.getElementById('nomc').value;
@@ -42,15 +44,23 @@ function registrar() {
 }
 
 function guardarMod() {
-
     var nombreActual = sessionStorage.getItem("j1");
-    var nuevoNombre = document.getElementById("inputNombre").value;
+    //
     const usuario = new Usuario();
-    if (document.getElementById("inputNombre").value != null) {
-        usuario.guardarModificacion(nuevoNombre);
-    } else {
-        $('#edicion').hide();
-        $('body').css('overflow', 'auto');
+    //
+    if (!!document.getElementById("inputNombre") == true) {
+        //
+        var nuevoNombre = document.getElementById("inputNombre").value;
+        usuario.guardarModificacion(nombreActual,nuevoNombre);
+        //
+        $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
+        $("#botonLogIn").prop('disabled', 'true')
+        $("#nick").html(sessionStorage.getItem("j1"))
+        $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
+        //
+    } else{
+        sessionStorage.setItem("foto", sessionStorage.getItem('vp'))
+        usuario.guardarModificacion(null,null,sessionStorage.getItem("foto"));
     }
     $('#edicion').hide();
     $('body').css('overflow', 'auto');
@@ -97,10 +107,8 @@ function Modificar() {
 }
 
 function cambiarIcono(logo) {
-    sessionStorage.setItem("foto", logo);
-    $("#iconoUsr").html('<i id="foto"></i> <p id="nick"></p>')
-    $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
-    $("#vistaPrevia").attr('src', sessionStorage.getItem("foto"))
+    sessionStorage.setItem('vp',logo)
+    $("#vistaPrevia").attr('src', logo)
 }
 /*======================================================================================================================================================*/
 //                                                         Opciones 'menu-usuario' -> Ver Perfil                                                        //
@@ -131,14 +139,14 @@ function llamarajedrez() {
         url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/JugarAjedrez.php",
         data: { ico: sessionStorage.getItem("foto"), j1: sessionStorage.getItem("j1") },
         success: function (response) {
-            console.log(response)
-            if (response != 0) {
+            console.log(verificarSesion())
+            if (1 == 1) {
                 $('#tabla').show();
                 $('#tabla').html(response);
                 $('body').css('overflow', 'hidden');
                 llamarTablero();
             } else {
-                window.location = "../Proyecto-Ajedrez/index.html";
+                llamarlogin();
             }
         }
     });
@@ -173,6 +181,13 @@ function cerrarLogin() {
 
 function verificarSesion() {
 
+    $.ajax({
+        url: "../Proyecto-Ajedrez/Usuario/PHP/verificarSesion.php",
+        success: function (response) {
+            return response;
+        }
+    });
+    
 }
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //

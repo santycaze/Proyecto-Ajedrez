@@ -71,9 +71,10 @@ class Usuario {
             url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
-                console.log(response)
+                let datosUsuario = JSON.parse(response);
                 if (response != 1) {
-                    sessionStorage.setItem("j1", response);
+                    sessionStorage.setItem("j1", datosUsuario["nombre"]);
+                    sessionStorage.setItem("foto", datosUsuario["icono"]);
                     cerrarLogin();
                 }
             }
@@ -97,16 +98,21 @@ class Usuario {
         });
     }
 
-    guardarModificacion(nombreNuevo) {
-        $.ajax({
-            type: "POST",
-            url: "Usuario/PHP/cambiarNombre.php",
-            data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
-            success: function (response) {
-                console.log(response)
-                sessionStorage.setItem("j1", nombreNuevo)
-                actualizarNick("...");
-            }
-        });
+    guardarModificacion(nombreActual,nombreNuevo,icono) {
+        if (nombreActual == null || nombreNuevo == null) {
+            console.log(icono)
+            actualizarNick("...");
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "Usuario/PHP/cambiarNombre.php",
+                data: { nombreActual: nombreActual, nombreNuevo: nombreNuevo },
+                success: function (response) {
+                    console.log(response)
+                    sessionStorage.setItem("j1", nombreNuevo)
+                    actualizarNick("...");
+                }
+            });
+        }
     }
 }

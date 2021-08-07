@@ -8,10 +8,10 @@ $llamarlogin = '
 <div class="contenedor-textologin">
 <h2>Iniciar sesión</h2>
 <div class="box">
-    <input type="text" id="usr" class="input-login" name="username" required="" placeholder="Usuario">
+    <input type="text" onkeypress="onkey(event)" id="usr" class="input-login" name="username" required="" placeholder="Usuario">
 </div>
 <div class="box">
-    <input type="password" class="input-login" id="pass" name="password" required="" placeholder="Contraseña">
+    <input type="password" onkeypress="onkey(event)" class="input-login" id="pass" name="password" required="" placeholder="Contraseña">
 </div>
 <br><br>
 <button onclick="login()" class="submit">Iniciar sesion</button>
@@ -28,6 +28,5 @@ $llamarlogin = '
 </div>
 
    ';
-
-echo $llamarlogin;
-return $llamarlogin;
+    echo $llamarlogin;
+    return $llamarlogin;
