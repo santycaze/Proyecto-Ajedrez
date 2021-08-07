@@ -537,9 +537,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarIcono`(iconoActual varchar(45), iconoNuevo varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarIcono`(nombreUsuario varchar(45), iconoNuevo varchar(45))
 BEGIN
-update usuario set iconoActual = iconoNuevo where iconoNuevo = iconoActual;
+update usuario set  nombreUsuario= iconoNuevo where iconoNuevo = nombreUsuario;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -773,4 +773,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-07 19:13:42
+-- Dump completed on 2021-08-07 19:27:44
