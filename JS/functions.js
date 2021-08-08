@@ -78,6 +78,27 @@ function actualizarNick(usr) {
     }
 }
 /*======================================================================================================================================================*/
+//                                                             Cambiar Contrasena                                                                       //
+/*======================================================================================================================================================*/
+function restablecerContra() {
+    var usuario = document.getElementById('usr').value;
+    var passwd = document.getElementById('nPass').value;
+    var cpasswd = document.getElementById('rNPass').value;
+
+    if (passwd == cpasswd) {
+        $.ajax({
+            type: "POST",
+            url: "../Usuario/PHP/restablecerPasswd.php",
+            data : {usuario:usuario,passwd:passwd},
+            success: function (response) {
+                console.log(response)
+            }
+        });
+    }else{
+        $('.err').css('display', 'block')
+    }
+}
+/*======================================================================================================================================================*/
 //                                                     Opciones 'menu-usuario' -> Modificar Perfil                                                      //
 /*======================================================================================================================================================*/
 function opcAdmin() {

@@ -82,24 +82,16 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    public function Contraseñas()
+    public function Contraseñas($nombreUsuario,$nuevaPasswd)
     {
         //idNoticia,titulo,nombreUsuario,contenido
         $conn = $this->conexion();
-        $query = "CALL Passwd()";
+        $query = "CALL cambiarContra(?,?)";
         $stmt = $conn->prepare($query);
-
-        if ($stmt->execute()) {
-            $json = array();
-            $stmt->store_result();
-            $stmt->bind_result($contraseña, $nombreUsuario);
-            while ($stmt->fetch()) {
-                $fila = array('contraseña' => $contraseña, 'nombreUsuario' => $nombreUsuario);
-                $json[] = $fila;
-            }
-        }
+        $stmt->bind_param("ss",$nombreUsuario,$nuevaPasswd);
+        $stmt->execute();
+        echo $conn->error;
         $stmt->close();
-        return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
