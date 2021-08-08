@@ -21,6 +21,11 @@ body {
   z-index: 999999;
 }
 
+.err{
+  color: red;
+  font-family: 'Bree Serif', serif;
+  display: none;
+}
 
 .contenedor-login {
   display: grid;

@@ -77,6 +77,8 @@ class Usuario {
                     sessionStorage.setItem("j1", datosUsuario["nombre"]);
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
                     cerrarLogin();
+                }else{
+                    $(".err").css('display', 'block')
                 }
             }
         });

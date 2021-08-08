@@ -13,6 +13,7 @@ $llamarlogin = '
 <div class="box">
     <input type="password" onkeypress="onkey(event)" class="input-login" id="pass" name="password" required="" placeholder="Contraseña">
 </div>
+<div class="err">*Algo ha salido mal...</div>
 <br><br>
 <button onclick="login()" class="submit">Iniciar sesion</button>
 </div>
