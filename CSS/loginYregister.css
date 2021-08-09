@@ -354,3 +354,50 @@ body {
     width: 100vw;
   }
 }
+
+/* Restablecer Contra */
+
+.contenedor-restablecer{
+  display: flex;
+  flex-direction: column ;
+  justify-content: center;
+  text-align: center;
+  background: #0a4e72;
+  padding: 20px;
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+}
+
+
+.contenedor-gral-restablecer{
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+}
+
+.contenedor-restablecer input{
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #ffffff;
+}
+
+#Btn-restablecer{
+  background: #0a4361;
+  border: none;
+  border-radius: 15px;
+  margin-top: 15px;
+  color: white;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0px 0px 10px 0 rgba(39, 39, 39, 0.493);
+}
+
+.contenedor-restablecer h1{
+  font-size: 30px;
+  color: white;
+  font-family: 'Bree Serif', serif;
+}
