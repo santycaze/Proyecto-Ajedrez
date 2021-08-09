@@ -24,7 +24,6 @@ function login() {
     var pass = document.getElementById('pass').value;
     const usuario = new Usuario();
     usuario.logIn(usr, pass);
-    sessionStorage.setItem("foto", "IMG/icono1.png")
 }
 
 function onkey(event) { if (event.keyCode == 13) { login(); } }
@@ -52,33 +51,30 @@ function guardarMod() {
     if (!!document.getElementById("inputNombre") == true) {
         //
         var nuevoNombre = document.getElementById("inputNombre").value;
-        usuario.guardarModificacion(nombreActual,nuevoNombre,sessionStorage.getItem("foto"));
+        usuario.guardarModificacion(nombreActual, nuevoNombre, sessionStorage.getItem("foto"));
         //
         $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
         $("#botonLogIn").prop('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
         //
-    } else{
-        usuario.guardarModificacion(nombreActual,null,sessionStorage.getItem("foto"));
+    } else {
+        usuario.guardarModificacion(nombreActual, null, sessionStorage.getItem("foto"));
     }
     $('#edicion').hide();
     $('body').css('overflow', 'auto');
 }
 
-function actualizarNick(usr) {
-    
-    if (usr != null) {
+function actualizarNick() {
+    if (verificarSesion() == 1) {
         $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
         $("#botonLogIn").prop('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
-    } else {
-        $(".usuario-menu").hide()
     }
 }
 /*======================================================================================================================================================*/
-//                                                             Cambiar Contrasena                                                                       //
+//                                                             Cambiar Contraseña                                                                       //
 /*======================================================================================================================================================*/
 function restablecerContra() {
     var usuario = document.getElementById('usr').value;
@@ -89,12 +85,12 @@ function restablecerContra() {
         $.ajax({
             type: "POST",
             url: "../Usuario/PHP/restablecerPasswd.php",
-            data : {usuario:usuario,passwd:passwd},
+            data: { usuario: usuario, passwd: passwd },
             success: function (response) {
                 console.log(response)
             }
         });
-    }else{
+    } else {
         $('.err').css('display', 'block')
     }
 }
@@ -128,7 +124,7 @@ function Modificar() {
 }
 
 function cambiarIcono(logo) {
-    sessionStorage.setItem('vp',logo)
+    sessionStorage.setItem('vp', logo)
     $("#vistaPrevia").attr('src', logo)
 }
 /*======================================================================================================================================================*/
@@ -160,8 +156,8 @@ function llamarajedrez() {
         url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/JugarAjedrez.php",
         data: { ico: sessionStorage.getItem("foto"), j1: sessionStorage.getItem("j1") },
         success: function (response) {
-            console.log(verificarSesion())
-            if (1 == 1) {
+
+            if (verificarSesion() == 1) {
                 $('#tabla').show();
                 $('#tabla').html(response);
                 $('body').css('overflow', 'hidden');
@@ -169,6 +165,7 @@ function llamarajedrez() {
             } else {
                 llamarlogin();
             }
+            
         }
     });
 
@@ -189,7 +186,7 @@ function cerrarSesion() {
             $("#botonLogIn").prop('disabled', false)
             sessionStorage.clear();
             $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
-            actualizarNick(sessionStorage.getItem("j1"))
+            actualizarNick()
         }
     });
 }
@@ -197,18 +194,15 @@ function cerrarSesion() {
 function cerrarLogin() {
     $('#login').hide();
     $('body').css('overflow', 'auto');
-    actualizarNick(sessionStorage.getItem("j1"))
 }
 
 function verificarSesion() {
-
-    $.ajax({
-        url: "../Proyecto-Ajedrez/Usuario/PHP/verificarSesion.php",
-        success: function (response) {
-            return response;
-        }
-    });
-    
+    if (sessionStorage.getItem('j1') != null) {
+        return 1
+    } else {
+        $(".usuario-menu").hide()
+        return 0
+    }
 }
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //

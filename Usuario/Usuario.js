@@ -71,11 +71,11 @@ class Usuario {
             url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
-                console.log(response)
                 if (response != 1) {
                     let datosUsuario = JSON.parse(response);
                     sessionStorage.setItem("j1", datosUsuario["nombre"]);
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
+                    actualizarNick()
                     cerrarLogin();
                 }else{
                     $(".err").css('display', 'block')
