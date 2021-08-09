@@ -1,7 +1,7 @@
 <?php
-// hacer validacion de contrasenas
+// hacer validacion de contraseñas
 include "../../PHP/Servidor/servidor.php";
 $usr = $_POST['usuario'];
 $passwd = $_POST['passwd'];
 $servidor = new Servidor();
-$servidor->Contraseñas($usr, $passwd);
+$servidor->Contraseñas($usr, sha1($passwd));
