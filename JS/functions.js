@@ -125,7 +125,7 @@ function Modificar() {
 
 function cambiarIcono(logo) {
     sessionStorage.setItem('vp', logo)
-    $("#vistaPrevia").attr('src', logo)
+    $("#vistaPrevia").attr('src', sessionStorage.getItem('vp'))
 }
 /*======================================================================================================================================================*/
 //                                                         Opciones 'menu-usuario' -> Ver Perfil                                                        //
