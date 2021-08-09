@@ -1,4 +1,4 @@
-var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras;
+var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras, puntos = 0;
 //Definicion de variables
 //DEFINICION DE ESTILOS
 colorPmovimiento = sessionStorage.getItem("colorMovimiento")
@@ -227,22 +227,26 @@ function colocarFichas() {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function Movimiento(seleccion, destino) {
     var ficha = document.getElementById(seleccion).value;
+    var destinoMov = document.getElementById(destino).value;
     separadorA = seleccion.split("-");
     separadorB = destino.split("-");
     var lnB = separadorB[0].split(".");
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
-    console.log(separadorA[0]);
-
     if (Comible(lnB[0] - 1, lnB[1]) == true) { // paso el numero y la letra del destino para ver si es una ficha comible
+        document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
+        puntaje(destinoMov);
+        destino = "x" + lnB[0] + lnB[1];
     } else {
+        document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
+        destino = lnB[0] + lnB[1];
     }
-    Output()
+    Output(destino)
     /*
     despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
     if (colorJugador == 1) {
@@ -330,14 +334,15 @@ function jugadasEspeciales() {
 /*=================================================================================================================================*/
 function Output() {
     let datos = {
-        jugador:sessionStorage.getItem('j1'),
+        jugador: sessionStorage.getItem('j1'),
         cambioDeTurno: 'true',
         colorJugador: colorJugador,
         timepoMovida: '00:30',
         pieza: sessionStorage.getItem('pieza'),
+        puntaje: puntos,
         movimiento: [seleccion, destino]
     };
-    $('#tablaMovimientos').append('<tr><td>'+datos.pieza+'</td><td>'+datos.movimiento[1]+'</td></tr>')
+    $('#tablaMovimientos').append('<tr><td>' + datos.pieza + '</td><td>' + datos.movimiento[1] + '</td></tr>')
     datos = JSON.stringify(datos);
     send(datos)
 }
@@ -376,12 +381,12 @@ function peon(numero, letra) {
         //marco en verde las DOS caillas delante del peon si es la primera movida
         --numero
         if (numero == 2) {
-            for (let i = 0; i < 2; i++) {
+            for (let i = 1; i <= 2; i++) {
                 numero++;
                 $('[position="' + numero + "." + letra + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letra + '"]').css("background-color", colorPmovimiento)
             }
-            --numero;
+            --numero
         } else {
             numero++
             $('[position="' + numero + "." + letra + '"]').css("display", "flex")
@@ -393,8 +398,7 @@ function peon(numero, letra) {
      * 
      */
     // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
-    --numero
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 0; i <= 9; i++) {
         if (letras[i] == letra) {
             // si el color del jugador es blanco.
             if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
@@ -750,5 +754,33 @@ function rey(numero, letra) {
         }
     }
 }
+/*=================================================================================================================================*/
+//                                                             PUNTOS 
+/*=================================================================================================================================*/
+function puntaje(fichaComida) {
+    console.log(fichaComida)
+    switch (fichaComida) {
+        case "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>":
+            puntos += 1;
+            break;
+        case "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>":
+            puntos += 5;
+            break;
+        case "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>":
+            puntos += 3;
+            break;
+        case "<img src='../Proyecto-Ajedrez/IMG/AlfilBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/AlfilNegro.png' id='ficha'></img>":
+            puntos += 3;
+            break;
+        case "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>":
+            puntos += 10;
+            break;
+        case "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>":
+            puntos += 9;
+            break;
+        default:
+            break;
+    }
 
+}
 //+-113  lineas de comentarios
