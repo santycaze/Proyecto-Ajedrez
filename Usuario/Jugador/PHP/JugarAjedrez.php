@@ -4,7 +4,7 @@ $jugador1 = $_POST['j1'];
 $llamarajedrez = '
 
 
-
+<audio id="efectoMovimiento" src="../Proyecto-Ajedrez/IMG/efectoMovida.mp3"></audio>
     <div class="div-wrapper-juego">
 
     <div class= "contenedor-div-wrapper-juego">
@@ -13,7 +13,6 @@ $llamarajedrez = '
     <div id="tabla2"></div>
 
     <div class="contenido">
-    
     <div class="jugador">
         <div class="circulo-tablero1">
             <div class="circulo-tablero"><img src="'.$ico.'" alt=""></div>
