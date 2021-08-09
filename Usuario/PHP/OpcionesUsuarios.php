@@ -22,6 +22,7 @@ $llamarediocion = '
             <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono6.png'" . ')"><img src="IMG/icono6.png" alt=""></button>
             <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono7.png'" . ')"><img src="IMG/icono7.png" alt=""></button>
             <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono8.png'" . ')"><img src="IMG/icono8.png" alt=""></button>
+            <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono9.png'" . ')"><img src="IMG/icono8.png" alt=""></button>
         </div>
 
           <div class="guardar-edicion">
