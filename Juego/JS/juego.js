@@ -18,7 +18,7 @@ letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function llamarTablero() {
     colorJugador = asignarColor();
-    crearSocket()
+    conectarSocket()
     crearTablero();
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -354,17 +354,17 @@ function Output(destino) {
     datos = JSON.stringify(datos);
     send(datos)
 }
-function crearSocket() {
-    socket = new WebSocket("ws://localhost:3000")
+function probar(params) {
+    console.log(socket.onmessage())
+}
+function conectarSocket() {
+    socket = new WebSocket("ws://192.168.4.48:3654")
 
     socket.onopen = function (msg) {
         console.log("Conectado - status " + this.readyState);
     };
     socket.onmessage = function (msg) {
         console.log("Recibido: " + msg.data);
-    };
-    socket.onclose = function (msg) {
-        console.log("Desconectado - status " + this.readyState);
     };
 }
 function send(datos) {
@@ -373,7 +373,7 @@ function send(datos) {
 /*=================================================================================================================================*/
 //                                                            PIEZAS     (agregar bug comer del peon)
 /*=================================================================================================================================*/
-function peon(numero, letra) { 
+function peon(numero, letra) {
     if (colorJugador == 1) {
         sessionStorage.setItem('pieza', '&#9817')
         colorOpuesto = 0;
