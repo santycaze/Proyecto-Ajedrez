@@ -354,9 +354,6 @@ function Output(destino) {
     datos = JSON.stringify(datos);
     send(datos)
 }
-function probar(params) {
-    console.log(socket.onmessage())
-}
 function conectarSocket() {
     socket = new WebSocket("ws://192.168.4.48:3654")
 
@@ -365,6 +362,9 @@ function conectarSocket() {
     };
     socket.onmessage = function (msg) {
         console.log("Recibido: " + msg.data);
+    };
+    socket.onclose = function (msg) {
+        console.log("Desconectado - status " + this.readyState);
     };
 }
 function send(datos) {
