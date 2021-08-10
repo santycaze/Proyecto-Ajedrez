@@ -265,6 +265,14 @@ const tableroIntel = (ficha, posicion) => {
         coord = posicion.split(".");
         var letra = coord[1];
         var numero = coord[0];
+        sessionStorage.removeItem("fichaArriba")
+        sessionStorage.removeItem("fichaAbajo")
+        sessionStorage.removeItem("fichaIzquierda")
+        sessionStorage.removeItem("fichaDerecha")
+        sessionStorage.removeItem("fichaDiagDerechaAbajo")
+        sessionStorage.removeItem("fichaDiagDerechaArriba")
+        sessionStorage.removeItem("fichaDiagIzquierdaArriba")
+        sessionStorage.removeItem("fichaDiagIzquierdaAbajo")
         //--------------------------------------------------------------------------------------------------------------------------//
         /* 
             Marco los lugares para posibles movimientos o comidas de las piezas
@@ -320,7 +328,7 @@ function Comible(numero, letra) {
         default:
             break;
     }
-    numero - 1;
+    --numero
     return Comible;
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -365,7 +373,7 @@ function send(datos) {
 /*=================================================================================================================================*/
 //                                                            PIEZAS     (agregar bug comer del peon)
 /*=================================================================================================================================*/
-function peon(numero, letra) {
+function peon(numero, letra) { 
     if (colorJugador == 1) {
         sessionStorage.setItem('pieza', '&#9817')
         colorOpuesto = 0;
@@ -398,12 +406,11 @@ function peon(numero, letra) {
      * 
      */
     // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
-    for (let i = 0; i <= 9; i++) {
+    for (let i = 1; i <= 8; i++) {
         if (letras[i] == letra) {
             // si el color del jugador es blanco.
+            console.log(numero)
             if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
-                console.log(numero)
-                numero++;
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("color", "#9e4741")
@@ -413,13 +420,11 @@ function peon(numero, letra) {
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("color", "#9e4741")
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("display", "block")
             } else if (Comible(numero, letras[i - 1]) == true) {
-                numero++;
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("color", "#9e4741")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("display", "block")
             } else if (Comible(numero, letras[i + 1]) == true) {
-                numero++;
                 $('[position="' + numero + "." + letras[i + 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i + 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("color", "#9e4741")
@@ -442,7 +447,6 @@ function peon(numero, letra) {
 }
 /*=================================================================================================================================*/
 function torre(numero, letra) {
-    sessionStorage.clear()
     if (colorJugador == 1) {
         sessionStorage.setItem('pieza', '&#9814')
         colorOpuesto = 0;
@@ -501,7 +505,6 @@ function torre(numero, letra) {
 }
 /*=================================================================================================================================*/
 function alfil(numero, letra) {
-    sessionStorage.clear()
     if (colorJugador == 1) {
         sessionStorage.setItem('pieza', '&#9815')
         colorOpuesto = 0;
@@ -550,7 +553,6 @@ function alfil(numero, letra) {
 }
 /*=================================================================================================================================*/
 function caballo(numero, letra) {
-    sessionStorage.clear()
     if (colorJugador == 1) {
         sessionStorage.setItem('pieza', '&#9816')
         colorOpuesto = 0;
@@ -622,7 +624,6 @@ function caballo(numero, letra) {
 }
 /*=================================================================================================================================*/
 function reina(numero, letra) {
-    sessionStorage.clear()
     if (colorJugador == 1) {
         sessionStorage.setItem('pieza', '&#9813')
         colorOpuesto = 0;

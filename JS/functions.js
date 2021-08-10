@@ -107,7 +107,7 @@ function cerrarmod() {
 }
 
 function cambiarNombre(nom) {
-    $(".nick-usuario").html('<input id="inputNombre" style="width:100%; height:30px; font-size:30px" type="text" name="" value="' + nom + '"/>')
+    $(".nick-usuario").html('<input id="inputNombre" style="width:100%; height:30px; font-size:40px" type="text" name="" value="' + nom + '"/>')
 }
 
 function Modificar() {
