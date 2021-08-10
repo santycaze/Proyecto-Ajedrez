@@ -15,14 +15,14 @@ $llamarajedrez = '
     <div class="contenido">
     <div class="jugador">
         <div class="circulo-tablero1">
-            <div class="circulo-tablero"><img src="'.$ico.'" alt=""></div>
-            <p>'.$jugador1.'</p>
+            <div class="circulo-tablero"> <p id="Nombre-Jugador">Jugador 1</p><img src="'.$ico.'" alt=""></div>
+            <p>Gaston</p>
         </div>
         
         <h2>VS</h2>
         <div class="circulo-tablero2">
-        <div class="circulo-tablero"><img src="IMG/icono2.png" alt=""></div>
-            <p>Jugador 2</p>
+        <div class="circulo-tablero"> <p id="Nombre-Jugador">Jugador 2</p><img src="IMG/icono2.png" alt=""></div>
+            <p>Firpo</p>
         </div>
     </div>
     <div class="tabla-movimientos">

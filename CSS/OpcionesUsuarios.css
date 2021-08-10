@@ -106,7 +106,7 @@
     height: 60px !important;
     padding: 0;
     cursor: pointer;
-    transition: .4s;
+    transition: .7s;
 }
 
 ::-webkit-scrollbar {
@@ -123,7 +123,7 @@
   }
 
 .contenedor-mod-icono button:hover {
-    transform: scale(1.5);
+    transform: scale(1.2) rotate(10deg);
 }
 
 .contenedor-mod-icono img{
