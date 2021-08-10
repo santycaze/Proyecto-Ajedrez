@@ -880,11 +880,11 @@ width: 300px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .circulo-tablero {
   width: 160px;
-  height: 160px;
 }
 
 .circulo-tablero img{
@@ -964,6 +964,10 @@ width: 300px;
 
 .usuario:hover .usuario-menu {
   display: block;
+}
+
+#Nombre-Jugador{
+  height: 40px;
 }
 
 /* ======================================================= */
