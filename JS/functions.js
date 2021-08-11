@@ -12,9 +12,9 @@ function llamarlogin() {
         type: "POST",
         url: "../Proyecto-Ajedrez/Usuario/PHP/llamarlogin.php",
         success: function (response) {
+            sessionStorage.clear()
             $('#login').show();
             $('#login').html(response);
-            sessionStorage.clear();
         }
     });
 }
@@ -183,8 +183,8 @@ function cerrarSesion() {
         type: "POST",
         url: "../Proyecto-Ajedrez/Usuario/PHP/cerrarSesion.php",
         success: function () {
-            $("#botonLogIn").prop('disabled', false)
             sessionStorage.clear();
+            $("#botonLogIn").prop('disabled', false)
             $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
             actualizarNick()
         }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Carrera</title>
+    <style>
+       .body {
+           padding-top: 40px;
+           padding-left: 40px;
+       }
+
+       img#coche1 {
+          position: absolute;
+       }
+
+       img#coche2 {
+         position: absolute;
+         margin-top: 80px;
+      }
+
+      .zona_boton {
+        text-align: center;
+        width: 100%;
+        margin-top: 240px;
+      }
+
+   </style>
+</head>
+<body>
+    <div class="body">
+	<img id="coche1" src="../IMG/Icono1.png" alt="Este es mi coche">
+	<img id="coche2" src="../IMG/icono6.png" alt="Este es mi oponente">			
+	<div class="zona_boton">
+		<input type="button" onclick='setInterval("correr()",60)' value="A CORRER!">	
+	</div>
+    </div>
+    <script>	  
+      //seleccionar imágenes
+      var coche1 = document.getElementById("coche1");
+      var coche2 = document.getElementById("coche2");
+
+      //posiciones iniciales
+      var x_coche1 = 0;
+      var x_coche2 = 0;
+
+      function correr() {
+      	   //movimiento coche1
+	   if (x_coche1 <= 50 && x_coche1 >= 0) { //condición para que se mueva entre estos valores de la pantalla
+		x_coche1 = x_coche1 + 5 //movimiento del valor x
+		coche1.style.right = x_coche1 + "%"; //aplicar el valor obtenido al left del elemento
+	    }
+	    //movimiento coche2
+        if (x_coche2 <= 50 && x_coche2 >= 0) { //condición para que se mueva entre estos valores de la pantalla
+		 x_coche2 = x_coche2 + 5; //movimiento del valor x
+		 coche2.style.left = x_coche2 + "%"; //aplicar el valor obtenido al left del elemento
+	    }
+      }
+  </script>
+</body>
+</html>
