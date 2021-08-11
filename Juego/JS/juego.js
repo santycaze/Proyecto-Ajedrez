@@ -355,7 +355,7 @@ function Output(destino) {
     send(datos)
 }
 function conectarSocket() {
-    socket = new WebSocket("ws://192.168.4.48:3654")
+    socket = new WebSocket("ws://localhost:3654")
 
     socket.onopen = function (msg) {
         console.log("Conectado - status " + this.readyState);
