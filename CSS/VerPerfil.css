@@ -18,6 +18,17 @@
     left: 0;
     background: rgba(0, 0, 0, 0.349);
     z-index: 999999;
+    animation: opacidad 1.5s forwards;
+}
+
+@keyframes opacidad{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
 
 .perfil{
