@@ -16,7 +16,7 @@ $llamarajedrez = '
     <div class="jugador">
         <div class="circulo-tablero1">
             <div class="circulo-tablero"> <p id="Nombre-Jugador">Jugador 1</p><img src="'.$ico.'" alt=""></div>
-            <p>Gaston</p>
+            <p id="fichasComidas"></p>
         </div>
         
         <h2>VS</h2>
