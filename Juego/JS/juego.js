@@ -226,6 +226,8 @@ function colocarFichas() {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function Movimiento(seleccion, destino) {
+    console.log(seleccion)
+    console.log(destino)
     var ficha = document.getElementById(seleccion).value;
     var destinoMov = document.getElementById(destino).value;
     separadorA = seleccion.split("-");
@@ -234,7 +236,7 @@ function Movimiento(seleccion, destino) {
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
-    if (Comible(lnB[0] - 1, lnB[1]) == true) { // paso el numero y la letra del destino para ver si es una ficha comible
+    if (Comible(lnB[0] - 1, lnB[1],colorOpuesto) == true) { // paso el numero y la letra del destino para ver si es una ficha comible
         document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
@@ -304,31 +306,17 @@ const tableroIntel = (ficha, posicion) => {
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-function Comible(numero, letra) {
+function Comible(numero, letra, colorComible) {
     var Comible;
-    numero++
     /*
     Dependiendo del color del jugador verifica si una pieza se puede comer (si es del otro color)
     */
-    switch (colorJugador) {
-        case 1:
-            if (!!document.getElementById(numero + "." + letra + "-Negras")) {
-                Comible = true;
-            } else {
-                Comible = false;
-            }
-            break;
-        case 0:
-            if (!!document.getElementById(numero + "." + letra + "-Blancas") == true) {
-                Comible = true;
-            } else {
-                Comible = false;
-            }
-            break;
-        default:
-            break;
+    numero++
+    if (!!document.getElementById(numero + "." + letra +"-"+ color[colorComible])) {
+        Comible = true;
+    } else {
+        Comible = false;
     }
-    --numero
     return Comible;
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -384,10 +372,8 @@ function peon(numero, letra) {
     /*
     *
     */
-    numero++
-    if (!!document.getElementById(numero + "." + letra + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaAdlnt") != 1 && !!document.getElementById(numero + "." + letra + "-" + color[colorOpuesto]) == false) {
+    if (Comible(numero, letra, colorJugador) == false && sessionStorage.getItem("fichaAdlnt") != 1 && Comible(numero, letra, colorOpuesto) == false) {
         //marco en verde las DOS caillas delante del peon si es la primera movida
-        --numero
         if (numero == 2) {
             for (let i = 1; i <= 2; i++) {
                 numero++;
@@ -406,11 +392,12 @@ function peon(numero, letra) {
      * 
      */
     // marco en rojo las piezas que se pueden comer.   -----   style.backgroundColor = "#9e4741"
-    for (let i = 1; i <= 8; i++) {
+    console.log(numero)
+    for (let i = 0; i <= 8; i++) {
         if (letras[i] == letra) {
-            // si el color del jugador es blanco.
-            console.log(numero)
-            if (Comible(numero, letras[i - 1]) == true && Comible(numero, letras[i + 1]) == true && i < 8 && i > 1) {
+            console.log(Comible(numero, letras[i - 1], colorOpuesto))
+            if (Comible(numero, letras[i - 1], colorOpuesto) == true && Comible(numero, letras[i + 1], colorOpuesto) == true && i < 8 && i > 1) {
+                numero++
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("color", "#9e4741")
@@ -419,16 +406,21 @@ function peon(numero, letra) {
                 $('[position="' + numero + "." + letras[i + 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("color", "#9e4741")
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("display", "block")
-            } else if (Comible(numero, letras[i - 1]) == true) {
+                --numero
+            } else if (Comible(numero, letras[i - 1], colorOpuesto) == true) {
+                numero++
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i - 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("color", "#9e4741")
                 $('[lacaveira="' + numero + "." + letras[i - 1] + '"]').css("display", "block")
-            } else if (Comible(numero, letras[i + 1]) == true) {
+                --numero
+            } else if (Comible(numero, letras[i + 1], colorOpuesto) == true) {
+                numero++
                 $('[position="' + numero + "." + letras[i + 1] + '"]').css("display", "flex")
                 $('[position="' + numero + "." + letras[i + 1] + '"]').css("background-color", "transparent")
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("color", "#9e4741")
                 $('[lacaveira="' + numero + "." + letras[i + 1] + '"]').css("display", "block")
+                --numero
             }
             //
             //verifico si es jaque
