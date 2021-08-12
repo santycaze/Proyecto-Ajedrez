@@ -1319,6 +1319,132 @@ p {
   color: white;
 }
 
+.casilla1{
+  animation: tablero .2s forwards;
+}
+
+@keyframes tablero{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.casilla2{
+  animation: tablero2 .1s forwards;
+  animation-delay: .2s;
+  opacity: 0;
+}
+
+@keyframes tablero2{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.casilla3{
+  animation: tablero3 .1s forwards;
+  animation-delay: .3s;
+  opacity: 0;
+}
+
+@keyframes tablero3{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.casilla4{
+  animation: tablero4 .1s forwards;
+  animation-delay: .4s;
+  opacity: 0;
+}
+
+@keyframes tablero4{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.casilla5{
+  animation: tablero5 .1s forwards;
+  animation-delay: .5s;
+  opacity: 0;
+}
+
+@keyframes tablero5{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.casilla6{
+  animation: tablero6 .1s forwards;
+  animation-delay: .6s;
+  opacity: 0;
+}
+
+@keyframes tablero6{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.casilla7{
+  animation: tablero7 .1s forwards;
+  animation-delay: .7s;
+  opacity: 0;
+}
+
+@keyframes tablero7{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.casilla8{
+  animation: tablero8 .1s forwards;
+  animation-delay: .8s;
+  opacity: 0;
+}
+
+@keyframes tablero8{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
 /* ======================================================= */
 /* Cambiar color tablero */
 /* ======================================================= */
