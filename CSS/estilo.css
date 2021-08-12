@@ -31,6 +31,7 @@
 /* Imports */
 /* ======================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hammersmith+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
@@ -172,29 +173,26 @@ h2 {
 }
 
 .contenedor-inicio h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Press Start 2P', cursive;
   font-weight: 500;
   letter-spacing: 5px;
-  animation: opacidad3 2s forwards;
+  font-size: 15px;
+  animation: opacidad3 .7s forwards;
 }
 
 @keyframes opacidad3{
   0%{
+    transform: translateY(1000%);
     opacity: 0;
-    transform: scale(0);
   }
 
   50%{
-    transform: scale(100%);
-  }
-
-  70%{
-    transform: scale(50%);
+    opacity: 50%;
   }
 
   100%{
-    opacity: 1;
-    transform: scale(100%);
+    transform: translateY(0);
+    opacity: 100%;
   }
 }
 
