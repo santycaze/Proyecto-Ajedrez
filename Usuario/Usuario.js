@@ -77,7 +77,7 @@ class Usuario {
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
                     cerrarLogin();
                     actualizarNick()
-                }else{
+                } else {
                     $(".err").css('display', 'block')
                 }
             }
@@ -101,30 +101,44 @@ class Usuario {
         });
     }
 
-    guardarModificacion(nombreActual,nombreNuevo,icono) {
+    guardarModificacion(nombreActual, nombreNuevo, icono) {
         console.log(icono)
+        let i
         if (nombreNuevo == null) {
             $.ajax({
                 type: "POST",
                 url: "Usuario/PHP/cambiarIcono.php",
-                data: { nombreActual: nombreActual, icono:icono },
+                data: { nombreActual: nombreActual, icono: icono },
                 success: function (response) {
                     console.log(response)
                     sessionStorage.setItem("foto", icono)
                     actualizarNick("...");
                 }
             });
-        }else{
-            let urls = { 0:"Usuario/PHP/cambiarNombre.php", 1:"Usuario/PHP/cambiarIcono.php"}
-            let data = { 0:{ nombreActual: nombreActual, nombreNuevo: nombreNuevo }, 1:{ nombreActual: nombreActual, icono:icono }}
-            for (let i = 0; i <= 1; i++) {
+        } else {
+            let urls = { 0: "Usuario/PHP/cambiarNombre.php", 1: "Usuario/PHP/cambiarIcono.php" }
+            let data = { 0: { nombreActual: nombreActual, nombreNuevo: nombreNuevo } , 1: { nombreActual: nombreActual, icono: icono }}
+            if (icono != null) {
+                for (i=0; i <= 1; i++) {
+                    $.ajax({
+                        type: "POST",
+                        url: urls[i],
+                        data: data[i],
+                        success: function (response) {
+                            console.log(response)
+                            sessionStorage.setItem("foto", icono)
+                            sessionStorage.setItem("j1", nombreNuevo)
+                            actualizarNick("...");
+                        }
+                    });
+                }
+            }else{
                 $.ajax({
                     type: "POST",
-                    url: urls[i],
-                    data: data[i],
+                    url: urls[0],
+                    data: data[0],
                     success: function (response) {
-                        console.log(response)
-                        sessionStorage.setItem("foto", icono)
+                        console.log(response)                        sessionStorage.setItem("foto", icono)
                         sessionStorage.setItem("j1", nombreNuevo)
                         actualizarNick("...");
                     }

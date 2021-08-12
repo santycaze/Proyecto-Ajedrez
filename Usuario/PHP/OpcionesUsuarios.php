@@ -25,7 +25,12 @@ $llamarediocion = '
             <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono9.png'" . ')"><img src="IMG/icono9.png" alt=""></button>
             <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono10.png'" . ')"><img src="IMG/icono10.png" alt=""></button>
             <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono11.png'" . ')"><img src="IMG/icono11.png" alt=""></button>
+            
             <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono12.png'" . ')"><img src="IMG/icono12.png" alt=""></button>
+            <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono14.png'" . ')"><img src="IMG/icono14.png" alt=""></button>
+            <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono15.png'" . ')"><img src="IMG/icono15.png" alt=""></button>
+            <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono16.png'" . ')"><img src="IMG/icono16.png" alt=""></button>
+            <button onclick="cambiarIcono(' . "'../Proyecto-Ajedrez/IMG/Icono17.png'" . ')"><img src="IMG/icono17.png" alt=""></button>
         </div>
 
           <div class="guardar-edicion">

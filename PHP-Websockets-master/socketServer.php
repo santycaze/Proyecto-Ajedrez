@@ -5,8 +5,8 @@ require_once('websockets.php');
 
 class echoServer extends WebSocketServer {
 
-  function __construct($addr, $port, $bufferLength) {
-    parent::__construct($addr, $port, $bufferLength);
+  function __construct($addr, $port) {
+    parent::__construct($addr, $port);
     $this->userClass = 'MyUser';
   }
 
@@ -29,7 +29,7 @@ class echoServer extends WebSocketServer {
   }
 }
 
-$echo = new echoServer("localhost","3654", 1048576);
+$echo = new echoServer("192.168.4.48","3654");
 
 try {
   $echo->run();
