@@ -171,21 +171,31 @@ h2 {
   font-weight: 900;
 }
 
-@keyframes opacidad3{
-  0%{
-    opacity: 0;
-  }
-
-  100%{
-    opacity: 1;
-  }
-}
-
 .contenedor-inicio h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   letter-spacing: 5px;
   animation: opacidad3 2s forwards;
+}
+
+@keyframes opacidad3{
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50%{
+    transform: scale(100%);
+  }
+
+  70%{
+    transform: scale(50%);
+  }
+
+  100%{
+    opacity: 1;
+    transform: scale(100%);
+  }
 }
 
 .imagen-inicio {
