@@ -727,142 +727,16 @@ function caballo(numero, letra) {
 }
 /*=================================================================================================================================*/
 function reina(numero, letra) {
-    if (colorJugador == 1) {
-        sessionStorage.setItem('pieza', '&#9813')
-        colorOpuesto = 0;
-    } else {
-        sessionStorage.setItem('pieza', '&#9819')
-        colorOpuesto = 1;
-    }
-    var arriba = numero;
-    var abajo = numero;
     for (let i = 1; i <= 8; i++) {
         if (letra == letras[i]) {
-            var derecha = i;
-            var izquierda = i;
-            for (let x = 1; x <= 8; x++) {
-                arriba++
-                --abajo
-                derecha++
-                --izquierda
-                if (!!document.getElementById(arriba + "." + letras[i] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaArriba") != 1 && !!document.getElementById(arriba + "." + letras[i] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + arriba + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(arriba + "." + letras[i] + "-" + color[colorOpuesto]) == true && sessionStorage.getItem("fichaEArriba") != 1) {
-                    $('[position="' + arriba + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[i] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + arriba + "." + letras[i] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + arriba + "." + letras[i] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEArriba", 1)
-                    sessionStorage.setItem("fichaArriba", 1)
-                } else {
-                    sessionStorage.setItem("fichaArriba", 1)
-                    sessionStorage.setItem("fichaEArriba", 1)
-                }
-                if (!!document.getElementById(abajo + "." + letras[i] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaAbajo") != 1 && !!document.getElementById(abajo + "." + letras[i] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + abajo + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(abajo + "." + letras[i] + "-" + color[colorOpuesto]) == true && sessionStorage.getItem("fichaEAbajo") != 1) {
-                    $('[position="' + abajo + "." + letras[i] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[i] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + abajo + "." + letras[i] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + abajo + "." + letras[i] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEAbajo", 1)
-                    sessionStorage.setItem("fichaAbajo", 1)
-                } else {
-                    sessionStorage.setItem("fichaEAbajo", 1)
-                    sessionStorage.setItem("fichaAbajo", 1)
-                }
-                if (!!document.getElementById(numero + "." + letras[derecha] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaDerecha") != 1 && !!document.getElementById(numero + "." + letras[derecha] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(numero + "." + letras[derecha] + "-" + color[colorOpuesto]) == true && sessionStorage.getItem("fichaEDerecha") != 1) {
-                    $('[position="' + numero + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[derecha] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + numero + "." + letras[derecha] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + numero + "." + letras[derecha] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEDerecha", 1)
-                    sessionStorage.setItem("fichaDerecha", 1)
-                } else {
-                    sessionStorage.setItem("fichaEDerecha", 1)
-                    sessionStorage.setItem("fichaDerecha", 1)
-                }
-                if (!!document.getElementById(numero + "." + letras[izquierda] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaIzquierda") != 1 && !!document.getElementById(numero + "." + letras[izquierda] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(numero + "." + letras[izquierda] + "-" + color[colorOpuesto]) == true && sessionStorage.getItem("fichaEIzquierda") != 1) {
-                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + numero + "." + letras[izquierda] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + numero + "." + letras[izquierda] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + numero + "." + letras[izquierda] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEIzquierda", 1)
-                    sessionStorage.setItem("fichaIzquierda", 1)
-                } else {
-                    sessionStorage.setItem("fichaEIzquierda", 1)
-                    sessionStorage.setItem("fichaIzquierda", 1)
-                }
-
-                if (!!document.getElementById(arriba + "." + letras[derecha] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaDiagDerechaArriba") != 1 && !!document.getElementById(arriba + "." + letras[derecha] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(arriba + "." + letras[derecha] + "-" + color[colorOpuesto]) == true && sessionStorage.getItem("fichaEDiagDerechaArriba") != 1) {
-                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[derecha] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + arriba + "." + letras[derecha] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + arriba + "." + letras[derecha] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEDiagDerechaArriba", 1)
-                    sessionStorage.setItem("fichaDiagDerechaArriba", 1)
-                } else {
-                    sessionStorage.setItem("fichaEDiagDerechaArriba", 1)
-                    sessionStorage.setItem("fichaDiagDerechaArriba", 1)
-                }
-                if (!!document.getElementById(abajo + "." + letras[derecha] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaDiagDerechaAbajo") != 1 && !!document.getElementById(abajo + "." + letras[derecha] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(abajo + "." + letras[derecha] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaEDiagDerechaAbajo") != 1) {
-                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[derecha] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + abajo + "." + letras[derecha] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + abajo + "." + letras[derecha] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEDiagDerechaAbajo", 1)
-                    sessionStorage.setItem("fichaDiagDerechaAbajo", 1)
-                } else {
-                    sessionStorage.setItem("fichaEDiagDerechaAbajo", 1)
-                    sessionStorage.setItem("fichaDiagDerechaAbajo", 1)
-                }
-
-                if (!!document.getElementById(arriba + "." + letras[izquierda] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaDiagIzquierdaArriba") != 1 && !!document.getElementById(arriba + "." + letras[izquierda] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(arriba + "." + letras[izquierda] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaEDiagIzquierdaArriba") != 1) {
-                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + arriba + "." + letras[izquierda] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + arriba + "." + letras[izquierda] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + arriba + "." + letras[izquierda] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEDiagIzquierdaArriba", 1)
-                    sessionStorage.setItem("fichaDiagIzquierdaArriba", 1)
-                } else {
-                    sessionStorage.setItem("fichaEDiagIzquierdaArriba", 1)
-                    sessionStorage.setItem("fichaDiagIzquierdaArriba", 1)
-                }
-
-                if (!!document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaDiagIzquierdaAbajo") != 1 && !!document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorOpuesto]) == false) {
-                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", colorPmovimiento)
-                } else if (!!document.getElementById(abajo + "." + letras[izquierda] + "-" + color[colorJugador]) == false && sessionStorage.getItem("fichaDiagIzquierdaAbajo") != 1) {
-                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("display", "flex")
-                    $('[position="' + abajo + "." + letras[izquierda] + '"]').css("background-color", "transparent")
-                    $('[lacaveira="' + abajo + "." + letras[izquierda] + '"]').css("color", "#9e4741")
-                    $('[lacaveira="' + abajo + "." + letras[izquierda] + '"]').css("display", "block")
-                    sessionStorage.setItem("fichaEDiagIzquierdaAbajo", 1)
-                    sessionStorage.setItem("fichaDiagIzquierdaAbajo", 1)
-                } else {
-                    sessionStorage.setItem("fichaEDiagIzquierdaAbajo", 1)
-                    sessionStorage.setItem("fichaDiagIzquierdaAbajo", 1)
-                }
-
-            }
+            torre(numero, letras[i])
+            alfil(numero, letras[i])
         }
+    }
+    if (colorJugador == 1) {
+        sessionStorage.setItem('pieza', '&#9813')
+    } else {
+        sessionStorage.setItem('pieza', '&#9819')
     }
 }
 /*=================================================================================================================================*/
