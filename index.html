@@ -6,14 +6,16 @@
     <!-- Scripts -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <script src="../Proyecto-Ajedrez/JS/loader.js"></script>
-    <script src="Juego/JS/tablero.js"></script>
     <script src="Juego/JS/JConfig.js"></script>
     <script src="../Proyecto-Ajedrez/Usuario/Usuario.js"></script>
     <script src="../Proyecto-Ajedrez/JS/functions.js"></script>
     <script src="../Proyecto-Ajedrez/Juego/JS/juego.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
 
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="datosJuego.js"></script>
     <script>
         $(document).ready(function () {
             actualizarNick()
@@ -33,7 +35,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv =»Cache-Control» content =»no-cache»/>
+    <meta http-equiv=»Cache-Control» content=»no-cache» />
     <!-- Fin Metas -->
 
     <!-- Titulo -->
@@ -62,7 +64,7 @@
         </div>
     </div>
     <!-- Fin responsive -->
-    
+
     <!-- Loader -->
     <div class="loader-wrapper">
         <div class="loader"><img src="../Proyecto-Ajedrez/IMG/CaballoBlanco.png" alt="">

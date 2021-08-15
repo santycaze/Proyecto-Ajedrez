@@ -1,0 +1,24 @@
+{
+  "name": "proyecto-ajedrez",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santycaze/Proyecto-Ajedrez.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santycaze/Proyecto-Ajedrez/issues"
+  },
+  "homepage": "https://github.com/santycaze/Proyecto-Ajedrez#readme",
+  "dependencies": {
+    "nodemon": "^2.0.12",
+    "socket.io": "^4.1.3"
+  }
+}

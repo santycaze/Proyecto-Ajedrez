@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/estilo.css">
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="../JS/loader.js"></script>
+    <script src="src/JS/JConfig.js"></script>
+    <script src="../Usuario/Usuario.js"></script>
+    <script src="../JS/functions.js"></script>
+    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="datosJuego.js"></script>
+    <script src="src/JS/juego.js"></script>
+</head>
+
+<body>
+    <script>llamarTablero()</script>
+    <audio id="efectoMovimiento" src="../IMG/efectoMovida.mp3"></audio>
+    <div class="div-wrapper-juego">
+
+        <div class="contenedor-div-wrapper-juego">
+
+            <div id="tabla2"></div>
+
+            <div class="contenido">
+                <div class="jugador">
+                    <div class="circulo-tablero1">
+                        <div class="circulo-tablero">
+                            <p id="Nombre-Jugador">Jugador 1</p>
+                        </div>
+                        <p id="fichasComidas"></p>
+                    </div>
+
+                    <h2>VS</h2>
+                    <div class="circulo-tablero2">
+                        <div class="circulo-tablero">
+                            <p id="Nombre-Jugador">Jugador 2</p>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="tabla-movimientos">
+                    <table id="tablaMovimientos">
+                        <tr class="tr-mov">
+                            <th class="th-mov"> Ficha</th>
+                            <th class="th-mov">Movimiento</th>
+                        </tr>
+                    </table>
+                </div>
+                <button onclick="cerrar()" class="boton-cerrar-juego">Rendirse</button>
+                <button onclick="pruebaRecibir()" class="boton-cerrar-juego">Rendirse</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
