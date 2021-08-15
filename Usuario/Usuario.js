@@ -138,7 +138,8 @@ class Usuario {
                     url: urls[0],
                     data: data[0],
                     success: function (response) {
-                        console.log(response)                        sessionStorage.setItem("foto", icono)
+                        console.log(response)                        
+                        sessionStorage.setItem("foto", icono)
                         sessionStorage.setItem("j1", nombreNuevo)
                         actualizarNick("...");
                     }

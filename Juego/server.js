@@ -1,16 +1,15 @@
 const io = require("socket.io")(3000, {
     cors: {
-        origin: "http://localhost",
-        methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
-        credentials: true
+        origin: "http://192.168.1.2",
       }
 });
 
 io.on('connection', (socket) => {
     console.log('[NUEVO] Usuario Conectado --> '+socket.id);
-    socket.emit('message', "Hola mundo")
     socket.on('disconnect', ()=>{
         console.log("Usuario desconectado")
+    })
+    socket.on('piezaMovida', datosJuego=> {
+        socket.broadcast.emit('movimiento', datosJuego)
     })
 })

@@ -1,7 +1,6 @@
-var tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras, puntos = 0;
+var numeros, tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras, puntos = 0;
 //Definicion de variables
 //DEFINICION DE ESTILOS
-console.log("hola")
 colorPmovimiento = sessionStorage.getItem("colorMovimiento")
 colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
 casillasClaras = sessionStorage.getItem("casillasClaras")
@@ -11,16 +10,23 @@ color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
 negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
 letras = new Array();
+numeros = new Array();
 //Definicion de arrays
 color = { 1: "Blancas", 0: "Negras" }
-blancas = { 1: "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../Proyecto-Ajedrez/IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>" }
-negras = { 1: "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../Proyecto-Ajedrez/IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>" }
-letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
+blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>", 3: "<img src='../IMG/TorreBlanca.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>", 6: "<img src='../IMG/PeonBlanco.png' id='ficha'></img>" }
+negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
-function llamarTablero() {
+$(document).ready(function () {
     colorJugador = asignarColor();
+    if (colorJugador == 1) {
+        letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
+        numeros = { 1: "8", 2: "7", 3: "6", 4: "5", 5: "4", 6: "3", 7: "2", 8: "1" }
+    } else {
+        letras = { 1: "h", 2: "g", 3: "f", 4: "e", 5: "d", 6: "c", 7: "b", 8: "a" }
+        numeros = { 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8" }
+    }
     crearTablero();
-}
+});
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -115,13 +121,13 @@ function crearTablero() {
     contador = 9;
     tablero = "<table id='tablero'>";
     if (contador == 9) {
-        tablero += "<tr> <td> </td> <td id='sup'>A</td> <td id='sup'>B</td> <td id='sup'>C</td> <td id='sup'>D</td> <td id='sup'>E</td> <td id='sup'>F</td> <td id='sup'>G</td> <td id='sup'>H</td> </tr>";
+        tablero += "<tr> <td> </td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> </tr>";
         contador--;
     }
     for (Y = 1; Y <= 8; Y++) {
         //crear tr
         tablero += "<tr id=" + "t" + Y + ">";
-        tablero += "<td id='izq'>" + contador + "</td>";
+        tablero += "<td id='izq'>" + numeros[Y] + "</td>";
 
         for (X = 1; X <= 8; X++) {
             //crear td
@@ -129,7 +135,7 @@ function crearTablero() {
         }
         tablero += "</tr>";
     }
-    tablero += "<tr> <td> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> <td id='inf'> </td> </tr>";
+    tablero += "<tr> <td> </td> <td id='inf'>" + letras[1] + "</td> <td id='inf'>" + letras[2] + "</td> <td id='inf'>" + letras[3] + "</td> <td id='inf'>" + letras[4] + "</td> <td id='inf'>" + letras[5] + "</td> <td id='inf'>" + letras[6] + "</td> <td id='inf'>" + letras[7] + "</td> <td id='inf'>" + letras[8] + "</td> </tr>";
     tablero += "</table>";
     $('#tabla2').html(tablero);
     actualizarTablero();
@@ -286,22 +292,22 @@ const tableroIntel = (ficha, posicion) => {
             Marco los lugares para posibles movimientos o comidas de las piezas
         */
         switch (ficha) {
-            case "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>":
+            case "<img src='../IMG/PeonBlanco.png' id='ficha'></img>": case "<img src='../IMG/PeonNegro.png' id='ficha'></img>":
                 peon(numero, letra)
                 break;
-            case "<img src='../Proyecto-Ajedrez/IMG/TorreBlanca.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/TorreNegra.png' id='ficha'></img>":
+            case "<img src='../IMG/TorreBlanca.png' id='ficha'></img>": case "<img src='../IMG/TorreNegra.png' id='ficha'></img>":
                 torre(numero, letra)
                 break;
-            case "<img src='../Proyecto-Ajedrez/IMG/CaballoBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/CaballoNegro.png' id='ficha'></img>":
+            case "<img src='../IMG/CaballoBlanco.png' id='ficha'></img>": case "<img src='../IMG/CaballoNegro.png' id='ficha'></img>":
                 caballo(numero, letra)
                 break;
-            case "<img src='../Proyecto-Ajedrez/IMG/AlfilBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/AlfilNegro.png' id='ficha'></img>":
+            case "<img src='../IMG/AlfilBlanco.png' id='ficha'></img>": case "<img src='../IMG/AlfilNegro.png' id='ficha'></img>":
                 alfil(numero, letra)
                 break;
-            case "<img src='../Proyecto-Ajedrez/IMG/ReyBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/ReyNegro.png' id='ficha'></img>":
+            case "<img src='../IMG/ReyBlanco.png' id='ficha'></img>": case "<img src='../IMG/ReyNegro.png' id='ficha'></img>":
                 rey(numero, letra)
                 break;
-            case "<img src='../Proyecto-Ajedrez/IMG/ReinaBlanca.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/ReinaNegra.png' id='ficha'></img>":
+            case "<img src='../IMG/ReinaBlanca.png' id='ficha'></img>": case "<img src='../IMG/ReinaNegra.png' id='ficha'></img>":
                 reina(numero, letra)
                 break;
             default:
@@ -346,7 +352,8 @@ function Output(destino) {
     };
     $('#tablaMovimientos').append('<tr><td>' + datos.pieza + '</td><td>' + datos.movimiento[1] + '</td></tr>')
     datos = JSON.stringify(datos);
-    send(datos)
+    sessionStorage.setItem("datosJuego", datos)
+    enviarDatos()
 }
 function conectarSocket() {
     socket = new WebSocket("ws://localhost:3654")
@@ -870,5 +877,9 @@ function puntaje(fichaComida) {
             break;
     }
 
+}
+
+function recibirDatos() {
+    console.log(sessionStorage.getItem("datosJuego"))
 }
 //+-128  lineas de comentarios
