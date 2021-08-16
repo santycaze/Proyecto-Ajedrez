@@ -232,6 +232,12 @@ function colocarFichas() {
 //
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function Movimiento(seleccion, destino) {
+    if (colorJugador == 1) {
+        colorOpuesto = 0;
+    } else {
+        colorOpuesto = 1;
+    }
+    console.log(seleccion)
     var ficha = document.getElementById(seleccion).value;
     var destinoMov = document.getElementById(destino).value;
     separadorA = seleccion.split("-");
@@ -245,13 +251,14 @@ function Movimiento(seleccion, destino) {
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
         puntaje(destinoMov);
-        destino = "x" + lnB[0] + lnB[1];
+        $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + "x" + lnB[0] + lnB[1] + '</td></tr>')
     } else {
         document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></div></button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '</button>';
-        destino = lnB[0] + lnB[1];
+        $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + lnB[0] + lnB[1] + '</td></tr>')
     }
+    actualizarTablero()
     Output(destino)
     /*
     despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
@@ -338,9 +345,10 @@ function jugadasEspeciales() {
 
 }
 /*=================================================================================================================================*/
-//                                                            OUTPUT     
+//                                                           INPUT / OUTPUT     
 /*=================================================================================================================================*/
-function Output(destino) {
+function Output(destino,) {
+
     let datos = {
         jugador: sessionStorage.getItem('j1'),
         cambioDeTurno: 'true',
@@ -350,7 +358,6 @@ function Output(destino) {
         puntaje: puntos,
         movimiento: [seleccion, destino]
     };
-    $('#tablaMovimientos').append('<tr><td>' + datos.pieza + '</td><td>' + datos.movimiento[1] + '</td></tr>')
     datos = JSON.stringify(datos);
     sessionStorage.setItem("datosJuego", datos)
     enviarDatos()
@@ -368,8 +375,8 @@ function conectarSocket() {
         console.log("Desconectado - status " + this.readyState);
     };
 }
-function send(datos) {
-    socket.send(datos);
+function ping() {
+
 }
 /*=================================================================================================================================*/
 //                                                            PIEZAS     (agregar bug comer del peon)
@@ -879,7 +886,5 @@ function puntaje(fichaComida) {
 
 }
 
-function recibirDatos() {
-    console.log(sessionStorage.getItem("datosJuego"))
-}
+
 //+-128  lineas de comentarios
