@@ -4,8 +4,9 @@ var datosJuego;
 
 
 socket.on('movimiento', movida => {
-    sessionStorage.setItem("datosJuego", movida)
-    recibirDatos();
+    let datos = JSON.parse(movida)
+    console.log(socket.id)
+    Movimiento(datos.movimiento[0],datos.movimiento[1])
 })
 
 function enviarDatos() {
