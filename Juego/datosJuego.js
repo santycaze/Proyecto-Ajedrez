@@ -5,9 +5,8 @@ var posicionPieza = 7
 
 socket.on('movimiento', movida => {
     let datos = JSON.parse(movida)
-    console.log(datos.movimiento[0]+" --- "+datos.movimiento[1])
-    var numero = datos.movimiento[1].split(".")
-    var numero2 = datos.movimiento[0].split(".")
+    let numero = datos.movimiento[1].split(".")
+    let numero2 = datos.movimiento[0].split(".")
     Movimiento(9-numero2[0]+"."+numero2[1],9-numero[0]+"."+numero[1])
 })
 
