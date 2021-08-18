@@ -245,8 +245,6 @@ function Movimiento(seleccion, destino) {
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
-    console.log(destino.length)
-
     if (destino.length > 3) { // paso el numero y la letra del destino para ver si es una ficha comible
         document.getElementById('efectoMovimiento').play()
         console.log(separadorB[0] + '-' + separadorA[1])
