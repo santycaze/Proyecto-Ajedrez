@@ -21,7 +21,11 @@ socket.on('movimiento', movida => {
 })
 
 socket.on('color', color => {
-    console.log(color)
+    if (color == 1) {
+        socket.emit('asignarColor', 0)
+    }else{
+        socket.emit('asignarColor', 1)
+    }
 })
 
 $(document).ready(function () {

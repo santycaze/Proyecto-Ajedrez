@@ -13,4 +13,7 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('movimiento', datosJuego)
     })
     socket.broadcast.emit('color', Math.floor(Math.random() * (1.9 - 0) + 0))
+    socket.on('asignarColor', color => {
+        socket.broadcast.emit('movimiento', color)
+    })
 })
