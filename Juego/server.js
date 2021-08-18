@@ -10,6 +10,6 @@ io.on('connection', (socket) => {
         console.log("Usuario desconectado")
     })
     socket.on('piezaMovida', datosJuego => {
-        io.emit('movimiento', datosJuego)
+        socket.broadcast.emit('movimiento', datosJuego)
     })
 })

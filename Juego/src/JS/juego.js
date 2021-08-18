@@ -237,7 +237,6 @@ function Movimiento(seleccion, destino) {
     } else {
         colorOpuesto = 1;
     }
-    console.log(seleccion)
     var ficha = document.getElementById(seleccion).value;
     var destinoMov = document.getElementById(destino).value;
     separadorA = seleccion.split("-");
@@ -347,7 +346,7 @@ function jugadasEspeciales() {
 /*=================================================================================================================================*/
 //                                                           INPUT / OUTPUT     
 /*=================================================================================================================================*/
-function Output(destino,) {
+function Output(destino) {
 
     let datos = {
         jugador: sessionStorage.getItem('j1'),
@@ -361,22 +360,6 @@ function Output(destino,) {
     datos = JSON.stringify(datos);
     sessionStorage.setItem("datosJuego", datos)
     enviarDatos()
-}
-function conectarSocket() {
-    socket = new WebSocket("ws://localhost:3654")
-
-    socket.onopen = function (msg) {
-        console.log("Conectado - status " + this.readyState);
-    };
-    socket.onmessage = function (msg) {
-        console.log("Recibido: " + msg.data);
-    };
-    socket.onclose = function (msg) {
-        console.log("Desconectado - status " + this.readyState);
-    };
-}
-function ping() {
-
 }
 /*=================================================================================================================================*/
 //                                                            PIEZAS     (agregar bug comer del peon)
