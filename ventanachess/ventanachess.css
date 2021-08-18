@@ -1,9 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 .div-wrapper-contenedortotal{
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: 75% 1fr;
-    background: rgb(47, 92, 230);
+    background: #073750;
+    height: 100vh;
 }
 
 .div-wrapper-contenedorinfo{
@@ -11,7 +17,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: royalblue;
+    background: #0b4e72 ;
+    width: 100%;
+    height: 100%;
 }
 
 .contenedor-jugadorestiempo{
@@ -58,5 +66,7 @@
 #tablamov{
     border: 1px solid black;
     height: 300px;
-    width: 250px;
+    width: 220px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
