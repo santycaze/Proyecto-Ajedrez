@@ -1,5 +1,5 @@
-var colorMovimiento = '#b828b8'             //Formato Hexadecimal                           Color MIRO => #6EB85B
-var colorMovimientoRGB = '184, 40, 184'    //Formato -> R, G, B (Respetar espacios)         Color MIRO => 110, 184, 91
+var colorMovimiento = '#6EB85B'             //Formato Hexadecimal                           Color MIRO => #6EB85B
+var colorMovimientoRGB = '110, 184, 91'    //Formato -> R, G, B (Respetar espacios)         Color MIRO => 110, 184, 91
 //
 /*==================================================================================================================================*/
 //
