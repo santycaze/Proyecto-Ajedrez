@@ -245,9 +245,9 @@ function Movimiento(seleccion, destino) {
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
-    console.log(seleccion+"  -  "+destino)
+    console.log(destino.length)
 
-    if (Comible(lnB[0] - 1, lnB[1], colorOpuesto) == true) { // paso el numero y la letra del destino para ver si es una ficha comible
+    if (destino.length > 3) { // paso el numero y la letra del destino para ver si es una ficha comible
         document.getElementById('efectoMovimiento').play()
         console.log(separadorB[0] + '-' + separadorA[1])
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '></button>';//calavera

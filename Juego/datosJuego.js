@@ -9,7 +9,7 @@ socket.on('movimiento', movida => {
     let numero2 = datos.movimiento[0].split(".")
     console.log(numero[1].length)
     if (numero[1].length > 1) {
-        Movimiento(numero2[0]+"."+numero2[1],9-numero[0]+"."+numero[1])
+        Movimiento(9-numero2[0]+"."+numero2[1],9-numero[0]+"."+numero[1])
     }else{
         Movimiento(9-numero2[0]+"."+numero2[1],9-numero[0]+"."+numero[1])
     }
