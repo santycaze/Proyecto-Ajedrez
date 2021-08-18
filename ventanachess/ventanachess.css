@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.div-wrapper-contenedortotal{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 75% 1fr;
+    background: #073750;
+    height: 100vh;
+}
+
+.div-wrapper-contenedorinfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #0b4e72 ;
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-jugadorestiempo{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contenedor-jugador1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+    padding: 20px;
+}
+
+.contenedor-jugador2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+}
+
+#foto-jugador1{
+    width: 120px;
+    height: auto;
+}
+
+#foto-jugador2{
+    width: 120px;
+    height: auto;
+}
+
+.contenedor-tablachat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+#tablamov{
+    border: 1px solid black;
+    height: 300px;
+    width: 220px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
