@@ -26,6 +26,8 @@ socket.on('color', color => {
     }else{
         socket.emit('asignarColor', 1)
     }
+    console.log(color)
+    asignarColor(color)
 })
 
 $(document).ready(function () {
