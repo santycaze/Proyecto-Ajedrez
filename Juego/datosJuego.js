@@ -2,7 +2,7 @@ const socket = io('http://192.168.1.6:3000');
 
 var datosJuego;
 var posicionPieza = 7
-var nombre = "MateDePure"
+//var nombre = variable de sesion son el nombre del jugador 
 
 socket.emit('conectado', nombre)
 socket.emit('asignarColor')
