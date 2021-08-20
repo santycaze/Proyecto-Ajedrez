@@ -151,23 +151,12 @@ function cerrarperfil() {
 //                                                                    Boton Jugar                                                                       //
 /*======================================================================================================================================================*/
 function llamarajedrez() {
-    $.ajax({
-        type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/Jugador/PHP/JugarAjedrez.php",
-        data: { ico: sessionStorage.getItem("foto"), j1: sessionStorage.getItem("j1") },
-        success: function (response) {
-
-            if (verificarSesion() == 1) {
-                $('#tabla').show();
-                $('#tabla').html(response);
-                $('body').css('overflow', 'hidden');
-                llamarTablero();
-            } else {
-                llamarlogin();
-            }
-            
-        }
-    });
+    if (verificarSesion() == 1) {
+        window.location.href = 'Juego/juego.html'
+        llamarTablero();
+    } else {
+        llamarlogin();
+    }
 
 }
 

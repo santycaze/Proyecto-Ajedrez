@@ -1,11 +1,12 @@
-const socket = io('http://192.168.1.6:3000');
+console.log(sessionStorage.getItem('j1'))
+const socket = io('http://192.168.4.48:3000');
 
 var datosJuego;
 var posicionPieza = 7
-//var nombre = variable de sesion son el nombre del jugador 
+var nombre = sessionStorage.getItem('j1')
 
 socket.emit('conectado', nombre)
-socket.emit('asignarColor')
+
 
 socket.on('movimiento', movida => {
     let datos = JSON.parse(movida)
