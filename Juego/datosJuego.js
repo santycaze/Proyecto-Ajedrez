@@ -1,5 +1,5 @@
 console.log(sessionStorage.getItem('j1'))
-const socket = io('http://192.168.4.48:3000');
+const socket = io('http://192.168.1.2:3000');
 
 var datosJuego;
 var posicionPieza = 7
@@ -19,6 +19,9 @@ socket.on('movimiento', movida => {
     }
 })
 
+socket.on('color', (colorJugador) => { 
+    sessionStorage.setItem('colorJugador', colorJugador)
+})
 function enviarDatos() {
     datosJuego = sessionStorage.getItem("datosJuego");
     socket.emit('piezaMovida', datosJuego)

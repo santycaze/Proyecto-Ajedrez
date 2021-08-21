@@ -1,6 +1,7 @@
 var numeros, tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras, puntos = 0;
 //Definicion de variables
 //DEFINICION DE ESTILOS
+colorJugador = sessionStorage.getItem('colorJugador')
 colorPmovimiento = sessionStorage.getItem("colorMovimiento")
 colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
 casillasClaras = sessionStorage.getItem("casillasClaras")
@@ -17,7 +18,6 @@ blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 $(document).ready(function () {
-    colorJugador = Math.floor(Math.random() * (1.9 - 0) + 0)
     if (colorJugador == 1) {
         letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
         numeros = { 1: "8", 2: "7", 3: "6", 4: "5", 5: "4", 6: "3", 7: "2", 8: "1" }
