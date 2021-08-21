@@ -1,5 +1,5 @@
 console.log(sessionStorage.getItem('j1'))
-const socket = io('http://192.168.1.2:3000');
+const socket = io('http://192.168.217.64:3000');
 
 var datosJuego;
 var posicionPieza = 7

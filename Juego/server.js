@@ -1,13 +1,13 @@
 const io = require("socket.io")(3000, {
     cors: {
-        origin: "http://192.168.1.2",
+        origin: "http://192.168.217.64",
     }
 });
 
 let usuarios = new Array();
 let jugadores = new Array();
 let esoectadores = new Array();
-var color;
+var color = 0;
 // io.to(id de socket que va a recivir el mensaje).emit('', var)
 
 io.on('connection', (socket) => {
@@ -21,8 +21,10 @@ io.on('connection', (socket) => {
             jugadores.forEach(jugador => {
                 if (color != 1) {
                     io.to(usuarios[jugador]).emit('color', 1)
+                    color = 1
                 }else{
                     io.to(usuarios[jugador]).emit('color', 0)
+                    color = 0
                 }
 
             });
