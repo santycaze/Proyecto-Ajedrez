@@ -1,5 +1,5 @@
 console.log(sessionStorage.getItem('j1'))
-const socket = io('http://192.168.217.64:3000');
+const socket = io('http://192.168.1.2:3000');
 
 var datosJuego;
 var posicionPieza = 7
@@ -7,6 +7,14 @@ var nombre = sessionStorage.getItem('j1')
 
 socket.emit('conectado', nombre)
 
+$.ajax({
+    type: "POST",
+    url: "src/PHP/confInicioDeJuego.php",
+    data: {jugadores:nombre},
+    success: function (response) {
+        console.log(JSON.parse(response))
+    }
+});
 
 socket.on('movimiento', movida => {
     let datos = JSON.parse(movida)
