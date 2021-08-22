@@ -12,7 +12,6 @@ let esoectadores = new Array();
 io.on('connection', (socket) => {
 
     socket.on('conectado', (usuario) => {
-
         if (Object.keys(usuarios).length <= 2 && usuario != null) {
             usuarios[usuario] = socket.id
             console.log("nuevo jugador   --->  " + usuario)
