@@ -10,7 +10,15 @@ function responsivetablero(){
     let altoventana = window.innerHeight;
     console.log(altoventana);
     let altotablero = altoventana * 0.8;  
-    $('#tabla2').css('height', altotablero);
-    $('#tabla2').css('width', altotablero);
+    $('#tablero').css('height', altotablero);
+    $('#tablero').css('width', altotablero);
+    let anchoceldas = altotablero / 10;
+    $('td').css('height', anchoceldas);
+    $('td').css('width', anchoceldas);
+    $('button').css('height', anchoceldas);
+    $('button').css('width', anchoceldas);
+    let altoimagenes = anchoceldas * 0.8;
+    $('img').css('height', altoimagenes);
+
 }
 

@@ -10,7 +10,12 @@
     grid-template-columns: 75% 1fr;
     background: #073750;
     height: 100vh;
-    
+}
+
+@media screen and (max-width: 1050px) {
+    .div-wrapper-contenedortotal{
+        grid-template-columns: 1fr;
+    }
 }
 
 .div-wrapper-contenedorinfo{
