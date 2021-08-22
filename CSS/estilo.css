@@ -1272,6 +1272,8 @@ p {
 
 #tablero {
   border-spacing: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 #tablero td {
@@ -1285,6 +1287,7 @@ p {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 0 auto;
 }
 
 #inf {
