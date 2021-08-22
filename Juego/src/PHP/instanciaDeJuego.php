@@ -13,9 +13,10 @@ class instanciaDeJuego
         $this->jugador1 = $jugador1;
         $this->jugador2 = $jugador2;
     }
-
+    
     function obtenerInstancia(){
         if ($this->jugador2 == null) {
+            $this->setColorJugador1();
             $instanciaDeJuego = [
                 'idTablero' => $this->idTablero,
                 'jugador1' => $this->jugador1,
@@ -24,6 +25,8 @@ class instanciaDeJuego
                 'colorJugador2' => $this->colorJugador2
             ];
         }else{
+            $this->setColorJugador1();
+            $this->setColorJugador2();
             $instanciaDeJuego = [
                 'idTablero' => $this->idTablero,
                 'jugador1' => $this->jugador1,
@@ -35,7 +38,6 @@ class instanciaDeJuego
         return json_encode($instanciaDeJuego);
     }
 
-    
     function setColorJugador1(){
         $this->colorJugador1 = rand(0, 1);
     }
@@ -48,5 +50,4 @@ class instanciaDeJuego
         }
     }
 }
-
 ?>
