@@ -1,24 +1,37 @@
 $(document).ready(function () {
-   responsivetablero();
-}); 
-
-$(window).resize(function () { 
     responsivetablero();
 });
 
-function responsivetablero(){
-    let altoventana = window.innerHeight;
-    console.log(altoventana);
-    let altotablero = altoventana * 0.8;  
-    $('#tablero').css('height', altotablero);
-    $('#tablero').css('width', altotablero);
-    let anchoceldas = altotablero / 10;
-    $('td').css('height', anchoceldas);
-    $('td').css('width', anchoceldas);
-    $('button').css('height', anchoceldas);
-    $('button').css('width', anchoceldas);
-    let altoimagenes = anchoceldas * 0.8;
-    $('img').css('height', altoimagenes);
+$(window).resize(function () {
+    responsivetablero();
+});
+
+function responsivetablero() {
+    let anchoventana = window.innerWidth;
+    if (anchoventana > 1050) {
+        let anchosecciontablero = anchoventana * 0.75;
+        let altoventana = window.innerHeight;
+        let altotablero = altoventana * 0.8;
+        let anchoceldas = altotablero / 10;
+        let altoimagenes = anchoceldas * 0.8;
+        $('#tablero').css('height', altotablero);
+        $('#tablero').css('width', altotablero);
+        $('td').css('height', anchoceldas);
+        $('td').css('width', anchoceldas);
+        $('button').css('height', anchoceldas);
+        $('button').css('width', anchoceldas);
+        $('img').css('height', altoimagenes);
+    }else{
+        let anchosecciontablero = anchoventana * 0.9;
+        let anchoceldas = anchosecciontablero / 10;
+        let altoimagenes = anchoceldas * 0.8;
+        $('td').css('height', anchoceldas);
+        $('td').css('width', anchoceldas);
+        $('button').css('height', anchoceldas);
+        $('button').css('width', anchoceldas);
+        $('img').css('height', altoimagenes);
+        $('#tablero').css('height', anchosecciontablero);
+        $('#tablero').css('width', anchosecciontablero);
+    }
 
 }
-
