@@ -1,7 +1,6 @@
 var numeros, tablero, casilla, contador, destino, seleccion, colorJugador, color, blancas, negras, letras, separadorA, separadorB, claseSeleccion, claseDestino, X, Y, colorPmovimiento, colorPmovimientoRGB, casillasClaras, casillasOscuras, puntos = 0;
 //Definicion de variables
 //DEFINICION DE ESTILOS
-colorJugador = sessionStorage.getItem('colorJugador')
 colorPmovimiento = sessionStorage.getItem("colorMovimiento")
 colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
 casillasClaras = sessionStorage.getItem("casillasClaras")
@@ -18,6 +17,7 @@ blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 $(document).ready(function () {
+    colorJugador = 1
     if (colorJugador == 1) {
         letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
         numeros = { 1: "8", 2: "7", 3: "6", 4: "5", 5: "4", 6: "3", 7: "2", 8: "1" }
@@ -250,14 +250,14 @@ function Movimiento(seleccion, destino) {
     claseDestino = document.getElementById(destino).className;
 
     if (destino.length > 3) { // paso el numero y la letra del destino para ver si es una ficha comible
-        document.getElementById('efectoMovimiento').play()
+        //document.getElementById('efectoMovimiento').play()
         console.log(separadorB[0] + '-' + separadorA[1])
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></button>';//calavera
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + separadorB[0] + '-' + separadorA[1] + '");' + ' value="' + ficha + '">' + ficha + '<div class="pMovimiento" position="' + separadorB[0] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorB[0] + '"></skull></div></button>'; //calavera
         puntaje(destinoMov);
         $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + "x" + lnB[0] + lnB[1] + '</td></tr>')
     } else {
-        document.getElementById('efectoMovimiento').play()
+        //document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" onclick=' + 'seleccionado("' + separadorA[0] + '");' + ' value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorA[0] + '"></skull></div></button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" onclick=' + 'seleccionado("' + destino + '-' + separadorA[1] + '");' + ' value="' + ficha + '"><div class="pMovimiento" position="' + destino + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + destino + '"></skull></div>' + ficha + '</button>'; //va calavera
         $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + lnB[0] + lnB[1] + '</td></tr>')
