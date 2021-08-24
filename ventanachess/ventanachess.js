@@ -21,6 +21,7 @@ function responsivetablero() {
         $('button').css('height', anchoceldas);
         $('button').css('width', anchoceldas);
         $('img').css('height', altoimagenes);
+        $('img').css('width','100%');
     }else{
         let anchosecciontablero = anchoventana * 0.9;
         let anchoceldas = anchosecciontablero / 10;
@@ -32,6 +33,7 @@ function responsivetablero() {
         $('img').css('height', altoimagenes);
         $('#tablero').css('height', anchosecciontablero);
         $('#tablero').css('width', anchosecciontablero);
+        $('img').css('width','100%');
     }
 
 }
