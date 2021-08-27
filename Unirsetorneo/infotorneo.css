@@ -6,13 +6,16 @@
 .contenedor-total{
     grid-template-columns: 70% 1fr;
     display: grid;
+    width: 100%;
+    height: 100VH;
+    overflow: hidden;
 }
 
 .contenedor-infotorneo{
     display: flex;
     flex-direction: column ;
     background: red;
-    height: 100vh;
+    height: 100%;
 }
 
 .contenedor-datostorneo{
@@ -27,8 +30,12 @@
 
 .contenedor-jugadorestorneo{
     display: flex;
+    width: 100%;
+    padding: 20px;
     flex-direction: column ;
     background: green;
+    overflow-y: scroll;
+    box-sizing: border-box;
 }
 
 .contenedor-jugador{
@@ -45,4 +52,12 @@
 
 .contenedor-jugador img{
     width: 15%;
+}
+
+.contenedor-jugador p{
+    padding-left: 5px ;
+}
+
+.contenedor-titulo{
+    text-align: center ;
 }
