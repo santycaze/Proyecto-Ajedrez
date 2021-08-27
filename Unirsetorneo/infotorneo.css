@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-total{
+    grid-template-columns: 70% 1fr;
+    display: grid;
+}
+
+.contenedor-infotorneo{
+    display: flex;
+    flex-direction: column ;
+    background: red;
+    height: 100vh;
+}
+
+.contenedor-datostorneo{
+    display: flex;
+    background: blueviolet;
+    height: 100%;
+}
+
+.contenedor-nomtrof{
+    display: flex;
+}
+
+.contenedor-jugadorestorneo{
+    display: flex;
+    flex-direction: column ;
+    background: green;
+}
+
+.contenedor-jugador{
+    display: flex;
+    
+    text-align: center;
+    align-items: center;
+    background: yellow;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.contenedor-jugador img{
+    width: 15%;
+}
