@@ -158,9 +158,9 @@ class Servidor
         if ($stmt->execute()) {
             $json = array();
             $stmt->store_result();
-            $stmt->bind_result($nombreTorneo, $fechaFinTorneo, $maxParticipantes, $numPartidas, $tiempoPartida, $tiempoMovida, $nombreTrofeo);
+            $stmt->bind_result($nombreTorneo, $fechaFinTorneo, $maxParticipantes, $maxPartidas, $numPartidas, $tiempoPartida, $tiempoMovida, $nombreTrofeo);
             while ($stmt->fetch()) {
-                $fila = array('nombreTorneo' => $nombreTorneo, 'fechaFinTorneo' => $fechaFinTorneo, 'maxParticipantes' => $maxParticipantes, 'numPartidas' => $numPartidas, 'tiempoPartida' => $tiempoPartida, 'tiempoMovida' => $tiempoMovida, 'nombreTrofeo' => $nombreTrofeo);
+                $fila = array('nombreTorneo' => $nombreTorneo, 'fechaFinTorneo' => $fechaFinTorneo, 'maxParticipantes' => $maxParticipantes, 'maxPartidas' => $maxPartidas, 'numPartidas' => $numPartidas, 'tiempoPartida' => $tiempoPartida, 'tiempoMovida' => $tiempoMovida, 'nombreTrofeo' => $nombreTrofeo);
                 $json[] = $fila;
             }
         }
