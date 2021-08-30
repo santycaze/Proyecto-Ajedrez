@@ -6,7 +6,6 @@ class instanciaDeJuego
     private $colorJugador1;
     private $jugador2;
     private $colorJugador2;
-    private $infoJugadores = [];
 
     function __construct($idTablero,$jugador1,$jugador2){
         $this->idTablero = $idTablero;

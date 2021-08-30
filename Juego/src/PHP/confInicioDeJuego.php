@@ -24,4 +24,3 @@ array_push($instancias,$ij->obtenerInstancia(),$ij2->obtenerInstancia(),$ij3->ob
 for ($i=0; $i < sizeof($instancias); $i++) { 
     echo $instancias[$i];
 }
-
