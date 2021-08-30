@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-total{
+    grid-template-columns: 70% 1fr;
+    display: grid;
+    width: 100%;
+    height: 100VH;
+    overflow: hidden;
+}
+
+.contenedor-infotorneo{
+    display: flex;
+    flex-direction: column ;
+    background: #09415f;
+    height: 100%;
+}
+
+.contenedor-datostorneo{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-nomtrof{
+    display: flex;
+    text-align: center ;
+    align-items: center;
+    padding-left: 60px;
+    padding-top: 60px;
+}
+
+.contenedor-nomtrof img{
+    width: 15%;
+}
+
+.contenedor-nomtrof h1{
+    padding-left: 10px;
+    color: white;
+}
+
+.contenedor-jugadorestorneo{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    flex-direction: column ;
+    background: #0a4e72;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.548);
+}
+
+.contenedor-jugador{
+    display: flex;
+    
+    text-align: center;
+    align-items: center;
+    background: #073750;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.contenedor-jugador img{
+    width: 15%;
+}
+
+.contenedor-jugador p{
+    padding-left: 5px ;
+    color: white;
+}
+
+.contenedor-titulo{
+    text-align: center ;
+    margin-bottom: 15px;
+}
+
+.contenedor-titulo h1{
+    color: white;
+}
+
+.contenedor-titulo p{
+    color: white;
+    padding-top: 7px;
+    font-size: 20px;
+}
+
+.contenedor-datos{
+    justify-content: center;
+    align-items: center;
+}
+
