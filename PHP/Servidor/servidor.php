@@ -135,15 +135,16 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    public function crearTorneo()
+    public function crearTorneo($nombreTorneo,$codIng,$puntuacion,$fci,$ffi,$fct,$fft,$tiempoPart,$mp,$timepoMaxPart,$cantPartidas,$horarios,$tiempoMovimiento,$nomTrof,$numPartidas)
     {
         $conn = $this->conexion();
-        $datos = array("nombreTorneo" => $_POST['nombreTorneo'], "fechaComInscripciones" => $_POST['fci'], "fechaFinInscripciones" => $_POST['ffi'], "fechaComTorneo" => $_POST['fct'], "fechaFinTorneo" => $_POST['fft'], "maximoPartidas" => $_POST['mp'], "numPartidas" => $_POST['numPart'], "tiempoPartida" => $_POST['tiempoPart'], "tiempoMovimiento" => $_POST['tiempoMov'], "maxParticipantes" => $_POST['maxParticipantes'], "nombreTrofeo" => $_POST['nomTrofeo']);
-        $query = "CALL crearTorneo(?,?,?,?,?,?,?,?,?,?,?)";
+        $datos = array("nombreTorneo" => $nombreTorneo,"codigoIngreso" => $codIng,"puntuacion" => $puntuacion,"fechaComInscripciones" => $fci, "fechaFinInscripciones" => $ffi, "fechaComTorneo" => $fct, "fechaFinTorneo" => $fft, "tiempoPartida" => $tiempoPart, "maximoParticipantes" => $mp,  "tiempoMaxPartida" => $timepoMaxPart, "cantPartidas" => $cantPartidas, "horarios" => $horarios, "tiempoMovimiento" => $tiempoMovimiento, "nombreTrofeo" => $nomTrof,"numPartidas" => $numPartidas);
+        $query = "CALL crearTorneo(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sddddittsi", $datos["nombreTorneo"], $datos["fechaComInscripciones"], $datos["fechaFinInscripciones"], $datos["fechaComTorneo"], $datos["fechaFinTorneo"], $datos["maximoParticipantes"], $datos["tiempoPartida"], $datos["tiempoMovimiento"], $datos["nombreTrofeo"], $datos["numPartidas"]);
+        $stmt->bind_param("siisssssisisssi", $datos["nombreTorneo"], $datos["codigoIngreso"], $datos["puntuacion"], $datos["fechaComInscripciones"], $datos["fechaFinInscripciones"], $datos["fechaComTorneo"], $datos["fechaFinTorneo"], $datos["tiempoPartida"], $datos["maximoParticipantes"],$datos["tiempoMaxPartida"], $datos["cantPartidas"], $datos["horarios"], $datos["tiempoMovimiento"], $datos["nombreTrofeo"], $datos["numPartidas"]);
         $stmt->execute();
         $stmt->close();
+        echo "Torneo creado.";
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
