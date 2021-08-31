@@ -1,17 +1,6 @@
 <?php
      include "../PHP/Servidor/servidor.php";
      $servidor = new Servidor();
-<<<<<<< HEAD
-     echo json_encode($servidor->datosTorneo());
-     
-     $torneos = '
-     <div class="contenedor-torneo">
-                    <p id="Nombretorneo">Nombre torneo</p> <button>Ver</button>
-                </div>
-     ';
-?>
-
-=======
      $datostorneo = $servidor->datosTorneo();
      $cantidadtorneos = count($datostorneo);
 
@@ -27,4 +16,3 @@
      return $torneos;
 
 ?>
->>>>>>> 90be1e71fb7cbf2a82549335b093961afa9dc6c4

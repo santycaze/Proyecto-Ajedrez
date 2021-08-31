@@ -40,7 +40,7 @@ class CrearTorneo extends Servidor
     }
 
     function guardarTorneo(){
-        Servidor::crearTorneo($this->nombreTorneo,$this->codigoIngreso,$this->puntuacion,$this->FCIns,$this->FFIns,$this->FCTor,$this->FFTor,$this->tiempoPart,$this->maxPart,$this->tiempoMaxPart,$this->cantPart,$this->maxPart,$this->horarios,$this->tiempoMov,$this->nombreTrofeo,$this->numeroPartidas);
+        Servidor::crearTorneo($this->nombreTorneo,$this->codigoIngreso,$this->puntuacion,$this->FCIns,$this->FFIns,$this->FCTor,$this->FFTor,$this->tiempoPart,$this->maxPart,$this->tiempoMaxPart,$this->cantPart,$this->horarios,$this->tiempoMov,$this->nombreTrofeo,$this->numeroPartidas);
     }
 
     function modificarTorneo(){
