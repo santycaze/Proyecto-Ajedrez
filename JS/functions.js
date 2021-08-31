@@ -38,8 +38,8 @@ function registrar() {
     var nuser = document.getElementById('nuser').value;
     var nac = document.getElementById('nac').value;
     var tipo = document.getElementById('Tipo').value;
-    const usuario = new Usuario(nuser, nomc, ap, email, ci, cel, nac, pass, '0', tipo);
-    usuario.register();
+    const usuario = new Usuario(nuser, nomc, ap, email, ci, cel, nac, pass,tipo,"../Proyecto-Ajedrez/IMG/Icono1.png");
+    console.log(usuario.register());
 }
 
 function guardarMod() {
