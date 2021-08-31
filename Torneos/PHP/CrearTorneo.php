@@ -47,5 +47,8 @@ class CrearTorneo extends Servidor
 
     }
 
+    function agregarJugador(){
+        Servidor::agregarATorneo();
+    }
 
 }

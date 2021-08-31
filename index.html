@@ -19,6 +19,9 @@
     <script>
         $(document).ready(function () {
             actualizarNick()
+            if (sessionStorage.getItem('tipoUsr') != 3) {
+                $('#opcAdmin').hide()
+            }
         });
     </script>
     <!-- Fin Scripts -->
@@ -88,7 +91,7 @@
         <div class="usuario-menu">
             <a class="a2" id="mod" onclick="Modificar()">Modificar perfil</a>
             <a class="a2" id="vperf" onclick="ver()">Ver perfil</a>
-            <a class="a2" id="vperf" onclick="opcAdmin()">Opc. Admin</a>
+            <a class="a2" id="opcAdmin" onclick="opcAdmin()">Opc. Admin</a>
             <a class="a2" id="cerrarsesion" onclick="cerrarSesion()">Cerrar sesion</a>
         </div>
     </div>
