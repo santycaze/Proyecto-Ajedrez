@@ -1,9 +1,9 @@
-console.log(sessionStorage.getItem('j1'))
 const socket = io('http://192.168.1.2:3000');
 
 var datosJuego;
 var posicionPieza = 7
 var nombre = sessionStorage.getItem('j1')
+var instanciasDeJuego = new Array()
 
 socket.emit('conectado', nombre)
 
@@ -12,7 +12,13 @@ $.ajax({
     url: "src/PHP/confInicioDeJuego.php",
     data: {jugadores:nombre},
     success: function (response) {
-        console.log(JSON.parse(response))
+        console.log(response)
+        var gi = JSON.parse(response)
+        if (gi.jugador1 == nombre) {
+            instanciasDeJuego.push(gi);
+        }
+        sessionStorage.setItem('colorJugador', gi.colorJugador1)
+        console.log(instanciasDeJuego)
     }
 });
 
@@ -28,7 +34,7 @@ socket.on('movimiento', movida => {
 })
 
 socket.on('color', (colorJugador) => { 
-    sessionStorage.setItem('colorJugador', colorJugador)
+    
 })
 function enviarDatos() {
     datosJuego = sessionStorage.getItem("datosJuego");
