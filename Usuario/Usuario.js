@@ -84,7 +84,7 @@ class Usuario {
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
                     sessionStorage.setItem("tipoUsr", datosUsuario["tipo"])
                     cerrarLogin();
-                    actualizarNick();
+                    location.reload()
                 } else {
                     $(".err").css('display', 'block')
                 }
@@ -93,7 +93,6 @@ class Usuario {
     }
 
     register() {
-        console.log(this.Icono)
         $.ajax({
             type: "POST",
             async: true,

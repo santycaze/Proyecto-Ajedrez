@@ -66,14 +66,13 @@ function guardarMod() {
 }
 
 function actualizarNick() {
-    console.log(verificarSesion())
     if (verificarSesion() == 1) {
         $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
         $("#botonLogIn").prop('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
     }else{
-        $(".usuario-menu").hide()
+        $('.usuario-menu').hide()
     }
 }
 /*======================================================================================================================================================*/
