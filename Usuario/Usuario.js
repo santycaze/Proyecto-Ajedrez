@@ -82,8 +82,9 @@ class Usuario {
                     let datosUsuario = JSON.parse(response);
                     sessionStorage.setItem("j1", datosUsuario["nombre"]);
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
+                    sessionStorage.setItem("tipoUsr", datosUsuario["tipo"])
                     cerrarLogin();
-                    actualizarNick()
+                    actualizarNick();
                 } else {
                     $(".err").css('display', 'block')
                 }

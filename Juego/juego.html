@@ -7,55 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/estilo.css">
-    
+    <link rel="stylesheet" href="../CSS/ventanachess.css">
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../Usuario/Usuario.js"></script>
     <script src="../JS/loader.js"></script>
     <script src="src/JS/JConfig.js"></script>
     <script src="src/JS/juego.js"></script>
+    <script src="src/JS/ventanachess.js"></script>
     <script src="../JS/functions.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
-    <script defer src="http://192.168.1.2:3000/socket.io/socket.io.js"></script>
+    <script defer src="http://192.168.1.5:3000/socket.io/socket.io.js"></script>
     <script defer src="datosJuego.js"></script>
 </head>
 <body>
-    <audio id="efectoMovimiento" src="../IMG/efectoMovida.mp3"></audio>
-    <div class="div-wrapper-juego">
+    <div class="div-wrapper-contenedortotal">
 
-        <div class="contenedor-div-wrapper-juego">
+        <div class="div-wrapper-contenedortablero" id="tabla2">
 
-            <div id="tabla2"></div>
+        </div>
 
-            <div class="contenido">
-                <div class="jugador">
-                    <div class="circulo-tablero1">
-                        <div class="circulo-tablero">
-                            <p id="Nombre-Jugador">Jugador 1</p>
-                        </div>
-                        <p id="fichasComidas"></p>
-                    </div>
+        <div class="div-wrapper-contenedorinfo">
 
-                    <h2>VS</h2>
-                    <div class="circulo-tablero2">
-                        <div class="circulo-tablero">
-                            <p id="Nombre-Jugador">Jugador 2</p>
-                        </div>
-                        <p></p>
-                    </div>
+            <div class="contenedor-jugadorestiempo">
+
+                <div class="contenedor-jugador1">
+                    <p id="Jugador1">Jugador1</p>
+                    <img src="../IMG/Icono1.png" id="foto-jugador2">
+                    <p id="Tiempo-jugador1">00:00</p>
                 </div>
-                <div class="tabla-movimientos">
-                    <table id="tablaMovimientos">
-                        <tr class="tr-mov">
-                            <th class="th-mov"> Ficha</th>
-                            <th class="th-mov">Movimiento</th>
-                        </tr>
-                    </table>
+
+                <div class="contenedor-jugador2">
+                    <p id="Jugadro2">Jugador2</p>
+                    <img src="../IMG/Icono2.png" id="foto-jugador1">
+                    <p id="Tiempo-jugador2">00:00</p>
                 </div>
-                <button onclick="cerrar()" class="boton-cerrar-juego">Rendirse</button>
+
             </div>
+
+            <div class="contenedor-tablachat">
+                <table id="tablamov">
+                    <tr>
+                        <td>Fichas</td>
+                        <td>Movimientos</td>
+                    </tr>
+                </table>
+                <button id="btn-rendirse">Rendirse</button>
+            </div>
+
         </div>
 
     </div>
+
 </body>
 
 </html>
