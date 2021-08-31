@@ -1,6 +1,7 @@
 <?php
 
 include "CrearTorneo.php";
+include "Fixture.php";
 
 /*
  * Parametros - crearTorneos
