@@ -24,6 +24,7 @@ function TraeJugadores() {
     });
 
 }
+
 function EliminarJugadores(id) {
     $.ajax({
         type: "POST",

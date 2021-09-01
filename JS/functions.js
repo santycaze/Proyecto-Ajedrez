@@ -197,3 +197,20 @@ function verificarSesion() {
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //
 /*======================================================================================================================================================*/
+function datosTorneos() {
+    var nomTorneo = document.getElementById('nomTorneo').value;
+    var codigoIngreso;
+    var putuacion;
+    var fechaApInsc = document.getElementById('apInscripciones').value;
+    var fechaFinInsc = document.getElementById('finInscripciones').value;
+    var comienzoTorneo = document.getElementById('comTorneo').value;
+    var finTorneo = document.getElementById('finTorneo').value;
+    var maximoPartidas = document.getElementById('maxPart').value;
+    var numPart = document.getElementById('numPartidas').value;
+    var tiempoMax = document.getElementById('tiempoMax').value;
+    var tiempoMov = document.getElementById('tiempoMov').value;
+    var maxParticipantes = document.getElementById('maxParticipantes').value;
+    var nomTrofeo = document.getElementById('nomTrofeo').value;
+
+    const name = new Torneos();
+}
