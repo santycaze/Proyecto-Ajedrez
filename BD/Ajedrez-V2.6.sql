@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
 -- Host: 179.27.156.47    Database: ajedrez
 -- ------------------------------------------------------
@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+ SET NAMES utf8 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `adminsistema`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `adminsistema` (
   `idAdmin` int NOT NULL AUTO_INCREMENT,
   `idUsuario` int NOT NULL,
@@ -47,7 +47,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `estadisticas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `estadisticas` (
   `idestadisticas` int NOT NULL AUTO_INCREMENT,
   `adversario` varchar(45) NOT NULL,
@@ -74,7 +74,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `fichas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `fichas` (
   `idFichas` int NOT NULL AUTO_INCREMENT,
   `imagen` varchar(45) NOT NULL,
@@ -101,7 +101,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `fichas_comidas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `fichas_comidas` (
   `idfichas_comidas` int NOT NULL AUTO_INCREMENT,
   `id_partidas` int NOT NULL,
@@ -132,7 +132,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `jugador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `jugador` (
   `idJugador` int NOT NULL AUTO_INCREMENT,
   `idUsuario` int NOT NULL,
@@ -157,7 +157,6 @@ CREATE TABLE `jugador` (
 
 LOCK TABLES `jugador` WRITE;
 /*!40000 ALTER TABLE `jugador` DISABLE KEYS */;
-INSERT INTO `jugador` VALUES (3,7,3,'IEP',2,123456789,'Nombre director3','maildir3@gmail.com','0',0,0),(4,9,4,'IEP',4,123456789,'Nombre director4','maildir4@gmail.com','1',0,0);
 /*!40000 ALTER TABLE `jugador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +166,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `jugadortorneo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `jugadortorneo` (
   `idJugadorTorneo` int NOT NULL AUTO_INCREMENT,
   `idJugador` int NOT NULL,
@@ -195,7 +194,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `jugadortorneomangas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `jugadortorneomangas` (
   `idJugadorTorneoMangas` int NOT NULL AUTO_INCREMENT,
   `idJugadorTorneo` int NOT NULL,
@@ -223,7 +222,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `mangas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `mangas` (
   `id_manga` int NOT NULL,
   `nombreManga` varchar(45) NOT NULL,
@@ -250,7 +249,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `movimientos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `movimientos` (
   `idMovimientos` int NOT NULL,
   `lugarAnterior` varchar(45) NOT NULL,
@@ -280,7 +279,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `noticia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `noticia` (
   `idNoticia` int NOT NULL,
   `idPeriodista` int NOT NULL,
@@ -308,7 +307,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `partidas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `partidas` (
   `idpartidas` int NOT NULL AUTO_INCREMENT,
   `fechayhora_inicio` varchar(45) NOT NULL,
@@ -335,12 +334,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `partidos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `partidos` (
   `idPartidos` int NOT NULL,
   `colorJug1` varchar(45) NOT NULL,
   `colorJug2` varchar(45) NOT NULL,
-  `Partidoscol` varchar(45) NOT NULL,
   `fecha_hora_inicio` time NOT NULL,
   `fecha_hora_fin` time NOT NULL,
   `id_manga` int NOT NULL,
@@ -371,7 +369,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `periodistas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `periodistas` (
   `idPeriodista` int NOT NULL AUTO_INCREMENT,
   `idUsuario` int NOT NULL,
@@ -388,7 +386,6 @@ CREATE TABLE `periodistas` (
 
 LOCK TABLES `periodistas` WRITE;
 /*!40000 ALTER TABLE `periodistas` DISABLE KEYS */;
-INSERT INTO `periodistas` VALUES (3,8,1);
 /*!40000 ALTER TABLE `periodistas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -398,7 +395,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `solicitudescontra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `solicitudescontra` (
   `idSolicitudesContra` int NOT NULL AUTO_INCREMENT,
   `idUsuario` int NOT NULL,
@@ -423,7 +420,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `torneo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `torneo` (
   `idTorneo` int NOT NULL AUTO_INCREMENT,
   `codIngreso` int NOT NULL,
@@ -442,7 +439,7 @@ CREATE TABLE `torneo` (
   `nombreTrofeo` varchar(45) NOT NULL,
   `partidasJuego` int NOT NULL,
   PRIMARY KEY (`idTorneo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -451,7 +448,7 @@ CREATE TABLE `torneo` (
 
 LOCK TABLES `torneo` WRITE;
 /*!40000 ALTER TABLE `torneo` DISABLE KEYS */;
-INSERT INTO `torneo` VALUES (1,1122,10,'2021-08-21','2021-08-30','00:10:00','2021-08-15','2021-08-19',10,'00:00:00','joan gamper',10,'00:10:00','00:02:00','joan gamper',2);
+INSERT INTO `torneo` VALUES (1,1122,10,'2021-08-21','2021-08-30','00:10:00','2021-08-15','2021-08-19',10,'00:00:00','joan gamper',10,'00:10:00','00:02:00','joan gamper',2),(5,12345,15,'2021-10-20','2021-10-20','00:10:00','2021-12-12','2021-01-01',9,'13:55:00','Nombre torneo',10,'00:10:00','00:05:00','Nombre trofeo',7),(6,12345,15,'2021-10-20','2021-10-20','00:10:00','2021-12-12','2021-01-01',9,'13:55:00','Nombre torneo',10,'00:10:00','00:05:00','Nombre trofeo',7);
 /*!40000 ALTER TABLE `torneo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -461,7 +458,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `usuario` (
   `idUsuario` int NOT NULL AUTO_INCREMENT,
   `nombreUsuario` varchar(45) NOT NULL,
@@ -475,7 +472,7 @@ CREATE TABLE `usuario` (
   `iconoUsuario` varchar(45) DEFAULT NULL,
   `tipoUsuario` int NOT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -484,7 +481,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Firpo','Nombre1','medicenfirpito@gmail.com',12345678,123456789,'2003-05-10','dc76e9f0c0006e8f919e0c515c66dbba3982f785','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/IconoGaston.png',0),(2,'Larry','Nombre2','mail2@gmail.com',12345678,123456789,'2003-05-10','dc76e9f0c0006e8f919e0c515c66dbba3982f785','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/IconoM.png',0),(3,'santy','Nombre3','mail3@gmail.com',12345678,123456789,'2003-05-10','dc76e9f0c0006e8f919e0c515c66dbba3982f785','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(4,'Usuario4','Nombre4','mail4@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(5,'Usuario5','Nombre5','mail5@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(6,'Usuario6','Nombre6','mail6@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(7,'Usuario7','Nombre7','mail7@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(8,'Usuario8','Nombre8','mail8@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(9,'Usuario9','Nombre9','mail9@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(10,'asd123','asd','manuelalonsofernandez2003@gmail.com',123,123,'123','123','asd','../Proyecto-Ajedrez/IMG/Icono5.png',0),(11,'asd','asd','eakike94@gmail.com',123,213,'123','123','asd','../Proyecto-Ajedrez/IMG/Icono5.png',0),(19,'231','A','manuelalonsodesign@gmail.com',213,1123,'','123','','../Proyecto-Ajedrez/IMG/Icono5.png',0),(20,'123','asd','julicardozo49@gmail.com',123,123,'2021-07-14','213','sad','../Proyecto-Ajedrez/IMG/Icono5.png',2);
+INSERT INTO `usuario` VALUES (1,'Firpo','Nombre1','medicenfirpito@gmail.com',12345678,123456789,'2003-05-10','dc76e9f0c0006e8f919e0c515c66dbba3982f785','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono16.png',0),(2,'Larry','Nombre2','mail2@gmail.com',12345678,123456789,'2003-05-10','dc76e9f0c0006e8f919e0c515c66dbba3982f785','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono11.png',0),(3,'pulga','Nombre3','mail3@gmail.com',12345678,123456789,'2003-05-10','dc76e9f0c0006e8f919e0c515c66dbba3982f785','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/iconoPulga.png',0),(4,'root','Nombre4','mail4@gmail.com',12345678,123456789,'2003-05-10','dc76e9f0c0006e8f919e0c515c66dbba3982f785','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',3),(5,'Usuario5','Nombre5','mail5@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(6,'Usuario6','Nombre6','mail6@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(7,'Usuario7','Nombre7','mail7@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(8,'Usuario8','Nombre8','mail8@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0),(9,'Usuario9','Nombre9','mail9@gmail.com',12345678,123456789,'2003-05-10','7c4a8d09ca3762af61e59520943dc26494f8941b','Apellido1 Apellido2','../Proyecto-Ajedrez/IMG/Icono5.png',0);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -578,7 +575,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `crearTorneo`(nomTorneo varchar(45), codingreso int, puntuacion int ,inicioIns date, finIns date, fechaIni date, fechaF date, tiempopartida time, maxPart int, tiempoMaxPart time, cantPartidas int, horarios date, tiempoMov time, nomTrofeo varchar(45), partJuego int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `crearTorneo`(nomTorneo varchar(45), codingreso int, puntuacion int ,inicioIns date, finIns date, fechaIni date, fechaF date, tiempopartida time, maxPart int, tiempoMaxPart time, cantPartidas int, horarios time, tiempoMov time, nomTrofeo varchar(45), partJuego int)
 BEGIN
 insert into torneo (nombreTorneo, codingreso , puntuacion, inicioInscrip , finInscrip , fechaInicio , fechaFin ,tiempopartida, maxParticipantes , tiempoMaxPartida , cantPartidas, horarios,tiempoMovida , nombreTrofeo, partidasJuego)
 values (nomTorneo , codingreso , puntuacion, inicioIns , finIns , fechaIni , fechaF , tiempopartida, maxPart , tiempoMaxPart ,cantPartidas, horarios, tiempoMov , nomTrofeo, partJuego);
@@ -657,7 +654,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `datosTorneo`()
 BEGIN
-select nombreTorneo, finTorneo, maxParticipantes, maxPartidas,partidasJuego,tiempoMaxPartida,tiempoMovida,nombreTrofeo from torneo;
+select nombreTorneo, fechafin, maxParticipantes, tiempoPartida,partidasJuego,tiempoMaxPartida,tiempoMovida,nombreTrofeo from torneo;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -714,7 +711,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(nombre_usuario varchar(45) , contraseña varchar(45))
 BEGIN
-select NombreUsuario,contra,iconoUsuario from Usuario where NombreUsuario=nombre_usuario and contra=contraseña;
+select NombreUsuario,contra,iconoUsuario,tipoUsuario from Usuario where NombreUsuario=nombre_usuario and contra=contraseña;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -750,14 +747,14 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `register`(nombre_usuario varchar(45), email varchar(45), Telefono int, contraseña varchar(45),Apellidos varchar(45), Ci int, tipousuario int, nombre varchar(45), nacimiento varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `register`(nombre_usuario varchar(45), email varchar(45), Telefono int, contraseña varchar(45),Apellidos varchar(45),icono varchar(45), Ci int, tipousuario int, nombre varchar(45), nacimiento varchar(45))
 BEGIN
 declare s varchar(22);
 if (exists(select idUsuario from usuario where nombreUsuario=nombre_usuario))
  then select null;
 else
-    insert into usuario(`nombreUsuario` , `mail` , `celular` , `contra` ,`apellidos` , `ci`,`nombre`,`nacimiento`,`tipoUsuario` )
-    values(nombre_usuario,email,telefono,contraseña,apellidos,ci,nombre,nacimiento,tipousuario);
+    insert into usuario(`nombreUsuario` , `mail` , `celular` , `contra` ,`apellidos` ,`iconoUsuario`, `ci`,`nombre`,`nacimiento`,`tipoUsuario` )
+    values(nombre_usuario,email,telefono,contraseña,apellidos,icono,ci,nombre,nacimiento,tipousuario);
    select nombre_usuario;
     end if ;
 END ;;
@@ -776,4 +773,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 15:38:54
+-- Dump completed on 2021-09-01 11:24:50
