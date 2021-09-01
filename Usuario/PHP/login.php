@@ -8,12 +8,12 @@ if ($nombreUsuario != " " && $contra != " ") {
     if ($sentencia = $mysqli->prepare("CALL login(?,?);")) {
         $sentencia->bind_param('ss', $nombreUsuario, $cifrado);
         if ($sentencia->execute()) {
-            $sentencia->bind_result($usr, $cont, $icono);
+            $sentencia->bind_result($usr, $cont, $icono, $tipoUsr);
             if ($sentencia->fetch()) {
                 if ($usr == $nombreUsuario && $cont == $cifrado) {
                     session_start();
                     $_SESSION['nombre'] = $nombreUsuario;
-                    $fila = array('nombre' => $nombreUsuario,'icono' => $icono);
+                    $fila = array('nombre' => $nombreUsuario,'icono' => $icono, 'tipo' => $tipoUsr);
                     echo json_encode($fila);
                 }
             } else {

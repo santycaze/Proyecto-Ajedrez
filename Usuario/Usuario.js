@@ -1,5 +1,5 @@
 class Usuario {
-    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, icono) {
+    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, tipo, icono) {
         this.Usuario = Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -8,6 +8,7 @@ class Usuario {
         this.Cel = celular;
         this.Fnac = Fnacimiento;
         this.Cont = Passwd;
+        this.Tipo = tipo;
         this.Icono = icono;
     }
     get Usr() {
@@ -58,6 +59,12 @@ class Usuario {
     set cont(contra) {
         this.Cont = contra;
     }
+    get tipoUsr() {
+        return this.Icono;
+    }
+    set tipoUsr(tipo) {
+        this.Tipo = tipo;
+    }
     get icono() {
         return this.Icono;
     }
@@ -75,8 +82,9 @@ class Usuario {
                     let datosUsuario = JSON.parse(response);
                     sessionStorage.setItem("j1", datosUsuario["nombre"]);
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
+                    sessionStorage.setItem("tipoUsr", datosUsuario["tipo"])
                     cerrarLogin();
-                    actualizarNick()
+                    location.reload()
                 } else {
                     $(".err").css('display', 'block')
                 }
@@ -84,18 +92,21 @@ class Usuario {
         });
     }
 
-    register(nuser, ci, cel, email, ap, nomc, pass, nac, tipo) {
+    register() {
         $.ajax({
             type: "POST",
             async: true,
             url: "../Usuario/PHP/register.php",
-            data: { usuario: nuser, cedula: ci, celular: cel, email: email, apellido: ap, NombreCompleto: nomc, Contra: pass, Nacimiento: nac, Tipo: tipo },
+            data: { usuario: this.Usuario, cedula: this.ci, celular: this.cel, email: this.mail, apellido: this.Apellido, NombreCompleto: this.Nombre, Contra: this.Cont, Nacimiento: this.Fnac, Tipo: this.Tipo,Icono: this.Icono },
             success: function (data) {
-                console.log(data)
                 if (data == 1) {
                     alert('El nombre de usuario ya existe');
                 } else {
-                    alert('Te registraste correctamente misil');
+                    var iniciarSesion = data.split('*');
+                    console.log(iniciarSesion)
+                    sessionStorage.setItem("j1", iniciarSesion[0]);
+                    sessionStorage.setItem("foto", iniciarSesion[1]);
+                    window.location = "/Proyecto-Ajedrez/index.html"
                 }
             },
         });

@@ -14,16 +14,47 @@
 .contenedor-infotorneo{
     display: flex;
     flex-direction: column ;
-    background: #09415f;
+    background: url('../IMG/Chess.png') no-repeat center center fixed;
+    background-size: cover;
     height: 100%;
 }
 
 .contenedor-datostorneo{
     display: flex;
+    flex-direction: column;
     height: 100%;
     justify-content: center;
     align-items: center;
 }
+
+.contenedor-datos{
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: #0a4e72;
+    border-radius: 20px;
+    padding: 60px;
+    box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
+}
+
+.contenedor-datos h3{
+    margin-bottom: 6px;
+    margin-top: 6px;
+    font-size: 20px;
+}
+
+.contenedor-datos button{
+    padding: 8px;
+    
+    border-radius: 20px;
+   border: none;
+    margin-top: 10px;
+    background: #0a4361;
+    color: white;
+}
+
 
 .contenedor-nomtrof{
     display: flex;
@@ -31,10 +62,12 @@
     align-items: center;
     padding-left: 60px;
     padding-top: 60px;
+
+    
 }
 
 .contenedor-nomtrof img{
-    width: 15%;
+    width: 10%;
 }
 
 .contenedor-nomtrof h1{
@@ -86,7 +119,7 @@
 .contenedor-titulo p{
     color: white;
     padding-top: 7px;
-    font-size: 20px;
+    ;
 }
 
 .contenedor-datos{
@@ -94,3 +127,60 @@
     align-items: center;
 }
 
+@media screen and (max-width: 1600px){
+    .contenedor-nomtrof img{
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .contenedor-total{
+        grid-template-columns: 1fr;
+        height: 100%;
+    }
+
+    .contenedor-datostorneo{
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-infotorneo{
+    
+    }
+    .contenedor-jugadorestorneo{
+        align-items: center;
+        
+        
+    }
+    .contenedor-jugador{
+        width: 80%;
+    }
+    .contenedor-jugador img{
+        width: 7%;
+    }
+
+ 
+
+    .contenedor-nomtrof h1{
+        font-size: 40px;
+    }
+
+    .contenedor-nomtrof img{
+        width: 15%;
+    }
+
+    .contenedor-nomtrof{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor-nomtrof img{
+        width: 20%;
+    }
+ 
+}

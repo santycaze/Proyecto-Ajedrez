@@ -38,8 +38,8 @@ function registrar() {
     var nuser = document.getElementById('nuser').value;
     var nac = document.getElementById('nac').value;
     var tipo = document.getElementById('Tipo').value;
-    const usuario = new Usuario(nuser, nomc, ap, email, ci, cel, nac, pass, '0', tipo);
-    usuario.register();
+    const usuario = new Usuario(nuser, nomc, ap, email, ci, cel, nac, pass,tipo,"../Proyecto-Ajedrez/IMG/Icono1.png");
+    console.log(usuario.register());
 }
 
 function guardarMod() {
@@ -71,6 +71,8 @@ function actualizarNick() {
         $("#botonLogIn").prop('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
+    }else{
+        $('.usuario-menu').hide()
     }
 }
 /*======================================================================================================================================================*/
@@ -189,7 +191,6 @@ function verificarSesion() {
     if (sessionStorage.getItem('j1') != null) {
         return 1
     } else {
-        $(".usuario-menu").hide()
         return 0
     }
 }
