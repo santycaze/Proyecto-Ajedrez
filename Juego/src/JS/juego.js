@@ -6,6 +6,7 @@ colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
 casillasClaras = sessionStorage.getItem("casillasClaras")
 casillasOscuras = sessionStorage.getItem("casillasOscuras")
 //DEFINICION DE VARIABLES
+colorJugador = sessionStorage.getItem('colorJugador'); //1: blancas 0: negras
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
 negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -17,7 +18,6 @@ blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 $(document).ready(function () {
-    asignarColor();
     if (colorJugador == 1) {
         letras = { 1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h" }
         numeros = { 1: "8", 2: "7", 3: "6", 4: "5", 5: "4", 6: "3", 7: "2", 8: "1" }
@@ -110,12 +110,6 @@ function actualizarTablero() {
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 //
-/*----- ----------------------------------------------------------------------------------------------------------------------------*/
-function asignarColor() {
-    colorJugador = sessionStorage.getItem('colorJugador'); //1: blancas 0: negras
-}
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-//
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 function crearTablero() {
     contador = 9;
@@ -171,6 +165,12 @@ function casillas(value, color) {
 function colocarFichas() {
     //ordeno las piezas dependiendo del color del jugador.
     if (colorJugador == 1) {
+        colorOpuesto = 0;
+    } else {
+        colorOpuesto = 1;
+    }
+
+    if (sessionStorage.getItem('colorJugador') == 1) {
         if (contador == 2) {
             casillas(blancas[6], color[colorJugador]);
         } else if (contador == 1 && letras[X] == "a" || contador == 1 && letras[X] == "h") {
@@ -184,17 +184,17 @@ function colocarFichas() {
         } else if (contador == 1 && letras[X] == "e") {
             casillas(blancas[1], color[colorJugador]);
         } else if (contador == 7) {
-            casillas(negras[6], color[colorJugador - 1]);
+            casillas(negras[6], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "a" || contador == 8 && letras[X] == "h") {
-            casillas(negras[3], color[colorJugador - 1]);
+            casillas(negras[3], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
-            casillas(negras[5], color[colorJugador - 1]);
+            casillas(negras[5], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "c" || contador == 8 && letras[X] == "f") {
-            casillas(negras[4], color[colorJugador - 1]);
+            casillas(negras[4], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "d") {
-            casillas(negras[2], color[colorJugador - 1]);
+            casillas(negras[2], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "e") {
-            casillas(negras[1], color[colorJugador - 1]);
+            casillas(negras[1], color[colorOpuesto]);
         } else {
             casillas();
         }
@@ -212,17 +212,17 @@ function colocarFichas() {
         } else if (contador == 1 && letras[X] == "e") {
             casillas(negras[1], color[colorJugador]);
         } else if (contador == 7) {
-            casillas(blancas[6], color[colorJugador + 1]);
+            casillas(blancas[6], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "a" || contador == 8 && letras[X] == "h") {
-            casillas(blancas[3], color[colorJugador + 1]);
+            casillas(blancas[3], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "b" || contador == 8 && letras[X] == "g") {
-            casillas(blancas[5], color[colorJugador + 1]);
+            casillas(blancas[5], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "c" || contador == 8 && letras[X] == "f") {
-            casillas(blancas[4], color[colorJugador + 1]);
+            casillas(blancas[4], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "d") {
-            casillas(blancas[2], color[colorJugador + 1]);
+            casillas(blancas[2], color[colorOpuesto]);
         } else if (contador == 8 && letras[X] == "e") {
-            casillas(blancas[1], color[colorJugador + 1]);
+            casillas(blancas[1], color[colorOpuesto]);
         } else {
             casillas();
         }

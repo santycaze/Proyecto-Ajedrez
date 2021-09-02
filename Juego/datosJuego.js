@@ -18,20 +18,18 @@ $.ajax({
         instancias.forEach(element => {
             if (element != "") {
                 var objInstancias = JSON.parse(element)
+                
                 console.log(objInstancias)
+
                 if (objInstancias.jugador1 == nombre) {
                     sessionStorage.setItem('colorJugador', objInstancias.colorJugador1)
                     console.log('Tu color es > '+objInstancias.colorJugador1)
-                } else if(objInstancias.jugador2 == nombre){
+                } else {
                     sessionStorage.setItem('colorJugador', objInstancias.colorJugador2)
                     console.log('Tu color es > '+objInstancias.colorJugador2)
                 }
             }
-            //var objInstancias = JSON.parse(element)
-            //console.log(objInstancias)
-
         });
-        
         console.log(instanciasDeJuego)
     }
 });

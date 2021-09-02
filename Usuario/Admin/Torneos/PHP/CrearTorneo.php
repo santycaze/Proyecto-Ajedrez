@@ -1,6 +1,6 @@
 <?php
 
-require '../../PHP/Servidor/servidor.php';
+require '../../../../PHP/Servidor/servidor.php';
 
 class CrearTorneo extends Servidor
 {
@@ -44,11 +44,10 @@ class CrearTorneo extends Servidor
     }
 
     function modificarTorneo(){
-
-    }
-
-    function agregarJugador(){
-        Servidor::agregarATorneo();
+        /**
+         * realizo las modificaciones indicadas en el objeto y lo dguardo
+         */
+        $this->guardarTorneo();
     }
 
 }
