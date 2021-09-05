@@ -35,8 +35,6 @@ export function crearTablero() {
 
 function colocarFichas() {
 
-    console.log('CJ: '+colorJugador)
-    console.log('CO: '+colorOpuesto)
     if (colorJugador == 1) {
         if (contador == 2) {
             casillas(blancas[6], color[colorJugador]);

@@ -22,12 +22,8 @@ $('#Jugador1').html(sessionStorage.getItem('j1'))
 
 
 $('#Jugador2').html('Buscando...')
-
-
-
-
     let numeroIcono = 1;
-    let RelojJugador1 = setInterval(function () {
+    export let RelojJugador1 = setInterval(function () {
         let img = document.createElement('img');
         if (numeroIcono === 16) {
             numeroIcono = 1;
