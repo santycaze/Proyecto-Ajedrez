@@ -1,4 +1,4 @@
-const socket = io('http://192.168.1.5:3000');
+const socket = io('http://localhost:3000');
 
 var datosJuego;
 var posicionPieza = 7;
