@@ -1,0 +1,19 @@
+Options All -Indexes
+
+<FilesMatch ".(js|php)$">
+
+Header unset Cache-Control
+
+</FilesMatch>
+
+
+RewriteEngine on
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+
+
+RewriteRule ^inicio$ Proyecto-Ajedrez/ 

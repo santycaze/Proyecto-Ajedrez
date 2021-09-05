@@ -8,7 +8,7 @@ var instanciasDeJuego = new Array()
 socket.emit('conectado', nombre)
 
 $.ajax({
-    type: "POST",
+    type: "GET",
     url: "src/PHP/confInicioDeJuego.php",
     data: { jugadores: nombre },
     success: function (response) {
