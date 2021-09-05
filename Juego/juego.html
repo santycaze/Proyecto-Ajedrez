@@ -12,13 +12,15 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../Usuario/Usuario.js"></script>
     <script src="../JS/loader.js"></script>
-    <script src="src/JS/JConfig.js"></script>
-    <script src="src/JS/juego.js"></script>
-    <script src="src/JS/ventanachess.js"></script>
     <script src="../JS/functions.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
+
     <script defer src="http://192.168.1.5:3000/socket.io/socket.io.js"></script>
-    <script defer src="datosJuego.js"></script>
+    <script defer src="confInicioJuego.js"></script>
+
+    <script src="src/JS/JConfig.js"></script>
+    <script src="src/JS/juego.js" type="module"></script>
+    <script src="src/JS/ventanachess.js"></script>
 </head>
 <body>
     <div class="div-wrapper-contenedortotal">
@@ -32,15 +34,15 @@
             <div class="contenedor-jugadorestiempo">
 
                 <div class="contenedor-jugador1">
-                    <p id="Jugador1">Jugador1</p>
-                    <img src="../IMG/Icono1.png" id="foto-jugador2">
-                    <p id="Tiempo-jugador1">00:00</p>
+                    <p id="Jugador1"><script></script></p>
+                    <div id="icono-jugador1"></div>
+                    <p id="Tiempo-jugador1">--:--</p>
                 </div>
 
                 <div class="contenedor-jugador2">
-                    <p id="Jugadro2">Jugador2</p>
-                    <img src="../IMG/Icono2.png" id="foto-jugador1">
-                    <p id="Tiempo-jugador2">00:00</p>
+                    <p id="Jugador2"></p>
+                    <div id="icono-jugador2"></div>
+                    <p id="Tiempo-jugador2">--:--</p>
                 </div>
 
             </div>
@@ -58,6 +60,7 @@
         </div>
 
     </div>
+
 
 </body>
 

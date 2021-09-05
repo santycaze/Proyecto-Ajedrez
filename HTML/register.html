@@ -16,7 +16,6 @@
 
 <body>
 
-
     <div class="contenedor-register">
 
         <form action="" id="form-register">
@@ -26,16 +25,24 @@
                 <div class="contenedor-register1">
                   
                     <input type="text" placeholder="Nombre Completo" id="nomc" />
+                    <span id="error" error='nombre'>*Nombre invalido</span>
                     <input type="text" placeholder="Apellidos" id="ap">
+                    <span id="error" error='apellido'>*Apellido invalido</span>
                     <input type="email" placeholder="Email" id="email">
+                    <span id="error" error='mail'>*Email invalido</span>
                     <input type="tel" placeholder="Telefono" id="cel">
+                    <span id="error" error='celular'>*Numero de telefono invalido</span>
                 </div>
                 <div class="contenedor-register2">
                    
                     <input type="password" placeholder="Contraseña" id="pass">
+                    <span id="error" error='contra'>*La contrasena no cumple con los requisitos</span>
                     <input type="number" placeholder="CI" id="CI">
+                    <span id="error" error='ci'>*Documento invalido</span>
                     <input type="text" placeholder="Nombre de Usuario" id="nuser">
-                    <input type="date" placeholder="Nacimiento" id="nac">
+                    <span id="error" error='usuario'>*Nombre de usuario invalido</span>
+                    <input type="date" placeholder="Nacimiento" id="nac" value="2002-12-12">
+                    <span id="error" error='nacimiento'>*Fecha de nacimiento invalida</span>
                 </div>
             </div>
             <select id="Tipo" name="TipoUsuario">

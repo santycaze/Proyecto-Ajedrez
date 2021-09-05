@@ -10,25 +10,37 @@ function OnClickTorneoCrear() {
     $("#tabla2").html(tabla3);
 }
 
-function OnClickTorneoVer() {
-    var tabla4 = '   <div class="contenedor-torneo-emergente" id="cerrar-creaciontorneo"><div class="contenedor-torneo"><h2> Torneo </h2> <div class="contenedor-columnas-creaciontorneo"><div class="columna1-creaciontorneo"> </div> <div class="columna2-creaciontorneo">  </div> </div><div class="contenedor-botones-creaciontorneo"><button class="boton-cancelar-creaciontorneo" onclick="cerrartorneo()">Cancelar</button></div></div>  </div>                    '
-    $("#tabla4").html(tabla4);
-}
+let crTorneo = () => {
 
-function crTorneo() {
-    var nomTorneo = document.getElementById('nomTorneo').value;
-    var fechaApInsc = document.getElementById('apInscripciones').value;
-    var fechaFinInsc = document.getElementById('finInscripciones').value;
-    var comienzoTorneo = document.getElementById('comTorneo').value;
-    var finTorneo = document.getElementById('finTorneo').value;
-    var maximoPartidas = document.getElementById('maxPart').value;
-    var numPart = document.getElementById('numPartidas').value;
-    var tiempoMax = document.getElementById('tiempoMax').value;
-    var tiempoMov = document.getElementById('tiempoMov').value;
-    var maxParticipantes = document.getElementById('maxParticipantes').value;
-    var nomTrofeo = document.getElementById('nomTrofeo').value;
-    const torneo = new Torneo(nomTorneo,fechaApInsc,fechaFinInsc,comienzoTorneo,finTorneo,maximoPartidas,numPart,tiempoMax,tiempoMov,maxParticipantes,nomTrofeo);
-    torneo.crearTorneo()
+    let datos = new Array();
+    let torneo = {
+        nomTorneo: document.getElementById('nomTorneo').value,
+        fechaApInsc: document.getElementById('apInscripciones').value,
+        fechaFinInsc: document.getElementById('finInscripciones').value,
+        comienzoTorneo: document.getElementById('comTorneo').value,
+        finTorneo: document.getElementById('finTorneo').value,
+        maximoPartidas: document.getElementById('maxPart').value,
+        numPart: document.getElementById('numPartidas').value,
+        tiempoMax: document.getElementById('tiempoMax').value,
+        tiempoMov: document.getElementById('tiempoMov').value,
+        maxParticipantes: document.getElementById('maxParticipantes').value,
+        nomTrofeo: document.getElementById('nomTrofeo').value
+    }
+
+    datos.push(torneo.nomTorneo, torneo.fechaApInsc, torneo.fechaFinInsc, torneo.comienzoTorneo, torneo.finTorneo, torneo.maximoPartidas, torneo.numPart, torneo.tiempoMax, torneo.tiempoMov, torneo.maxParticipantes, torneo.nomTrofeo)
+
+    validacion: {
+        let er = /\d/;
+
+        console.log(er.test(torneo.nomTorneo))
+        
+        for (let i = 0; i < datos.length; i++) {
+            if (datos[i] == '') {
+                console.log('Hay campos vacios');
+                break validacion;
+            }
+        }
+    }
 }
 
 function datosTorneo() {
@@ -38,7 +50,7 @@ function datosTorneo() {
         success: function (response) {
             var Datos = JSON.parse(response);
             for (let i = 0; i < Datos.length; i++) {
-                
+
             }
         }
     });

@@ -1,7 +1,7 @@
 const socket = io('http://192.168.1.5:3000');
 
 var datosJuego;
-var posicionPieza = 7
+var posicionPieza = 7;
 var nombre = sessionStorage.getItem('j1')
 var instanciasDeJuego = new Array()
 
@@ -12,25 +12,20 @@ $.ajax({
     url: "src/PHP/confInicioDeJuego.php",
     data: { jugadores: nombre },
     success: function (response) {
-
+        //
         var instancias = response.split('-')
-
         instancias.forEach(element => {
             if (element != "") {
                 var objInstancias = JSON.parse(element)
-                
-                console.log(objInstancias)
 
                 if (objInstancias.jugador1 == nombre) {
                     sessionStorage.setItem('colorJugador', objInstancias.colorJugador1)
-                    console.log('Tu color es > '+objInstancias.colorJugador1)
-                } else {
+                } else if (objInstancias.jugador1 == nombre) {
                     sessionStorage.setItem('colorJugador', objInstancias.colorJugador2)
-                    console.log('Tu color es > '+objInstancias.colorJugador2)
                 }
             }
         });
-        console.log(instanciasDeJuego)
+        //
     }
 });
 
@@ -45,9 +40,6 @@ socket.on('movimiento', movida => {
     }
 })
 
-socket.on('color', (colorJugador) => {
-
-})
 function enviarDatos() {
     datosJuego = sessionStorage.getItem("datosJuego");
     socket.emit('piezaMovida', datosJuego)

@@ -13,16 +13,15 @@ function TraeJugadores() {
         type: "POST",
         url: "../Admin/Jugadores/PHP/Jugadores.php",
         success: function (response) {
-            console.log(response)
-            var Datos = JSON.parse(response);
-            for (let i = 0; i < Datos.length; i++) {
-                console.log(Datos[i])
-                contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Jugador</div></td><td><div class='td1'><button onclick='EliminarJugadores("+Datos[i].idJugador+")'>✖</button></div></td><td><div class='td1'><button>⚙️</button></div></td></tr>";
-                $("#tablaJugadores").append(contenido);
+            if (response != '[]') {
+                var Datos = JSON.parse(response);
+                for (let i = 0; i < Datos.length; i++) {
+                    contenido = "<tr><td><div class='td1'>" + Datos[i].nombreUsuario + "</td></div><td><div class='td1'>IEP</div></td><td><div class='td1'>Jugador</div></td><td><div class='td1'><button onclick='EliminarJugadores("+Datos[i].idJugador+")'>✖</button></div></td><td><div class='td1'><button>⚙️</button></div></td></tr>";
+                    $("#tablaJugadores").append(contenido);
+                }
             }
         }
     });
-
 }
 
 function EliminarJugadores(id) {

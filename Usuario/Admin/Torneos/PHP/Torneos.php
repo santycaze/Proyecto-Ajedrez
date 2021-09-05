@@ -26,7 +26,6 @@ $tiempoMovimiento = $_POST['tiempoMov'];
 $nombreTrofeo = $_POST['nombreTrofeo'];
 $numeroPartidas = $_POST['numeroParidas'];
 
-
 $torneos = new CrearTorneo($numeroTorneo,$CodigoIngreso,$puntuacion, $FCInscripciones,$FFInscripciones,$FCTorneo, $FFTorneo,$tiempoPartida,$maximoParticipantes,$timepoMaxPartida,$cantPartidas,$horarios,$tiempoMovimiento,$nombreTrofeo,$numeroPartidas);
 
 

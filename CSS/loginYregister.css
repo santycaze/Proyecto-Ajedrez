@@ -313,7 +313,7 @@ body {
   padding-right: 20px;
   padding-left: 10px;
   background: #0f608b;
-  height: 280px;
+  height: 350px;
   border-radius: 0 20px 20px 0;
 }
 
@@ -325,7 +325,7 @@ body {
   padding-left: 20px;
   padding-right: 10px;
   background: #0f608b;
-  height: 280px;
+  height: 350px;
   border-radius: 20px 0 0 20px;
 }
 
@@ -421,4 +421,11 @@ body {
   background-size: cover;
   height: 100vh;
   margin: 0;
+}
+
+#error{
+  color: red;
+  width: 130px;
+  margin-left: -130px;
+  display: none;
 }

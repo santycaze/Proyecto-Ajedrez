@@ -1,5 +1,6 @@
 <?php
 include "instanciaDeJuego.php";
+require "../../../PHP/Servidor/servidor.php";
 
 $jugador = $_POST['jugadores'];
 

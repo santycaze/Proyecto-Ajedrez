@@ -29,17 +29,75 @@ function login() {
 function onkey(event) { if (event.keyCode == 13) { login(); } }
 
 function registrar() {
-    var pass = document.getElementById('pass').value;
-    var nomc = document.getElementById('nomc').value;
-    var ap = document.getElementById('ap').value;
-    var email = document.getElementById('email').value;
-    var cel = document.getElementById('cel').value;
-    var ci = document.getElementById('CI').value;
-    var nuser = document.getElementById('nuser').value;
-    var nac = document.getElementById('nac').value;
-    var tipo = document.getElementById('Tipo').value;
+    let datos = new Array();
+    let registro = {
+        pass: document.getElementById('pass').value,
+        nomc: document.getElementById('nomc').value,
+        ap: document.getElementById('ap').value,
+        email: document.getElementById('email').value,
+        cel: document.getElementById('cel').value,
+        ci: document.getElementById('CI').value,
+        nuser: document.getElementById('nuser').value,
+        nac: document.getElementById('nac').value,
+        tipo: document.getElementById('Tipo').value
+    }
+
+    datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo)
+    //parametros
+    let param0 = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(\w){8,15}$/ //Parametros para validar 'pass'
+    let param1 = /[\s\d\W]/ //Parametros para validar 'nom','ap'
+    let param2 = /^\w*(@gmail.com){1}$/ //parametros para validar 'mail'
+    let param3 = /^([0-9]){8}$/ // validar ci.
+
+
+    console.log(param2.test(registro.email));
+
+    validacion: {
+
+        for (let i = 0; i < datos.length; i++) {
+            if (datos[i] == '') {
+                console.log('Hay campos vacios');
+                break validacion;
+            }
+        }
+        //
+        if (param0.test(registro.pass) == false) {
+            //La contrasena debe tener de 8 a 15 catacteres ademas de una mayuscula una minuscula y un numero.
+            $('[error=contra]').css('display', 'block')
+        } else {
+            $('[error=contra]').css('display', 'none')
+        }
+        //
+        
+        if (param1.test(registro.nomc) == true) {
+            $('[error=nombre]').css('display', 'block')
+        } else {
+            $('[error=nombre]').css('display', 'none')
+        }
+        //
+        if (param1.test(registro.ap) == true) {
+            $('[error=apellido]').css('display', 'block')
+        } else {
+            $('[error=apellido]').css('display', 'none')
+        }
+        //
+        if (param2.test(registro.email) == false) {
+            $('[error=mail]').css('display', 'block')
+        } else {
+            $('[error=mail]').css('display', 'none')
+        }
+        //
+        if (param3.test(registro.ci) == false) {
+            $('[error=ci]').css('display', 'block')
+        } else {
+            $('[error=ci]').css('display', 'none')
+        }
+    }
+
+    /*
     const usuario = new Usuario(nuser, nomc, ap, email, ci, cel, nac, pass,tipo,"../Proyecto-Ajedrez/IMG/Icono1.png");
     console.log(usuario.register());
+    */
 }
 
 function guardarMod() {
@@ -71,7 +129,7 @@ function actualizarNick() {
         $("#botonLogIn").prop('disabled', 'true')
         $("#nick").html(sessionStorage.getItem("j1"))
         $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
-    }else{
+    } else {
         $('.usuario-menu').hide()
     }
 }
@@ -197,20 +255,3 @@ function verificarSesion() {
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //
 /*======================================================================================================================================================*/
-function datosTorneos() {
-    var nomTorneo = document.getElementById('nomTorneo').value;
-    var codigoIngreso;
-    var putuacion;
-    var fechaApInsc = document.getElementById('apInscripciones').value;
-    var fechaFinInsc = document.getElementById('finInscripciones').value;
-    var comienzoTorneo = document.getElementById('comTorneo').value;
-    var finTorneo = document.getElementById('finTorneo').value;
-    var maximoPartidas = document.getElementById('maxPart').value;
-    var numPart = document.getElementById('numPartidas').value;
-    var tiempoMax = document.getElementById('tiempoMax').value;
-    var tiempoMov = document.getElementById('tiempoMov').value;
-    var maxParticipantes = document.getElementById('maxParticipantes').value;
-    var nomTrofeo = document.getElementById('nomTrofeo').value;
-
-    const name = new Torneos();
-}
