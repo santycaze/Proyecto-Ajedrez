@@ -36,11 +36,11 @@ io.on('connection', (socket) => {
         
         if (Object.keys(usuarios).length === 2) {
             for (let i = 0; i < 2; i++) {
-                con.query(`Select nombreUsuario,iconoUsuario from Usuario where nombreUsuario = '${jugadores[i]}'`, function (err, result) {
+                con.query(`Select nombreUsuario,iconoUsuario from Usuario where nombreUsuario = '${jugadores[i]}'`, function (err, datos) {
                     if (err) {
                         return console.error('error: ' + err.message);
                     }
-                    io.emit('jugadorEncontrado', result[0])
+                    io.emit('jugadorEncontrado', datos[0])
                 })
             }
 

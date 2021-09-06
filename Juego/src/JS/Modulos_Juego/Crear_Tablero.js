@@ -4,13 +4,14 @@
 import { colorJugador,colorOpuesto,letras,numeros,color,blancas,negras } from "./Datos_De_Juego.js";
 
 
+
 var contador = 9,
-    tablero,
-    X,
-    Y;
+tablero,
+X,
+Y;
 
 export function crearTablero() {
-
+    contador = 9
     tablero = "<table id='tablero'>";
     if (contador == 9) {
         tablero += "<tr> <td> </td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> <td id='sup'></td> </tr>";

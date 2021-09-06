@@ -1,7 +1,8 @@
 
 import { peon,torre,alfil,caballo,reina,rey } from "./Fichas.js";
-import { color,colorJugador,colorOpuesto } from "./Datos_De_Juego.js";
+import { color,colorJugador,colorOpuesto,puntos } from "./Datos_De_Juego.js";
 import { actualizarTablero } from "./Crear_Tablero.js";
+import { enviarDatos } from "./confInicioJuego.js";
 
 
 let casilla,
@@ -133,7 +134,7 @@ function Movimiento(seleccion, destino) {
         $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + lnB[0] + lnB[1] + '</td></tr>')
     }
     actualizarTablero()
-    //Output(destino)
+    Output(destino)
     /*
     despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
     if (colorJugador == 1) {
@@ -175,4 +176,17 @@ function puntaje(fichaComida) {
             break;
     }
 
+}
+
+function Output(destino) {
+    let datos = {
+        jugador: sessionStorage.getItem('j1'),
+        colorJugador: colorJugador,
+        timepoMovida: '00:30',
+        pieza: sessionStorage.getItem('pieza'),
+        puntaje: puntos,
+        movimiento: [seleccion, destino]
+    };
+    datos = JSON.stringify(datos);
+    enviarDatos(datos)
 }

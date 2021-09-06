@@ -1,16 +1,14 @@
-import { RelojJugador1 } from "./src/JS/juego.js";
+import { RelojJugador1 } from "../juego.js";
+import { setVariables } from "./Datos_De_Juego.js";
 
 const socket = io('http://localhost:3000');
 
-var datosJuego;
-var posicionPieza = 7;
 var nombre = sessionStorage.getItem('j1')
-var instanciasDeJuego = new Array()
 
 socket.emit('conectado', nombre)
 
 $.ajax({
-    type: "GET",
+    type: "POST",
     url: "src/PHP/confInicioDeJuego.php",
     data: { jugadores: nombre },
     success: function (response) {
@@ -32,7 +30,9 @@ $.ajax({
 });
 
 socket.on('movimiento', movida => {
+
     let datos = JSON.parse(movida)
+
     let numero = datos.movimiento[1].split(".")
     let numero2 = datos.movimiento[0].split(".")
     if (numero[1].length > 1) {
@@ -43,7 +43,9 @@ socket.on('movimiento', movida => {
 })
 
 socket.on('jugadorEncontrado', (jugador) => {
-    console.log(jugador)
+
+    setVariables()
+
     if (jugador.nombreUsuario !== nombre) {
         clearInterval(RelojJugador1)
         $('#Jugador2').html(jugador.nombreUsuario)
@@ -52,11 +54,12 @@ socket.on('jugadorEncontrado', (jugador) => {
         img.setAttribute('id', 'foto-jugador2')
         $('#icono-jugador2').html(img)
     }
+    
 })
 
 
-function enviarDatos() {
-    datosJuego = sessionStorage.getItem("datosJuego");
+export function enviarDatos(datosJuego) {
+    console.log('hola')
     socket.emit('piezaMovida', datosJuego)
     sessionStorage.removeItem("datosJuego")
 }

@@ -2,7 +2,7 @@
 include "instanciaDeJuego.php";
 require "../../../PHP/Servidor/servidor.php";
 
-$jugador = $_GET['jugadores'];
+$jugador = $_POST['jugadores'];
 
 $jugadores = [];
 $instancias = [];

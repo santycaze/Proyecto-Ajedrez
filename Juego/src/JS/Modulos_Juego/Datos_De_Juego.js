@@ -1,3 +1,5 @@
+import { crearTablero } from "./Crear_Tablero.js";
+
 /**
  * 
  */
@@ -16,7 +18,7 @@ export let numeros,
     ganador = false,
     perdedor = false;
 
-setVariables()
+
 color = new Array();
 blancas = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
 negras = new Array(); // 1: Rey, 2: Reina, 3: Torre, 4: Alfil, 5: Caballo, 6: Peon
@@ -29,12 +31,17 @@ negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='
 
 
 export function setVariables() {
-
     colorPmovimiento = sessionStorage.getItem("colorMovimiento")
     colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
     casillasClaras = sessionStorage.getItem("casillasClaras")
     casillasOscuras = sessionStorage.getItem("casillasOscuras")
-    colorJugador = sessionStorage.getItem('colorJugador');  //1: blancas 0: negras
+    console.log(sessionStorage.getItem('colorJugador'))
+    if (sessionStorage.getItem('colorJugador') == null) {
+        colorJugador = 1
+    }else{
+        colorJugador = sessionStorage.getItem('colorJugador');  //1: blancas 0: negras
+    }
+
 
     if (colorJugador == 1) {
         colorOpuesto = 0;
@@ -45,4 +52,7 @@ export function setVariables() {
         letras = { 1: "h", 2: "g", 3: "f", 4: "e", 5: "d", 6: "c", 7: "b", 8: "a" }
         numeros = { 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8" }
     }
+
+    crearTablero()
+    responsivetablero();
 }

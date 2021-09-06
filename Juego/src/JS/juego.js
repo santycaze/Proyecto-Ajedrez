@@ -1,11 +1,8 @@
 import { setVariables } from "./Modulos_Juego/Datos_De_Juego.js";
-import { crearTablero } from "./Modulos_Juego/Crear_Tablero.js";
 import { seleccionado } from "./Modulos_Juego/Mover_Fichas.js";
 
 $(document).ready(function () {
-    setVariables();
-    crearTablero();
-    responsivetablero();
+    setVariables()
 });
 
 $(document).on('click', 'button', function() {
@@ -23,8 +20,10 @@ $('#Jugador1').html(sessionStorage.getItem('j1'))
 
 
 $('#Jugador2').html('Buscando...')
-    let numeroIcono = 1;
-    export let RelojJugador1 = setInterval(function () {
+
+let numeroIcono = 1;
+
+export let RelojJugador1 = setInterval(function () {
         let img = document.createElement('img');
         if (numeroIcono === 16) {
             numeroIcono = 1;
@@ -33,19 +32,5 @@ $('#Jugador2').html('Buscando...')
         img.setAttribute('id', 'foto-jugador2')
         $('#icono-jugador2').html(img)
         numeroIcono++
-},150);
+},100);
 
-/*
-    let datos = {
-        jugador: sessionStorage.getItem('j1'),
-        cambioDeTurno: 'true',
-        colorJugador: colorJugador,
-        timepoMovida: '00:30',
-        pieza: sessionStorage.getItem('pieza'),
-        puntaje: puntos,
-        movimiento: [seleccion, destino]
-    };
-    datos = JSON.stringify(datos);
-    sessionStorage.setItem("datosJuego", datos)
-    enviarDatos()
-*/
