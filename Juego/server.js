@@ -10,7 +10,7 @@ let usuarios = new Array();
 let jugadores = new Array();
 let espectadores = new Array();
 // io.to(id de socket que va a recivir el mensaje).emit('', var)
-/**
+/*
  * 
  * 
  * 
@@ -20,6 +20,7 @@ let espectadores = new Array();
  * 
  * 
  */
+
 io.on('connection', (socket) => {
 
     socket.on('conectado', (usuario) => {
@@ -56,7 +57,7 @@ io.on('connection', (socket) => {
     })
 })
 
-/**
+/*
  * 
  * 
  * 
@@ -74,6 +75,7 @@ let con = BASE_DE_DATOS.createConnection({
     password: '8bittech8bittech',
     database: 'ajedrez'
 })
+
 con.connect(function (err) {
     if (err) {
         return console.error('error: ' + err.message);

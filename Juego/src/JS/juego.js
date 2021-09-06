@@ -5,6 +5,7 @@ import { seleccionado } from "./Modulos_Juego/Mover_Fichas.js";
 $(document).ready(function () {
     setVariables();
     crearTablero();
+    responsivetablero();
 });
 
 $(document).on('click', 'button', function() {
@@ -32,14 +33,7 @@ $('#Jugador2').html('Buscando...')
         img.setAttribute('id', 'foto-jugador2')
         $('#icono-jugador2').html(img)
         numeroIcono++
-    },150);
-
- 
-
-
-
-
-
+},150);
 
 /*
     let datos = {
