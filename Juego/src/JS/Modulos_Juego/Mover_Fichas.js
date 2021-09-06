@@ -110,7 +110,7 @@ function tableroIntel(ficha, posicion){
     }
 }
 
-function Movimiento(seleccion, destino) {
+export function Movimiento(seleccion, destino) {
 
     var ficha = document.getElementById(seleccion).value;
     var destinoMov = document.getElementById(destino).value;

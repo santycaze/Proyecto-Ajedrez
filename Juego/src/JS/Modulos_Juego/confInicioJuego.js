@@ -1,5 +1,6 @@
 import { RelojJugador1 } from "../juego.js";
 import { setVariables } from "./Datos_De_Juego.js";
+import { Movimiento } from "./Mover_Fichas.js";
 
 const socket = io('http://localhost:3000');
 
@@ -59,7 +60,5 @@ socket.on('jugadorEncontrado', (jugador) => {
 
 
 export function enviarDatos(datosJuego) {
-    console.log('hola')
     socket.emit('piezaMovida', datosJuego)
-    sessionStorage.removeItem("datosJuego")
 }
