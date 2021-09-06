@@ -94,10 +94,8 @@ function registrar() {
         }
     }
 
-    /*
-    const usuario = new Usuario(nuser, nomc, ap, email, ci, cel, nac, pass,tipo,"../Proyecto-Ajedrez/IMG/Icono1.png");
-    console.log(usuario.register());
-    */
+    const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass,registro.tipo,"../Proyecto-Ajedrez/IMG/Icono1.png");
+    usuario.register();
 }
 
 function guardarMod() {
