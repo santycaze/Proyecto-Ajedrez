@@ -885,13 +885,57 @@ width: 300px;
 
 /* Lo que hago aca es desaparecer todo a partir de los 1024px y crear un arbol de links */
 
-@media screen and (Max-width:1024px){
-  .body-responsive{
-    display: flex;
+@media screen and (Max-width:1036px){
+  
+}
+
+@media screen and (Max-width:600px){
+  .noticias{
+    grid-template-columns: 1fr;
   }
 
-  .usuario{
+  footer{
+    grid-template-columns: 1fr;
+  }
+
+  .logo{
+    justify-content: center;
+  }
+
+  .sobre-nosotros{
+    justify-content: center;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  footer .menu{
     display: none;
+  }
+
+  .div-wrapper5{
+    grid-template-columns: 1fr;
+  }
+
+  .contenedor-salas{
+    padding: 20px;
+  }
+
+  .contenedor-entrenamiento{
+    padding: 20px;
+  }
+
+  .contenedor-podcast{
+    padding: 20px;
+  }
+
+  .contenedor-tabla{
+    padding: 20px;
+  }
+
+  .tabla{
+    padding: 20px;
   }
 
   .header{
@@ -899,38 +943,28 @@ width: 300px;
   }
 
   .contenedor-inicio{
-    display: none;
+    height: 300px;
+  }
+  .contenedor-inicio h1{
+    font-size: 25px;
   }
 
- 
-
-
-  #svg{
-    display: none;
+  .contenedor-inicio img{
+    width: 20%;
   }
 
-  .div-wrapper2{
-    display: none;
+  .boton-estadisticas{
+    height: 30px;
+    font-size: 15px;
+    width: 120px;
+    padding: 4px;
   }
 
-  .Tabla{
-    display: none;
-  }
-
-  .div-wrapper5{
-    display: none;
-  }
-
-  .div-wrapper3{
-    display: none;
-  }
-
-  footer{
-    display: none;
-  }
-
-  #path{
-    display: none;
+  .boton-jugar{
+    height: 30px;
+    font-size: 15px;
+    width: 120px;
+    padding: 4px;
   }
 
 }
