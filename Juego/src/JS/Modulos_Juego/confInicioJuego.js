@@ -1,4 +1,4 @@
-import { RelojJugador1 } from "../juego.js";
+import { loopBuscador } from "../juego.js";
 import { setVariables } from "./Datos_De_Juego.js";
 import { Movimiento } from "./Mover_Fichas.js";
 
@@ -48,7 +48,7 @@ socket.on('jugadorEncontrado', (jugador) => {
     setVariables()
 
     if (jugador.nombreUsuario !== nombre) {
-        clearInterval(RelojJugador1)
+        clearInterval(loopBuscador)
         $('#Jugador2').html(jugador.nombreUsuario)
         let img = document.createElement('img');
         img.setAttribute('src', '../'+jugador.iconoUsuario)
