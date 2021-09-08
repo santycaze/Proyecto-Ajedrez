@@ -16,7 +16,7 @@ if ($_POST['submit']) {
     if (mail ($to, $subject, $body, $from)) { 
         echo '<p>Gracias, nos comunicaremos lo mas pronto posible!</p>';
     } else { 
-        echo '<p>Oh no! Hubo un error, Intenta mas tarde :(</p>'; 
+        echo '<p> Hubo un error, Intenta mas tarde :(</p>'; 
     }
 }
 ?>
