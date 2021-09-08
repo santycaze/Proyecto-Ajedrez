@@ -1,0 +1,12 @@
+.formulario_contacto{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        
+        background-color: #fff;
+        color: #000;
+        height: 180px;
+        padding: 50px;
+      }
+    
