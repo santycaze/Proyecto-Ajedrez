@@ -32,15 +32,16 @@ $.ajax({
 
 socket.on('movimiento', movida => {
 
+    let numero2
+    let numero
     let datos = JSON.parse(movida)
 
-    let numero = datos.movimiento[1].split(".")
-    let numero2 = datos.movimiento[0].split(".")
-    if (numero[1].length > 1) {
-        Movimiento(9 - numero2[0] + "." + numero2[1], 9 - numero[0] + "." + numero[1])
-    } else {
+    if (datos.movimiento[0] !== null) {
+        numero = datos.movimiento[1].split(".")
+        numero2 = datos.movimiento[0].split(".")
         Movimiento(9 - numero2[0] + "." + numero2[1], 9 - numero[0] + "." + numero[1])
     }
+
 })
 
 socket.on('jugadorEncontrado', (jugador) => {
@@ -51,11 +52,11 @@ socket.on('jugadorEncontrado', (jugador) => {
         clearInterval(loopBuscador)
         $('#Jugador2').html(jugador.nombreUsuario)
         let img = document.createElement('img');
-        img.setAttribute('src', '../'+jugador.iconoUsuario)
+        img.setAttribute('src', '../' + jugador.iconoUsuario)
         img.setAttribute('id', 'foto-jugador2')
         $('#icono-jugador2').html(img)
     }
-    
+
 })
 
 

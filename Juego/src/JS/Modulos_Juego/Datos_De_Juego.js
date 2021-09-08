@@ -35,7 +35,6 @@ export function setVariables() {
     colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
     casillasClaras = sessionStorage.getItem("casillasClaras")
     casillasOscuras = sessionStorage.getItem("casillasOscuras")
-    console.log(sessionStorage.getItem('colorJugador'))
     if (sessionStorage.getItem('colorJugador') == null) {
         colorJugador = 1
     }else{

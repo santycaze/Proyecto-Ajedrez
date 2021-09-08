@@ -8,7 +8,6 @@ function responsivetablero() {
          anchoventana = window.innerWidth;
         let anchosecciontablero = anchoventana * 0.75;
         let altoventana = window.innerHeight;
-        console.log(altoventana)
         let altotablero = altoventana * 0.8;
         let anchoceldas = altotablero / 10;
         let altoimagenes = anchoceldas * 0.8;

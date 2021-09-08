@@ -113,7 +113,9 @@ function tableroIntel(ficha, posicion){
 export function Movimiento(seleccion, destino) {
 
     var ficha = document.getElementById(seleccion).value;
+
     var destinoMov = document.getElementById(destino).value;
+    console.log('DestinoMov : '+destinoMov)
     separadorA = seleccion.split("-");
     separadorB = destino.split("-");
     var lnB = separadorB[0].split(".");
