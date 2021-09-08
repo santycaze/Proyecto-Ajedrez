@@ -968,9 +968,10 @@ width: 300px;
 
   .contenedor-inicio{
     height: 300px;
+    padding: 20px;
   }
   .contenedor-inicio h1{
-    font-size: 30px;
+    font-size: 30 px;
   }
 
   .contenedor-inicio img{
