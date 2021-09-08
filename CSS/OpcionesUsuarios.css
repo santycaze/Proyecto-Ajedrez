@@ -30,7 +30,9 @@
     padding: 30px;
     border-radius: 10%;
     position: relative;
+    width: 100%;
     max-width: 450px;
+    margin: 15px;
 }
 
 .contenedor-mod h1{
@@ -220,12 +222,5 @@
 }
 
 
-@media screen and (Max-width:500px){
-    .icono-usuario img{
-        width: 150px;
-    }
 
-    .contenedor-mod{
-        max-width: 300px;
-    }
 }
