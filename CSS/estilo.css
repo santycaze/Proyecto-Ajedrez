@@ -173,10 +173,10 @@ h2 {
 }
 
 .contenedor-inicio h2 {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Bree Serif', serif;
   font-weight: 500;
   letter-spacing: 5px;
-  font-size: 15px;
+  font-size: 25px;
   animation: opacidad3 .7s forwards;
 }
 
@@ -1003,6 +1003,13 @@ width: 300px;
   .contenedor-inicio h2{
     font-size: 13px;
   }
+  .contenedor-inicio h1{
+  margin-bottom: 4px;
+}
+
+.contenedor-inicio h2{
+  margin-bottom: 14px;
+}
 }
 
 /* ======================================================= */
