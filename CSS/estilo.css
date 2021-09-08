@@ -411,7 +411,6 @@ h2 {
   display: flex;
   align-items: center;
   flex-direction: column;
-
 }
 
 .contenedor-entrenamiento img{
@@ -420,10 +419,12 @@ h2 {
 }
 .contenedor-salas img{
   width: 50%;
+  margin-bottom: 15px;
 }
 
 .contenedor-podcast img {
   width: 50%;
+  margin-bottom: 15px;
 }
 
 
@@ -846,18 +847,7 @@ footer p{
   font-family: 'Bree Serif', serif;
 }
 
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
 
-  .header-right {
-    float: none;
-  }
-
-}
 
 .a5 {
   background: white;
@@ -885,8 +875,42 @@ width: 300px;
 
 /* Lo que hago aca es desaparecer todo a partir de los 1024px y crear un arbol de links */
 
-@media screen and (Max-width:1036px){
+@media screen and (Max-width:810px){
+  .contenedor-inicio h1{
+    font-size: 35px;
+  }
+
+  .contenedor-inicio img{
+    width: 20%;
+  }
+
   
+  .boton-estadisticas{
+    height: 30px;
+    font-size: 15px;
+    width: 120px;
+    padding: 3px;
+  }
+
+  .boton-jugar{
+    height: 30px;
+    font-size: 15px;
+    width: 120px;
+    padding: 3px;
+  }
+
+  .boton-podcast, .boton-salas{
+    padding: 8px;
+    background: white;
+    color: black;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  
+
+
 }
 
 @media screen and (Max-width:600px){
@@ -946,7 +970,7 @@ width: 300px;
     height: 300px;
   }
   .contenedor-inicio h1{
-    font-size: 25px;
+    font-size: 30px;
   }
 
   .contenedor-inicio img{
