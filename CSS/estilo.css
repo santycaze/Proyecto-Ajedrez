@@ -994,6 +994,16 @@ width: 300px;
 
 }
 
+@media screen and (Max-width:450px){
+  .contenedor-inicio h1{
+    font-size: 23px;
+  }
+
+  .contenedor-inicio h2{
+    font-size: 13px;
+  }
+}
+
 /* ======================================================= */
 /* Fin Loader */
 /* ======================================================= */
