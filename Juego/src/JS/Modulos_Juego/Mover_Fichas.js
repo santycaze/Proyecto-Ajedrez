@@ -113,18 +113,14 @@ function tableroIntel(ficha, posicion){
 export function Movimiento(seleccion, destino) {
 
     var ficha = document.getElementById(seleccion).value;
-
-    var destinoMov = document.getElementById(destino).value;
-    console.log('DestinoMov : '+destinoMov)
     separadorA = seleccion.split("-");
     separadorB = destino.split("-");
     var lnB = separadorB[0].split(".");
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
-    if (destino.length > 3) { // paso el numero y la letra del destino para ver si es una ficha comible
+    if (destino.length > 3) { // verifico si en el destino hay una ficha comible.
         //document.getElementById('efectoMovimiento').play()
-        console.log(separadorB[0] + '-' + separadorA[1])
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></button>';//calavera
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" value="' + ficha + '">' + ficha + '<div class="pMovimiento" position="' + separadorB[0] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorB[0] + '"></skull></div></button>'; //calavera
         puntaje(destinoMov);
@@ -138,13 +134,8 @@ export function Movimiento(seleccion, destino) {
     actualizarTablero()
     Output(destino)
     /*
-    despues se cambia por una funcion que asigne los turnos comunicandose con el servidor.
-    if (colorJugador == 1) {
-        colorJugador = 0;
-    } else {
-        colorJugador = 1;
-    }
-    */
+     * Cambio de turno 
+     */
 }
 
 function puntaje(fichaComida) {
