@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: red;
+    background: #0d5277;
     width: 100%;
     max-width: 400px;
     padding: 25px;
@@ -35,4 +35,32 @@
 .contenedor-wrapper img{
     max-width: 160px;
     width: 100%;
+    margin-bottom: 14px;
+}
+
+.contenedor-wrapper h1{
+    margin-bottom: 14px;
+    font-family: 'Bree Serif', serif;
+    color: white;
+}
+
+.contenedor-wrapper button{
+    margin-top: 14px;
+    border: none;
+    padding: 15px;
+    border-radius: 1em;
+    color: white;
+    font-size: 15px;
+    font-family: 'Bree Serif', serif;
+    transition: 1s;
+    background: #093d58;
+}
+
+.contenedor-wrapper p{
+    color: white;
+}
+
+.contenedor-wrapper button:hover{
+    width: 100%;
+    background: #0a4768;
 }
