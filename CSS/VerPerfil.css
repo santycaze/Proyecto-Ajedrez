@@ -52,7 +52,7 @@
     color: white;
     font-size: 15px;
     font-family: 'Bree Serif', serif;
-    transition: 1s;
+    transition: 2s;
     background: #093d58;
 }
 
@@ -61,6 +61,6 @@
 }
 
 .contenedor-wrapper button:hover{
-    width: 100%;
+    
     background: #0a4768;
 }
