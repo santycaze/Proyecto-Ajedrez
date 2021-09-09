@@ -10,3 +10,8 @@
         padding: 50px;
       }
     
+.nombre{
+    text-align: center;
+    background-color: orangered;
+     border-radius: 30px;
+}
