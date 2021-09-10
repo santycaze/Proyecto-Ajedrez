@@ -197,12 +197,33 @@ class Servidor
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     function datosInstancias(){
-
+                //nombreTorneo,fechaFinTorneo,maximoParticipantes,numPartidas,tiempoPartida,tiempoMovida,nombreTrofeo
+                $conn = $this->conexion();
+                $query = "CALL datosPartidos()";
+                $stmt = $conn->prepare($query);
+                $json = array();
+        
+                if ($stmt->execute()) {
+                    
+                    $stmt->store_result();
+                    $stmt->bind_result($idPartido, $colorJugador1, $colorJugador2, $jugador1,$jugador2);
+                    while ($stmt->fetch()) {
+                        $fila = array('idPartido' => $idPartido,'colorJugador1' => $colorJugador1, 'colorJugador2' => $colorJugador2, 'jugador1' => $jugador1, 'jugador2' => $jugador2);
+                        $json[] = $fila;
+                    }
+                }
+                $stmt->close();
+                return $json;
     }
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function agregarInstancias(){
-
+    function agregarInstancias($idPartido,$colorJugador1,$colorJugador2,$jugador1,$jugador2){
+        $conn = $this->conexion();
+        $query = "CALL crearPartido(?,?,?,?,?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssssssss", $idPartido, $colorJugador1, $colorJugador2,null,null,null,$jugador1,$jugador2);
+        $stmt->execute();
+        $stmt->close();
     }
 }

@@ -3,7 +3,7 @@ function relojJ1() {
         if (turnoJugador1 === true && TiempoJugador1 !== 0) {
             TiempoJugador1Minutos = parseInt(TiempoJugador1 / 60)
             TiempoJugador1Segundos = parseInt(TiempoJugador1 % 60)
-            TiempoJugador1 = TiempoJugador1 - 1
+            --TiempoJugador1
             $('#tiempoJugador1').html(formato(TiempoJugador1Minutos) + ':' + formato(TiempoJugador1Segundos))
         } else if(TiempoJugador1 === 0 && turnoJugador1 === true){
             clearInterval(RelojJugador1)

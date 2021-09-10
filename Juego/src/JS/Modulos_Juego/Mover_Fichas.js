@@ -123,7 +123,7 @@ export function Movimiento(seleccion, destino) {
         //document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></button>';//calavera
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" value="' + ficha + '">' + ficha + '<div class="pMovimiento" position="' + separadorB[0] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorB[0] + '"></skull></div></button>'; //calavera
-        puntaje(destinoMov);
+        //puntaje();
         $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + "x" + lnB[0] + lnB[1] + '</td></tr>')
     } else {
         //document.getElementById('efectoMovimiento').play()
@@ -139,7 +139,7 @@ export function Movimiento(seleccion, destino) {
 }
 
 function puntaje(fichaComida) {
-    console.log(fichaComida)
+ 
     switch (fichaComida) {
         case "<img src='../Proyecto-Ajedrez/IMG/PeonBlanco.png' id='ficha'></img>": case "<img src='../Proyecto-Ajedrez/IMG/PeonNegro.png' id='ficha'></img>":
             $('#fichasComidas').append(fichaComida)
