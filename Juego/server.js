@@ -26,30 +26,50 @@ io.on('connection', (socket) => {
     socket.on('conectado', (usuario) => {
         if (Object.keys(usuarios).length <= 2 && usuario != null) {
             usuarios[usuario] = socket.id
-            console.log(`nuevo jugador   --->  ${usuario}`)
-            jugadores.push(usuario)
-        } else if (Object.keys(usuarios).length > 2 && usuario != null) {
-            usuarios[usuario] = socket.id
-            console.log(`nuevo espectador   --->   ${usuario}`)
-            espectadores.push(usuario)
-        }
-        
-        if (Object.keys(usuarios).length === 2) {
-            for (let i = 0; i < 2; i++) {
-                con.query(`Select nombreUsuario,iconoUsuario from Usuario where nombreUsuario = '${jugadores[i]}'`, function (err, datos) {
-                    if (err) {
-                        return console.error('error: ' + err.message);
-                    }
-                    io.emit('jugadorEncontrado', datos[0])
-                })
+            if (!jugadores.includes(usuario)) {
+                console.log(`nuevo jugador          --->  ${usuario}`)
+                jugadores.push(usuario)
+            } else {
+                console.log(`jugador reconectado    --->  ${usuario}`)
             }
+        }
+        console.log(usuarios)
+    })
 
+    socket.on('buscarJugador', () => {
+
+        var multiplo = jugadores.length % 2
+
+        if (multiplo === 0) {
+            //defino el color de cada jugador
+            colorJugador1 = Math.floor(Math.random() * (1 - 0) + 0)
+            var colorJugador2
+            if (colorJugador1 === 0) {
+                colorJugador2 = 1
+            } else {
+                colorJugador2 = 0;
+            }
+            console.log(`Se ha iniciado un partido ---> Jugador 1 :  ${jugadores[0]} | color: ${colorJugador1}  || jugador 2 :  ${jugadores[1]}  | color: ${colorJugador2}`)
+
+            //creo el partido
+            con.query(`call crearPartido('${colorJugador1}','${colorJugador2}',null,null,null,'${jugadores[0]}','${jugadores[1]}')`, function (err, datos) {
+                if (err) {
+                    return console.error('error: ' + err.message);
+                }                 
+                io.to(usuarios[jugadores[0]]).emit('jugadorEncontrado', datos[0],colorJugador1)
+                io.to(usuarios[jugadores[1]]).emit('jugadorEncontrado', datos[0],colorJugador2)
+            })
+            //
         }
 
     })
 
     socket.on('disconnect', () => {
-        console.log("Usuario desconectado")
+        usuarios.forEach(result => {
+            if (usuarios.includes(result)) {
+                usuarios.splice(result)
+            }
+        });
     })
 
     socket.on('piezaMovida', datosJuego => {
