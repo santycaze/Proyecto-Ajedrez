@@ -68,7 +68,7 @@ function registrar() {
             $('[error=contra]').css('display', 'none')
         }
         //
-        
+
         if (param1.test(registro.nomc) == true) {
             $('[error=nombre]').css('display', 'block')
         } else {
@@ -94,7 +94,7 @@ function registrar() {
         }
     }
 
-    const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass,registro.tipo,"../Proyecto-Ajedrez/IMG/Icono1.png");
+    const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png");
     usuario.register();
 }
 
@@ -226,6 +226,7 @@ function cerrar() {
 //                                                                   Cerrar Sesion                                                                      //
 /*======================================================================================================================================================*/
 function cerrarSesion() {
+    cerrarmod()
     $.ajax({
         type: "POST",
         url: "../Proyecto-Ajedrez/Usuario/PHP/cerrarSesion.php",
@@ -254,7 +255,7 @@ function verificarSesion() {
 //                                                                     Torneos                                                                          //
 /*======================================================================================================================================================*/
 
-function close_perfil(){
+function close_perfil() {
     $('#cont-gral').hide()
-    
+
 }
