@@ -8,7 +8,6 @@ const io = require("socket.io")(3000, {
 
 let usuarios = new Array();
 let jugadores = new Array();
-let espectadores = new Array();
 // io.to(id de socket que va a recivir el mensaje).emit('', var)
 /*
  * 

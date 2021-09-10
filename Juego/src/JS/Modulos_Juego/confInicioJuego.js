@@ -1,8 +1,12 @@
 import { loopBuscador } from "../juego.js";
-import { setVariables } from "./Datos_De_Juego.js";
+import { comenzarJuego } from "./Datos_De_Juego.js";
 import { Movimiento } from "./Mover_Fichas.js";
 
+/**
+ * conecto el cliente con el servidor
+ */
 const socket = io('http://localhost:3000');
+
 
 var nombre = sessionStorage.getItem('j1')
 
@@ -24,7 +28,7 @@ socket.on('jugadorEncontrado', (jugador,color) => {
 
     console.log('jugadorEncontrado')
     sessionStorage.setItem('colorJugador',color)
-    setVariables()
+    comenzarJuego()
 
     if (jugador[0].nombreUsuario !== nombre) {
         clearInterval(loopBuscador)

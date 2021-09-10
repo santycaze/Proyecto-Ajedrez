@@ -30,11 +30,12 @@ blancas = { 1: "<img src='../IMG/ReyBlanco.png' id='ficha'></img>", 2: "<img src
 negras = { 1: "<img src='../IMG/ReyNegro.png' id='ficha'></img>", 2: "<img src='../IMG/ReinaNegra.png' id='ficha'></img>", 3: "<img src='../IMG/TorreNegra.png' id='ficha'></img>", 4: "<img src='../IMG/AlfilNegro.png' id='ficha'></img>", 5: "<img src='../IMG/CaballoNegro.png' id='ficha'></img>", 6: "<img src='../IMG/PeonNegro.png' id='ficha'></img>" }
 
 
-export function setVariables() {
+export function comenzarJuego() {
     colorPmovimiento = sessionStorage.getItem("colorMovimiento")
     colorPmovimientoRGB = sessionStorage.getItem("colorMovimientoRGB")
     casillasClaras = sessionStorage.getItem("casillasClaras")
     casillasOscuras = sessionStorage.getItem("casillasOscuras")
+    
     if (sessionStorage.getItem('colorJugador') == null) {
         colorJugador = 1
     }else{
