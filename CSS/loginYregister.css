@@ -147,6 +147,7 @@ body {
   width: 250px;
   border-radius: 20px;
   border: none;
+  outline: none;
 }
 
 #form-register select{
