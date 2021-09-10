@@ -137,7 +137,7 @@ body {
   padding: 20px;
   border-radius: 20px;
   width: 650px;
-  height: 500px;
+  height: auto;
 }
 
 #form-register input{
@@ -147,6 +147,7 @@ body {
   width: 250px;
   border-radius: 20px;
   border: none;
+  outline: none;
 }
 
 #form-register select{
@@ -213,8 +214,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
-  padding-left: 10px;
+  padding: 20px;
 
  
   border-radius: 0 20px 20px 0;
@@ -225,8 +225,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
-  padding-right: 10px;
+  padding: 20px;
   
   
   border-radius: 20px 0 0 20px;
@@ -256,7 +255,7 @@ body {
   }
 
   #form-register{
-    height: 100vh;
+    height: auto;
     width: 100vw;
   }
 }
