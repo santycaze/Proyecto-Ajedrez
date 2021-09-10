@@ -8,14 +8,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <script src="../Proyecto-Ajedrez/JS/loader.js"></script>
-    <script src="Juego/JS/JConfig.js"></script>
     <script src="../Proyecto-Ajedrez/Usuario/Usuario.js"></script>
     <script src="../Proyecto-Ajedrez/JS/functions.js"></script>
-    <script src="../Proyecto-Ajedrez/Juego/JS/juego.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
 
-    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script defer src="datosJuego.js"></script>
     <script>
         $(document).ready(function () {
             actualizarNick() 
@@ -90,24 +86,12 @@
         </button>
         <div class="usuario-menu">
             <a class="a2" id="mod" onclick="Modificar()">Modificar perfil</a>
-            <a class="a2" id="vperf" onclick="ver()">Ver perfil</a>
+           
             <a class="a2" id="opcAdmin" onclick="opcAdmin()">Opc. Admin</a>
             <a class="a2" id="cerrarsesion" onclick="cerrarSesion()">Cerrar sesion</a>
         </div>
     </div>
     <!-- Fin Login / Opciones -->
-
-    <!-- Menu -->
-    <div class="header">
-        <div class="header-right">
-            <span class="slide"></span>
-            <a class="active" href="../Proyecto-Ajedrez/index.html">Home</a>
-            <a href="../Proyecto-Ajedrez/HTML/contacto.html">Contact</a>
-            <a href="#about">About</a>
-        </div>
-    </div>
-
-    <!-- Fin Menu -->
 
     <!-- Hero -->
     <div class=" contenedor-inicio">

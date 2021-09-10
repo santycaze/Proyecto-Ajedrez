@@ -774,7 +774,7 @@ footer p{
 
 .loader img{
   animation: fichaanimation 2.5s alternate infinite ;
- 
+  width: 200px;
 }
 
 

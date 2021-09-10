@@ -39,63 +39,74 @@ function registrar() {
         ci: document.getElementById('CI').value,
         nuser: document.getElementById('nuser').value,
         nac: document.getElementById('nac').value,
-        tipo: document.getElementById('Tipo').value
+        tipo: document.getElementById('Tipo').value,
+        institucion:document.getElementById('inst').value,
+        aCursivo: document.getElementById('ac').value,
+        cLiceo: document.getElementById('cliceo').value,
+        nomDirector: document.getElementById('ndire').value,
+        mailDirector: document.getElementById('edire').value
     }
 
-    datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo)
+    datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo,registro.institucion,registro.aCursivo,registro.cLiceo,registro.nomDirector,registro.mailDirector)
     //parametros
     let param0 = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(\w){8,15}$/ //Parametros para validar 'pass'
     let param1 = /[\s\d\W]/ //Parametros para validar 'nom','ap'
     let param2 = /^\w*(@gmail.com){1}$/ //parametros para validar 'mail'
     let param3 = /^([0-9]){8}$/ // validar ci.
 
-
-    console.log(param2.test(registro.email));
-
     validacion: {
-
+        valido = true;
         for (let i = 0; i < datos.length; i++) {
             if (datos[i] == '') {
-                console.log('Hay campos vacios');
+                $('[error=campos-vacios]').css('display', 'block')
                 break validacion;
+            }else{
+                $('[error=campos-vacios]').css('display', 'none')
             }
         }
         //
         if (param0.test(registro.pass) == false) {
             //La contrasena debe tener de 8 a 15 catacteres ademas de una mayuscula una minuscula y un numero.
             $('[error=contra]').css('display', 'block')
+            valido = false
         } else {
             $('[error=contra]').css('display', 'none')
         }
         //
-        
         if (param1.test(registro.nomc) == true) {
             $('[error=nombre]').css('display', 'block')
+            valido = false
         } else {
             $('[error=nombre]').css('display', 'none')
         }
         //
         if (param1.test(registro.ap) == true) {
             $('[error=apellido]').css('display', 'block')
+            valido = false
         } else {
             $('[error=apellido]').css('display', 'none')
         }
         //
         if (param2.test(registro.email) == false) {
             $('[error=mail]').css('display', 'block')
+            valido = false
         } else {
             $('[error=mail]').css('display', 'none')
         }
         //
         if (param3.test(registro.ci) == false) {
             $('[error=ci]').css('display', 'block')
+            valido = false
         } else {
             $('[error=ci]').css('display', 'none')
         }
+        //
+        if (valido === true) {
+            console.log('No hay datos invalidos')
+            const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png");
+            usuario.register();
+        }
     }
-
-    const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass,registro.tipo,"../Proyecto-Ajedrez/IMG/Icono1.png");
-    usuario.register();
 }
 
 function guardarMod() {
@@ -226,6 +237,7 @@ function cerrar() {
 //                                                                   Cerrar Sesion                                                                      //
 /*======================================================================================================================================================*/
 function cerrarSesion() {
+    cerrarmod()
     $.ajax({
         type: "POST",
         url: "../Proyecto-Ajedrez/Usuario/PHP/cerrarSesion.php",
@@ -254,7 +266,7 @@ function verificarSesion() {
 //                                                                     Torneos                                                                          //
 /*======================================================================================================================================================*/
 
-function close_perfil(){
+function close_perfil() {
     $('#cont-gral').hide()
-    
+
 }

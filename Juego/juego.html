@@ -17,9 +17,11 @@
 
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script defer src="src/JS/Modulos_Juego/confInicioJuego.js" type="module"></script>
-    <script src="src/JS/ventanachess.js"></script>
+    <script defer src="src/JS/juego.js" type="module"></script>
     <script src="src/JS/JConfig.js"></script>
-    <script src="src/JS/juego.js" type="module"></script>
+    <script src="src/JS/ventanachess.js"></script>
+
+
 
 </head>
 
@@ -51,9 +53,9 @@
 
             <div class="contenedor-tablachat">
                 <table id="tablamov">
-                    <tr>
-                        <td>Fichas</td>
-                        <td>Movimientos</td>
+                    <tr id="tr1">
+                        <th>Fichas</th>
+                        <th>Movimientos</th>
                     </tr>
                 </table>
                 <button id="btn-rendirse">Rendirse</button>
