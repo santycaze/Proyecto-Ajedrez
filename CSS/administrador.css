@@ -35,6 +35,8 @@ header{
     height: 70px;
     width: 100%;
     background: #063146;
+    position: relative;
+    z-index: 9;
 }
 
 header a{
@@ -224,7 +226,7 @@ header p {
   
   .loader img{
     animation: fichaanimation 2.5s alternate infinite ;
-   
+    width: 200px;
   }
   
   
@@ -260,7 +262,8 @@ header p {
 .contenedor-torneo-emergente{
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
+    z-index: 7;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -268,6 +271,7 @@ header p {
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.185);
+
 }
 
 .contenedor-torneo{
@@ -389,6 +393,8 @@ header p {
 
 #desplegar{
     display: none;
+    position: relative;
+    z-index: 8;
 }
 
 @media screen and (max-width: 1250px) {
@@ -396,7 +402,8 @@ header p {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+        
+     }
     .sidebar{
         display: none;
     }
@@ -452,6 +459,9 @@ header p {
     .contenido{
         transform: scale(0.7);
         margin-top: -500px;
+    }
+    .contenedor-torneo-emergente{
+        background: none;
     }
 } 
 

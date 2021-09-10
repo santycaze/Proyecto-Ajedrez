@@ -30,11 +30,13 @@ body {
 .contenedor-login {
   display: grid;
   grid-template-columns: 65% 1fr;
-  width: 750px;
+  max-width: 750px;
+  width: 100%;
   height: 350px;
   position: relative;
   background: #073750;
   border-radius: 20px;
+  margin: 20px;
 }
 
 .contenedor-imagenlogin {
@@ -57,6 +59,7 @@ body {
   max-width: 500px;
   border-radius: 20px;
   height: 100%;
+  color: white;
 }
 
 .cerrarlogin {
@@ -107,122 +110,20 @@ body {
   outline: none;
 }
 
-@media screen and (max-width: 675px) {
-  .contenedor-login {
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 50%;
-  }
+@media screen and (max-width: 600px) {
+ .contenedor-contenedor-imagenlogin{
+   display: none;
+ }
+ .contenedor-login{
+   grid-template-columns: 1fr;
+   border-radius: 20px;
+ }
 
-  .contenedor-contenedor-textologin {
-    grid-row: 2;
-    width: 100%;
-    height: 50%;
-  }
-
-  .contenedor-imagenlogin {
-    width: 100%;
-    max-width: none;
-    display: none;
-  }
-
-  .contenedor-imagenlogin img {
-    height: 80%;
-    width: auto;
-  }
-
-  .contenedor-textologin {
-    width: 100%;
-    max-width: none;
-    justify-content: flex-start;
-    margin-top: 50px;
-    border-radius: 0 0 20px 20px ;
-   
-  }
-
-  .contenedor-textologin h2 {
-    font-size: 30px;
-  }
-
-  .box {
-    width: 100%;
-    text-align: center;
-  }
-
-  .input-login {
-    width: 70%;
-    height: 30px !important;
-    font-size: 15px;
-    margin-bottom: 18px;
-    outline: none;
-  }
-
-  .submit {
-    width: 40%;
-    height: 40px !important;
-    font-size: 15px;
-  }
+ .contenedor-contenedor-textologin{
+   border-radius: 20px;
+ }
 }
 
-
-/* ESTE SI FUNCIONA NO LO TOQUESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
-@media screen and (max-width: 1024px) {
-  .contenedor-login {
-    grid-template-columns: 1fr;
-    grid-template-rows: 40% 1fr;
-    width: 80%;
-    height: 80%;
-  }
-
-  .contenedor-contenedor-textologin {
-    grid-row: 2;
-    border-radius: 0 0 20px 20px ;
-  }
-
-  .contenedor-imagenlogin {
-    width: 100%;
-    max-width: none;
-  }
-
-  .contenedor-imagenlogin img {
-    height: 80%;
-    width: auto;
-  }
-
-  .contenedor-textologin {
-    width: 100%;
-    max-width: none;
-    justify-content: flex-start;
-    margin-top: 50px;
-    border-radius: 0 0 20px 20px;
-  }
-
-  .contenedor-textologin h2 {
-    font-size: 30px;
-  }
-
-  .box {
-    width: 100%;
-    text-align: center;
-  }
-
-  .input-login {
-    width: 50%;
-    height: 70px;
-    font-size: 15px;
-    margin-bottom: 18px;
-    outline: none;
-  }
-
-  .submit {
-    width: 40%;
-    height: 70px;
-    font-size: 15px;
-  }
-}
 
 /* Register */
 
@@ -299,6 +200,8 @@ body {
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
+  background: #0f608b;
+  border-radius: 20px;
 }
 
 .contenedor-register2 img{
@@ -312,8 +215,8 @@ body {
   flex-direction: column;
   padding-right: 20px;
   padding-left: 10px;
-  background: #0f608b;
-  height: 350px;
+
+ 
   border-radius: 0 20px 20px 0;
 }
 
@@ -324,8 +227,8 @@ body {
   flex-direction: column;
   padding-left: 20px;
   padding-right: 10px;
-  background: #0f608b;
-  height: 350px;
+  
+  
   border-radius: 20px 0 0 20px;
 }
 
