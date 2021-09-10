@@ -74,6 +74,10 @@ io.on('connection', (socket) => {
     socket.on('piezaMovida', datosJuego => {
         socket.broadcast.emit('movimiento', datosJuego)
     })
+
+    socket.on('cambioDeTurno', () => {
+        io.emit('cambioDeTurno')
+    })
 })
 
 /*

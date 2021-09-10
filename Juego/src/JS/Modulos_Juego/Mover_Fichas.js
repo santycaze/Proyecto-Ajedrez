@@ -19,8 +19,7 @@ export function seleccionado(casillaSeleccionada) {
     casilla = document.getElementById(casillaSeleccionada).value;
 
     var infoFicha = casillaSeleccionada.split("-");
-
-    if (infoFicha[1] == color[colorJugador]) { //si el color de la ficha es igual al del jugador se selecciona la pieza
+    if (infoFicha[1] == color[colorJugador] && sessionStorage.getItem('turno') == 'true') { //si el color de la ficha es igual al del jugador se selecciona la pieza
         actualizarTablero(); //actualizo el tablero para eliminar lo seleccionado anteriormente
         //===============================================================================================================//
         /*
@@ -39,7 +38,7 @@ export function seleccionado(casillaSeleccionada) {
             }
         }
         //===================================================================================================================//
-    } else if (infoFicha[1] != color[colorJugador] || casilla == " ") { //si la casilla seleccionada esta vacia o tiene una ficha del otro color
+    } else if (infoFicha[1] != color[colorJugador] || casilla == " "&& sessionStorage.getItem('turno') == 'true') { //si la casilla seleccionada esta vacia o tiene una ficha del otro color
         /* 
         verifico que casillas estan en color "#6EB85B", si la proxima accion del usuario es apretar un
         boton de ese color la ficha se movera a la casilla seleccionada, si selecciona otra casilla o mueve la ficha el tablero se 
@@ -57,7 +56,9 @@ export function seleccionado(casillaSeleccionada) {
         }
         //Actualiza las casillas para eliminar cualquier seleccion hecha anteriormente.   
         actualizarTablero();      
-    } 
+    } else {
+        console.log('no es tu turno')
+    }
 
 }
 
@@ -124,12 +125,12 @@ export function Movimiento(seleccion, destino) {
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></button>';//calavera
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" value="' + ficha + '">' + ficha + '<div class="pMovimiento" position="' + separadorB[0] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorB[0] + '"></skull></div></button>'; //calavera
         //puntaje();
-        $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + "x" + lnB[0] + lnB[1] + '</td></tr>')
+        $('#tablamov').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + "x" + lnB[0] + lnB[1] + '</td></tr>')
     } else {
         //document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorA[0] + '"></skull></div></button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" value="' + ficha + '"><div class="pMovimiento" position="' + destino + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + destino + '"></skull></div>' + ficha + '</button>'; //va calavera
-        $('#tablaMovimientos').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + lnB[0] + lnB[1] + '</td></tr>')
+        $('#tablamov').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + lnB[0] + lnB[1] + '</td></tr>')
     }
     actualizarTablero()
     Output(destino)

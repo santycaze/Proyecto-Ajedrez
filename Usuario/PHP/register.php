@@ -11,9 +11,14 @@ $contrasena = sha1($_POST["Contra"]);
 $tipo = $_POST["Tipo"];
 $icono = $_POST["Icono"];
 $Nacimiento = $_POST["Nacimiento"];
+$institucion = $_POST['Institucion'];
+$anoCursivo = $_POST['anCursivo'];
+$constactoLiceo = $_POST['contactoLiceo'];
+$nombreDirector = $_POST['nomDirector'];
+$mailDirector = $_POST['mailDirector'];
 
-if ($sentencia = $mysqli->prepare("CALL register(?,?,?,?,?,?,?,?,?,?);")) {
-    $sentencia->bind_param('ssisssiiss', $usuario, $email, $celular, $contrasena, $apellido,$icono, $cedula, $tipo, $nombrecompleto, $Nacimiento);
+if ($sentencia = $mysqli->prepare("CALL register(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {
+    $sentencia->bind_param('ssissiisssiisss', $usuario, $email, $celular, $contrasena,$apellido, $cedula,$tipo, $nombrecompleto, $Nacimiento, $institucion, $anoCursivo,$constactoLiceo,$nombreDirector,$mailDirector,$icono);
     if ($sentencia->execute()) {
         $sentencia->bind_result($valor);
         if ($sentencia->fetch()) {

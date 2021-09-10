@@ -1,6 +1,7 @@
 import { loopBuscador } from "../juego.js";
 import { comenzarJuego } from "./Datos_De_Juego.js";
 import { Movimiento } from "./Mover_Fichas.js";
+import { reanudarTiempo } from "./Tiempo.js";
 
 /**
  * conecto el cliente con el servidor
@@ -21,7 +22,17 @@ socket.on('movimiento', movida => {
         numero = datos.movimiento[1].split(".")
         numero2 = datos.movimiento[0].split(".")
         Movimiento(9 - numero2[0] + "." + numero2[1], 9 - numero[0] + "." + numero[1])
+        socket.emit('cambioDeTurno')
     }
+})
+
+socket.on('cambioDeTurno', () => {
+    if (sessionStorage.getItem('turno') == 'true') {
+        sessionStorage.setItem('turno',false)
+    }else{
+        sessionStorage.setItem('turno',true)
+    }
+    reanudarTiempo()
 })
 
 socket.on('jugadorEncontrado', (jugador,color) => {

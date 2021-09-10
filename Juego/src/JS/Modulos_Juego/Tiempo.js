@@ -1,63 +1,87 @@
 
-$('#Tiempo-Jugador1').html(formato(TiempoJugador1Minutos) + ':' + formato(TiempoJugador1Segundos))
-$('#Tiempo-Jugador2').html(formato(TiempoJugador2Minutos) + ':' + formato(TiempoJugador2Segundos))
 
-export function relojJ1() {
 
-    RelojJugador1 = setInterval(function () {
-        if (turnoJugador1 === true && TiempoJugador1 !== 0) {
 
+let minutos = 10;
+let tiempoInicial = minutos * 60
+
+let TiempoJugador1 = tiempoInicial;
+let TiempoJugador2 = tiempoInicial;
+
+
+let TIEMPO_JUGADOR_1_MINUTOS = TiempoJugador1 / 60
+let TIEMPO_JUGADOR_1_SEGUNDOS = TiempoJugador1 % 60
+
+let TIEMPO_JUGADOR_2_MINUTOS
+let TIEMPO_JUGADOR_2_SEGUNDOS
+
+export function mostrarTiempo() {
+    $('#Tiempo-jugador1').html(formato(TIEMPO_JUGADOR_1_MINUTOS) + ':' + formato(TIEMPO_JUGADOR_1_SEGUNDOS))
+    $('#Tiempo-jugador2').html(formato(TIEMPO_JUGADOR_1_MINUTOS) + ':' + formato(TIEMPO_JUGADOR_1_SEGUNDOS))
+}
+
+export function reanudarTiempo() {
+    if (sessionStorage.getItem('turno') == 'true') {
+        rj1()
+    }else{
+        rj2()
+    }
+}
+
+
+
+
+function rj1() {
+    let RelojJugador1 = setInterval(() => {
+        if (sessionStorage.getItem('turno') == 'true' && TiempoJugador1 !== 0) {
             TIEMPO_JUGADOR_1_MINUTOS = parseInt(TiempoJugador1 / 60)
             TIEMPO_JUGADOR_1_SEGUNDOS = parseInt(TiempoJugador1 % 60)
             --TiempoJugador1
-            $('#Tiempo-Jugador1').html(formato(TiempoJugador1Minutos) + ':' + formato(TiempoJugador1Segundos))
-
-        } else if(TiempoJugador1 === 0 && turnoJugador1 === true){
-
+            $('#Tiempo-jugador1').html(formato(TIEMPO_JUGADOR_1_MINUTOS) + ':' + formato(TIEMPO_JUGADOR_1_SEGUNDOS))
+        } else if (TiempoJugador1 === 0 && sessionStorage.getItem('turno') == 'true') {
             clearInterval(RelojJugador1)
-            $('#Tiempo-Jugador1').html("Gana Jugador 2")
-
         } else {
-
-            $('#Tiempo-Jugador1').html(formato(TiempoJugador1Minutos) + ':' + formato(TiempoJugador1Segundos))
             clearInterval(RelojJugador1)
-
         }
+    
+    
     }, 1000);
-
 }
 
-export function relojJ2() {
-    RelojJugador2 = setInterval(function () {
-        if (turnoJugador2 === true && TiempoJugador2 !== 0) {
-
+function rj2() {
+    let RelojJugador2 = setInterval(() => {
+        if (sessionStorage.getItem('turno') != 'true' && TiempoJugador2 !== 0) {
             TIEMPO_JUGADOR_2_MINUTOS = parseInt(TiempoJugador2 / 60)
             TIEMPO_JUGADOR_2_SEGUNDOS = parseInt(TiempoJugador2 % 60)
-            TIEMPO_JUGADOR_2 = TIEMPO_JUGADOR_2 - 1
-            $('#Tiempo-Jugador2').html(formato(TiempoJugador2Minutos) + ':' + formato(TiempoJugador2Segundos))
-
-        } else if(TiempoJugador2 === 0 && turnoJugador2 === true){
-
-            clearInterval(RelojJugador1)
-            $('#Tiempo-Jugador1').html("Gana Jugador 1")
-
-        }  else {
-
-            $('#Tiempo-Jugador2').html(formato(TiempoJugador2Minutos) + ':' + formato(TiempoJugador2Segundos))
+            TiempoJugador2 = TiempoJugador2 - 1
+            $('#Tiempo-jugador2').html(formato(TIEMPO_JUGADOR_2_MINUTOS) + ':' + formato(TIEMPO_JUGADOR_2_SEGUNDOS))
+    
+        } else if (TiempoJugador2 === 0 && sessionStorage.getItem('turno') != 'true') {
+    
             clearInterval(RelojJugador2)
-
+            $('#Tiempo-Jugador1').html("Gana Jugador 1")
+    
+        } else {
+            clearInterval(RelojJugador2)
         }
     }, 1000);
+}
+
+
+
+
+
+
+
+export function formato(tiempo) {
+    if (tiempo < 10) { return '0' + tiempo } else { return tiempo }
 }
 
 /*
 
-let minutos = 11;
-let tiempoInicial = minutos * 60
-let TiempoJugador1 = tiempoInicial;
-let TiempoJugador2 = tiempoInicial;
-let TiempoJugador2Minutos 
-let TiempoJugador2Segundos 
+
+let TiempoJugador2Minutos
+let TiempoJugador2Segundos
 let TiempoJugador1Minutos
 let TiempoJugador1Segundos
 let turnoJugador1;
@@ -136,7 +160,5 @@ $(document).on('click', '#empezar', function () {
     turnoJugador1 = true
 });
 
-function formato(tiempo) {
-    if (tiempo < 10) { return '0'+tiempo}else{ return tiempo}
-}
+
 */

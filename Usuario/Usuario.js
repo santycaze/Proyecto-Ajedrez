@@ -1,5 +1,5 @@
 class Usuario {
-    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, tipo, icono) {
+    constructor(Usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, tipo, icono, inst, acursivo, cliceo, nomDirector, mDirector) {
         this.Usuario = Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -10,6 +10,12 @@ class Usuario {
         this.Cont = Passwd;
         this.Tipo = tipo;
         this.Icono = icono;
+        //temporal
+        this.Institucion = inst;
+        this.aCursivo = acursivo;
+        this.contLiceo = cliceo;
+        this.nombreDirector = nomDirector;
+        this.mailDirector = mDirector;
     }
     get Usr() {
         return this.Usuario;
@@ -71,6 +77,38 @@ class Usuario {
     set icono(icono) {
         this.Icono = icono;
     }
+    //temporal
+
+    get institucion() {
+        return this.Institucion;
+    }
+    set institucion(inst) {
+        this.Institucion = inst;
+    }
+    get ACursivo() {
+        return this.aCursivo;
+    }
+    set ACursivo(ac) {
+        this.aCursivo = ac;
+    }
+    get contLic() {
+        return this.contLiceo;
+    }
+    set contLic(contactoL) {
+        this.contLiceo = contactoL;
+    }
+    get nmDirector() {
+        return this.nomDirector;
+    }
+    set nmDirector(nombreDir) {
+        this.nomDirector = nombreDir;
+    }
+    get mailDir() {
+        return this.mailDirector;
+    }
+    set mailDir(mailD) {
+        this.mailDirector = mailD;
+    }
 
     logIn(usr, pass) {
         $.ajax({
@@ -93,20 +131,22 @@ class Usuario {
     }
 
     register() {
+
         $.ajax({
             type: "POST",
             async: true,
             url: "../Usuario/PHP/register.php",
-            data: { usuario: this.Usuario, cedula: this.ci, celular: this.cel, email: this.mail, apellido: this.Apellido, NombreCompleto: this.Nombre, Contra: this.Cont, Nacimiento: this.Fnac, Tipo: this.Tipo,Icono: this.Icono },
+            data: { usuario: this.Usuario, cedula: this.ci, celular: this.cel, email: this.mail, apellido: this.Apellido, NombreCompleto: this.Nombre, Contra: this.Cont, Nacimiento: this.Fnac, Tipo: this.Tipo, Icono: this.Icono,Institucion:this.Institucion,anCursivo:this.aCursivo,contactoLiceo: this.contLiceo,nomDirector: this.nombreDirector, mailDirector: this.mailDirector},
             success: function (data) {
+                console.log(data)
                 if (data == 1) {
                     alert('El nombre de usuario ya existe');
                 } else {
-                    var iniciarSesion = data.split('*');
-                    console.log(iniciarSesion)
-                    sessionStorage.setItem("j1", iniciarSesion[0]);
-                    sessionStorage.setItem("foto", iniciarSesion[1]);
-                    window.location = "/Proyecto-Ajedrez/index.html"
+                    //var iniciarSesion = data.split('*'); //obtenco los datos para iniciar sesion luego de loguearse
+
+                    //sessionStorage.setItem("j1", iniciarSesion[0]);
+                    //sessionStorage.setItem("foto", iniciarSesion[1]);
+                    //window.location = "/Proyecto-Ajedrez/index.html"
                 }
             },
         });
@@ -128,9 +168,9 @@ class Usuario {
             });
         } else {
             let urls = { 0: "Usuario/PHP/cambiarNombre.php", 1: "Usuario/PHP/cambiarIcono.php" }
-            let data = { 0: { nombreActual: nombreActual, nombreNuevo: nombreNuevo } , 1: { nombreActual: nombreActual, icono: icono }}
+            let data = { 0: { nombreActual: nombreActual, nombreNuevo: nombreNuevo }, 1: { nombreActual: nombreActual, icono: icono } }
             if (icono != null) {
-                for (i=0; i <= 1; i++) {
+                for (i = 0; i <= 1; i++) {
                     $.ajax({
                         type: "POST",
                         url: urls[i],
@@ -143,13 +183,13 @@ class Usuario {
                         }
                     });
                 }
-            }else{
+            } else {
                 $.ajax({
                     type: "POST",
                     url: urls[0],
                     data: data[0],
                     success: function (response) {
-                        console.log(response)                        
+                        console.log(response)
                         sessionStorage.setItem("foto", icono)
                         sessionStorage.setItem("j1", nombreNuevo)
                         actualizarNick("...");

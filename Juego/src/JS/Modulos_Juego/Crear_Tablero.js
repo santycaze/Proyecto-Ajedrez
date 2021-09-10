@@ -2,8 +2,6 @@
  * 
  */
 import { colorJugador,colorOpuesto,letras,numeros,color,blancas,negras } from "./Datos_De_Juego.js";
-import { relojJ1,relojJ2 } from "./Tiempo.js";
-
 
 
 var contador = 9,

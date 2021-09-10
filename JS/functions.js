@@ -46,7 +46,13 @@ function registrar() {
         nomDirector: document.getElementById('ndire').value,
         mailDirector: document.getElementById('edire').value
     }
-
+/*
+       this.Institucion = inst;
+        this.aCursivo = acursivo;
+        this.contLiceo = cliceo;
+        this.nombreDirector = nomDirector;
+        this.mailDirector = mDirector;
+ */
     datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo,registro.institucion,registro.aCursivo,registro.cLiceo,registro.nomDirector,registro.mailDirector)
     //parametros
     let param0 = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(\w){8,15}$/ //Parametros para validar 'pass'
@@ -103,7 +109,7 @@ function registrar() {
         //
         if (valido === true) {
             console.log('No hay datos invalidos')
-            const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png");
+            const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png",registro.institucion,registro.aCursivo,registro.cLiceo,registro.nomDirector,registro.mailDirector);
             usuario.register();
         }
     }
