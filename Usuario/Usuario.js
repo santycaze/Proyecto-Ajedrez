@@ -142,11 +142,10 @@ class Usuario {
                 if (data == 1) {
                     alert('El nombre de usuario ya existe');
                 } else {
-                    //var iniciarSesion = data.split('*'); //obtenco los datos para iniciar sesion luego de loguearse
-
-                    //sessionStorage.setItem("j1", iniciarSesion[0]);
-                    //sessionStorage.setItem("foto", iniciarSesion[1]);
-                    //window.location = "/Proyecto-Ajedrez/index.html"
+                    var iniciarSesion = data.split('*'); //obtenco los datos para iniciar sesion luego de loguearse
+                    sessionStorage.setItem("j1", iniciarSesion[0]);
+                    sessionStorage.setItem("foto", iniciarSesion[1]);
+                    window.location = "/Proyecto-Ajedrez/index.html"
                 }
             },
         });
