@@ -20,8 +20,11 @@
 
         <form action="" id="form-register">
             <h1>Registrarse</h1>
+            <input type="text" placeholder="Nombre de Usuario" id="nuser">
+            <span id="error" error='usuario'>*Nombre de usuario invalido</span>
             <div class="div-wrapper-register">
 
+                
                 <div class="contenedor-register1">
                   
                     <input type="text" placeholder="Nombre Completo" id="nomc" />
@@ -32,6 +35,10 @@
                     <span id="error" error='mail'>*Email invalido</span>
                     <input type="tel" placeholder="Telefono" id="cel">
                     <span id="error" error='celular'>*Numero de telefono invalido</span>
+                    <input type="text" placeholder="Institucion" id="inst">
+                    <span id="error" error='Institucion'>*Nombre de Institucion invalido</span>
+                    <input type="number" placeholder="Año cursivo" id="ac">
+                    <span id="error" error='Año cursivo'>*Año cursivo invalido</span>
                 </div>
                 <div class="contenedor-register2">
                    
@@ -39,10 +46,15 @@
                     <span id="error" error='contra'>*La contrasena no cumple con los requisitos</span>
                     <input type="number" placeholder="CI" id="CI">
                     <span id="error" error='ci'>*Documento invalido</span>
-                    <input type="text" placeholder="Nombre de Usuario" id="nuser">
-                    <span id="error" error='usuario'>*Nombre de usuario invalido</span>
+                   
                     <input type="date" placeholder="Nacimiento" id="nac" value="2002-12-12">
                     <span id="error" error='nacimiento'>*Fecha de nacimiento invalida</span>
+                    <input type="number" placeholder="Contacto liceo" id="cliceo">
+                    <span id="error" error='Contacto liceo'>*Numero invalido</span>
+                    <input type="text" placeholder="Nombre Director" id="ndire">
+                    <span id="error" error='Institucion'>*Nombre de Director invalido</span>
+                    <input type="email director" placeholder="Email Director" id="edire">
+                    <span id="error" error='mail'>*Email Director invalido</span>
                 </div>
             </div>
             <select id="Tipo" name="TipoUsuario">
