@@ -7,184 +7,60 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hammersmith+One&display=swap');
 
-.perfil-wrapper{
+
+.contenedor-general{
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
-    width: 100%;
     height: 100vh;
+    width: 100%;
+    background:rgba(0, 0, 0, 0.158);
     position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.349);
-    z-index: 999999;
-    animation: opacidad 1.5s forwards;
+    z-index: 99999;
 }
-
-@keyframes opacidad{
-    0%{
-        opacity: 0;
-    }
-
-    100%{
-        opacity: 1;
-    }
-}
-
-.perfil{
-    width: 67%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    background:#0D5277 ;
-    border-radius: 20px;
-    position: relative;
-}
-
 .contenedor-wrapper{
-    width: 100%;
-    height: 500px;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 20% 1fr;
-}
-
-.foto-perfil-verperfil{
-    max-width: 300px;
     display: flex;
-    justify-content: center;
-    height: 100%;
-    background: #041a25;
     flex-direction: column;
-    text-align: center;
-    color: white;
-    font-size: 25px;
-}
-
-
-.foto-perfil-verperfil img{
-    width: 70%;
-    height: auto;
-    margin: 0 auto;
-    
-}
-
-.contenedor-nombres-trofeos-verperfil{
-    max-width: 950px;
-    width: 100%;
-}
-
-.contenedor-nombre-verperfil{
-    margin-left: 40px;
-}
-
-.contenedor-nombre-verperfil h2{
-    font-size: 50px;
-    font-family: 'Bree Serif', serif;
-}
-
-.contenedor-trofeos-verperfil{
-    width: 100%;
-    font-family: 'Bree Serif', serif;
-    text-align: center;
-}
-
-.trofeos-wrapper{
-    display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    text-align: center;
+    background: #0d5277;
     width: 100%;
-}
-
-.trofeo-verperfil{
-    width: 240px;
-    height: 240px;
-    background: #0a4768;
+    max-width: 400px;
+    padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.623);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
+    margin: 15px;
 }
 
-.trofeo-icono-verperfil i{
-    font-size: 150px;
-    color: yellow;
-}
-
-.contenedor-logros-verperfil{
+.contenedor-wrapper img{
+    max-width: 160px;
     width: 100%;
-    height: 100px;
-    background: #0a4768;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.623);
+    margin-bottom: 14px;
 }
 
-.contenedor-logros-verperfil{
-    justify-content: space-evenly;
-    align-items: center;
-    display: flex;
-    border-radius: 0 0 20px 20px;
-}
-
-.icono-logro-verperfil{
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background: #0a4768;
-      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.623);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icono-logro-verperfil i{
-    font-size: 50px;
-    color: #ffAA00;
-}
-
-.cerrar-perfil{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-}
-
-.cerrar-perfil i{
-    font-size: 25px;
+.contenedor-wrapper h1{
+    margin-bottom: 14px;
+    font-family: 'Bree Serif', serif;
     color: white;
 }
 
-@media screen and (max-width:1500px){
-    .trofeo-verperfil{
-        width: 200px;
-        height: 200px;
-    }
-    .foto-perfil-verperfil img{
-        padding: 0;
-       width: 80%;
-       height: auto;
-       margin: 0 auto;
-    }
+.contenedor-wrapper button{
+    margin-top: 14px;
+    border: none;
+    padding: 15px;
+    border-radius: 1em;
+    color: white;
+    font-size: 15px;
+    font-family: 'Bree Serif', serif;
+    transition: 2s;
+    background: #093d58;
 }
 
-@media screen and (max-width:1200px){
-    .trofeo-verperfil{
-        width: 150px;
-        height: 150px;
-    }
-.trofeo-verperfil i{
-    font-size: 70px;
+.contenedor-wrapper p{
+    color: white;
 }
 
-.foto-perfil-verperfil img{
-    padding: 0;
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-}
+.contenedor-wrapper button:hover{
+    
+    background: #0a4768;
 }

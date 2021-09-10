@@ -4,35 +4,17 @@ $usuario = $_POST['usr'];
 $icono = $_POST['img'];
 
 $ver = '
-<div class="perfil-wrapper">
-    <div class="perfil">
-    <a class="cerrar-perfil" onclick="cerrarperfil()"><i class="far fa-times-circle"></i></a>
-        <div class="contenedor-wrapper">
-            <div class="foto-perfil-verperfil">
-                <img src="' . $icono . '" alt=""> <h1>' . $usuario . '</h1>
-            </div>
-            <div class="contenedor-nombres-trofeos-verperfil">
-                <div class="contenedor-trofeos-verperfil">
-                    <h2>Trofeos</h2>
-                    <div class="trofeos-wrapper">
-                        <div class="trofeo-verperfil"><h2>Trofeo1</h2><div class="trofeo-icono-verperfil"><i class="fas fa-trophy"></i></div></div>
-                        <div class="trofeo-verperfil"><h2>Trofeo2</h2><div class="trofeo-icono-verperfil"><i class="fas fa-trophy"></i></div></div>
-                        <div class="trofeo-verperfil"><h2>Trofeo3</h2><div class="trofeo-icono-verperfil"><i class="fas fa-trophy"></i></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="contenedor-logros-verperfil">
-            <div class="icono-logro-verperfil"> <i class="fas fa-medal"></i> </div>
-            <div class="icono-logro-verperfil"><i class="fas fa-medal"></i></div>
-            <div class="icono-logro-verperfil"><i class="fas fa-medal"></i></div>
-            <div class="icono-logro-verperfil"><i class="fas fa-medal"></i></div>
-            <div class="icono-logro-verperfil"><i class="fas fa-medal"></i></div>
-            <div class="icono-logro-verperfil"><i class="fas fa-medal"></i></div>
-            <div class="icono-logro-verperfil"><i class="fas fa-medal"></i></div>
-        </div>
+<body>
+    <div class="contenedor-general" id="cont-gral">
+    <div class="contenedor-wrapper">
+        <img src="IMG/Icono12.png" alt="">
+        <h1>Larry</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias deserunt accusantium rem quas nemo quaerat
+            voluptatibus, id quis! Nulla alias nisi doloribus! Recusandae, accusamus praesentium?</p>
+            <button onclick="close_perfil()">Cerrar</button>
     </div>
-</div>';
+</div>
+';
 
 echo $ver;
 return $ver;

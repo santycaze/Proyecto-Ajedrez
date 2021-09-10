@@ -1,0 +1,17 @@
+.formulario_contacto{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        
+        background-color: #fff;
+        color: #000;
+        height: 180px;
+        padding: 50px;
+      }
+    
+.nombre{
+    text-align: center;
+    background-color: orangered;
+     border-radius: 30px;
+}
