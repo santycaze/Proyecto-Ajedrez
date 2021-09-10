@@ -13,19 +13,7 @@ $.ajax({
     url: "src/PHP/confInicioDeJuego.php",
     data: { jugadores: nombre },
     success: function (response) {
-        //
-        var instancias = response.split('-')
-        instancias.forEach(element => {
-            if (element != "") {
-                var objInstancias = JSON.parse(element)
-
-                if (objInstancias.jugador1 == nombre) {
-                    sessionStorage.setItem('colorJugador', objInstancias.colorJugador1)
-                } else if (objInstancias.jugador1 == nombre) {
-                    sessionStorage.setItem('colorJugador', objInstancias.colorJugador2)
-                }
-            }
-        });
+        console.log(response)
         //
     }
 });

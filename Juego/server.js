@@ -26,11 +26,11 @@ io.on('connection', (socket) => {
     socket.on('conectado', (usuario) => {
         if (Object.keys(usuarios).length <= 2 && usuario != null) {
             usuarios[usuario] = socket.id
-            console.log("nuevo jugador   --->  " + usuario)
+            console.log(`nuevo jugador   --->  ${usuario}`)
             jugadores.push(usuario)
         } else if (Object.keys(usuarios).length > 2 && usuario != null) {
             usuarios[usuario] = socket.id
-            console.log("nuevo espectador   --->  " + usuario)
+            console.log(`nuevo espectador   --->   ${usuario}`)
             espectadores.push(usuario)
         }
         
@@ -80,4 +80,5 @@ con.connect(function (err) {
     if (err) {
         return console.error('error: ' + err.message);
     }
+    console.log(`Conectado`)
 });

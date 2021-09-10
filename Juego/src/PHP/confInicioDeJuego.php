@@ -2,6 +2,19 @@
 include "instanciaDeJuego.php";
 require "../../../PHP/Servidor/servidor.php";
 
+$server = new Servidor();
+
+$instancias = json_encode($server->datosInstancias());
+
+
+if ($instancias!='[]') {
+    echo $instancias;
+}else{
+    echo 'el jugador se une como jugador2';
+}
+
+
+
 $jugador = $_POST['jugadores'];
 
 $jugadores = [];
@@ -18,5 +31,5 @@ if (!isset($jugadores[1])) {
 array_push($instancias,$ij->obtenerInstancia());
 
 for ($i=0; $i < sizeof($instancias); $i++) { 
-    echo '-'.$instancias[$i];
+   // echo '-'.$instancias[$i];
 }

@@ -97,7 +97,7 @@ function colocarFichas() {
 
 function casillas(value, color) {
     /*
-    Creo las casillas del tablero y
+    Creo las casillas del tablero y coloco las fichas.
     */
     if (value == undefined) { //si la casilla no tiene ficha
         if (contador == 8) {
