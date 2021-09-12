@@ -8,12 +8,13 @@ import { reanudarTiempo } from "./Tiempo.js";
  */
 const socket = io('http://localhost:3000');
 
-
 var nombre = sessionStorage.getItem('j1')
 
 socket.emit('conectado', nombre)
-socket.emit('buscarJugador')
 
+/**
+ *                                JUEGO
+ */
 socket.on('movimiento', movida => {
     let numero2
     let numero
@@ -35,30 +36,45 @@ socket.on('cambioDeTurno', () => {
     reanudarTiempo()
 })
 
+export function enviarDatos(datosJuego) {
+    socket.emit('piezaMovida', datosJuego)
+}
+
+
+/**
+ *                                 BUSCADOR DE JUGADORES
+ */
+
+ socket.emit('buscarJugador')
+
+
 socket.on('jugadorEncontrado', (jugador,color) => {
 
-    console.log('jugadorEncontrado')
-    sessionStorage.setItem('colorJugador',color)
     comenzarJuego()
+    sessionStorage.setItem('colorJugador',color)
 
     if (jugador[0].nombreUsuario !== nombre) {
+
         clearInterval(loopBuscador)
         $('#Jugador2').html(jugador[0].nombreUsuario)
+
         let img = document.createElement('img');
         img.setAttribute('src', '../' + jugador[0].iconoUsuario)
         img.setAttribute('id', 'foto-jugador2')
         $('#icono-jugador2').html(img)
+
     }else{
+
         clearInterval(loopBuscador)
         $('#Jugador2').html(jugador[1].nombreUsuario)
+
         let img = document.createElement('img');
         img.setAttribute('src', '../' + jugador[1].iconoUsuario)
         img.setAttribute('id', 'foto-jugador2')
         $('#icono-jugador2').html(img)
+
     }
 
 })
 
-export function enviarDatos(datosJuego) {
-    socket.emit('piezaMovida', datosJuego)
-}
+

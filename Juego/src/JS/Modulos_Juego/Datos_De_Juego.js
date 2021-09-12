@@ -1,5 +1,5 @@
 import { crearTablero } from "./Crear_Tablero.js";
-import { reanudarTiempo,mostrarTiempo } from "./Tiempo.js";
+import { reanudarTiempo,mostrarTiempo,pararTiempo } from "./Tiempo.js";
 /**
  * 
  */
@@ -37,8 +37,13 @@ export function comenzarJuego() {
 
 
     if (sessionStorage.getItem('colorJugador') == null) {
+        
         colorJugador = 1
+        sessionStorage.setItem('turno', false)
+        pararTiempo()
+
     } else {
+
         colorJugador = sessionStorage.getItem('colorJugador');  //1: blancas 0: negras
         reanudarTiempo()
         mostrarTiempo()
@@ -51,6 +56,7 @@ export function comenzarJuego() {
                 break;
 
         }
+
     }
 
 

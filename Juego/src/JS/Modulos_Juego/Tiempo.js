@@ -1,6 +1,7 @@
 
 
-
+let RelojJugador1;
+let RelojJugador2;
 
 let minutos = 10;
 let tiempoInicial = minutos * 60
@@ -29,10 +30,13 @@ export function reanudarTiempo() {
 }
 
 
-
+export function pararTiempo(){
+    clearInterval(RelojJugador1)
+    clearInterval(RelojJugador2)
+}
 
 function rj1() {
-    let RelojJugador1 = setInterval(() => {
+    RelojJugador1 = setInterval(() => {
         if (sessionStorage.getItem('turno') == 'true' && TiempoJugador1 !== 0) {
             TIEMPO_JUGADOR_1_MINUTOS = parseInt(TiempoJugador1 / 60)
             TIEMPO_JUGADOR_1_SEGUNDOS = parseInt(TiempoJugador1 % 60)
@@ -49,7 +53,7 @@ function rj1() {
 }
 
 function rj2() {
-    let RelojJugador2 = setInterval(() => {
+    RelojJugador2 = setInterval(() => {
         if (sessionStorage.getItem('turno') != 'true' && TiempoJugador2 !== 0) {
             TIEMPO_JUGADOR_2_MINUTOS = parseInt(TiempoJugador2 / 60)
             TIEMPO_JUGADOR_2_SEGUNDOS = parseInt(TiempoJugador2 % 60)

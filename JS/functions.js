@@ -40,20 +40,13 @@ function registrar() {
         nuser: document.getElementById('nuser').value,
         nac: document.getElementById('nac').value,
         tipo: document.getElementById('Tipo').value,
-        institucion:document.getElementById('inst').value,
+        institucion: document.getElementById('inst').value,
         aCursivo: document.getElementById('ac').value,
         cLiceo: document.getElementById('cliceo').value,
         nomDirector: document.getElementById('ndire').value,
         mailDirector: document.getElementById('edire').value
     }
-/*
-       this.Institucion = inst;
-        this.aCursivo = acursivo;
-        this.contLiceo = cliceo;
-        this.nombreDirector = nomDirector;
-        this.mailDirector = mDirector;
- */
-    datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo,registro.institucion,registro.aCursivo,registro.cLiceo,registro.nomDirector,registro.mailDirector)
+    datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo, registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector)
     //parametros
     let param0 = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(\w){8,15}$/ //Parametros para validar 'pass'
     let param1 = /[\s\d\W]/ //Parametros para validar 'nom','ap'
@@ -62,14 +55,16 @@ function registrar() {
 
     validacion: {
         valido = true;
+        /*
         for (let i = 0; i < datos.length; i++) {
             if (datos[i] == '') {
                 $('[error=campos-vacios]').css('display', 'block')
                 break validacion;
-            }else{
+            } else {
                 $('[error=campos-vacios]').css('display', 'none')
             }
         }
+
         //
         if (param0.test(registro.pass) == false) {
             //La contrasena debe tener de 8 a 15 catacteres ademas de una mayuscula una minuscula y un numero.
@@ -107,10 +102,22 @@ function registrar() {
             $('[error=ci]').css('display', 'none')
         }
         //
+        */
         if (valido === true) {
-            console.log('No hay datos invalidos')
-            const usuario = new Usuario(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png",registro.institucion,registro.aCursivo,registro.cLiceo,registro.nomDirector,registro.mailDirector);
-            usuario.register();
+            console.log('0')
+            const usuario = new Usuario();
+            switch (registro.tipo) {
+                case '1':
+                    console.log('1')
+                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png",registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
+                    jugador.registrarJugador()
+                    break;
+                case '2':
+                    console.log('2')
+                    break;
+            }
+
+            //usuario.register();
         }
     }
 }
