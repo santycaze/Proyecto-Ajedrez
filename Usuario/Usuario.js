@@ -1,5 +1,5 @@
 class Usuario {
-    constructor(usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, Passwd, tipo, icono) {
+    constructor(usuario, Nombre, Apellido, mail, ci, celular, Fnacimiento, tipo, icono) {
         this.Usuario = usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -7,7 +7,6 @@ class Usuario {
         this.Ci = ci;
         this.Cel = celular;
         this.Fnac = Fnacimiento;
-        this.Cont = Passwd;
         this.Tipo = tipo;
         this.Icono = icono;
     }
@@ -30,10 +29,6 @@ class Usuario {
                 }
             }
         });
-    }
-
-    register() {
-
     }
 
     guardarModificacion(nombreActual, nombreNuevo, icono) {
@@ -81,6 +76,10 @@ class Usuario {
                 });
             }
         }
+    }
+
+    mostrarUsuario(){
+        return JSON.stringify(this.Usuario)
     }
 }
 

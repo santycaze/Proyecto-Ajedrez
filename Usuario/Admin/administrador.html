@@ -6,7 +6,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="Periodistas/JS/Periodistas.js"></script>
     <script src="Passwd/JS/Passwd.js"></script>
-    <script src="Jugadores/JS/Jugadores.js"></script>
+    <script src="../Usuario.js"></script>
+    <script src="../Jugador/Jugador.js"></script>
+    <script src="Jugadores/JS/TablaJugadores.js"></script>
     <script src="Torneos/JS/ftorneo.js"></script>
     <script src="../../JS/loader.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
@@ -34,8 +36,7 @@
         
     </header>
     <div id="desplegar">
-        <li><button class="boton-sidebar" id="Usuario" onclick="Jugadores()"><i
-                    class="fas fa-user"></i>Jugadores</button></li>
+        <li><button class="boton-sidebar" id="Usuario"><i class="fas fa-user"></i>Jugadores</button></li>
         <li><button class="boton-sidebar" onclick="Periodistas()"><i class="fas fa-book-open"></i>Periodistas</button>
         </li>
         <li><button class="boton-sidebar"><i class="fas fas fa-exclamation-circle"></i>Noticias</button></li>
@@ -46,14 +47,9 @@
         <li><button class="boton-sidebar"><i class="fas fa-box-open"></i>Fixture</button></li>
     </div>
     <div class="sidebar">
-        <script>
-            $(document).ready(function () {
-                Jugadores();
-            });
-        </script>
         <h1>Administrador</h1>
         <ul id="menu-contenedor">
-            <li><button class="boton-sidebar" id="Usuario" onclick="Jugadores()"><i
+            <li><button class="boton-sidebar" id="Usuario"><i
                         class="fas fa-user"></i>Jugadores</button></li>
             <li><button class="boton-sidebar" onclick="Periodistas()"><i
                         class="fas fa-book-open"></i>Periodistas</button></li>

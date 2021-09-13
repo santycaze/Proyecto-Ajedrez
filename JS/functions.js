@@ -29,7 +29,9 @@ function login() {
 function onkey(event) { if (event.keyCode == 13) { login(); } }
 
 function registrar() {
+    
     let datos = new Array();
+
     let registro = {
         pass: document.getElementById('pass').value,
         nomc: document.getElementById('nomc').value,
@@ -46,6 +48,7 @@ function registrar() {
         nomDirector: document.getElementById('ndire').value,
         mailDirector: document.getElementById('edire').value
     }
+
     datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo, registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector)
     //parametros
     let param0 = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(\w){8,15}$/ //Parametros para validar 'pass'
@@ -55,7 +58,7 @@ function registrar() {
 
     validacion: {
         valido = true;
-        /*
+
         for (let i = 0; i < datos.length; i++) {
             if (datos[i] == '') {
                 $('[error=campos-vacios]').css('display', 'block')
@@ -102,18 +105,15 @@ function registrar() {
             $('[error=ci]').css('display', 'none')
         }
         //
-        */
+
         if (valido === true) {
-            console.log('0')
             const usuario = new Usuario();
             switch (registro.tipo) {
                 case '1':
-                    console.log('1')
-                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.pass, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png",registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
-                    jugador.registrarJugador()
+                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png",registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
+                    jugador.registrarJugador(registro.pass)
                     break;
                 case '2':
-                    console.log('2')
                     break;
             }
 

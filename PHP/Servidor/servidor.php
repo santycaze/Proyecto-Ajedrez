@@ -17,7 +17,7 @@ class Servidor
     /*---------------------------------------------------------------------------------------------------------------------------------*/
     public function datosJugador()
     {
-        //institucion,añoCurso,nombreUsuario,nombreCompleto,ci,rankingJugador,logros
+        //nombreUsuario,nombre,mail,ci,apellidos,celular,nacimiento,tipoUsuario,iconoUsuario,institucion,añoCurso,contactoLiceo,nombreDirector,mailDirector
         $conn = $this->conexion();
         $json = array();
         $query = "CALL datosJugador()";
@@ -25,9 +25,9 @@ class Servidor
 
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idJugador, $institucion, $añoCursivo, $nombreUsuario, $nombreCompleto, $ci, $rankELO, $logros);
+            $stmt->bind_result($nombreUsuario,$nombre,$mail,$ci,$apellidos,$celular,$nacimiento,$tipoUsuario,$iconoUsuario,$institucion,$aCurso,$contactoLiceo,$nombreDirector,$mailDirector);
             while ($stmt->fetch()) {
-                $fila = array('idJugador' => $idJugador, 'institucion' => $institucion, 'añoCursivo' => $añoCursivo, 'nombreUsuario' => $nombreUsuario, 'nombreCompleto' => $nombreCompleto, 'ci' => $ci, 'rankELO' => $rankELO, 'logros' => $logros);
+                $fila = array('nombreUsuario' => $nombreUsuario, 'nombre' => $nombre, 'mail' => $mail, 'ci' => $ci, 'apellidos' => $apellidos, 'celular' => $celular, 'nacimiento' => $nacimiento, 'tipoUsuario' => $tipoUsuario,'iconoUsuario'=>$iconoUsuario,'institucion'=>$institucion,'aCurso'=>$aCurso,'contactoLiceo'=>$contactoLiceo,'nombreDirector'=>$nombreDirector,'mailDirector'=>$mailDirector);
                 $json[] = $fila;
             }
         }
@@ -125,10 +125,10 @@ class Servidor
     public function eliminarJugador()
     {
         $conn = $this->conexion();
-        $datos = array("idJugador" => $_POST['idJ']);
+        $datos = array("usr" => $_POST['usr']);
         $query = "CALL EliminarJugador(?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $datos["idJugador"]);
+        $stmt->bind_param("s", $datos["usr"]);
         $stmt->execute();
         $stmt->close();
     }
