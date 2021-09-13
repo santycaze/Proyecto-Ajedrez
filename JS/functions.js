@@ -29,7 +29,7 @@ function login() {
 function onkey(event) { if (event.keyCode == 13) { login(); } }
 
 function registrar() {
-    
+
     let datos = new Array();
 
     let registro = {
@@ -50,7 +50,7 @@ function registrar() {
     }
 
     datos.push(registro.pass, registro.nomc, registro.ap, registro.email, registro.cel, registro.ci, registro.nuser, registro.nac, registro.tipo, registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector)
-    //parametros
+    //condiciones que deben cumplir os datos ingresados por el usuario
     let param0 = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(\w){8,15}$/ //Parametros para validar 'pass'
     let param1 = /[\s\d\W]/ //Parametros para validar 'nom','ap'
     let param2 = /^\w*(@gmail.com){1}$/ //parametros para validar 'mail'
@@ -110,7 +110,7 @@ function registrar() {
             const usuario = new Usuario();
             switch (registro.tipo) {
                 case '1':
-                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png",registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
+                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png", registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
                     jugador.registrarJugador(registro.pass)
                     break;
                 case '2':
@@ -251,16 +251,10 @@ function cerrar() {
 /*======================================================================================================================================================*/
 function cerrarSesion() {
     cerrarmod()
-    $.ajax({
-        type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/PHP/cerrarSesion.php",
-        success: function () {
-            sessionStorage.clear();
-            $("#botonLogIn").prop('disabled', false)
-            $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
-            actualizarNick()
-        }
-    });
+    sessionStorage.clear();
+    $("#botonLogIn").prop('disabled', false)
+    $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
+    actualizarNick()
 }
 
 function cerrarLogin() {
