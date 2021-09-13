@@ -67,22 +67,6 @@ function tableroIntel(ficha, posicion){
     coord = posicion.split(".");
     var letra = coord[1];
     var numero = coord[0];
-    sessionStorage.removeItem("fichaArriba")
-    sessionStorage.removeItem("fichaEArriba")
-    sessionStorage.removeItem("fichaAbajo")
-    sessionStorage.removeItem("fichaEAbajo")
-    sessionStorage.removeItem("fichaIzquierda")
-    sessionStorage.removeItem("fichaEIzquierda")
-    sessionStorage.removeItem("fichaDerecha")
-    sessionStorage.removeItem("fichaEDerecha")
-    sessionStorage.removeItem("fichaDiagDerechaAbajo")
-    sessionStorage.removeItem("fichaEDiagDerechaAbajo")
-    sessionStorage.removeItem("fichaDiagDerechaArriba")
-    sessionStorage.removeItem("fichaEDiagDerechaArriba")
-    sessionStorage.removeItem("fichaDiagIzquierdaArriba")
-    sessionStorage.removeItem("fichaEDiagIzquierdaArriba")
-    sessionStorage.removeItem("fichaDiagIzquierdaAbajo")
-    sessionStorage.removeItem("fichaEDiagIzquierdaAbajo")
     //--------------------------------------------------------------------------------------------------------------------------//
     /* 
         Marco los lugares para posibles movimientos o comidas de las piezas
@@ -112,7 +96,7 @@ function tableroIntel(ficha, posicion){
 }
 
 export function Movimiento(seleccion, destino) {
-
+    console.log(seleccion)
     var ficha = document.getElementById(seleccion).value;
     separadorA = seleccion.split("-");
     separadorB = destino.split("-");
@@ -124,13 +108,10 @@ export function Movimiento(seleccion, destino) {
         //document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></button>';//calavera
         document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" value="' + ficha + '">' + ficha + '<div class="pMovimiento" position="' + separadorB[0] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorB[0] + '"></skull></div></button>'; //calavera
-        //puntaje();
-        $('#tablamov').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + "x" + lnB[0] + lnB[1] + '</td></tr>')
     } else {
         //document.getElementById('efectoMovimiento').play()
         document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorA[0] + '"></skull></div></button>';
         document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" value="' + ficha + '"><div class="pMovimiento" position="' + destino + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + destino + '"></skull></div>' + ficha + '</button>'; //va calavera
-        $('#tablamov').append('<tr><td>' + sessionStorage.getItem('pieza') + '</td><td>' + lnB[0] + lnB[1] + '</td></tr>')
     }
     actualizarTablero()
     Output(destino)
@@ -176,9 +157,7 @@ function Output(destino) {
     let datos = {
         jugador: sessionStorage.getItem('j1'),
         colorJugador: colorJugador,
-        timepoMovida: '00:30',
         pieza: sessionStorage.getItem('pieza'),
-        puntaje: puntos,
         movimiento: [seleccion, destino]
     };
     datos = JSON.stringify(datos);
