@@ -78,9 +78,7 @@ header p {
     transition: 0.6s;
 }
 
-#hamburguesini{
-    display: none;
-}
+
 
 
 /* ======================================================= */
@@ -148,23 +146,25 @@ header p {
 }
 
 .tabla1{
-    width: 480px;
-    height: 380px;
-
+    width: auto;
+    height: auto;
+    text-align: center;
     color: rgb(0, 0, 0);
     font-family: 'Bree Serif', serif;
     border-spacing: 0;
     border-radius: 7px;
+    margin: 15px;
 }
 
 .tabla2{
-    width: 480px;
-    height: 380px;
-    
+    width: auto;
+    height: auto;
+    text-align: center;
     color: rgb(0, 0, 0);
     font-family: 'Bree Serif', serif;
     border-spacing: 0;
     border-radius: 7px;
+    margin: 15px;
 }
 
 .contenedor-tabla1, .contenedor-tabla2{
@@ -188,14 +188,16 @@ header p {
 }
 
 #col1{
-    width: 200px;
+    width: 100px;
     height: 30px;
     background: rgba(128, 128, 128, 0.322);
     border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+    padding: 5px;
 }
 
 #tabla1 td,#tabla2 td{
     height: 50px;
+    padding: 4px;
     display: table-cell;
     justify-content: center;
     align-items: center;
@@ -404,7 +406,7 @@ header p {
 
 
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1390px) {
     header{
         display: flex;
         justify-content: space-between;
@@ -463,13 +465,7 @@ header p {
 
 }
 
-@media screen and (max-width: 515px){
-    .contenido{
-        transform: scale(0.7);
-        margin-top: -500px;
-    }
-    .contenedor-torneo-emergente{
-        background: none;
-    }
+@media screen and (max-width: 650px){
+   
 } 
 
