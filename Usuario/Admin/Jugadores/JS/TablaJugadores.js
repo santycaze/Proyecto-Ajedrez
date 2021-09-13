@@ -11,6 +11,7 @@ div.setAttribute('class', 'td1')
 $(document).on('click', '#Usuario', function () {
 
     TraeJugadores(function (jugadores) {
+        
         $('#tablaJugadores').html(th)
         jugadores.forEach(jugador => {
 
@@ -45,7 +46,7 @@ $(document).on('click', '#Usuario', function () {
         });
     })
     $('#tabla1').html(TABLA_JUGADORES)
-    $('#tabla2').html(' ')
+    $('#tabla2').html('')
 });
 
 $(document).on('click','#tabla1 button', function () {
