@@ -11,8 +11,6 @@ if ($nombreUsuario != " " && $contra != " ") {
             $sentencia->bind_result($usr, $cont, $icono, $tipoUsr);
             if ($sentencia->fetch()) {
                 if ($usr == $nombreUsuario && $cont == $cifrado) {
-                    session_start();
-                    $_SESSION['nombre'] = $nombreUsuario;
                     $fila = array('nombre' => $nombreUsuario,'icono' => $icono, 'tipo' => $tipoUsr);
                     echo json_encode($fila);
                 }

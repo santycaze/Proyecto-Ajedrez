@@ -118,8 +118,6 @@ function casillas(value, color) {
 }
 
 export function actualizarTablero() {
-    //casillasClaras = sessionStorage.getItem("casillasClaras")
-    //casillasOscuras = sessionStorage.getItem("casillasOscuras")
     //Actualiza las casillas para eliminar selecciones anteriores
     for (let Y = 1; Y <= 8; Y++) {
         for (let X = 1; X <= 8; X++) {
