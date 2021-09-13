@@ -4,12 +4,7 @@ TABLA_JUGADORES.setAttribute('class', 'tabla1');
 
 let th = `<h2>Jugadores</h2><tbody id="tbody"><th id='col1'>Usuario</th> <th id='col1'>Nombre</th> <th id='col1'>Apellido</th> <th id='col1'>Institucion</th> <th id='col1'>Mail</th><th id='col1'>Eliminar</th></tbody>`;
 
-let div = document.createElement('div')
-div.setAttribute('class', 'td1')
-
-
 $(document).on('click', '#Usuario', function () {
-
     TraeJugadores(function (jugadores) {
         
         $('#tablaJugadores').html(th)
