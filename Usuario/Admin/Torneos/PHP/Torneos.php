@@ -1,14 +1,14 @@
 <?php
 
-include "CrearTorneo.php";
-include "Fixture.php";
+include "../../../../PHP/Servidor/servidor.php";
 
 /*
- * Parametros - crearTorneos
- * 
+ *
  * nombreTorneo - codigoIngreso - puntuacion - FCInscripciones - FFInscripciones - FCTorneo - FFTorneo - tiempoPartida - maximoParticipantes - tiempoMaxPartida - cantPartidas - horarios - tiempoMovimiento - nombreTrofeo - numeroPartidas
  * 
  */
+
+$servidor = new Servidor();
 
 $NombreTorneo = $_POST['nombreTorneo'];
 $CodigoIngreso = $_POST['codIngreso'];
@@ -17,20 +17,16 @@ $FCInscripciones = $_POST['fci'];
 $FFInscripciones = $_POST['ffi'];
 $FCTorneo = $_POST['fct'];
 $FFTorneo = $_POST['fft'];
-$tiempoPartida = $_POST['timepoPartida'];
+$tiempoPartida = $_POST['tiempoPartida'];
 $maximoParticipantes = $_POST['maxPart'];
 $timepoMaxPartida = $_POST['tiempoMaxPartida'];
-$cantPartidas = $_POST['cantPartida'];
+$cantPartidas = $_POST['cantPartidas'];
 $horarios = $_POST['horarios'];
 $tiempoMovimiento = $_POST['tiempoMov'];
 $nombreTrofeo = $_POST['nombreTrofeo'];
 $numeroPartidas = $_POST['numeroParidas'];
 
-$torneos = new CrearTorneo($numeroTorneo,$CodigoIngreso,$puntuacion, $FCInscripciones,$FFInscripciones,$FCTorneo, $FFTorneo,$tiempoPartida,$maximoParticipantes,$timepoMaxPartida,$cantPartidas,$horarios,$tiempoMovimiento,$nombreTrofeo,$numeroPartidas);
+echo $NombreTorneo."    ".$CodigoIngreso."    ".$puntuacion."    ".$FCInscripciones."    ".$FFInscripciones."    ".$FCTorneo."    ".$FFTorneo."    ".$tiempoPartida."    ".$maximoParticipantes."    ".$timepoMaxPartida."    ".$cantPartidas."    ".$horarios."    ".$tiempoMovimiento."    ".$nombreTrofeo."    ".$numeroPartidas;
 
-
-/**
- * realizo validacion de datos antes de guardar el torneo;
- */
-$torneos->devolverTorneo();
+//$servidor->crearTorneo($NombreTorneo,$CodigoIngreso,$puntuacion,$FCInscripciones,$FFInscripciones,$FCTorneo,$FFTorneo,$tiempoPartida,$maximoParticipantes,$timepoMaxPartida,$cantPartidas,$horarios,$tiempoMovimiento,$nombreTrofeo,$numeroPartidas);
 ?>
