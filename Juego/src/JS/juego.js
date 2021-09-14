@@ -6,6 +6,7 @@ import { seleccionado } from "./Modulos_Juego/Mover_Fichas.js";
 
 $(document).ready(function () {
     comenzarJuego()
+    resultado(0);
 });
 
 $(document).on('click', 'button', function () {
@@ -41,3 +42,14 @@ export let loopBuscador = setInterval(function () {
     $('#icono-jugador2').html(ICONO_JUGADOR_2)
     numeroIcono++
 }, 100);
+
+function resultado(result){
+    if(result == 1){
+        $('#carita').attr('class', 'fas fa-laugh-beam'); 
+        $('#mensaje-modal').html('Ganaste!'); 
+    }else if(result == 0){
+        $('#carita').attr('class', 'fas fa-frown'); 
+        $('#mensaje-modal').html('Perdiste!'); 
+    }
+    
+}
