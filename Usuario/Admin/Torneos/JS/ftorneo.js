@@ -16,7 +16,6 @@ function crTorneo() {
     let datosTorneo = {
         nomTorneo: document.getElementById('nomTorneo').value,
         codigoIngreso: document.getElementById('codigoIngreso').value,
-        puntuacion: document.getElementById('puntuacion').value,
         fechaApInsc: document.getElementById('apInscripciones').value,
         fechaFinInsc: document.getElementById('finInscripciones').value,
         comienzoTorneo: document.getElementById('comTorneo').value,
@@ -41,7 +40,7 @@ function crTorneo() {
         }
     }
     */
-    const torneo = new Torneo(datosTorneo.nomTorneo, datosTorneo.codigoIngreso, datosTorneo.puntuacion, datosTorneo.fechaApInsc, datosTorneo.fechaFinInsc, datosTorneo.comienzoTorneo, datosTorneo.finTorneo, datosTorneo.tiempoPartida, datosTorneo.maximoParticipantes, datosTorneo.tiempoMax, datosTorneo.cantPartidas, datosTorneo.Horarios, datosTorneo.tiempoMov, datosTorneo.nomTrofeo, datosTorneo.numeroPartidas);
+    const torneo = new Torneo(datosTorneo.nomTorneo, datosTorneo.codigoIngreso, datosTorneo.fechaApInsc, datosTorneo.fechaFinInsc, datosTorneo.comienzoTorneo, datosTorneo.finTorneo, datosTorneo.tiempoPartida, datosTorneo.maximoParticipantes, datosTorneo.tiempoMax, datosTorneo.cantPartidas, datosTorneo.Horarios, datosTorneo.tiempoMov, datosTorneo.nomTrofeo, datosTorneo.numeroPartidas);
     torneo.crearTorneo()
 }
 

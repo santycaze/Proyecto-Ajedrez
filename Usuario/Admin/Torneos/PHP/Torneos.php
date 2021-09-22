@@ -21,11 +21,10 @@ $fecha = DateTime::createFromFormat('Y/m/d', $_POST['fci']);
 
 $NombreTorneo = $_POST['nombreTorneo'];
 $CodigoIngreso = $_POST['codIngreso'];
-$puntuacion = $_POST['puntuacion'];
-$FCInscripciones = date("d/m/Y", strtotime($_POST['fci']));
-$FFInscripciones = date("d/m/Y", strtotime($_POST['ffi']));
-$FCTorneo = date("d/m/Y", strtotime($_POST['fct']));
-$FFTorneo = date("d/m/Y", strtotime($_POST['fft']));
+$FCInscripciones = date("Y/m/d", strtotime($_POST['fci']));
+$FFInscripciones = date("Y/m/d", strtotime($_POST['ffi']));
+$FCTorneo = date("Y/m/d", strtotime($_POST['fct']));
+$FFTorneo = date("Y/m/d", strtotime($_POST['fft']));
 $tiempoPartida = "00:".$_POST['tiempoPartida'];
 $maximoParticipantes = $_POST['maxPart'];
 $timepoMaxPartida = "00:".$_POST['tiempoMaxPart'];
@@ -36,5 +35,5 @@ $nombreTrofeo = $_POST['nombreTrofeo'];
 $numeroPartidas = $_POST['numeroPartidas'];
 
 //echo $NombreTorneo."    ".$CodigoIngreso."    ".$puntuacion."    ".$FCInscripciones."    ".$FFInscripciones."    ".$FCTorneo."    ".$FFTorneo."    ".$tiempoPartida."    ".$maximoParticipantes."    ".$timepoMaxPartida."    ".$cantPartidas."    ".$horarios."    ".$tiempoMovimiento."    ".$nombreTrofeo."    ".$numeroPartidas;
-$servidor->crearTorneo($NombreTorneo,$CodigoIngreso,$puntuacion,$FCInscripciones,$FFInscripciones,$FCTorneo,$FFTorneo,$tiempoPartida,$maximoParticipantes,$timepoMaxPartida,$cantPartidas,$horarios,$tiempoMovimiento,$nombreTrofeo,$numeroPartidas);
+$servidor->crearTorneo($NombreTorneo,$CodigoIngreso,$FCInscripciones,$FFInscripciones,$FCTorneo,$FFTorneo,$tiempoPartida,$maximoParticipantes,$timepoMaxPartida,$cantPartidas,$horarios,$tiempoMovimiento,$nombreTrofeo,$numeroPartidas);
 ?>
