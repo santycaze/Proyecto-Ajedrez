@@ -6,39 +6,43 @@ let th = `<h2>Jugadores</h2><tbody id="tbody"><th id='col1'>Usuario</th> <th id=
 
 $(document).on('click', '#Usuario', function () {
     TraeJugadores(function (jugadores) {
-        
-        $('#tablaJugadores').html(th)
-        jugadores.forEach(jugador => {
+        if(jugadores){
+            $('#tablaJugadores').html(th)
+            jugadores.forEach(jugador => {
+    
+                console.log(jugador)
+    
+                let tr = document.createElement('tr');
+                let tdUsuario = document.createElement('td');
+                let tdInstitucion = document.createElement('td');
+                let tdNombre = document.createElement('td');
+                let tdApellido = document.createElement('td');
+                let tdMail = document.createElement('td');
+                let tdEliminar = document.createElement('button');
+    
+                tdEliminar.setAttribute('id', jugador.Usuario)
+    
+                tdEliminar.innerHTML = "✖";
+                tdUsuario.textContent = jugador.Usuario;
+                tdInstitucion.textContent = jugador.Institucion;
+                tdNombre.textContent = jugador.Nombre;
+                tdApellido.textContent = jugador.Apellido;
+                tdMail.textContent = jugador.Mail;
+    
+                tr.appendChild(tdUsuario)
+                tr.appendChild(tdNombre)
+                tr.appendChild(tdApellido)
+                tr.appendChild(tdInstitucion)
+                tr.appendChild(tdMail)
+                tr.appendChild(tdEliminar)
+    
+                tr.setAttribute('id', jugador.Usuario)
+                TABLA_JUGADORES.appendChild(tr)
+            });
+        }else{
+            $('#tablaJugadores').html('No hay jugadores aun...')
+        }
 
-            console.log(jugador)
-
-            let tr = document.createElement('tr');
-            let tdUsuario = document.createElement('td');
-            let tdInstitucion = document.createElement('td');
-            let tdNombre = document.createElement('td');
-            let tdApellido = document.createElement('td');
-            let tdMail = document.createElement('td');
-            let tdEliminar = document.createElement('button');
-
-            tdEliminar.setAttribute('id', jugador.Usuario)
-
-            tdEliminar.innerHTML = "✖";
-            tdUsuario.textContent = jugador.Usuario;
-            tdInstitucion.textContent = jugador.Institucion;
-            tdNombre.textContent = jugador.Nombre;
-            tdApellido.textContent = jugador.Apellido;
-            tdMail.textContent = jugador.Mail;
-
-            tr.appendChild(tdUsuario)
-            tr.appendChild(tdNombre)
-            tr.appendChild(tdApellido)
-            tr.appendChild(tdInstitucion)
-            tr.appendChild(tdMail)
-            tr.appendChild(tdEliminar)
-
-            tr.setAttribute('id', jugador.Usuario)
-            TABLA_JUGADORES.appendChild(tr)
-        });
     })
     $('#tabla1').html(TABLA_JUGADORES)
     $('#tabla2').html('')
