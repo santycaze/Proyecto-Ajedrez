@@ -1,9 +1,11 @@
 <?php
-include '../../PHP/conexion.php';
+include '../../../PHP/conexion.php';
 
 $nombreUsuario = $_POST['user'];
 $contra = $_POST['pass'];
 $cifrado =sha1($contra);
+
+
 if ($nombreUsuario != " " && $contra != " ") {
     if ($sentencia = $mysqli->prepare("CALL login(?,?);")) {
         $sentencia->bind_param('ss', $nombreUsuario, $cifrado);
@@ -12,6 +14,9 @@ if ($nombreUsuario != " " && $contra != " ") {
             if ($sentencia->fetch()) {
                 if ($usr == $nombreUsuario && $cont == $cifrado) {
                     $fila = array('nombre' => $nombreUsuario,'icono' => $icono, 'tipo' => $tipoUsr);
+                    session_start();
+                    $_SESSION['usuario'] = $nombreUsuario; 
+                    $_SESSION['foto'] = $icono; 
                     echo json_encode($fila);
                 }
             } else {

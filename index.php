@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-
+    <?php
+require_once 'Usuario/PHP/Sesion/logeado.php';
+?>
     <!-- Scripts -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -11,15 +13,6 @@
     <script src="../Proyecto-Ajedrez/Usuario/Usuario.js"></script>
     <script src="../Proyecto-Ajedrez/JS/functions.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
-
-    <script>
-        $(document).ready(function () {
-            actualizarNick() 
-            if (sessionStorage.getItem('tipoUsr') != 3) {
-                $('#opcAdmin').hide()
-            }
-        });
-    </script>
     <!-- Fin Scripts -->
 
     <!-- Links -->
@@ -80,16 +73,36 @@
 
     <!-- Login / Opciones -->
     <div class="usuario">
-        <button onclick="llamarlogin()" id="botonLogIn">
-            <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
-            <p id="nick">Log in</p>
-        </button>
-        <div class="usuario-menu">
+    <div class="usuario-menu">
             <a class="a2" id="mod" onclick="Modificar()">Modificar perfil</a>
-           
             <a class="a2" id="opcAdmin" onclick="opcAdmin()">Opc. Admin</a>
-            <a class="a2" id="cerrarsesion" onclick="cerrarSesion()">Cerrar sesion</a>
+            <form id='cerrarSesion' method='post' action='Usuario/PHP/Sesion/cerrarSesion.php' role='form'>
+            <button class="a2" id="cerrarsesion" type='submit'>Cerrar sesion</a>
+            </form>
         </div>
+        <button onclick="llamarlogin()" id="botonLogIn">
+            <?php
+                if ($logueado == '1') {
+                ?>
+                <div id="iconoUsr"><img src='<?php echo $_SESSION['foto']; ?>' id="foto"></img></div>
+                <script>
+                $('#botonLogIn').prop('disabled','true')
+                if (sessionStorage.getItem('tipoUsr') != 3) {
+                    $('#opcAdmin').hide()
+                }
+                </script>
+                <p id="nick"><?php echo $_SESSION['usuario']; ?></p>
+                <?php
+            } else {
+                ?>
+                        <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
+                <p id="nick">Log in</p>
+                <script>$('.usuario-menu').hide()</script>
+                <?php
+            }
+?>
+
+        </button>
     </div>
     <!-- Fin Login / Opciones -->
 
@@ -99,9 +112,17 @@
         <h1>Juega Ajedrez Online</h1>
         <h2>8-Bit Chess</h2>
         <div class="contenedor-botones-inicio">
-            <button onclick="llamarajedrez()" class="boton-jugar"><i class="fas fa-chess-knight"></i>
-                <p>Jugar</p>
-            </button>
+        <?php
+                if ($logueado == '1') {
+                ?>
+                <button onclick="llamarajedrez()" class="boton-jugar"><i class="fas fa-chess-knight"></i><p>Jugar</p></button>
+                <?php
+            } else {
+                ?>
+                <button onclick="llamarlogin()" class="boton-jugar"><i class="fas fa-chess-knight"></i><p>Jugar</p></button>
+                <?php
+            }
+            ?>
             <button class="boton-estadisticas">
                 <p>Estadisticas</p><i class="fas fa-chart-bar"></i>
             </button>
@@ -305,32 +326,32 @@
 
 </html>
 
-<!--                                                                                                                                                                           
-                           -++-   -+-.==:               .-=:   -#-.:-:                    
-                       :=-+****+: :=: :-.           :-.-=====- :-: ::.                    
-                     -***********+-               .-====++=-===:                          
-             .--   -*###*********+++-   ::.::   .========---==--=:   .:                   
-           :+#.:*-#**##***+****+=+++++-  -+-.=:===========-=-------:   .:                 
-            .+##=:*####****+++=-=+*+++++: -+++.-===========----------:   =-.              
-             --:   :**####=::...::-+**++++--:-= .-==-        .-------=-: .=#              
-         :--##=.    :###+:          -+*+++++- .::--            :----=-===:  --            
-       .+%%%%%%%+.:*##*:              -+++++++:--                :---------: .=-          
-     .+%%%%%%%%%%%%#*:     .:::::.      -+++++-       .-==-.       :--------.   -:        
-   .=-+%%%%%%%%%%%*:      =##+++++=.      -++-       -======-.       :----.       ..      
- .=: -#%%%%%%%#%*:     .=######**#*+=:      -++:  .-+++++=====-.       :+=:    :-:  ..    
-   -#%%%#%%%%%*:     .+##=-########***+:      -++=+*###++=======-.       =#=.:+*---:      
-   :*%%%%#*#%%#-      -##**######**#****+:      -+++#%#++========-       =#+-===---:      
-    ::*%%%#%%%%%#-      -############=.-**+:      :++#*+++=====-       :#%#*+=---. . ..   
-    .=-:*%%%%%%%###-      -########=     -**+:      :++++++==-       :-+##+===-. ...:.    
-       =-:*%%%%%%##%*-      ::=-+=      .+****+:      :++++-       :====++==-. ....       
-        .=-:*%%%#%##%#*-              .+##******+:               :======*+-. .:.:         
-          .+-:*%%%#%%##*-.          .+#####*******+:           :========-:  ..:           
-         -#%#===*%%%%##*-+=...:.---+#*####===+******+:.......:=+=======:   .:             
-         .+##=.=-:*######*======-*#####**#=.++:=********+++++--+++===.   .:               
-          -- :--.=-:++####***#=.  :*#*:-*..==+*-.=*******++-.  .-+=.     .::              
-        -- -=.  --.=-:*%%%**++:     .-####+ =##---.=******+:        .==- :==:             
-       -  .=.   .=. .=-:*%%%##%*.   -*######=.+:  --.=*****+=.    .=++===:                
-            :-:-:      . :*%%##*:     -*####*:      : .=****+:     .=++=:                 
-                           :++.         :-              .==:         .:                   
-                                                                                         
+<!--
+                           -++-   -+-.==:               .-=:   -#-.:-:
+                       :=-+****+: :=: :-.           :-.-=====- :-: ::.
+                     -***********+-               .-====++=-===:
+             .--   -*###*********+++-   ::.::   .========---==--=:   .:
+           :+#.:*-#**##***+****+=+++++-  -+-.=:===========-=-------:   .:
+            .+##=:*####****+++=-=+*+++++: -+++.-===========----------:   =-.
+             --:   :**####=::...::-+**++++--:-= .-==-        .-------=-: .=#
+         :--##=.    :###+:          -+*+++++- .::--            :----=-===:  --
+       .+%%%%%%%+.:*##*:              -+++++++:--                :---------: .=-
+     .+%%%%%%%%%%%%#*:     .:::::.      -+++++-       .-==-.       :--------.   -:
+   .=-+%%%%%%%%%%%*:      =##+++++=.      -++-       -======-.       :----.       ..
+ .=: -#%%%%%%%#%*:     .=######**#*+=:      -++:  .-+++++=====-.       :+=:    :-:  ..
+   -#%%%#%%%%%*:     .+##=-########***+:      -++=+*###++=======-.       =#=.:+*---:
+   :*%%%%#*#%%#-      -##**######**#****+:      -+++#%#++========-       =#+-===---:
+    ::*%%%#%%%%%#-      -############=.-**+:      :++#*+++=====-       :#%#*+=---. . ..
+    .=-:*%%%%%%%###-      -########=     -**+:      :++++++==-       :-+##+===-. ...:.
+       =-:*%%%%%%##%*-      ::=-+=      .+****+:      :++++-       :====++==-. ....
+        .=-:*%%%#%##%#*-              .+##******+:               :======*+-. .:.:
+          .+-:*%%%#%%##*-.          .+#####*******+:           :========-:  ..:
+         -#%#===*%%%%##*-+=...:.---+#*####===+******+:.......:=+=======:   .:
+         .+##=.=-:*######*======-*#####**#=.++:=********+++++--+++===.   .:
+          -- :--.=-:++####***#=.  :*#*:-*..==+*-.=*******++-.  .-+=.     .::
+        -- -=.  --.=-:*%%%**++:     .-####+ =##---.=******+:        .==- :==:
+       -  .=.   .=. .=-:*%%%##%*.   -*######=.+:  --.=*****+=.    .=++===:
+            :-:-:      . :*%%##*:     -*####*:      : .=****+:     .=++=:
+                           :++.         :-              .==:         .:
+
 -->

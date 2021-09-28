@@ -10,7 +10,7 @@ $(document).ready(function () {
 function llamarlogin() {
     $.ajax({
         type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/PHP/llamarlogin.php",
+        url: "../Proyecto-Ajedrez/Usuario/PHP/Sesion/llamarlogin.php",
         success: function (response) {
             sessionStorage.clear()
             $('#login').show();
@@ -145,15 +145,8 @@ function guardarMod() {
     $('body').css('overflow', 'auto');
 }
 
-function actualizarNick() {
-    if (verificarSesion() == 1) {
-        $("#botonLogIn").html('<i id="foto"></i> <p id="nick"></p>')
-        $("#botonLogIn").prop('disabled', 'true')
-        $("#nick").html(sessionStorage.getItem("j1"))
-        $("#foto").html("<img id='foto2' src='" + sessionStorage.getItem("foto") + "'></img>")
-    } else {
-        $('.usuario-menu').hide()
-    }
+function esconderMenu() {
+
 }
 /*======================================================================================================================================================*/
 //                                                             Cambiar Contraseña                                                                       //
@@ -166,7 +159,7 @@ function restablecerContra() {
     if (passwd == cpasswd) {
         $.ajax({
             type: "POST",
-            url: "../Usuario/PHP/restablecerPasswd.php",
+            url: "../Usuario/PHP/OpcionesDeUsuario/restablecerPasswd.php",
             data: { usuario: usuario, passwd: passwd },
             success: function (response) {
                 console.log(response)
@@ -233,13 +226,7 @@ function cerrarperfil() {
 //                                                                    Boton Jugar                                                                       //
 /*======================================================================================================================================================*/
 function llamarajedrez() {
-    if (verificarSesion() == 1) {
-        window.location.href = 'Juego/juego.html'
-        llamarTablero();
-    } else {
-        llamarlogin();
-    }
-
+    window.location.href = 'Juego/juego.php'
 }
 
 function cerrar() {
@@ -263,11 +250,13 @@ function cerrarLogin() {
 }
 
 function verificarSesion() {
-    if (sessionStorage.getItem('j1') != null) {
-        return 1
-    } else {
-        return 0
-    }
+    $.ajax({
+        type: "POST",
+        url: "Usuario/PHP/Sesion/logeado.php",
+        success: function (response) {
+            console.log(response)
+        }
+    });
 }
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //

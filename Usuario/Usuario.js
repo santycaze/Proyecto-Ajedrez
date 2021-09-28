@@ -14,9 +14,10 @@ class Usuario {
     logIn(usr, pass) {
         $.ajax({
             type: "POST",
-            url: "/Proyecto-Ajedrez/Usuario/PHP/login.php",
+            url: "/Proyecto-Ajedrez/Usuario/PHP/Sesion/login.php",
             data: { user: usr, pass: pass },
             success: function (response) {
+                console.log(response)
                 if (response != 1) {
                     let datosUsuario = JSON.parse(response);
                     sessionStorage.setItem("j1", datosUsuario["nombre"]);
@@ -37,7 +38,7 @@ class Usuario {
         if (nombreNuevo == null) {
             $.ajax({
                 type: "POST",
-                url: "Usuario/PHP/cambiarIcono.php",
+                url: "Usuario/PHP/OpcionesDeUsuario/cambiarIcono.php",
                 data: { nombreActual: nombreActual, icono: icono },
                 success: function (response) {
                     console.log(response)
@@ -46,7 +47,7 @@ class Usuario {
                 }
             });
         } else {
-            let urls = { 0: "Usuario/PHP/cambiarNombre.php", 1: "Usuario/PHP/cambiarIcono.php" }
+            let urls = { 0: "Usuario/PHP/OpcionesDeUsuario/cambiarNombre.php", 1: "Usuario/PHP/OpcionesDeUsuario/cambiarIcono.php" }
             let data = { 0: { nombreActual: nombreActual, nombreNuevo: nombreNuevo }, 1: { nombreActual: nombreActual, icono: icono } }
             if (icono != null) {
                 for (i = 0; i <= 1; i++) {

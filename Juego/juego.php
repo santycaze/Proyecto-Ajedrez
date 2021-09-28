@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <?php require_once '../Usuario/PHP/Sesion/logeado.php';?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +21,6 @@
     <script defer src="src/JS/juego.js" type="module"></script>
     <script src="src/JS/JConfig.js"></script>
     <script src="src/JS/ventanachess.js"></script>
-
-    <script>
-        if (verificarSesion() === 1) {
-
-        }
-    </script>
-
 </head>
 
 <body>
@@ -44,9 +38,9 @@
 
                 <div class="contenedor-jugador1">
                     <p id="Jugador1">
-                        <script></script>
+                        <?php echo $_SESSION['usuario']; ?>
                     </p>
-                    <div id="icono-jugador1"></div>
+                    <div id="icono-jugador1"><img src='<?php echo '../'.$_SESSION['foto']; ?>' id="foto"></img></div>
                     <p id="Tiempo-jugador1">--:--</p>
                 </div>
 

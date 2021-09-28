@@ -13,17 +13,6 @@ $(document).on('click', 'button', function () {
     let casilla = this.id;
     seleccionado(casilla)
 });
-
-/**
- * 
- *  
- *  
- */
-let img = document.createElement('img');
-img.setAttribute('src', `../${sessionStorage.getItem('foto')}`)
-img.setAttribute('id', 'foto-jugador1')
-$('#icono-jugador1').html(img)
-$('#Jugador1').html(sessionStorage.getItem('j1'))
 /**
  * 
  * loop de buscador de jugadores

@@ -17,8 +17,6 @@ $ver = '
 ';
 
 echo $ver;
-return $ver;
-
 ?>
 
 

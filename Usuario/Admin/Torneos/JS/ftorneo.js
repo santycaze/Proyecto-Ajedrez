@@ -6,7 +6,7 @@ function torneo() {
 }
 
 function OnClickTorneoCrear() {
-    var tabla3 = ' <div class="contenedor-torneo-emergente" id="cerrar-creaciontorneo"> <div class="contenedor-torneo"> <h2>Creacion de torneos</h2> <input id="nomTorneo" type="text" placeholder="Nombre del Torneo"> <div class="contenedor-columnas-creaciontorneo"> <div class="columna1-creaciontorneo"> <input type="number" placeholder="Codigo ingreso"> <input type="number" placeholder="Puntuacion"> <h3>Comienzo inscripciones</h3> <input type="date"> <h3>Fin inscripciones</h3> <input type="date"> <h3>Comienzo torneo</h3> <input type="date"> <h3>Fin torneo</h3> <input type="date"> </div> <div class="columna2-creaciontorneo"> <input type="number" placeholder="Tiempo partida"> <input type="number" placeholder="Max participantes"> <input type="number" placeholder="Tiempo max partida"><input type="number" placeholder="Cantidad partidas"> <input type="number" placeholder="Horarios"><input type="number" placeholder="Tiempo por movimiento"> <input type="text" placeholder="Nombre trofeo"> <input type="number" placeholder="Numero partidas "> </div> </div> <div class="contenedor-botones-creaciontorneo"><button class="boton-guardar-creaciontorneo" onclick="crTorneo()">Guardar</button> <button class="boton-cancelar-creaciontorneo" onclick="cerrartorneo()">Cancelar</button></div> </div>';
+    var tabla3 = ' <div class="contenedor-torneo-emergente" id="cerrar-creaciontorneo"><div class="contenedor-torneo"><h2>Creacion de torneos</h2><input id="nomTorneo" type="text" placeholder="Nombre del Torneo"><div class="contenedor-columnas-creaciontorneo"><div class="columna1-creaciontorneo"><input type="number" id="codigoIngreso" placeholder="Codigo ingreso"><input type="number" id="puntuacion" placeholder="Puntuacion"><h3>Comienzo inscripciones</h3><input id="apInscripciones" type="date"><h3>Fin inscripciones</h3><input id="finInscripciones" type="date"><h3>Comienzo torneo</h3><input id="comTorneo" type="date"><h3>Fin torneo</h3><input id="finTorneo" type="date"></div><div class="columna2-creaciontorneo"><input type="time" id="tiempoPartida" placeholder="Tiempo partida"><input type="number" id="maxParticipantes" placeholder="Max participantes"><input type="time" id="tiempoMax" placeholder="Tiempo max partida"><input type="number" id="cantPartidas" placeholder="Cantidad partidas"><input type="time" id="horarios" placeholder="Horarios"><input type="time" id="tiempoMov" placeholder="Tiempo por movimiento"><input type="text" id="nomTrofeo" placeholder="Nombre trofeo"><input type="number" id="numeroPartidas" placeholder="Numero partidas "></div></div><div class="contenedor-botones-creaciontorneo"><button class="boton-guardar-creaciontorneo" onclick="crTorneo()">Guardar</button><button class="boton-cancelar-creaciontorneo" onclick="cerrartorneo()">Cancelar</button></div></div>'
     $("#tabla2").html(tabla3);
 }
 
@@ -16,7 +16,6 @@ function crTorneo() {
     let datosTorneo = {
         nomTorneo: document.getElementById('nomTorneo').value,
         codigoIngreso: document.getElementById('codigoIngreso').value,
-        puntuacion: document.getElementById('puntuacion').value,
         fechaApInsc: document.getElementById('apInscripciones').value,
         fechaFinInsc: document.getElementById('finInscripciones').value,
         comienzoTorneo: document.getElementById('comTorneo').value,
@@ -30,7 +29,6 @@ function crTorneo() {
         nomTrofeo: document.getElementById('nomTrofeo').value,
         numeroPartidas: document.getElementById('numeroPartidas').value
     }
-
     datos.push(datosTorneo.nomTorneo, datosTorneo.fechaApInsc, datosTorneo.fechaFinInsc, datosTorneo.comienzoTorneo, datosTorneo.finTorneo, datosTorneo.maximoPartidas, datosTorneo.numPart, datosTorneo.tiempoMax, datosTorneo.tiempoMov, datosTorneo.maxParticipantes, datosTorneo.nomTrofeo)
     /*
     validacion: {
@@ -42,7 +40,8 @@ function crTorneo() {
         }
     }
     */
-    const torneo = new Torneo(datosTorneo.nomTorneo,datosTorneo.codigoIngreso,datosTorneo.puntuacion,datosTorneo.fechaApInsc,datosTorneo.fechaFinInsc,datosTorneo.comienzoTorneo,datosTorneo.finTorneo,datosTorneo.tiempoPartida,datosTorneo.maximoParticipantes,datosTorneo.tiempoMax,datosTorneo.cantPartidas,datosTorneo.Horarios,datosTorneo.tiempoMov,datosTorneo.nomTrofeo,datosTorneo.numeroPartidas);
+    const torneo = new Torneo(datosTorneo.nomTorneo, datosTorneo.codigoIngreso, datosTorneo.fechaApInsc, datosTorneo.fechaFinInsc, datosTorneo.comienzoTorneo, datosTorneo.finTorneo, datosTorneo.tiempoPartida, datosTorneo.maximoParticipantes, datosTorneo.tiempoMax, datosTorneo.cantPartidas, datosTorneo.Horarios, datosTorneo.tiempoMov, datosTorneo.nomTrofeo, datosTorneo.numeroPartidas);
+    torneo.crearTorneo()
 }
 
 function cerrartorneo() {
