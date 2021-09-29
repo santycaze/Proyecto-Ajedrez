@@ -8,7 +8,7 @@
 
      for($x=0;$x<$cantidadtorneos;$x++){
           $torneos.='<div class="contenedor-torneo">
-          <p id="Nombretorneo">'.$datostorneo[($x)]['nombreTorneo'].'</p> <button>Ver</button>
+          <p id="Nombretorneo">'.$datostorneo[($x)]['nombreTorneo'].'</p> <button onclick="vertorneo()">Ver</button>
       </div>';
      }
    
