@@ -3,9 +3,10 @@ $(document).ready(function () {
     $('#verperfil').hide();
     $('#tabla').hide();
     $('#login').hide();
+    jugadoresIndex();
 });
 /*======================================================================================================================================================*/
-//
+//                                                              Login y Register
 /*======================================================================================================================================================*/
 function llamarlogin() {
     $.ajax({
@@ -236,14 +237,6 @@ function cerrar() {
 /*======================================================================================================================================================*/
 //                                                                   Cerrar Sesion                                                                      //
 /*======================================================================================================================================================*/
-function cerrarSesion() {
-    cerrarmod()
-    sessionStorage.clear();
-    $("#botonLogIn").prop('disabled', false)
-    $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
-    actualizarNick()
-}
-
 function cerrarLogin() {
     $('#login').hide();
     $('body').css('overflow', 'auto');
@@ -261,8 +254,30 @@ function verificarSesion() {
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //
 /*======================================================================================================================================================*/
-
 function close_perfil() {
     $('#cont-gral').hide()
-
+}
+/*======================================================================================================================================================*/
+//                                                                  Jugadores Index                                                                     //
+/*======================================================================================================================================================*/
+function jugadoresIndex() {
+    var jugadores = new Array()
+    $.ajax({
+        type: "POST",
+        url: "../Usuario/Admin/Jugadores/PHP/TraerJugadores.php",
+        success: function (response) {
+            if (response != '[]') {
+                var Datos = JSON.parse(response);
+                console.log(Datos)
+                var tr;
+                Datos.forEach(jugador => {
+                    console.log(jugador);
+                });
+                for (let i = 0; i < Datos.length; i++) {
+                    const jugador = new Jugador(Datos[i].nombreUsuario, Datos[i].nombre, Datos[i].apellidos, Datos[i].mail, Datos[i].ci, Datos[i].celular, Datos[i].nacimiento, Datos[i].tipoUsuario, Datos[i].iconoUsuario, Datos[i].institucion, Datos[i].aCurso, Datos[i].contactoLiceo, Datos[i].nombreDirector, Datos[i].mailDirector);
+                    jugadores.push(jugador)
+                }
+            }
+        }
+    });
 }

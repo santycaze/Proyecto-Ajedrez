@@ -9,16 +9,16 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    <script src="../Proyecto-Ajedrez/JS/loader.js"></script>
-    <script src="../Proyecto-Ajedrez/Usuario/Usuario.js"></script>
-    <script src="../Proyecto-Ajedrez/JS/functions.js"></script>
+    <script src="./JS/loader.js"></script>
+    <script src="./Usuario/Usuario.js"></script>
+    <script src="./JS/functions.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <!-- Fin Scripts -->
 
     <!-- Links -->
-    <link rel="shortcut icon" href="../Proyecto-Ajedrez/IMG/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./IMG/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilo.css">
-    <link rel="stylesheet" href="css/OpcionesUsuarios.css">
+    <link rel="stylesheet" href="CSS/OpcionesUsuarios.css">
     <link rel="stylesheet" href="CSS/VerPerfil.css">
     <link rel="stylesheet" href="CSS/loginYregister.css">
     <!-- Fin Links -->
