@@ -173,6 +173,18 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
                     <td>
                         <div class="circulo"></div>
                     </td>
+                    <td>Jugador 2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="circulo"></div>
+                    </td>
+                    <td>Jugador 2</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="circulo"></div>
+                    </td>
                     <td>Jugador 3</td>
                 </tr>
             </table>
