@@ -350,6 +350,10 @@ h2 {
   border-spacing: 0;
   border-radius: 7px;
   box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 500px;
+  height: 100%;
 }
 
 .tabla-jugadores th {
