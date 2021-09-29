@@ -9,14 +9,13 @@ include "../../../../PHP/Servidor/servidor.php";
  */
 
 $servidor = new Servidor();
-//echo json_encode($_POST);
+echo json_encode($_POST);
 
 /*
 
 {"nombreTorneo":"asdf","codIngreso":"3124","puntuacion":"1234","fci":"4123-03-12","ffi":"4234-12-04","tiempoPartida":"1324","maxPart":"1234","tiempoMaxPart":"1234","cantPartidas":"1234","horarios":"00:34","tiempoMov":"14324","nombreTrofeo":"dsfsdf","numeroPartidas":"23423"}
 
 */
-$fecha = DateTime::createFromFormat('Y/m/d', $_POST['fci']);
 
 
 $NombreTorneo = $_POST['nombreTorneo'];
