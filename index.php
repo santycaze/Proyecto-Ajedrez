@@ -59,7 +59,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 
     <!-- Loader -->
     <div class="loader-wrapper">
-        <div class="loader"><img src="../Proyecto-Ajedrez/IMG/CaballoBlanco.png" alt="">
+        <div class="loader"><img src="./IMG/CaballoBlanco.png" alt="">
         </div>
     </div>
     <!-- Fin Loader -->
@@ -328,7 +328,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
     <div class="menu">
         <h1>Menu</h1>
         <ul>
-            <li><a href="../Proyecto-Ajedrez/HTML/sobrenosotros.html">Sobre Nosotros</a></li>
+            <li><a href="./HTML/sobrenosotros.html">Sobre Nosotros</a></li>
             <li><a href="">Contacto</a></li>
             <li><a href="">Jugar</a></li>
         </ul>

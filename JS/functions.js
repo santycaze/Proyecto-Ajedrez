@@ -11,7 +11,7 @@ $(document).ready(function () {
 function llamarlogin() {
     $.ajax({
         type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/PHP/Sesion/llamarlogin.php",
+        url: "./Usuario/PHP/Sesion/llamarlogin.php",
         success: function (response) {
             sessionStorage.clear()
             $('#login').show();
@@ -111,13 +111,12 @@ function registrar() {
             const usuario = new Usuario();
             switch (registro.tipo) {
                 case '1':
-                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png", registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
+                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "./IMG/Icono1.png", registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
                     jugador.registrarJugador(registro.pass)
                     break;
                 case '2':
                     break;
             }
-
             //usuario.register();
         }
     }
@@ -174,7 +173,7 @@ function restablecerContra() {
 //                                                     Opciones 'menu-usuario' -> Modificar Perfil                                                      //
 /*======================================================================================================================================================*/
 function opcAdmin() {
-    window.location = "/Proyecto-Ajedrez/Usuario/Admin/administrador.html"
+    window.location = "./Usuario/Admin/administrador.html"
 }
 
 function cerrarmod() {
@@ -227,7 +226,7 @@ function cerrarperfil() {
 //                                                                    Boton Jugar                                                                       //
 /*======================================================================================================================================================*/
 function llamarajedrez() {
-    window.location.href = 'Juego/juego.php'
+    window.location.href = './Juego/juego.php'
 }
 
 function cerrar() {
