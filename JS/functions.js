@@ -3,14 +3,15 @@ $(document).ready(function () {
     $('#verperfil').hide();
     $('#tabla').hide();
     $('#login').hide();
+    jugadoresIndex();
 });
 /*======================================================================================================================================================*/
-//
+//                                                              Login y Register
 /*======================================================================================================================================================*/
 function llamarlogin() {
     $.ajax({
         type: "POST",
-        url: "../Proyecto-Ajedrez/Usuario/PHP/Sesion/llamarlogin.php",
+        url: "./Usuario/PHP/Sesion/llamarlogin.php",
         success: function (response) {
             sessionStorage.clear()
             $('#login').show();
@@ -110,13 +111,12 @@ function registrar() {
             const usuario = new Usuario();
             switch (registro.tipo) {
                 case '1':
-                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "../Proyecto-Ajedrez/IMG/Icono1.png", registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
+                    const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "./IMG/Icono1.png", registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
                     jugador.registrarJugador(registro.pass)
                     break;
                 case '2':
                     break;
             }
-
             //usuario.register();
         }
     }
@@ -173,7 +173,7 @@ function restablecerContra() {
 //                                                     Opciones 'menu-usuario' -> Modificar Perfil                                                      //
 /*======================================================================================================================================================*/
 function opcAdmin() {
-    window.location = "/Proyecto-Ajedrez/Usuario/Admin/administrador.html"
+    window.location = "./Usuario/Admin/administrador.html"
 }
 
 function cerrarmod() {
@@ -188,7 +188,7 @@ function cambiarNombre(nom) {
 function Modificar() {
     $.ajax({
         type: "POST",
-        url: "Usuario/PHP/OpcionesUsuarios.php",
+        url: "./Usuario/PHP/OpcionesDeUsuario/OpcionesUsuarios.php",
         data: { usr: sessionStorage.getItem("j1"), img: sessionStorage.getItem("foto") },
         success: function (response) {
             $('#edicion').show();
@@ -226,7 +226,7 @@ function cerrarperfil() {
 //                                                                    Boton Jugar                                                                       //
 /*======================================================================================================================================================*/
 function llamarajedrez() {
-    window.location.href = 'Juego/juego.php'
+    window.location.href = './Juego/juego.php'
 }
 
 function cerrar() {
@@ -236,14 +236,6 @@ function cerrar() {
 /*======================================================================================================================================================*/
 //                                                                   Cerrar Sesion                                                                      //
 /*======================================================================================================================================================*/
-function cerrarSesion() {
-    cerrarmod()
-    sessionStorage.clear();
-    $("#botonLogIn").prop('disabled', false)
-    $("#botonLogIn").html('<div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>  <p id="nick">Log in</p>')
-    actualizarNick()
-}
-
 function cerrarLogin() {
     $('#login').hide();
     $('body').css('overflow', 'auto');
@@ -261,8 +253,25 @@ function verificarSesion() {
 /*======================================================================================================================================================*/
 //                                                                     Torneos                                                                          //
 /*======================================================================================================================================================*/
-
 function close_perfil() {
     $('#cont-gral').hide()
-
+}
+/*======================================================================================================================================================*/
+//                                                                  Jugadores Index                                                                     //
+/*======================================================================================================================================================*/
+function jugadoresIndex() {
+    var jugadores = new Array()
+    $.ajax({
+        type: "POST",
+        url: "Usuario/Admin/Jugadores/PHP/TraerJugadores.php",
+        success: function (response) {
+            if (response != '[]') {
+                var Datos = JSON.parse(response);
+                console.log(Datos);
+                for (let i = 0; i < Datos.length; i++) {
+                   $('.tabla-jugadores').append(`<tr><td><img src='${Datos[i].iconoUsuario}' class='circulo'/></td><td>${Datos[i].nombreUsuario}</td></tr>`)
+                }
+            }
+        }
+    });
 }

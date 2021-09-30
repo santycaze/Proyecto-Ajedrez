@@ -9,16 +9,16 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    <script src="../Proyecto-Ajedrez/JS/loader.js"></script>
-    <script src="../Proyecto-Ajedrez/Usuario/Usuario.js"></script>
-    <script src="../Proyecto-Ajedrez/JS/functions.js"></script>
+    <script src="./JS/loader.js"></script>
+    <script src="./Usuario/Usuario.js"></script>
+    <script src="./JS/functions.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <!-- Fin Scripts -->
 
     <!-- Links -->
-    <link rel="shortcut icon" href="../Proyecto-Ajedrez/IMG/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./IMG/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilo.css">
-    <link rel="stylesheet" href="css/OpcionesUsuarios.css">
+    <link rel="stylesheet" href="CSS/OpcionesUsuarios.css">
     <link rel="stylesheet" href="CSS/VerPerfil.css">
     <link rel="stylesheet" href="CSS/loginYregister.css">
     <!-- Fin Links -->
@@ -59,7 +59,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 
     <!-- Loader -->
     <div class="loader-wrapper">
-        <div class="loader"><img src="../Proyecto-Ajedrez/IMG/CaballoBlanco.png" alt="">
+        <div class="loader"><img src="./IMG/CaballoBlanco.png" alt="">
         </div>
     </div>
     <!-- Fin Loader -->
@@ -154,46 +154,13 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
                     <th id="col-imagen"></th>
                     <th id="col-jugadores">Jugadores</th>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="circulo">
-
-                        </div>
-
-                    </td>
-                    <td>Jugador 1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 2</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 2</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 2</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 3</td>
-                </tr>
             </table>
         </div>
 
         <div class="Tabla">
             <div class="contenedor-tabla">
                 <h1>Tus medallas</h1>
-                <table class="tabla-jugadores">
+                <table class="tabla-medallas">
                     <tr>
                         <th id="col-imagen"></th>
                         <th id="col-jugadores">Medallas</th>
@@ -328,7 +295,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
     <div class="menu">
         <h1>Menu</h1>
         <ul>
-            <li><a href="../Proyecto-Ajedrez/HTML/sobrenosotros.html">Sobre Nosotros</a></li>
+            <li><a href="./HTML/sobrenosotros.html">Sobre Nosotros</a></li>
             <li><a href="">Contacto</a></li>
             <li><a href="">Jugar</a></li>
         </ul>

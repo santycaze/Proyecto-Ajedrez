@@ -12,7 +12,7 @@ class Jugador extends Usuario {
     registrarJugador(passwd){
         $.ajax({
             type: "POST",
-            url: "../../Proyecto-Ajedrez/Usuario/PHP/register.php",
+            url: "../../Proyecto-Ajedrez/Usuario/PHP/Sesion/register.php",
             data: { usuario: this.Usuario, cedula: this.Ci, celular: this.Cel, email: this.Mail, apellido: this.Apellido, NombreCompleto: this.Nombre, Contra: passwd, Nacimiento: this.Fnac, Tipo: this.Tipo, Icono: this.Icono,Institucion:this.Institucion,anCursivo:this.aCursivo,contactoLiceo: this.cLiceo,nomDirector: this.nombreDirector, mailDirector: this.mailDirector},
             success: function (data) {
                 if (data == 1) {

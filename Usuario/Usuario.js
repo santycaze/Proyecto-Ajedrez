@@ -20,6 +20,7 @@ class Usuario {
                 console.log(response)
                 if (response != 1) {
                     let datosUsuario = JSON.parse(response);
+                    console.log(datosUsuario)
                     sessionStorage.setItem("j1", datosUsuario["nombre"]);
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
                     sessionStorage.setItem("tipoUsr", datosUsuario["tipo"])
