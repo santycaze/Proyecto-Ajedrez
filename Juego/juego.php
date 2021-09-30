@@ -24,9 +24,11 @@
 </head>
 
 <body>
+    <!--
     <div class="modal-wrapper">
         <div class="modal"><i class="fas fa-laugh-beam" id="carita"></i><h1 id="mensaje-modal">Ganaste!</h1><button>Volver al inicio</button></div>
     </div>
+    -->
     <div class="div-wrapper-contenedortotal">
 
         <div class="div-wrapper-contenedortablero" id="tabla2">
