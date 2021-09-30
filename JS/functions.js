@@ -188,7 +188,7 @@ function cambiarNombre(nom) {
 function Modificar() {
     $.ajax({
         type: "POST",
-        url: "Usuario/PHP/OpcionesUsuarios.php",
+        url: "./Usuario/PHP/OpcionesDeUsuario/OpcionesUsuarios.php",
         data: { usr: sessionStorage.getItem("j1"), img: sessionStorage.getItem("foto") },
         success: function (response) {
             $('#edicion').show();
