@@ -263,18 +263,13 @@ function jugadoresIndex() {
     var jugadores = new Array()
     $.ajax({
         type: "POST",
-        url: "../Usuario/Admin/Jugadores/PHP/TraerJugadores.php",
+        url: "Usuario/Admin/Jugadores/PHP/TraerJugadores.php",
         success: function (response) {
             if (response != '[]') {
                 var Datos = JSON.parse(response);
-                console.log(Datos)
-                var tr;
-                Datos.forEach(jugador => {
-                    console.log(jugador);
-                });
+                console.log(Datos);
                 for (let i = 0; i < Datos.length; i++) {
-                    const jugador = new Jugador(Datos[i].nombreUsuario, Datos[i].nombre, Datos[i].apellidos, Datos[i].mail, Datos[i].ci, Datos[i].celular, Datos[i].nacimiento, Datos[i].tipoUsuario, Datos[i].iconoUsuario, Datos[i].institucion, Datos[i].aCurso, Datos[i].contactoLiceo, Datos[i].nombreDirector, Datos[i].mailDirector);
-                    jugadores.push(jugador)
+                   $('.tabla-jugadores').append(`<tr><td><img src='${Datos[i].iconoUsuario}' class='circulo'/></td><td>${Datos[i].nombreUsuario}</td></tr>`)
                 }
             }
         }

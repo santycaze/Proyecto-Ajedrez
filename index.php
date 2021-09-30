@@ -154,46 +154,13 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
                     <th id="col-imagen"></th>
                     <th id="col-jugadores">Jugadores</th>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="circulo">
-
-                        </div>
-
-                    </td>
-                    <td>Jugador 1</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 2</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 2</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 2</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="circulo"></div>
-                    </td>
-                    <td>Jugador 3</td>
-                </tr>
             </table>
         </div>
 
         <div class="Tabla">
             <div class="contenedor-tabla">
                 <h1>Tus medallas</h1>
-                <table class="tabla-jugadores">
+                <table class="tabla-medallas">
                     <tr>
                         <th id="col-imagen"></th>
                         <th id="col-jugadores">Medallas</th>
