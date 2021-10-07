@@ -37,6 +37,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 </head>
 
 <body>
+
     <!-- Responsive -->
     <div class="body-responsive">
         <div class="contenedor-general-responsive">
