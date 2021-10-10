@@ -26,7 +26,7 @@
 }
 
 .contenedor-tabla{
-    background: #073750;
+    background: #073650bd;
     width: 400px;
     height: 500px;
     display: flex;
@@ -54,7 +54,7 @@
 
 .contenedor-torneo{
     display: flex;
-    background: #094464;
+    background: #094464b9;
     padding: 15px;
     border-radius: 20px;
     justify-content: space-between;
@@ -85,6 +85,7 @@
     border-radius: 20px;
     color: rgba(255, 255, 255, 0.589);
     text-align: center;
+    text-decoration: none;
 }
 
 .boton-volver:hover{
