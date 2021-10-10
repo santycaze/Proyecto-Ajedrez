@@ -32,7 +32,6 @@
 /* ======================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hammersmith+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
 
@@ -47,11 +46,9 @@
 }
 
 body {
-  background: url('../IMG/Chess.png') no-repeat center center fixed;
+  background: url('../IMG/close-up-blurry-chess-pieces.jpg') no-repeat center center fixed;
   background-size: cover;
-  
   margin: 0;
-
 }
 
 /* ======================================================= */
@@ -124,7 +121,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 700px;
 }
 
 .contenedor-botones-inicio {
@@ -151,7 +148,7 @@ body {
 }
 
 .contenedor-inicio img {
-  width: 13%;
+  width: 15%;
   margin: 0;
   margin-top: 10px;
 }
@@ -161,19 +158,16 @@ h2 {
   margin: 0;
   color: white;
   margin-bottom: 15px;
-  font-family: 'Bree Serif', serif;
   font-weight: 500;
 
 }
 
 .contenedor-inicio h1 {
   font-size: 65px;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
 }
 
 .contenedor-inicio h2 {
-  font-family: 'Bree Serif', serif;
   font-weight: 500;
   letter-spacing: 5px;
   font-size: 25px;
@@ -212,13 +206,21 @@ h2 {
 }
 
 .boton-podcast, .boton-salas{
-  padding: 15px;
+  border-radius:30px;
   background: white;
   color: black;
-  border-radius: 25px;
-  text-decoration: none;
+  font-weight: 300;
+  width: 185px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
-  font-family: 'Bree Serif', serif;
+  text-decoration: none;
+}
+
+.boton-salas i{
+  margin-left: 5px;
 }
 
 .div-wrapper {
@@ -232,12 +234,12 @@ h2 {
   border-radius: 30px 0 0 30px;
   border: 1px solid rgba(0, 0, 0, 0.151);
   background: white;
-  color: black;
+  color: rgb(48, 48, 48);
   transition: 0.7s;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
+  
+  font-weight: 300;
   width: 160px;
-  height: 47px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -259,12 +261,11 @@ h2 {
   border-radius: 0 30px 30px 0;
   border: 1px solid rgba(0, 0, 0, 0.151);
   background: white;
-  color: black;
+  color: rgb(48, 48, 48);
   transition: 0.7s;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
+  font-weight: 300;
   width: 160px;
-  height: 47px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,11 +314,11 @@ h2 {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  background: #073750;
-  padding: 10px 0;
+  background: #07365073;
+  padding: 50px 0;
   position: relative;
   margin-top: -10px;
-  
+  box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
 .contenedor-tabla {
@@ -329,7 +330,6 @@ h2 {
 
 .contenedor-tabla h1 {
   color: white;
-  font-family: 'Bree Serif', serif;
   margin-bottom: 30px;
   font-weight: 500;
 }
@@ -398,6 +398,7 @@ h2 {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding: 80px 0;
 }
 
 .div-wrapper5 img {
@@ -445,7 +446,6 @@ h2 {
   background: #9E692F;
   color: black;
   transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: white;
 }
@@ -456,7 +456,6 @@ h2 {
   background: #e9da97;
   color: black;
   transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
 
@@ -465,7 +464,6 @@ h2 {
   border: 1px solid rgba(0, 0, 0, 0.151);
   background: #9E692F;
   transition: 0.7s;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: white;
   margin-top: 10px;
@@ -595,7 +593,9 @@ display: block;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #073750;
+  background: #07365073;
+  padding: 50px;
+  box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
 .noticias {
@@ -605,7 +605,6 @@ display: block;
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-family: 'Bree Serif', serif;
 }
 
 .noticias img {
@@ -615,6 +614,10 @@ display: block;
 .noticias p {
   color: white;
   margin-bottom: 15px;
+}
+
+.div{
+  padding: 20px;
 }
 
 /* ======================================================= */
@@ -672,15 +675,14 @@ display: block;
 
 #botonLogIn{
   margin-top: 15px;
-  font-family: 'Bree Serif', serif;
 }
 
 #botonLogIn i{
-  margin-right: 10px;
+  margin-right: 2px;
 }
 
 .usuario i {
-  margin-right: 10px;
+  margin-right: 2px;
 }
 
 #foto{
@@ -698,55 +700,14 @@ display: block;
 
 footer {
   background: #173248;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding-bottom: 30px;
-}
-
-.logo img{
-  width: 150px;
-  margin-right: 30px;
-}
-
-.logo{
-  width: 100%;
-  justify-content: flex-end;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  display: flex;
-
-}
-
-.sobre-nosotros{
-  text-align: left;
-  margin-right: 50px;
-}
-
-footer .menu{
-  display: flex;
-  flex-direction: column;
-}
-
-footer h1{
+  padding: 20px;
   color: white;
-  margin-bottom: 8px;
+  box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
-footer p{
-  color: white;
-}
-
-
-
-.menu ul{
-  margin: 0;
-  padding:0;
-}
-
-.menu a{
-  text-decoration: underline;
-  color: white;
-  font-size: 17px;
-}
 
 /* ======================================================= */
 /* Fin de seccion */
@@ -849,7 +810,6 @@ footer p{
   margin: 0;
   margin-top: 5px;
   color: white;
-  font-family: 'Bree Serif', serif;
 }
 
 
@@ -867,7 +827,6 @@ width: 300px;
   font-size: 20px;
   text-decoration: none;
   color: black;
-  font-family: 'Bree Serif', serif;
   border-radius: 10px;
 }
 
@@ -1166,7 +1125,6 @@ width: 300px;
 .usuario-menu a{
   color: white;
   text-decoration: none;
-  font-family: 'Bree Serif', serif;
   font-size: 15px;
   letter-spacing: 1px;
   animation: fade2 0.5s forwards;
@@ -1176,7 +1134,6 @@ width: 300px;
 .usuario-menu button{
   color: white;
   text-decoration: none;
-  font-family: 'Bree Serif', serif;
   font-size: 15px;
   letter-spacing: 1px;
   animation: fade2 0.5s forwards;
@@ -1457,7 +1414,7 @@ p {
 
 .modal h1{
   color: white;
-  font-family: 'Bree Serif', serif;
+ 
   font-size: 30px;
   font-weight: 400;
   margin-top: 5px;
@@ -1466,7 +1423,7 @@ p {
 
 .modal button{
   padding: 20px;
-  font-family: 'Bree Serif', serif;
+  
   color: white;
   background-color:#0c5780;
   border-radius: 20px;

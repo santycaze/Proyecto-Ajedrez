@@ -61,6 +61,10 @@ display: none;
    
 }
 
+#hamburguesini{
+    display: none;
+}
+
 header  p:hover{
     padding-right: 50px;
 }
