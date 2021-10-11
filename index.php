@@ -108,7 +108,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 
     <!-- Hero -->
     <div class=" contenedor-inicio">
-        <img src="./IMG/" alt="" class="imagen-inicio">
+        <img src="./IMG/icON-2.png" alt="" class="imagen-inicio">
         <h1>Juega Ajedrez Online</h1>
         <h2>8-Bit Chess</h2>
         <div class="contenedor-botones-inicio">
@@ -165,19 +165,19 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
                     </tr>
                     <tr>
                         <td>
-                            <div class="circulo"> <i class="fas fa-fire"></i> </div>
+                            <div class="circulo1"> <i class="fas fa-fire"></i> </div>
                         </td>
                         <td>En Racha</td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="circulo"> <i class="fas fa-crown"></i> </div>
+                            <div class="circulo2"> <i class="fas fa-crown"></i> </div>
                         </td>
                         <td>Intachable</td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="circulo"> <i class="fas fa-laugh-beam"></i> </div>
+                            <div class="circulo3"> <i class="fas fa-laugh-beam"></i> </div>
                         </td>
                         <td>Amistoso</td>
                     </tr>
@@ -227,19 +227,35 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
     <!-- Seccion noticias -->
     <div class="div-wrapper3">
         <div class="noticias">
-            <div class="div"><img src="IMG/noticia1.PNG" alt="">
+            <div class="div">
+                <a href="https://es.chessbase.com/post/copa-del-mundo-ronda-04-partida-1-" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+                <div class="contenedor-img-noticia">
+                <img src="IMG/noticia1.PNG" alt="">
+                </div>
                 <h2>¡Copa del mundo 2021!</h2>
                 <p class="autor-p">Nadja Wittmann</p>
             </div>
-            <div class="div"><img src="IMG/noticia2.PNG" alt="">
+            <div class="div">
+            <a href="https://es.chessbase.com/post/freddy-ha-derrotado-a-un-gran-maestro" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+            <div class="contenedor-img-noticia">
+                <img src="IMG/noticia2.PNG" alt="">
+            </div>
                 <h2>¡El joven campeon!</h2>
                 <p class="autor-p">Frederic Friedel</p>
             </div>
-            <div class="div"><img src="IMG/noticia3.PNG" alt="">
+            <div class="div">
+            <a href="https://es.chessbase.com/post/how-championship-chess-pieces-are-made-esp" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+            <div class="contenedor-img-noticia">
+                <img src="IMG/noticia3.PNG" alt="">
+            </div>
                 <h2>¿Como se realizan las piezas?</h2>
                 <p class="autor-p">Frederic Friedel</p>
             </div>
-            <div class="div"><img src="IMG/noticia4.PNG" alt="">
+            <div class="div">
+            <a href="https://es.chessbase.com/post/20-julio-dia-internacional-del-ajedrez" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+            <div class="contenedor-img-noticia">
+                <img src="IMG/noticia4.PNG" alt="">
+        </div>
                 <h2>¡Feliz dia!</h2>
                 <p class="autor-p">Chessbase</p>
             </div>

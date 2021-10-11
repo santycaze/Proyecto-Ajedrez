@@ -51,6 +51,10 @@ body {
   margin: 0;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 /* ======================================================= */
 /* header */
 /* ======================================================= */
@@ -343,7 +347,7 @@ h2 {
   font-weight: 500;
 }
 
-.circulo {
+.circulo{
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -351,7 +355,46 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(223, 54, 54);
+  color: yellow;
 }
+
+.circulo1{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: orange;
+  background: rgb(191, 228, 135);
+}
+
+.circulo2{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  background: violet;
+}
+
+.circulo3{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: skyblue;
+  background: teal;
+}
+
 
 
 .tabla-jugadores {
@@ -647,14 +690,25 @@ display: block;
 .noticias {
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
+.noticias h2{
+  margin-top: 15px;
+}
+
+.contenedor-img-noticia{
+  width: 100%;
+ 
+}
+
 .noticias img {
-  width: 40%;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
 }
 
 .noticias p {
@@ -664,6 +718,33 @@ display: block;
 
 .div{
   padding: 20px;
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.div a{
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: white;
+  background: #073650e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.712);
+  transition: .7s;
+}
+
+.div a:hover{
+  background: #094464e7;
+  width: 55px;
+  height: 55px;
 }
 
 /* ======================================================= */
@@ -883,45 +964,12 @@ width: 300px;
 
 
 
-/* Lo que hago aca es desaparecer todo a partir de los 1024px y crear un arbol de links */
-
-@media screen and (Max-width:810px){
-  .contenedor-inicio h1{
-    font-size: 35px;
+@media screen and (Max-width:900px){
+  .noticias{
+    grid-template-columns: 1fr;
   }
-
-  .contenedor-inicio img{
-    width: 20%;
-  }
-
-  
-  .boton-estadisticas{
-    height: 30px;
-    font-size: 15px;
-    width: 120px;
-    padding: 3px;
-  }
-
-  .boton-jugar{
-    height: 30px;
-    font-size: 15px;
-    width: 120px;
-    padding: 3px;
-  }
-
-  .boton-podcast, .boton-salas{
-    padding: 8px;
-    background: white;
-    color: black;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 20px;
-  }
-
-  
-
-
 }
+
 
 @media screen and (Max-width:600px){
   .noticias{
@@ -1246,20 +1294,6 @@ width: 300px;
 /* ======================================================= */
 /* Fin de seccion */
 /* ======================================================= */
-
-
-
-/* ======================================================= */
-/* Por arreglar, cosas que traigo de PHP */
-/* ======================================================= */
-
-.circulo2 {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: chartreuse;
-  margin: 5px;
-}
 
 /* ======================================================= */
 /* Tablero */
