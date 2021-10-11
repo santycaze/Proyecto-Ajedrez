@@ -108,7 +108,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 
     <!-- Hero -->
     <div class=" contenedor-inicio">
-        <img src="./IMG/logo8bit.png" alt="" class="imagen-inicio">
+        <img src="./IMG/" alt="" class="imagen-inicio">
         <h1>Juega Ajedrez Online</h1>
         <h2>8-Bit Chess</h2>
         <div class="contenedor-botones-inicio">
@@ -151,7 +151,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 
         <div class="Tabla">
             <div class="contenedor-tabla">
-                <h1>Tus medallas</h1>
+                <h1>Ultimas medallas</h1>
                 <table class="tabla-medallas">
                     <tr>
                         <th id="col-imagen"></th>
@@ -159,21 +159,27 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
                     </tr>
                     <tr>
                         <td>
-                            <div class="circulo"></div>
+                            <div class="circulo"> <i class="fas fa-bolt"></i> </div>
                         </td>
-                        <td>Medalla1</td>
+                        <td>Partida Flash</td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="circulo"></div>
+                            <div class="circulo"> <i class="fas fa-fire"></i> </div>
                         </td>
-                        <td>Medalla2</td>
+                        <td>En Racha</td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="circulo"></div>
+                            <div class="circulo"> <i class="fas fa-crown"></i> </div>
                         </td>
-                        <td>Medalla3</td>
+                        <td>Intachable</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="circulo"> <i class="fas fa-laugh-beam"></i> </div>
+                        </td>
+                        <td>Amistoso</td>
                     </tr>
                 </table>
             </div>

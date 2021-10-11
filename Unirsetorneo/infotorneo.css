@@ -15,14 +15,14 @@
 display: flex;
 justify-content: center;
 align-items: center;
-    background: url('../IMG/Chess.png') no-repeat center center fixed;
+    background: url('../IMG/close-up-blurry-chess-pieces.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     color: white;
 }
 
 .contenedor-izquierda{
-    background: #0c547a;
+    background: #073650bd;
     max-width: 350px;
     width: 100%;
     padding: 30px;
@@ -32,7 +32,7 @@ align-items: center;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.548);
+    box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
 .contenedornomico{
@@ -73,7 +73,7 @@ align-items: center;
 }
 
 .botones button{
-    background: #0c4a6b;
+    background: #0f577ec5;
     border: none;
     color: white;
     border-radius: 20px;
@@ -108,7 +108,7 @@ align-items: center;
     background: #0a4e72;
     overflow-y: scroll;
     box-sizing: border-box;
-    box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.548);
+    box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
 .contenedor-jugador{
