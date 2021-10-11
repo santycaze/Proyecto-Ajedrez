@@ -37,6 +37,9 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 </head>
 
 <body>
+    <div class="contenedor-fondo">
+        <img src="IMG/close-up-blurry-chess-pieces.jpg" alt="">
+    </div>
     <!-- Responsive -->
     <div class="body-responsive">
         <div class="contenedor-general-responsive">
@@ -263,6 +266,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
     </div>
     <!-- Fin Seccion noticias -->
 
+       
 </body>
 
 <!-- SVG -->
