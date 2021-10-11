@@ -228,39 +228,47 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
     <!-- Fin SVG -->
 
     <!-- Seccion noticias -->
-    <div class="div-wrapper3">
-        <div class="noticias">
-            <div class="div">
-                <a href="https://es.chessbase.com/post/copa-del-mundo-ronda-04-partida-1-" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
-                <div class="contenedor-img-noticia">
-                <img src="IMG/noticia1.PNG" alt="">
+    <div class="contenedor-noticia">
+        <div class="contenedor-titulo">
+                    <h1>Ultimas noticias</h1>
+                    <hr>
                 </div>
-                <h2>¡Copa del mundo 2021!</h2>
-                <p class="autor-p">Nadja Wittmann</p>
+        <div class="div-wrapper3">
+            
+            <div class="noticias">
+                
+                <div class="div">
+                    <a href="https://es.chessbase.com/post/copa-del-mundo-ronda-04-partida-1-" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+                    <div class="contenedor-img-noticia">
+                    <img src="IMG/noticia1.PNG" alt="">
+                    </div>
+                    <h2>¡Copa del mundo 2021!</h2>
+                    <p class="autor-p">Nadja Wittmann</p>
+                </div>
+                <div class="div">
+                <a href="https://es.chessbase.com/post/freddy-ha-derrotado-a-un-gran-maestro" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+                <div class="contenedor-img-noticia">
+                    <img src="IMG/noticia2.PNG" alt="">
+                </div>
+                    <h2>¡El joven campeon!</h2>
+                    <p class="autor-p">Frederic Friedel</p>
+                </div>
+                <div class="div">
+                <a href="https://es.chessbase.com/post/how-championship-chess-pieces-are-made-esp" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+                <div class="contenedor-img-noticia">
+                    <img src="IMG/noticia3.PNG" alt="">
+                </div>
+                    <h2>¿Como se realizan las piezas?</h2>
+                    <p class="autor-p">Frederic Friedel</p>
+                </div>
+                <div class="div">
+                <a href="https://es.chessbase.com/post/20-julio-dia-internacional-del-ajedrez" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
+                <div class="contenedor-img-noticia">
+                    <img src="IMG/noticia4.PNG" alt="">
             </div>
-            <div class="div">
-            <a href="https://es.chessbase.com/post/freddy-ha-derrotado-a-un-gran-maestro" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
-            <div class="contenedor-img-noticia">
-                <img src="IMG/noticia2.PNG" alt="">
-            </div>
-                <h2>¡El joven campeon!</h2>
-                <p class="autor-p">Frederic Friedel</p>
-            </div>
-            <div class="div">
-            <a href="https://es.chessbase.com/post/how-championship-chess-pieces-are-made-esp" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
-            <div class="contenedor-img-noticia">
-                <img src="IMG/noticia3.PNG" alt="">
-            </div>
-                <h2>¿Como se realizan las piezas?</h2>
-                <p class="autor-p">Frederic Friedel</p>
-            </div>
-            <div class="div">
-            <a href="https://es.chessbase.com/post/20-julio-dia-internacional-del-ajedrez" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
-            <div class="contenedor-img-noticia">
-                <img src="IMG/noticia4.PNG" alt="">
-        </div>
-                <h2>¡Feliz dia!</h2>
-                <p class="autor-p">Chessbase</p>
+                    <h2>¡Feliz dia!</h2>
+                    <p class="autor-p">Chessbase</p>
+                </div>
             </div>
         </div>
     </div>
