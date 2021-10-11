@@ -85,7 +85,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
         </div>
         <button onclick="llamarlogin()" id="botonLogIn">
             <?php
-                if ($logueado == '1') {
+            if ($logueado == '1') {
                 ?>
                 <div id="iconoUsr"><img src='<?php echo $_SESSION['foto']; ?>' id="foto"></img></div>
                 <script>
@@ -98,12 +98,12 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
                 <?php
             } else {
                 ?>
-                        <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
+                <div id="iconoUsr"><i class="fas fa-user" id="foto"></i></div>
                 <p id="nick">Log in</p>
                 <script>$('.usuario-menu').hide()</script>
                 <?php
             }
-?>
+            ?>
 
         </button>
     </div>
@@ -116,16 +116,16 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
         <h2>8-Bit Chess</h2>
         <div class="contenedor-botones-inicio">
         <?php
-                if ($logueado == '1') {
-                ?>
+if ($logueado == '1') {
+    ?>
                 <button onclick="llamarajedrez()" class="boton-jugar"><i class="fas fa-chess-knight"></i><p>Jugar</p></button>
                 <?php
-            } else {
-                ?>
+} else {
+    ?>
                 <button onclick="llamarlogin()" class="boton-jugar"><i class="fas fa-chess-knight"></i><p>Jugar</p></button>
                 <?php
-            }
-            ?>
+}
+?>
             <button class="boton-estadisticas">
                 <p>Entrenar</p><i class="fas fa-dumbbell"></i>
             </button>
@@ -134,8 +134,8 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
     <!-- Fin Hero -->
 
     <!-- SVG -->
-  
-       
+
+
     </svg>
     <!-- Fin SVG -->
 
@@ -211,7 +211,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
             <img src="IMG/tutorial.png" alt="">
             <div class="contenedor-entrenamiento-menu">
                 <a href="https://www.youtube.com/watch?v=x4R2EPkYzZk" class="boton-salas"> Ver tutorial</a>
-                
+
             </div>
         </div>
 
@@ -234,9 +234,9 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
                     <hr>
                 </div>
         <div class="div-wrapper3">
-            
+
             <div class="noticias">
-                
+
                 <div class="div">
                     <a href="https://es.chessbase.com/post/copa-del-mundo-ronda-04-partida-1-" target="_blank" class="boton-noticia"><i class="fas fa-search"></i></a>
                     <div class="contenedor-img-noticia">
@@ -274,7 +274,7 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
     </div>
     <!-- Fin Seccion noticias -->
 
-       
+
 </body>
 
 <!-- SVG -->
