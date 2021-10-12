@@ -136,11 +136,16 @@ if ($logueado == '1') {
     </div>
     <!-- Fin Hero -->
 
-    <!-- SVG -->
+    <!-- Boton Flotante -->
 
+    <div class="publicidad1">
+        <img src="./IMG/plan-de-publicidad.jpg" alt="">
+    </div>
 
-    </svg>
-    <!-- Fin SVG -->
+    <div class="publicidad">
+        <img src="./IMG/plan-de-publicidad.jpg" alt="">
+    </div>
+    <!-- Fin Boton Flotante -->
 
 
     <!-- Seccion tablas estadisticas -->
