@@ -1,6 +1,6 @@
 
 import { peon,torre,alfil,caballo,reina,rey } from "./Fichas.js";
-import { color,colorJugador,colorOpuesto,puntos } from "./Datos_De_Juego.js";
+import { color,colorJugador } from "./Datos_De_Juego.js";
 import { actualizarTablero } from "./Crear_Tablero.js";
 import { enviarDatos } from "./confInicioJuego.js";
 
@@ -100,18 +100,17 @@ export function Movimiento(seleccion, destino) {
     var ficha = document.getElementById(seleccion).value;
     separadorA = seleccion.split("-");
     separadorB = destino.split("-");
-    var lnB = separadorB[0].split(".");
     claseSeleccion = document.getElementById(seleccion).className;
     claseDestino = document.getElementById(destino).className;
 
     if (destino.length > 3) { // verifico si en el destino hay una ficha comible.
         //document.getElementById('efectoMovimiento').play()
-        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></button>';//calavera
-        document.getElementById('c-' + separadorB[0]).innerHTML = '<button class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" value="' + ficha + '">' + ficha + '<div class="pMovimiento" position="' + separadorB[0] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorB[0] + '"></skull></div></button>'; //calavera
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<a class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"></a>';//calavera
+        document.getElementById('c-' + separadorB[0]).innerHTML = '<a class=' + claseDestino + ' id="' + separadorB[0] + '-' + separadorA[1] + '" value="' + ficha + '">' + ficha + '<div class="pMovimiento" position="' + separadorB[0] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorB[0] + '"></skull></div></a>'; //calavera
     } else {
         //document.getElementById('efectoMovimiento').play()
-        document.getElementById('c-' + separadorA[0]).innerHTML = '<button class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorA[0] + '"></skull></div></button>';
-        document.getElementById('c-' + destino).innerHTML = '<button class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" value="' + ficha + '"><div class="pMovimiento" position="' + destino + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + destino + '"></skull></div>' + ficha + '</button>'; //va calavera
+        document.getElementById('c-' + separadorA[0]).innerHTML = '<a class=' + claseSeleccion + ' id="' + separadorA[0] + '" value=' + " " + '><div class="pMovimiento" position="' + separadorA[0] + '"><skull class="fas fa-skull" id="laskull" lacaveira="' + separadorA[0] + '"></skull></div></a>';
+        document.getElementById('c-' + destino).innerHTML = '<a class=' + claseDestino + ' id="' + destino + '-' + separadorA[1] + '" value="' + ficha + '"><div class="pMovimiento" position="' + destino + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + destino + '"></skull></div>' + ficha + '</a>'; //va calavera
     }
     actualizarTablero()
     Output(destino)

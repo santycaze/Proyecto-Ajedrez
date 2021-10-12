@@ -13,7 +13,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../Usuario/Usuario.js"></script>
     <script src="../JS/loader.js"></script>
-    <script src="../JS/functions.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
 
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
