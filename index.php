@@ -130,7 +130,7 @@ if ($logueado == '1') {
 }
 ?>
             <button class="boton-estadisticas">
-                <p>Entrenar</p><i class="fas fa-dumbbell"></i>
+                <p>Aprender</p><i class="fas fa-dumbbell"></i>
             </button>
         </div>
     </div>
