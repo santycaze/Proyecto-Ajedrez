@@ -24,3 +24,13 @@ function verTorneos() {
 function datosTorneo() {
 
 }
+
+function unirseTorneo(){
+    $.ajax({
+        type:"POST",
+        url: "unirseTorneo.php",
+        success:function(response){
+            alert("te uniste correctamente")
+        }
+    })
+}

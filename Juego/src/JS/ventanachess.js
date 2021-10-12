@@ -15,10 +15,10 @@ function responsivetablero() {
         $('#tablero').css('width', altotablero);
         $('td').css('height', anchoceldas);
         $('td').css('width', anchoceldas);
-        $('button').css('height', anchoceldas);
-        $('button').css('width', anchoceldas);
-        $('img').css('height', altoimagenes);
-        $('img').css('width','');
+        $('a').css('height', anchoceldas);
+        $('a').css('width', anchoceldas);
+        $('#ficha').css('height', altoimagenes);
+        $('#ficha').css('width','');
     }else{
          anchoventana = window.innerWidth;
         let anchosecciontablero = anchoventana * 0.9;
@@ -26,12 +26,12 @@ function responsivetablero() {
         let altoimagenes = anchoceldas * 0.8;
         $('td').css('height', anchoceldas);
         $('td').css('width', anchoceldas);
-        $('button').css('height', anchoceldas);
-        $('button').css('width', anchoceldas);
-        $('img').css('height', altoimagenes);
+        $('a').css('height', anchoceldas);
+        $('a').css('width', anchoceldas);
+        $('#ficha').css('height', altoimagenes);
         $('#tablero').css('height', anchosecciontablero);
         $('#tablero').css('width', anchosecciontablero);
-        $('img').css('width','100%');
+        $('#ficha').css('width','100%');
     }
 
 }

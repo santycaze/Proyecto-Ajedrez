@@ -8,7 +8,7 @@ $(document).ready(function () {
     comenzarJuego()
 });
 
-$(document).on('click', 'button', function () {
+$(document).on('click', 'a', function () {
     let casilla = this.id;
     seleccionado(casilla)
 });

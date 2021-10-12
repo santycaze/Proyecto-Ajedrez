@@ -1461,14 +1461,14 @@ footer {
   background-color: red;
 }
 
-.divCas button {
+.divCas a{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.divCas button:hover>.pMovimiento {
+.divCas a:hover > .pMovimiento{
   border-radius: 20px;
 }
 
@@ -1482,12 +1482,12 @@ footer {
   width: 100%;
 }
 
-.divCas button img {
+.divCas a img{
   position: relative;
   z-index: 23;
 }
 
-.divCas button {
+.divCas a{
   padding: 0;
   margin: 0;
   width: 100%;
