@@ -275,3 +275,13 @@ function jugadoresIndex() {
         }
     });
 }
+
+function unirseTorneo() {
+    $.ajax({
+        type: "POST",
+        url: "Unirsetorneo/unirsetorneo.php",
+        success: function (response) {
+            console.log(response)
+        }
+    });
+}

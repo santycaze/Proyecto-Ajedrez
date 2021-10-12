@@ -37,6 +37,9 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 </head>
 
 <body>
+
+
+
     <div class="contenedor-fondo">
         <img src="IMG/close-up-blurry-chess-pieces.jpg" alt="">
     </div>
@@ -127,7 +130,7 @@ if ($logueado == '1') {
 }
 ?>
             <button class="boton-estadisticas">
-                <p>Entrenar</p><i class="fas fa-dumbbell"></i>
+                <p>Aprender</p><i class="fas fa-dumbbell"></i>
             </button>
         </div>
     </div>
