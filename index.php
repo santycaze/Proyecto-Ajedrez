@@ -210,7 +210,7 @@ if ($logueado == '1') {
         <div class="contenedor-entrenamiento">
             <img src="IMG/tutorial.png" alt="">
             <div class="contenedor-entrenamiento-menu">
-                <a href="https://www.youtube.com/watch?v=x4R2EPkYzZk" class="boton-salas"> Ver tutorial</a>
+                <a href="https://www.youtube.com/watch?v=x4R2EPkYzZk" target="_blank" class="boton-salas"> Ver tutorial</a>
 
             </div>
         </div>

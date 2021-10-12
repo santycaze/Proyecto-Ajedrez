@@ -24,6 +24,10 @@
 </head>
 
 <body>
+
+<div class="contenedor-fondo">
+        <img src="../IMG/close-up-blurry-chess-pieces.jpg" alt="">
+    </div>
     <!--
     <div class="modal-wrapper">
         <div class="modal"><i class="fas fa-laugh-beam" id="carita"></i><h1 id="mensaje-modal">Ganaste!</h1><button>Volver al inicio</button></div>
