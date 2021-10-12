@@ -13,7 +13,7 @@ if ($nombreUsuario != " " && $contra != " ") {
             $sentencia->bind_result($usr, $cont, $icono, $tipoUsr);
             if ($sentencia->fetch()) {
                 if ($usr == $nombreUsuario && $cont == $cifrado) {
-                    $fila = array('nombre' => $nombreUsuario,'icono' => $icono);
+                    $fila = array('nombre' => $nombreUsuario,'icono' => $icono, 'tipoUsr' => $tipoUsr);
                     session_start();
                     $_SESSION['usuario'] = $nombreUsuario; 
                     $_SESSION['foto'] = $icono; 

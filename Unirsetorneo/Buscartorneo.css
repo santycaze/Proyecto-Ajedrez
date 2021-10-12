@@ -10,15 +10,23 @@
 .contenedor-fondo{
     width: 100%;
     height: 100vh;
-    background: url(../IMG/Chess.png);
+    background: #07365059;
+   
     background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.contenedor-total{
+    background: url(../IMG/close-up-blurry-chess-pieces.jpg);
+    background-size: cover;
+    margin: 0;
+}
+
 .contenedor-tabla{
-    background: #073750;
+    background: #073650bd;
     width: 400px;
     height: 500px;
     display: flex;
@@ -26,6 +34,7 @@
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
+    box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
 
@@ -39,13 +48,13 @@
 .contenedor-tabla h1{
     color: white;
     font-size: 40px;
-    font-family: 'Bree Serif', serif;
+    
     padding: 20px;
 }
 
 .contenedor-torneo{
     display: flex;
-    background: #094464;
+    background: #094464b9;
     padding: 15px;
     border-radius: 20px;
     justify-content: space-between;
@@ -60,14 +69,21 @@
     padding: 4px;
     width:60px;
     color: rgba(255, 255, 255, 0.568);
+    cursor: pointer;
+    transition: .7s;
 }
+
+.contenedor-torneo button:hover{
+    background: #0d6391;
+}
+
 
 .contenedor-torneo p{
     color: white;
 }
 
 .boton-volver{
-    background: #094464;
+    background: #1067969f;
     border: none;
     padding: 8px;
     width: 200px;
@@ -75,10 +91,14 @@
     margin-bottom: 10px;
     border-radius: 20px;
     color: rgba(255, 255, 255, 0.589);
+    text-align: center;
+    text-decoration: none;
+    transition: .7s;
+    cursor: pointer;
 }
 
 .boton-volver:hover{
-    background: #0c547a;
+    width: 70%;
 }
 
 

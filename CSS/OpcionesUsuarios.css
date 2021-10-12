@@ -9,6 +9,7 @@
     position: fixed;
     z-index: 999;
     animation: opacidad 1.5s forwards;
+    background: rgba(0, 0, 0, 0.356);
 }
 
 @keyframes opacidad{
@@ -26,13 +27,14 @@
     align-items: center;
     flex-direction: column;
     display: flex;
-    background: #0d5277;
+    background: #073650ec;
     padding: 30px;
-    border-radius: 10%;
+    border-radius: 20px;
     position: relative;
     width: 100%;
     max-width: 450px;
     margin: 15px;
+    box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.712);
 }
 
 .contenedor-mod h1{
@@ -103,7 +105,7 @@
     height: 90px;
     background: #073750;
     border-radius: 1em;
-    box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.548);
+    box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.548);
     margin-top: 15px;
     overflow: hidden;
     overflow-y: scroll;
@@ -149,7 +151,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Bree Serif', serif;
+   
 }
 
 .nick-usuario h1{
@@ -183,7 +185,7 @@
     color: white;
     margin-top: 25px;
     font-size: 15px;
-    font-family: 'Bree Serif', serif;
+   
     transition: 1s;
     width: 200px;
 }
@@ -213,7 +215,7 @@
     color: white;
     border: none;
     border-bottom: 2px solid white;
-    font-family: 'Bree Serif', serif;
+   
     text-align: center;
     outline: none;
     padding: 20px 0;

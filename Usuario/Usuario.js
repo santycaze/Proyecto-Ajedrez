@@ -23,7 +23,7 @@ class Usuario {
                     console.log(datosUsuario)
                     sessionStorage.setItem("j1", datosUsuario["nombre"]);
                     sessionStorage.setItem("foto", datosUsuario["icono"]);
-                    sessionStorage.setItem("tipoUsr", datosUsuario["tipo"])
+                    sessionStorage.setItem("tipoUsr", datosUsuario["tipoUsr"])
                     cerrarLogin();
                     location.reload()
                 } else {
