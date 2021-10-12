@@ -37,6 +37,9 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 </head>
 
 <body>
+
+
+
     <div class="contenedor-fondo">
         <img src="IMG/close-up-blurry-chess-pieces.jpg" alt="">
     </div>
