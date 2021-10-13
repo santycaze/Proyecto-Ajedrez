@@ -1,5 +1,5 @@
 <?php
-include '../../PHP/conexion.php';
+include '../../../PHP/conexion.php';
 
 $usuario = $_POST["usuario"];
 $cedula = $_POST["cedula"];
@@ -16,7 +16,7 @@ $anoCursivo = $_POST['anCursivo'];
 $constactoLiceo = $_POST['contactoLiceo'];
 $nombreDirector = $_POST['nomDirector'];
 $mailDirector = $_POST['mailDirector'];
-
+echo $usuario.' '.$email.' '.$celular.' '.$contrasena.' '.$apellido.' '.$cedula.' '.$tipo.' '.$nombrecompleto.' '.$Nacimiento.' '.$institucion.' '.$anoCursivo.' '.$constactoLiceo.' '.$nombreDirector.' '.$mailDirector.' '.$icono;
 if ($sentencia = $mysqli->prepare("CALL register(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {
     $sentencia->bind_param('ssissiisssiisss', $usuario, $email, $celular, $contrasena,$apellido, $cedula,$tipo, $nombrecompleto, $Nacimiento, $institucion, $anoCursivo,$constactoLiceo,$nombreDirector,$mailDirector,$icono);
     if ($sentencia->execute()) {
