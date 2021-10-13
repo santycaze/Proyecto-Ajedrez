@@ -23,13 +23,13 @@ $(document).on('click', '#Usuario', function () {
 
                 buttonEliminar.setAttribute('id', jugador.Usuario)
     
-                tdEliminar.innerHTML = "✖";
+                buttonEliminar.innerHTML = "✖";
                 tdUsuario.textContent = jugador.Usuario;
                 tdInstitucion.textContent = jugador.Institucion;
                 tdNombre.textContent = jugador.Nombre;
                 tdApellido.textContent = jugador.Apellido;
                 tdMail.textContent = jugador.Mail;
-                
+
                 tdEliminar.setAttribute('id', 'buttonEliminar')
                 tdEliminar.appendChild(buttonEliminar);
     
