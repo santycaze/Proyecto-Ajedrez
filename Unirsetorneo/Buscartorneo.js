@@ -8,16 +8,18 @@ $(document).ready(function () {
         }
     });
 });
-
+var idt=0;
 function verTorneos() {
     $.ajax({
         type: "POST",
         url: "infotorneo.php",
         success: function (response) {
-            console.log(JSON.parse(response))
+            console.log(JSON.parse(response));
+            idt== Servidor;
+            window.location = "infotorneo.html";
         }
     });
-    window.location = "infotorneo.html"
+    
 }
 
 
@@ -26,6 +28,7 @@ function datosTorneo() {
 }
 
 function unirseTorneo(){
+
     $.ajax({
         type:"POST",
         url: "unirseTorneo.php",

@@ -136,11 +136,6 @@ if ($logueado == '1') {
     </div>
     <!-- Fin Hero -->
 
-    <!-- SVG -->
-
-
-    </svg>
-    <!-- Fin SVG -->
 
 
     <!-- Seccion tablas estadisticas -->

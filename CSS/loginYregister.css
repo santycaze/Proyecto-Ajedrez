@@ -129,15 +129,31 @@ body {
 /* Register */
 
 
+.contenedor-fondo {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+}
+
+.contenedor-fondo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 #form-register{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #0a4e72;
+  background: #073650bd;
   padding: 20px;
   border-radius: 20px;
-  width: 650px;
+  max-width: 650px;
+  width: 100%;
+  margin: 20px;
   height: auto;
 }
 
@@ -149,16 +165,18 @@ body {
   border-radius: 20px;
   border: none;
   outline: none;
+  background-color: rgba(255, 255, 255, 0.863);
 }
 
 #form-register select{
   padding: 15px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   width: 250px;
   border-radius: 20px;
   border: none;
-
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.863);
 }
 
 #form-register h1{
@@ -169,13 +187,8 @@ body {
 }
 .contenedor-register{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url('../IMG/Chess.png') no-repeat center center fixed;
-  background-size: cover;
-  height: 100vh;
-  margin: 0;
 }
 
 .botonRegister{
@@ -193,8 +206,8 @@ body {
 }
 
 .botonRegister:hover{
-  background: #0c5379;
-  box-shadow: 0px 0px 15px 0 rgba(126, 126, 126, 0.493);
+  background: #0b4a6b;
+  
 }
 
 .div-wrapper-register{
@@ -202,8 +215,9 @@ body {
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  background: #0f608b;
+  background: #073650e7;
   border-radius: 20px;
+  padding: 10px;
 }
 
 .contenedor-register2 img{
