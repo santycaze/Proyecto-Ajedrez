@@ -21,7 +21,7 @@ class Jugador extends Usuario {
                     data = data.split('*'); //obtengo los datos para iniciar sesion luego de registrarse
                     sessionStorage.setItem("j1", data[0]);
                     sessionStorage.setItem("foto", data[1]);
-                    window.location = "/Proyecto-Ajedrez/index.html"
+                    window.location = "/Proyecto-Ajedrez/index.php"
                 }
             }
         });

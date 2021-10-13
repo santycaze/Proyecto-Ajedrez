@@ -94,7 +94,7 @@
 
 
 
-.contenedor-tablachat button{
+.contenedor-tablachat a{
     margin-top: 15px;
     padding: 7px;
     width: 60%;
@@ -102,5 +102,9 @@
     border: none;
     color: rgb(221, 221, 221);
     background: #073750;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 

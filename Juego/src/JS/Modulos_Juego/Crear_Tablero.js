@@ -100,15 +100,15 @@ function casillas(value, color) {
     */
     if (value == undefined) { //si la casilla no tiene ficha
         if (contador == 8) {
-            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><a class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "  value=''><span></span><skull class='fas fa-skull' id='laskull' lacaveira='" + contador + "." + letras[X] + "'></skull></p></div></td>"
+            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "  target='2'><span></span><skull class='fas fa-skull' id='laskull' lacaveira='" + contador + "." + letras[X] + "'></skull></p></div></td>"
         } else {
-            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><a class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "'  value=''><div class='pMovimiento' position='" + contador + "." + letras[X] + "'><skull class='fas fa-skull' id='laskull' lacaveira='" + contador + "." + letras[X] + "'></skull></div></p></div></td>"
+            tablero += "<td><div class='divCas' id='c-" + contador + "." + letras[X] + "'><button class=" + "casilla" + X + " id='" + contador + "." + letras[X] + "'  target='2'><div class='pMovimiento' position='" + contador + "." + letras[X] + "'><skull class='fas fa-skull' id='laskull' lacaveira='" + contador + "." + letras[X] + "'></skull></div></p></div></td>"
         }
     } else { // si la casilla tiene ficha
         if (contador == 8) {
-            tablero += '<td><div class="divCas" id="c-' + contador + '.' + letras[X] + '"><a class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" value="' + value + '"><div class="pMovimiento" position="' + contador + "." + letras[X] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + contador + "." + letras[X] + '"></skull></div>' + value + '</p></div></td>';
+            tablero += '<td><div class="divCas" id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" value="' + value + '"><div class="pMovimiento" position="' + contador + "." + letras[X] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + contador + "." + letras[X] + '"></skull></div>' + value + '</p></div></td>';
         } else {
-            tablero += '<td><div class="divCas" id="c-' + contador + '.' + letras[X] + '"><a class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" value="' + value + '"><div class="pMovimiento" position="' + contador + "." + letras[X] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + contador + "." + letras[X] + '"></skull></div>' + value + '</p></div></td>';
+            tablero += '<td><div class="divCas" id="c-' + contador + '.' + letras[X] + '"><button class=' + 'casilla' + X + ' id="' + contador + '.' + letras[X] + '-' + color + '" value="' + value + '"><div class="pMovimiento" position="' + contador + "." + letras[X] + '"><span></span><skull class="fas fa-skull" id="laskull" lacaveira="' + contador + "." + letras[X] + '"></skull></div>' + value + '</p></div></td>';
         }
     }
     if (X == 8) {

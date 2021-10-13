@@ -136,16 +136,6 @@ if ($logueado == '1') {
     </div>
     <!-- Fin Hero -->
 
-    <!-- Boton Flotante -->
-
-    <div class="publicidad1">
-        <img src="./IMG/plan-de-publicidad.jpg" alt="">
-    </div>
-
-    <div class="publicidad">
-        <img src="./IMG/plan-de-publicidad.jpg" alt="">
-    </div>
-    <!-- Fin Boton Flotante -->
 
 
     <!-- Seccion tablas estadisticas -->

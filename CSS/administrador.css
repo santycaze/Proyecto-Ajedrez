@@ -468,7 +468,8 @@ header p {
 
 }
 
-@media screen and (max-width: 650px){
-   
-} 
+#buttonEliminar button{
+    width: 100px;
+    height: 100px;
+}
 

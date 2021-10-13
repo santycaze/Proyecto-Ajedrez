@@ -8,8 +8,9 @@ $(document).ready(function () {
     comenzarJuego()
 });
 
-$(document).on('click', 'a', function () {
+$(document).on('click', 'button', function () {
     let casilla = this.id;
+    console.log(document.getElementById(casilla).value)
     seleccionado(casilla)
 });
 /**
