@@ -18,9 +18,10 @@ $(document).on('click', '#Usuario', function () {
                 let tdNombre = document.createElement('td');
                 let tdApellido = document.createElement('td');
                 let tdMail = document.createElement('td');
-                let tdEliminar = document.createElement('button');
-    
-                tdEliminar.setAttribute('id', jugador.Usuario)
+                let tdEliminar = document.createElement('td');
+                let buttonEliminar =  document.createElement('button');
+
+                buttonEliminar.setAttribute('id', jugador.Usuario)
     
                 tdEliminar.innerHTML = "✖";
                 tdUsuario.textContent = jugador.Usuario;
@@ -28,6 +29,9 @@ $(document).on('click', '#Usuario', function () {
                 tdNombre.textContent = jugador.Nombre;
                 tdApellido.textContent = jugador.Apellido;
                 tdMail.textContent = jugador.Mail;
+                
+                tdEliminar.setAttribute('id', 'buttonEliminar')
+                tdEliminar.appendChild(buttonEliminar);
     
                 tr.appendChild(tdUsuario)
                 tr.appendChild(tdNombre)

@@ -1388,14 +1388,14 @@ width: 300px;
   background-color: red;
 }
 
-.divCas a{
+.divCas button{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.divCas a:hover > .pMovimiento{
+.divCas input:hover > .pMovimiento{
   border-radius: 20px;
 }
 
@@ -1409,12 +1409,12 @@ width: 300px;
   width: 100%;
 }
 
-.divCas a img{
+.divCas button img{
   position: relative;
   z-index: 23;
 }
 
-.divCas a{
+.divCas button{
   padding: 0;
   margin: 0;
   width: 100%;

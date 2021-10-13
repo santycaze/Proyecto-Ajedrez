@@ -16,7 +16,9 @@ let casilla,
 
 export function seleccionado(casillaSeleccionada) {
     //Marca la casilla seleccionada.
-    casilla = document.getElementById(casillaSeleccionada).value;
+    casilla = document.getElementById(casillaSeleccionada).dataset.value;
+
+    console.log(casilla)
 
     var infoFicha = casillaSeleccionada.split("-");
     if (infoFicha[1] == color[colorJugador] && sessionStorage.getItem('turno') == 'true') { //si el color de la ficha es igual al del jugador se selecciona la pieza
@@ -30,10 +32,12 @@ export function seleccionado(casillaSeleccionada) {
             if (color[colorJugador] == 0) {
                 seleccion = casillaSeleccionada;
                 document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
+                console.log(casilla + infoFicha[0] + color[1])
                 tableroIntel(casilla, infoFicha[0], color[1]);
             } else {
                 seleccion = casillaSeleccionada;
                 document.getElementById(casillaSeleccionada).style.backgroundColor = "#adadad";
+                console.log(casilla + infoFicha[0] + color[1])
                 tableroIntel(casilla, infoFicha[0], color[0]);
             }
         }
