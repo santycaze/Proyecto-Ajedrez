@@ -129,7 +129,7 @@ if ($logueado == '1') {
                 <?php
 }
 ?>
-            <button class="boton-estadisticas">
+            <button class="boton-estadisticas" onclick="window.location.href='https://www.youtube.com/watch?v=x4R2EPkYzZk'">
                 <p>Aprender</p><i class="fas fa-dumbbell"></i>
             </button>
         </div>

@@ -106,5 +106,9 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    transition: .7s;
 }
 
+.contenedor-tablachat a:hover{
+    background: #0b5177;
+}

@@ -117,7 +117,6 @@ function registrar() {
                 case '2':
                     break;
             }
-            //usuario.register();
         }
     }
 }
