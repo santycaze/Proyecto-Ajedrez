@@ -10,10 +10,10 @@
           $torneos.='<div class="contenedor-torneo">
 
           <p id="Nombretorneo" >'.$datostorneo[($x)]['nombreTorneo'].'</p> 
-          <button id="'.$datostorneo[($x)]['nombreTorneo'].'" onclick="vertorneo()">Ver</button>
+          <button id="'.$datostorneo[($x)]['nombreTorneo'].'" onclick="verTorneos()">Ver</button>
           
 
-          <p id="Nombretorneo" >'.$datostorneo[($x)]['nombreTorneo'].'</p> <button id="'.$datostorneo[($x)]['nombreTorneo'].'" onclick="verTorneos()">Ver</button>
+          
 
       </div>';
      }
