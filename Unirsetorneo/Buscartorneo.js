@@ -8,14 +8,13 @@ $(document).ready(function () {
         }
     });
 });
-var idt=0;
+
 function verTorneos() {
     $.ajax({
         type: "POST",
         url: "infotorneo.php",
         success: function (response) {
             console.log(JSON.parse(response));
-            idt== Servidor;
             window.location = "infotorneo.html";
         }
     });
