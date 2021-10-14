@@ -4,7 +4,6 @@ function verJugadores() {
         type: "POST",
         url: "jugadoresTorneo.php",
         success: function (response) {
-            alert(response);
             $('#Importar-jugadoresTorneo').html(response);
             
         }

@@ -9,13 +9,14 @@
      for($x=0;$x<$cantidadJugadoresTorneo;$x++){
           $jugadoresTorneo.='<div class="contenedor-jugadores">
 
-          <p id="nombreUsuario" >'.$datosJugadoresTorneo[($x)]['nombreUsuarioTorneo']'</p>'
+          <p id="nombreUsuario" >'.$datosJugadoresTorneo[($x)]['nombreUsuarioTorneo'].'</p>';
+          '</div>';
           
           
 
           
 
-      </div>';
+      
      }
 
 
