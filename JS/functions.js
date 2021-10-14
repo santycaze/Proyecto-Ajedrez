@@ -123,6 +123,7 @@ function registrar() {
 
 function guardarMod() {
     var nombreActual = sessionStorage.getItem("j1");
+    console.log(nombreActual)
     sessionStorage.setItem("foto", sessionStorage.getItem('vp'))
     //
     const usuario = new Usuario();

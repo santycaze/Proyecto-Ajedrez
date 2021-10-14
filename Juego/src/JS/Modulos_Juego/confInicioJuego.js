@@ -6,7 +6,7 @@ import { reanudarTiempo } from "./Tiempo.js";
 /**
  * conecto el cliente con el servidor
  */
-const socket = io('http://localhost:3000');
+const socket = io('http://192.168.4.48:3000');
 
 var nombre = sessionStorage.getItem('j1')
 
