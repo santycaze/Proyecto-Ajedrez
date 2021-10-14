@@ -15,7 +15,7 @@
     <script src="../JS/loader.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
 
-    <script defer src="http://192.168.4.48:3000/socket.io/socket.io.js"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script defer src="src/JS/Modulos_Juego/confInicioJuego.js" type="module"></script>
     <script defer src="src/JS/juego.js" type="module"></script>
     <script src="src/JS/JConfig.js"></script>

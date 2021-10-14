@@ -2,7 +2,7 @@ const BASE_DE_DATOS = require('mysql')
 
 const io = require("socket.io")(3000, {
     cors: {
-        origin: "http://192.168.4.48",
+        origin: "http://localhost",
     }
 });
 
