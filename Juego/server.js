@@ -11,14 +11,7 @@ let jugadores = new Array();
 /*
  * 
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  */
-
 io.on('connection', (socket) => {
 
     socket.on('conectado', (usuario) => {
@@ -67,8 +60,8 @@ io.on('connection', (socket) => {
     socket.on('disconnect', function () {
         usuarios.forEach(result => {
             if (usuarios.includes(result)) {
-                jugadores.splice(result)
-                usuarios.splice(result)
+                console.log(jugadores.splice(result))
+                console.log(usuarios.splice(result))
             }
         });
     })

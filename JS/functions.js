@@ -108,7 +108,6 @@ function registrar() {
         //
 
         if (valido === true) {
-            const usuario = new Usuario();
             switch (registro.tipo) {
                 case '1':
                     const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "./IMG/Icono1.png", registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
