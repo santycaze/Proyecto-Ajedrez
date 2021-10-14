@@ -226,5 +226,25 @@ class Servidor
         $stmt->execute();
         $stmt->close();
     }
+     /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function datosJugadorTorneo(){
+        $conn = $this->conexion();
+        $query = "CALL datosJugadorTorneo()";
+        $stmt = $conn->prepare($query);
+        $json = array();
 
+        if ($stmt->execute()) {
+            
+            $stmt->store_result();
+            $stmt->bind_result($idJugadorTorneo,$nombreusuariotorneo,$idTorneo,$idJugador_Torneo);
+            while ($stmt->fetch()) {
+                $fila = array('idJugadorTorneo' => $idJugadorTorneo,'nombreUsuarioTorneo' => $nombreusuariotorneo, 'idTorneo' => $idTorneo, 'idJugador_Torneo' => $idJugador_Torneo);
+                $json[] = $fila;
+            }
+        }
+        $stmt->close();
+        return $json;
+    }
 }

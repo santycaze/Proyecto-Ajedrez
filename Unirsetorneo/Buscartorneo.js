@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    datosTorneo()
+    datosTorneo();
+    verJugadores();
     $.ajax({
         type: "POST",
         url: "Buscartorneo.php",
@@ -35,4 +36,14 @@ function unirseTorneo(){
             alert("te uniste correctamente")
         }
     })
+}
+function verJugadores() {
+    $.ajax({
+        type: "POST",
+        url: "jugadoresTorneo.php",
+        success: function (response) {
+            $('#Importar-jugadoresTorneo').html(response);
+            
+        }
+    });
 }
