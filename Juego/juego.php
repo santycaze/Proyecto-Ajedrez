@@ -61,8 +61,8 @@
                 <table id="tablamov">
 
                 </table>
-                <a id="btn-rendirse">Rendirse</button>
-                <a href="../index.php" id="btn-salir">Salir</button>
+                <a id="btn-rendirse">Rendirse</a>
+                <a href="../index.php" id="btn-salir">Salir</a>
             </div>
 
         </div>
