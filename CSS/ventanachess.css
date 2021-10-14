@@ -17,7 +17,9 @@
 @media screen and (max-width: 1050px) {
     .div-wrapper-contenedortotal{
         grid-template-columns: 1fr;
+        height: auto;
     }
+    
 }
 
 .div-wrapper-contenedorinfo{
