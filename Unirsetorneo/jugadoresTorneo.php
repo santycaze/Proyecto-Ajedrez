@@ -7,16 +7,11 @@
     $jugadoresTorneo = '';
 
      for($x=0;$x<$cantidadJugadoresTorneo;$x++){
-          $jugadoresTorneo='<div class="contenedor-jugadores">
+          $jugadoresTorneo='<div class="contenedorjugadores">
 
-          <p id="nombreUsuario" >'.$datosJugadoresTorneo[($x)]['nombreUsuarioTorneo'].'</p>';
+          <p id="nombreUsuario" >'.$datosJugadorTorneo[($x)]['nombreUsuarioTorneo'].'</p>';
           '</div>';
-          
-          
-
-          
-
-      
+          echo $jugadoresTorneo;
      }
 
 
