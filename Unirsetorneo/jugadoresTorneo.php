@@ -1,7 +1,7 @@
 <?php
     include "../PHP/Servidor/servidor.php";
     $servidor = new Servidor();
-    $datosJugadorTorneo = $servidor->datosJugadorTorneo();
+    $datosJugadorTorneo = $servidor->datosJugadorTorneo(1);
     $cantidadJugadoresTorneo = count($datosJugadorTorneo);
 
     $jugadoresTorneo = '';
