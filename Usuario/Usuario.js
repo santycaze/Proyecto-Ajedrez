@@ -80,5 +80,16 @@ class Usuario {
     mostrarUsuario(){
         return JSON.stringify(this.Usuario)
     }
+
+    cambiarContrasena(usr,contra){
+        $.ajax({
+            type: "POST",
+            url: "../PHP/OpcionesDeUsuario/restablecerPass.php",
+            data: { usr: usr , contra: contra},
+            success: function () {
+
+            }
+        });
+    }
 }
 
