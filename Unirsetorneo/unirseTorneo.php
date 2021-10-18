@@ -1,5 +1,5 @@
 <?php
-$idJugador = $_SESSION["idJugador"]
+$idJugador = $_SESSION["idJugador"];
 
     $conn = $this->conexion();
     $query = "CALL unirseTorneo (?,?,?)";
