@@ -161,7 +161,7 @@ class Servidor
         if ($stmt->execute()) {
             
             $stmt->store_result();
-            $stmt->bind_result($idTorneo, $nombreTorneo, $fechaFinTorneo, $maxParticipantes, $tiempoPartida,$numPartidas, $tiempoMaxPartida, $tiempoMovida,$nombreTrofeo);
+            $stmt->bind_result($idtorneo, $nombreTorneo, $fechaFinTorneo, $maxParticipantes, $tiempoPartida,$numPartidas, $tiempoMaxPartida, $tiempoMovida,$nombreTrofeo);
             while ($stmt->fetch()) {
                 $fila = array('idTorneo' => $idTorneo,'nombreTorneo' => $nombreTorneo,'fechaFin' => $fechaFinTorneo, 'maxParticipantes' => $maxParticipantes, 'tiempoPartida' => $tiempoPartida, 'numPartidas' => $numPartidas, 'tiempoMaxPartida' => $tiempoMaxPartida, 'tiempoMovida' => $tiempoMovida, 'nombreTrofeo' => $nombreTrofeo);
                 $json[] = $fila;
@@ -226,5 +226,26 @@ class Servidor
         $stmt->execute();
         $stmt->close();
     }
+     /*---------------------------------------------------------------------------------------------------------------------------------*/
+    //
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
+    function datosJugadorTorneo($idTorneo){
+        $conn = $this->conexion();
+        $query = "CALL datosJugadorTorneo(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i",$idTorneo);
+        $json = array();
 
+         if ($stmt->execute()) {
+            
+            $stmt->store_result();
+            $stmt->bind_result($idJugadorTorneo,$nombreusuariotorneo,$idTorneo,$idJugador_Torneo);
+            while ($stmt->fetch()) {
+                $fila = array('idJugadorTorneo' => $idJugadorTorneo,'nombreUsuarioTorneo' => $nombreusuariotorneo, 'idTorneo' => $idTorneo, 'idJugadorTorneo' => $idJugadorTorneo);
+                $json[] = $fila;
+            }
+        }
+        $stmt->close();
+        return $json;
+    }
 }

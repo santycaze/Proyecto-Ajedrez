@@ -37,6 +37,9 @@ require_once 'Usuario/PHP/Sesion/logeado.php';
 </head>
 
 <body>
+
+
+
     <div class="contenedor-fondo">
         <img src="IMG/close-up-blurry-chess-pieces.jpg" alt="">
     </div>
@@ -126,18 +129,13 @@ if ($logueado == '1') {
                 <?php
 }
 ?>
-            <button class="boton-estadisticas">
-                <p>Entrenar</p><i class="fas fa-dumbbell"></i>
+            <button class="boton-estadisticas" onclick="window.location.href='https://www.youtube.com/watch?v=x4R2EPkYzZk'">
+                <p>Aprender</p><i class="fas fa-dumbbell"></i>
             </button>
         </div>
     </div>
     <!-- Fin Hero -->
 
-    <!-- SVG -->
-
-
-    </svg>
-    <!-- Fin SVG -->
 
 
     <!-- Seccion tablas estadisticas -->
@@ -210,7 +208,7 @@ if ($logueado == '1') {
         <div class="contenedor-entrenamiento">
             <img src="IMG/tutorial.png" alt="">
             <div class="contenedor-entrenamiento-menu">
-                <a href="https://www.youtube.com/watch?v=x4R2EPkYzZk" class="boton-salas"> Ver tutorial</a>
+                <a href="https://www.youtube.com/watch?v=x4R2EPkYzZk" target="_blank" class="boton-salas"> Ver tutorial</a>
 
             </div>
         </div>

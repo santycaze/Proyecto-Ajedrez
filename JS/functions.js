@@ -108,7 +108,6 @@ function registrar() {
         //
 
         if (valido === true) {
-            const usuario = new Usuario();
             switch (registro.tipo) {
                 case '1':
                     const jugador = new Jugador(registro.nuser, registro.nomc, registro.ap, registro.email, registro.ci, registro.cel, registro.nac, registro.tipo, "./IMG/Icono1.png", registro.institucion, registro.aCursivo, registro.cLiceo, registro.nomDirector, registro.mailDirector);
@@ -117,13 +116,13 @@ function registrar() {
                 case '2':
                     break;
             }
-            //usuario.register();
         }
     }
 }
 
 function guardarMod() {
     var nombreActual = sessionStorage.getItem("j1");
+    console.log(nombreActual)
     sessionStorage.setItem("foto", sessionStorage.getItem('vp'))
     //
     const usuario = new Usuario();
@@ -272,6 +271,16 @@ function jugadoresIndex() {
                    $('.tabla-jugadores').append(`<tr><td><img src='${Datos[i].iconoUsuario}' class='circulo'/></td><td>${Datos[i].nombreUsuario}</td></tr>`)
                 }
             }
+        }
+    });
+}
+
+function unirseTorneo() {
+    $.ajax({
+        type: "POST",
+        url: "Unirsetorneo/unirsetorneo.php",
+        success: function (response) {
+            console.log(response)
         }
     });
 }

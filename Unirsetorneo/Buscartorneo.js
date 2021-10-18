@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    datosTorneo()
+    datosTorneo();
+    verJugadores();
     $.ajax({
         type: "POST",
         url: "Buscartorneo.php",
@@ -14,13 +15,35 @@ function verTorneos() {
         type: "POST",
         url: "infotorneo.php",
         success: function (response) {
-            console.log(JSON.parse(response))
+            console.log(JSON.parse(response));
+            window.location = "infotorneo.html";
         }
     });
-    window.location = "infotorneo.html"
+    
 }
 
 
 function datosTorneo() {
 
+}
+
+function unirseTorneo(){
+
+    $.ajax({
+        type:"POST",
+        url: "unirseTorneo.php",
+        success:function(response){
+            alert("te uniste correctamente")
+        }
+    })
+}
+function verJugadores() {
+    $.ajax({
+        type: "POST",
+        url: "jugadoresTorneo.php",
+        success: function (response) {
+            $('#Importar-jugadoresTorneo').html(response);
+            
+        }
+    });
 }

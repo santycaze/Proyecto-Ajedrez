@@ -13,7 +13,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../Usuario/Usuario.js"></script>
     <script src="../JS/loader.js"></script>
-    <script src="../JS/functions.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
 
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -24,6 +23,10 @@
 </head>
 
 <body>
+
+<div class="contenedor-fondo">
+        <img src="../IMG/close-up-blurry-chess-pieces.jpg" alt="">
+    </div>
     <!--
     <div class="modal-wrapper">
         <div class="modal"><i class="fas fa-laugh-beam" id="carita"></i><h1 id="mensaje-modal">Ganaste!</h1><button>Volver al inicio</button></div>
@@ -58,8 +61,8 @@
                 <table id="tablamov">
 
                 </table>
-                <button id="btn-rendirse">Rendirse</button>
-                <button id="btn-salir">Salir</button>
+                <a id="btn-rendirse">Rendirse</a>
+                <a href="../index.php" id="btn-salir">Salir</a>
             </div>
 
         </div>

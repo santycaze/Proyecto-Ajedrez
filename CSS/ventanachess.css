@@ -3,6 +3,8 @@
     margin: 0;
 }
 
+
+
 .div-wrapper-contenedortotal{
     display: grid;
     justify-content: center;
@@ -15,7 +17,9 @@
 @media screen and (max-width: 1050px) {
     .div-wrapper-contenedortotal{
         grid-template-columns: 1fr;
+        height: auto;
     }
+    
 }
 
 .div-wrapper-contenedorinfo{
@@ -92,7 +96,7 @@
 
 
 
-.contenedor-tablachat button{
+.contenedor-tablachat a{
     margin-top: 15px;
     padding: 7px;
     width: 60%;
@@ -100,5 +104,13 @@
     border: none;
     color: rgb(221, 221, 221);
     background: #073750;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: .7s;
 }
 
+.contenedor-tablachat a:hover{
+    background: #0b5177;
+}

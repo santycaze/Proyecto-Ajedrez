@@ -8,18 +8,10 @@ const io = require("socket.io")(3000, {
 
 let usuarios = new Array();
 let jugadores = new Array();
-// io.to(id de socket que va a recivir el mensaje).emit('', var)
 /*
  * 
  * 
- * 
- * 
- * 
- * 
- * 
- * 
  */
-
 io.on('connection', (socket) => {
 
     socket.on('conectado', (usuario) => {
@@ -68,8 +60,8 @@ io.on('connection', (socket) => {
     socket.on('disconnect', function () {
         usuarios.forEach(result => {
             if (usuarios.includes(result)) {
-                jugadores.splice(result)
-                usuarios.splice(result)
+                console.log(jugadores.splice(result))
+                console.log(usuarios.splice(result))
             }
         });
     })

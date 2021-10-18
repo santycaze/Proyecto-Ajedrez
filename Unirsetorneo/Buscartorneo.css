@@ -10,7 +10,7 @@
 .contenedor-fondo{
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.356);
+    background: #07365059;
    
     background-size: cover;
 
@@ -69,14 +69,21 @@
     padding: 4px;
     width:60px;
     color: rgba(255, 255, 255, 0.568);
+    cursor: pointer;
+    transition: .7s;
 }
+
+.contenedor-torneo button:hover{
+    background: #0d6391;
+}
+
 
 .contenedor-torneo p{
     color: white;
 }
 
 .boton-volver{
-    background: #094464;
+    background: #1067969f;
     border: none;
     padding: 8px;
     width: 200px;
@@ -86,10 +93,12 @@
     color: rgba(255, 255, 255, 0.589);
     text-align: center;
     text-decoration: none;
+    transition: .7s;
+    cursor: pointer;
 }
 
 .boton-volver:hover{
-    background: #0c547a;
+    width: 70%;
 }
 
 

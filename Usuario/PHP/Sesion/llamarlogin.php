@@ -17,7 +17,8 @@ $llamarlogin = '
 <br><br>
 <button onclick="login()" class="submit">Iniciar sesion</button>
 <br>
-<p>Si no tienes usuario <a href="../Proyecto-Ajedrez/HTML/register.html">Registrate aqui</a></p>
+<p>Si no tienes usuario <a href="./HTML/register.html">Registrate aqui</a></p>
+<p><a href="./HTML/solicitudRestablecerContra.html">¿Olvidaste tu contraseña?</a></p>
 </div>
 
 

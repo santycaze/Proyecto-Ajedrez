@@ -44,12 +44,11 @@ class Usuario {
                 success: function (response) {
                     console.log(response)
                     sessionStorage.setItem("foto", icono)
-                    actualizarNick("...");
                 }
             });
         } else {
-            let urls = { 0: "Usuario/PHP/OpcionesDeUsuario/cambiarNombre.php", 1: "Usuario/PHP/OpcionesDeUsuario/cambiarIcono.php" }
-            let data = { 0: { nombreActual: nombreActual, nombreNuevo: nombreNuevo }, 1: { nombreActual: nombreActual, icono: icono } }
+            let urls = { 0: "Usuario/PHP/OpcionesDeUsuario/cambiarIcono.php", 1: "Usuario/PHP/OpcionesDeUsuario/cambiarNombre.php" }
+            let data = { 0: {  nombreActual: nombreActual, icono: icono }, 1: { nombreActual: nombreActual, nombreNuevo: nombreNuevo } }
             if (icono != null) {
                 for (i = 0; i <= 1; i++) {
                     $.ajax({
@@ -60,7 +59,6 @@ class Usuario {
                             console.log(response)
                             sessionStorage.setItem("foto", icono)
                             sessionStorage.setItem("j1", nombreNuevo)
-                            actualizarNick("...");
                         }
                     });
                 }
@@ -73,7 +71,6 @@ class Usuario {
                         console.log(response)
                         sessionStorage.setItem("foto", icono)
                         sessionStorage.setItem("j1", nombreNuevo)
-                        actualizarNick("...");
                     }
                 });
             }
@@ -82,6 +79,17 @@ class Usuario {
 
     mostrarUsuario(){
         return JSON.stringify(this.Usuario)
+    }
+
+    cambiarContrasena(usr,contra){
+        $.ajax({
+            type: "POST",
+            url: "../PHP/OpcionesDeUsuario/restablecerPass.php",
+            data: { usr: usr , contra: contra},
+            success: function () {
+
+            }
+        });
     }
 }
 
