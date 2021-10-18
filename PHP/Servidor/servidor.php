@@ -229,18 +229,19 @@ class Servidor
      /*---------------------------------------------------------------------------------------------------------------------------------*/
     //
     /*---------------------------------------------------------------------------------------------------------------------------------*/
-    function datosJugadorTorneo(){
+    function datosJugadorTorneo($idTorneo){
         $conn = $this->conexion();
-        $query = "CALL datosJugadorTorneo()";
+        $query = "CALL datosJugadorTorneo(?)";
         $stmt = $conn->prepare($query);
+        $stmt->bind_param("i",$idTorneo);
         $json = array();
 
-        if ($stmt->execute()) {
+         if ($stmt->execute()) {
             
             $stmt->store_result();
             $stmt->bind_result($idJugadorTorneo,$nombreusuariotorneo,$idTorneo,$idJugador_Torneo);
             while ($stmt->fetch()) {
-                $fila = array('idJugadorTorneo' => $idJugadorTorneo,'nombreUsuarioTorneo' => $nombreusuariotorneo, 'idTorneo' => $idTorneo, 'idJugador_Torneo' => $idJugador_Torneo);
+                $fila = array('idJugadorTorneo' => $idJugadorTorneo,'nombreUsuarioTorneo' => $nombreusuariotorneo, 'idTorneo' => $idTorneo, 'idJugadorTorneo' => $idJugadorTorneo);
                 $json[] = $fila;
             }
         }
