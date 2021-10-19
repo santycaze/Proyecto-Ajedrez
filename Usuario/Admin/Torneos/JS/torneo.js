@@ -29,4 +29,9 @@ class Torneo {
         });
     }
 
+    empezarTorneo() {
+
+    }
+
+    
 }

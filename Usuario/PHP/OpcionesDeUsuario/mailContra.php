@@ -3,21 +3,20 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 */
-require '../../../../PHPMailer-6.3.0/src/Exception.php';
-require '../../../../PHPMailer-6.3.0/src/PHPMailer.php';
-require '../../../../PHPMailer-6.3.0/src/SMTP.php';
+require '../../../PHPMailer-6.3.0/src/Exception.php';
+require '../../../PHPMailer-6.3.0/src/PHPMailer.php';
+require '../../../PHPMailer-6.3.0/src/SMTP.php';
 //
 /*------------------------------------------------------------------------------------------*/
 //
 $mailUsuario = $_POST['mail'];
-$nombre = $_POST['nombre'];
-$body = file_get_contents('../mailA.html');
+$body = file_get_contents('../../../HTML/mailRestablecer.html');
 //
 /*------------------------------------------------------------------------------------------*/
 //
-$mail = new PHPMailer(true);
-$mail->SMTPDebug = 2; 
+$mail = new PHPMailer\PHPMailer\PHPMailer(true);
 $mail->IsSMTP();
+$mail->SMTPDebug = 2; 
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'tls';
 $mail->Host = 'smtp.gmail.com';
@@ -30,9 +29,9 @@ $mail->Password = 'silvinaaa';
 //
 $mail->From = "eightbchess@gmail.com";
 $mail->FromName = "8-bit Chess";
-$mail->addAddress($mailUsuario, $nombre);
+$mail->addAddress($mailUsuario);
 $mail->isHTML(true);
-$mail->Subject = "Hola, ".$nombre;
+$mail->Subject = "Restablecer Contraseña";
 $mail->Body = $body;
 try {
     $mail->send();

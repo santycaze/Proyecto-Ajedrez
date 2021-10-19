@@ -168,6 +168,18 @@ function restablecerContra() {
         $('.err').css('display', 'block')
     }
 }
+
+function mailRestablecer() {
+    var mail = document.getElementById('mail').value;
+    $.ajax({
+        type: "POST",
+        url: "../Usuario/PHP/OpcionesDeUsuario/mailContra.php",
+        data: { mail: mail },
+        success: function (response) {
+            console.log(response)
+        }
+    });
+}
 /*======================================================================================================================================================*/
 //                                                     Opciones 'menu-usuario' -> Modificar Perfil                                                      //
 /*======================================================================================================================================================*/

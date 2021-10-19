@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../JS/functions.js"></script>
+    <link rel="stylesheet" href="../CSS/loginYregister.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div class="contenedor-restablecer-fondo">
+        <div class="contenedor-gral-restablecer">
+            <div class="contenedor-restablecer">
+                <h1>¿Olvidaste tu contraseña?</h1>
+                <input type="text" name="mail" id="mail" placeholder="Escribe tu mail...">
+                <button onclick="mailRestablecer()" id="Btn-restablecer">Enviar mail</button>
+                <p id='adv'>El mail debe coincidir con una cuenta ya creada de lo contrario no se podra continuar con el proceso.</p>
+                <br>
+                <div class="err">*Las contrasñas no coinciden...</div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
