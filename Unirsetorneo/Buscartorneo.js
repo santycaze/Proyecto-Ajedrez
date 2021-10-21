@@ -16,7 +16,7 @@ function verTorneos() {
         url: "infotorneo.php",
         success: function (response) {
             console.log(JSON.parse(response));
-            window.location = "infotorneo.html";
+            window.location = "InfoTorneoVisual.php";
         }
     });
     

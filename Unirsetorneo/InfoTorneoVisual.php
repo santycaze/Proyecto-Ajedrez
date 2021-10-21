@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
+    <?php require_once '../Usuario/PHP/Sesion/logeado.php'; ?>
     <link rel="stylesheet" href="infotorneo.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +28,7 @@
             <div class="contenedor-izquierda">
                 <div class="contenedornomico">
                     <img src="../IMG/Icono7.png" alt="">
-                    <h1>Nom Torneo</h1>
+                    <h1>Joan Gamper</h1>
                 </div>
                 <div class="datostorneo">
                     <h2>Inscripciones</h2>
@@ -52,27 +53,39 @@
                             <p> <i class="far fa-clock"></i> 11:00</p>
                         </div>
                     </div>
+                    <?php
+            if ($logueado == '1') {
+                ?>
                     <div class="botones">
-                        
- 
                         <button id=unirse onclick="unirseTorneo()">Unirse</button>
                         
                         <button role='link' onclick="window.location.href ='../index.php'">Volver</button>
                     </div>
+                <?php
+            }
+            ?>
+
                 </div>
 
+                <?php
+            if ($logueado == '1') {
+                ?>
                 <h3 style="color: white;">Tu proximo partido es: 21/10 14:00hs</h3>
                 <div class="contenedor-vs" style="display: flex; justify-content: center; align-items: center;">
                     <div class="contenedor1">
-                        <img src="../IMG/icono11.png" alt="" style="width: 100px;">
-                        <p>Nombre</p>
+                    <img src='../<?php echo $_SESSION['foto']; ?>' style="width: 100px;">
+                        <p><?php echo $_SESSION['usuario']; ?></p>
                     </div>
                     <p>VS</p>
                     <div class="contenedor1">
-                        <img src="../IMG/icono11.png" alt="" style="width: 100px;">
-                        <p>Nombre</p>
+                        <img src="../IMG/iconoPulga.png" alt="" style="width: 100px;">
+                        <p>pulga</p>
                     </div>
                 </div>
+                <?php
+            }
+            ?>
+
 
 
            
@@ -88,6 +101,9 @@
                 <h1>Jugadores</h1>
                 <p>3/15</p>
                 <div class="tabla" id="Importar-jugadoresTorneo">
+                    <div class="contenedorjugadores">
+
+                    </div>
                 </div>
                 
             </div>

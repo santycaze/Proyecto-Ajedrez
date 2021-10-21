@@ -226,3 +226,13 @@ background: #0736505b;
     }
  
 }
+
+#jugador{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#jugador img{
+    padding-right: 25%;
+}
