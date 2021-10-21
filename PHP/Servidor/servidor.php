@@ -239,9 +239,9 @@ class Servidor
          if ($stmt->execute()) {
             
             $stmt->store_result();
-            $stmt->bind_result($idJugadorTorneo,$nombreusuariotorneo,$idTorneo,$idJugador_Torneo);
+            $stmt->bind_result($idJugadorTorneo,$nombreusuariotorneo,$idTorneo,$idJugador_Torneo,$icono);
             while ($stmt->fetch()) {
-                $fila = array('idJugadorTorneo' => $idJugadorTorneo,'nombreUsuarioTorneo' => $nombreusuariotorneo, 'idTorneo' => $idTorneo, 'idJugadorTorneo' => $idJugadorTorneo);
+                $fila = array('idJugadorTorneo' => $idJugadorTorneo,'nombreUsuarioTorneo' => $nombreusuariotorneo, 'idTorneo' => $idTorneo, 'idJugadorTorneo' => $idJugadorTorneo, "icono" => $icono);
                 $json[] = $fila;
             }
         }
