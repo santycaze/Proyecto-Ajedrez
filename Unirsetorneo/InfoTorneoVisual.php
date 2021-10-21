@@ -28,7 +28,7 @@
             <div class="contenedor-izquierda">
                 <div class="contenedornomico">
                     <img src="../IMG/Icono7.png" alt="">
-                    <h1>Joan Gamper</h1>
+                    <h1>joan gamper</h1>
                 </div>
                 <div class="datostorneo">
                     <h2>Inscripciones</h2>
@@ -62,6 +62,12 @@
                         <button role='link' onclick="window.location.href ='../index.php'">Volver</button>
                     </div>
                 <?php
+            }else {
+                ?>
+                <div class="botones">
+                    <button role='link' onclick="window.location.href ='../index.php'">Volver</button>
+                </div>
+            <?php
             }
             ?>
 
